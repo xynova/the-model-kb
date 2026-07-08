@@ -77,7 +77,7 @@ Chain with `;` — see [README.md](../../README.md) for per-model commands.
 | Image | Directory |
 |-------|-----------|
 | xynova/gemma-model | gemma-model |
-| xynova/gemma4-12b-model | gemma4-12B |
+| xynova/gemma4-12b-model | gemma4-12B/static |
 | xynova/qwen-model | qwen-model |
 | xynova/bge-base-model | bge-base-model |
 

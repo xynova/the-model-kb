@@ -1,0 +1,26 @@
+# cloudrun-proxy configuration
+# Env vars override server/auth settings (see README).
+
+server:
+  listen_addr: 127.0.0.1:4318
+  debug: false
+  max_concurrent: 1
+  reject_when_busy: true
+  rate_limit_cooldown: 60s
+  # local_secret: ""
+
+auth:
+  impersonate_service_account: cloud-run-invoker@gen-lang-client-0341029530.iam.gserviceaccount.com
+
+defaults:
+  chat_path: /v1/chat/completions
+  request_timeout: 900s
+  upstream_model: gemma-4-12b
+  enable_thinking: false
+  min_max_tokens: 512
+  min_max_tokens_thinking: 2048
+
+models:
+  gemma-4-cloudrun:
+    audience: https://gemma4-rfcsyvwaua-as.a.run.app
+    url: https://gemma4-rfcsyvwaua-as.a.run.app
