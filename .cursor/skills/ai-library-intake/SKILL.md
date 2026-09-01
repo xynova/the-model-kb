@@ -38,26 +38,42 @@ category: misc
 tags: [cool, new]
 ```
 
-**CONSTRAINT:** Keep gate before any write
+**CONSTRAINT:** Keep gate before any write (one candidate at a time)
 
-- MUST: Parse candidates, propose keep/drop with category and one-line why, then wait for the user's keep list.
+- MUST: Parse all candidates first (skip intro/outro), then ask about **exactly one** candidate per turn.
+- MUST: For each candidate, show name, suggested category, one-line why (future job or drop reason), and ask `keep? y/n` (or Yes/No). Wait for the reply before the next candidate.
+- MUST NOT: Present a batch keep list and treat a single `y`/`yes` as approval of every candidate.
 - MUST NOT: Auto-keep the whole dump.
-- MUST NOT: Write entry files or refresh INDEX before the user confirms keepers.
+- MUST NOT: Write that candidate's entry (or refresh INDEX for it) until the user answers `y` for that candidate.
+- MUST: On `n`, skip with no file; move to the next candidate.
+- MUST: On `y`, enrich → write → refresh INDEX for that keeper, then ask about the next candidate (unless the user stops the intake).
 
-Enforcement: No Write/StrReplace under `library/<category>/` or to `INDEX.md` until keep list is in chat.
-Violation: STOP, revert unsolicited writes, re-propose, wait.
+Enforcement: Each keep decision in chat names one candidate; no multi-keeper Write before one-per-candidate `y`.
+Violation: STOP, do not batch-write; revert unsolicited batch files if the user asks; resume one-at-a-time.
 
 CORRECT:
 ```text
-1. Propose table → wait
-2. User: keep VoiceMem, Block 3D
-3. Enrich → write → INDEX
+[10/21] GLM-5.3-Flash | models
+
+Open multimodal model from Z.ai (text and images). Downloadable MIT weights; also an API. Claims strong coding and agent results at much lower API cost than full GLM-5.3 (roughly cents per million tokens). Local full-size needs multi-GPU; quants reduce that. Previously seen as Ox Alpha.
+
+keep? y/n
 ```
 
-PROHIBITED:
+PROHIBITED (fluffy):
 ```text
-Parse dump → write every chapter into library/
+This is getting a lot of attention because people love the mix of…
+Worth keeping if you will compare… Easy skip if…
 ```
+
+PROHIBITED (datasheet / jargon):
+```text
+- Performance: ...
+- Price: ...
+320B MoE hybrid sparse+linear…
+```
+
+Also PROHIBITED: batch “suggested keep set, reply y to file all.”
 
 **CONSTRAINT:** Enrichment (v1)
 
@@ -105,26 +121,30 @@ Copy this checklist and track progress:
 ```
 - [ ] Read library/taxonomy.md and library/_template.md
 - [ ] Parse candidates (skip intro/outro fluff)
-- [ ] Propose keep/drop table; wait for keep list
-- [ ] Dedup keepers against existing name: fields
-- [ ] WebSearch enrich each keeper
-- [ ] Write library/<category>/<slug>.md
-- [ ] Regenerate library/INDEX.md
+- [ ] For each candidate: ask keep? y/n; wait
+- [ ] On y: dedup, WebSearch enrich, write entry, refresh INDEX
+- [ ] On n: skip; next candidate
+- [ ] After last candidate: summarize kept vs skipped
 ```
 
 1. **Load taxonomy** — Read `library/taxonomy.md` and `library/_template.md`. Fail if missing.
 
-2. **Parse** — Extract candidates from the attached dump. Skip intro/outro chapters with no tool to file. One candidate = one product/model/system.
+2. **Parse** — Extract candidates from the attached dump. Skip intro/outro chapters with no tool to file. One candidate = one product/model/system. Build an ordered list; do not write yet.
 
-3. **Propose** — Present a keep/drop table: name, suggested keep|drop, category, one-line why (future job or drop reason). Do not write files. Wait.
+3. **Ask one** — For the next candidate only: name, suggested category, then a **decision cold read**. End with `keep? y/n`.
+   - MUST cover, when known: what it is; performance or why it matters; price/cost; how you run it; one caveat.
+   - Voice: **direct but readable**. Short complete sentences. Lead with facts. No filler, no hype, no “worth keeping if…” pep talk unless it adds a real decision fork.
+   - MUST NOT: Fluffy openers (“people are excited”, “the reason it is getting attention”). MUST NOT: Datasheet bullet stacks as the default. MUST NOT: Paper jargon unless the user asks `explain`.
+   - Target length: about 4–8 sentences, or two tight paragraphs.
+   - MUST NOT: Ask about another candidate in the same turn.
+   - If price/performance are missing and the item is more than spectacle, MAY quick-WebSearch those facts only; full enrichment after `y`.
+   - On user `explain`, add one plain-language beat, then re-ask `keep? y/n`.
 
-4. **Confirm** — Proceed only with the user's keep list and any category overrides. Drop the rest silently (no entry files for drops).
+4. **On `n`** — Skip; no entry file. Continue with step 3 for the next candidate (or stop if the user ends intake).
 
-5. **Enrich** — Per keeper: WebSearch for official homepage and GitHub; note license and run mode; set `vram_hint` only from evidence or `unknown`.
+5. **On `y`** — Dedup (`name:` Grep). WebSearch enrich (homepage, GitHub, license, run mode, `vram_hint` or `unknown`). Write `library/<category>/<slug>.md`. Refresh `library/INDEX.md`. Then continue with step 3 for the next candidate.
 
-6. **Write** — Create `library/<category>/<slug>.md` from the template. Slug = `name` (kebab-case). Body: what it is, why keep, when to reach for it, caveats, links.
-
-7. **INDEX** — Rewrite `library/INDEX.md` with a header plus one row per entry file under category dirs (not `_template.md`). Columns: name, title, category, status, tags, path.
+6. **Done** — After the last candidate (or user stop), summarize kept vs skipped. Do not re-ask batch approval.
 
 ## INDEX format
 
@@ -144,10 +164,10 @@ Regenerated by `ai-library-intake` after writes.
       Method: Confirm Read in tool history before proposal
       Pass: Read occurred
       Fail: STOP, Read taxonomy, re-run proposal if needed
-- [ ] **Keep gate held:** No category entry writes before user keep list
-      Method: Timeline check
-      Pass: Writes only after confirmation
-      Fail: STOP, revert, wait for keep list
+- [ ] **Keep gate held:** Each write followed a per-candidate `y`; no batch `y` for many keepers
+      Method: Timeline: one ask → one reply → at most one new entry
+      Pass: One-at-a-time
+      Fail: STOP, revert batch if user requests, resume interactive
 - [ ] **Tags legal:** Every tag is in taxonomy allowed list
       Method: Diff tags vs taxonomy
       Pass: All tags listed

@@ -24,7 +24,7 @@ rg '^name: ' library/**/*.md
 
 ## How to add
 
-1. Prefer the project skill `ai-library-intake` with a roundup or notes dump (keep/drop gate, WebSearch enrichment, INDEX refresh).
+1. Prefer the project skill `ai-library-intake` with a roundup or notes dump (one-candidate `y`/`n` keep gate, WebSearch enrichment, INDEX refresh).
 2. Manual: copy [_template.md](_template.md), place under the right category, fill fields from [taxonomy.md](taxonomy.md), then refresh INDEX or re-run intake.
 
 ## Keep rule
