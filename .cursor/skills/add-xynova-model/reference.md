@@ -60,7 +60,9 @@ Add `.dockerignore` in the model directory if HuggingFace cache may appear:
 model-files/**/.cache
 ```
 
-## Root docker-bake.hcl target template
+## models/docker-bake.hcl target template
+
+Run from the repository root with `-f models/docker-bake.hcl` (or `make docker-print` / `make docker-push`). Context paths are relative to the working directory.
 
 ```hcl
 target "{bake-target}" {
