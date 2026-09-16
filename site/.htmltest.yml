@@ -1,0 +1,15 @@
+# Internal link check for Hugo output under site/public/.
+# External catalog URLs are skipped: they flake and are not the deploy gate.
+DirectoryPath: public
+IgnoreDirs:
+  - vendor
+CheckExternal: false
+IgnoreCanonicalBrokenLinks: true
+IgnoreAltMissing: true
+IgnoreEmptyHref: false
+IgnoreInternalEmptyHash: true
+# Hextra and card shortcodes often omit the trailing slash on section URLs.
+IgnoreDirectoryMissingTrailingSlash: true
+CacheExpires: "8h"
+EnableLog: true
+OutputDir: .htmltest

@@ -26,6 +26,12 @@ type Entry struct {
 	Path     string   // repo-relative path from library root, e.g. models/auk.md
 }
 
+// SitePermalink is the Hugo public path for this entry (mounted under /library/).
+func (e Entry) SitePermalink() string {
+	p := strings.TrimSuffix(filepath.ToSlash(e.Path), ".md")
+	return "/library/" + p + "/"
+}
+
 // AddedTime parses Added as YYYY-MM-DD in local time.
 func (e Entry) AddedTime() (time.Time, error) {
 	t, err := time.ParseInLocation("2006-01-02", strings.TrimSpace(e.Added), time.Local)

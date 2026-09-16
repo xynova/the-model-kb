@@ -4,5 +4,8 @@
 /generated/
 .hugo_build.lock
 
+# htmltest cache and log
+.htmltest/
+
 # Local OS junk
 .DS_Store

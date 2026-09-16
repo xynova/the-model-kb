@@ -121,8 +121,8 @@ func writeWeekFile(libraryRoot, weekID, status, closed string, weight int, entri
 		b.WriteString("| name | title | summary | tags | run | license |\n")
 		b.WriteString("|------|-------|---------|------|-----|---------|\n")
 		for _, e := range byCat[cat] {
-			fmt.Fprintf(&b, "| [%s](../%s) | %s | %s | %s | %s | %s |\n",
-				e.Name, e.Path, e.Title, TableCell(e.Summary), strings.Join(e.Tags, ", "), e.Run, e.License)
+			fmt.Fprintf(&b, "| [%s](%s) | %s | %s | %s | %s | %s |\n",
+				e.Name, e.SitePermalink(), e.Title, TableCell(e.Summary), strings.Join(e.Tags, ", "), e.Run, e.License)
 		}
 		b.WriteString("\n")
 	}
