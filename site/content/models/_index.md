@@ -1,7 +1,10 @@
 ---
 title: Packaged models
+type: docs
 sidebar:
   open: true
+cascade:
+  type: docs
 ---
 
 Scratch-image Docker packages for transferring GGUF and related weights. Place files under each package `model-files/` directory before building. Build from the repository root with `make docker-push` or `make docker-push-target TARGET=...`.

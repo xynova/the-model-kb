@@ -7,7 +7,7 @@ generate-roster:
 	$(PYTHON) scripts/generate-roster.py
 
 serve: generate-roster
-	$(HUGO) server --buildDrafts --disableFastRender
+	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/
 
 build: generate-roster
 	$(HUGO) --gc --minify --printPathWarnings
