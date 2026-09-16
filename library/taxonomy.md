@@ -85,7 +85,10 @@ Exactly one of:
 | `license` | yes | `open` / `closed` / `mixed` |
 | `vram_hint` | no | Short hint, e.g. `consumer`, `multi-gpu`, `unknown` |
 | `links` | no | Map: `homepage`, `github`, `weights` (omit missing keys) |
+| `media` | no | Map: `cover` (repo-relative path to primary still), `gallery` (list of repo-relative still paths). Paths live under `library/<category>/<slug>/media/` |
 | `source` | yes | Where the candidate came from |
 | `added` | yes | ISO date `YYYY-MM-DD` |
 
 Uncertain enrichment fields: use `unknown` or omit the key. MUST NOT invent URLs or licenses.
+
+Stills are optional identity aids. They MUST NOT replace WebSearch enrichment for `links`.

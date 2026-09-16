@@ -3,3 +3,7 @@
 !**/model-files/.gitkeep
 
 .DS_Store
+
+# Working files (library-intake transcripts, scratch)
+/tmp/
+**/__pycache__/
