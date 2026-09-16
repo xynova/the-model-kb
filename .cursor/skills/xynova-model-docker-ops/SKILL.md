@@ -21,10 +21,18 @@ docker login
 ### Build all models (from repo root)
 
 ```bash
-docker buildx bake --push
+make docker-push
+# or: docker buildx bake -f models/docker-bake.hcl --push
 ```
 
-### Build one model
+### Build one model (aggregate target)
+
+```bash
+make docker-push-target TARGET=gemma
+# or: docker buildx bake -f models/docker-bake.hcl --push gemma
+```
+
+### Build one model (local bake file)
 
 Place weights in `{model-dir}/model-files/` first, then:
 
@@ -36,6 +44,15 @@ docker buildx bake --push
 Examples: `models/gemma-model`, `models/gemma4-12B`, `models/qwen-model`, `models/bge-base-model`
 
 ### Validate bake config (no build)
+
+Aggregate (from repo root):
+
+```bash
+make docker-print
+# or: docker buildx bake --print -f models/docker-bake.hcl
+```
+
+Local bake file:
 
 ```bash
 cd {model-dir}
@@ -90,7 +107,7 @@ Full artifact paths: [add-xynova-model/reference.md](../add-xynova-model/referen
 Docker Hub repo names must be all lowercase. Fix `docker.io/xynova/...` in:
 
 - `{model-dir}/docker-bake.hcl`
-- root `docker-bake.hcl`
+- `models/docker-bake.hcl`
 - `README.md` pull/extract examples
 
 Version tags may keep mixed case.

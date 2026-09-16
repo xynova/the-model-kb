@@ -1,0 +1,130 @@
+# Hugo site for library, packaged models, and roster.
+# Catalog sources remain outside site/ and are mounted as content.
+
+baseURL = "https://xynova.github.io/the-model-kb/"
+title = "Xynova Models"
+languageCode = "en-us"
+enableRobotsTXT = true
+enableGitInfo = true
+
+# Exclude catalog authoring metadata from the public site.
+ignoreFiles = [
+  "README\\.md$",
+  "INDEX\\.md$",
+  "taxonomy\\.md$",
+  "_template\\.md$",
+]
+
+[module]
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
+
+  # Local overlays (homepage, section pages, package pages) win over mounts.
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+
+  [[module.mounts]]
+    source = "../library"
+    target = "content/library"
+    excludeFiles = [
+      "README.md",
+      "INDEX.md",
+      "taxonomy.md",
+      "_template.md",
+    ]
+
+  # Generated from ../roster with kind -> roster_kind (Hugo reserves kind).
+  [[module.mounts]]
+    source = "generated/roster"
+    target = "content/roster"
+
+  # Packaged-model docs only (never Dockerfiles, bake files, or weights).
+  [[module.mounts]]
+    source = "../models"
+    target = "content/models"
+    includeFiles = ["**/*.md"]
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = "Library"
+    pageRef = "/library"
+    weight = 1
+
+  [[menu.main]]
+    name = "Models"
+    pageRef = "/models"
+    weight = 2
+
+  [[menu.main]]
+    name = "Roster"
+    pageRef = "/roster"
+    weight = 3
+
+  [[menu.main]]
+    name = "Search"
+    weight = 4
+    [menu.main.params]
+      type = "search"
+
+  [[menu.main]]
+    name = "GitHub"
+    weight = 5
+    url = "https://github.com/xynova/the-model-kb"
+    [menu.main.params]
+      icon = "github"
+
+[params]
+  description = "Curated AI tools library, packaged Docker models, and a model decision roster."
+
+  [params.navbar]
+    displayTitle = true
+    displayLogo = false
+
+  [params.theme]
+    default = "system"
+    displayToggle = true
+
+  [params.footer]
+    displayCopyright = false
+    displayPoweredBy = true
+
+  [params.search]
+    enable = true
+    type = "flexsearch"
+
+    [params.search.flexsearch]
+      index = "content"
+      tokenize = "forward"
+
+  [params.page]
+    width = "normal"
+
+  [params.editURL]
+    enable = false

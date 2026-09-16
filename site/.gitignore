@@ -1,0 +1,8 @@
+# Hugo generated output
+/public/
+/resources/
+/generated/
+.hugo_build.lock
+
+# Local OS junk
+.DS_Store

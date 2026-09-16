@@ -9,7 +9,7 @@ description: >-
 
 # Add Xynova Model Container
 
-Package a new model under `models/` in a minimal `FROM scratch` image and register it in the root bake file.
+Package a new model under `models/` in a minimal `FROM scratch` image and register it in [`models/docker-bake.hcl`](../../models/docker-bake.hcl).
 
 ## Workflow
 
@@ -23,9 +23,9 @@ Copy this checklist and track progress:
 - [ ] Create models/{short-dir}/Dockerfile (COPY from model-files/)
 - [ ] Create models/{short-dir}/docker-bake.hcl
 - [ ] Add .dockerignore if HuggingFace .cache may exist under model-files/
-- [ ] Add target to root docker-bake.hcl default group
+- [ ] Add target to models/docker-bake.hcl default group
 - [ ] Update README.md (structure, build list, extract section)
-- [ ] Validate: docker buildx bake --print
+- [ ] Validate from repo root: docker buildx bake --print -f models/docker-bake.hcl
 - [ ] Optional local test: docker buildx build --load .
 ```
 
@@ -71,10 +71,12 @@ target "model" {
 }
 ```
 
-## Step 5: Register in root docker-bake.hcl
+## Step 5: Register in models/docker-bake.hcl
 
 1. Add target name to `group "default" { targets = [...] }`
 2. Add matching `target "{name}"` block with same tags and `context = "models/{short-dir}"`
+
+The aggregate file lives at `models/docker-bake.hcl`. Always invoke it from the **repository root** with `-f models/docker-bake.hcl` (or `make docker-print` / `make docker-push`). Context paths are resolved from the working directory, not from the bake file location.
 
 ## Step 6: Update README.md
 
@@ -84,9 +86,18 @@ For multimodal GGUF, document **both** main and mmproj extraction. For HuggingFa
 
 ## Step 7: Validate
 
+From the model directory (local bake file):
+
 ```bash
 cd {model-dir}
 docker buildx bake --print
+```
+
+From the repository root (aggregate bake file):
+
+```bash
+docker buildx bake --print -f models/docker-bake.hcl
+# or: make docker-print
 ```
 
 If error `repository name must be lowercase`, fix repo segment in all bake files and README.
