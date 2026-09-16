@@ -1,0 +1,39 @@
+/* Library entry stills: grid of thumbs that open GLightbox. */
+.library-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.library-gallery__item {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  background: rgba(127, 127, 127, 0.06);
+  line-height: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.library-gallery__item:hover,
+.library-gallery__item:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+
+.library-gallery__item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .library-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1rem;
+  }
+}

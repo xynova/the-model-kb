@@ -1,5 +1,6 @@
 ---
 title: Video
+weight: 80
 ---
 
-Video generation, extension, and transcription tied to video. No kept entries yet.
+Video generation, extension, and transcription tied to video.

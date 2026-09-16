@@ -18,6 +18,17 @@
             {{ partial "components/page-context-menu" . }}
           </div>
           {{ end }}
+          {{- partial "library-entry-meta.html" . -}}
+          {{- /* Library stills: strip markdown gallery tables and inject GLightbox. */ -}}
+          {{- $isLibrary := or (eq .Section "library") (strings.Contains .RelPermalink "/library/") -}}
+          {{- if and $isLibrary .Params.media -}}
+            {{- $gal := partial "library-gallery.html" . -}}
+            {{- $content = replaceRE `(?s)(<h2>\s*What it is[\s\S]*?</h2><p>.*?</p>)\s*<table>[\s\S]*?</table>` (printf "%s%s" "${1}" "<!--LIBGAL-->") $content 1 -}}
+            {{- if not (findRE `<!--LIBGAL-->` $content) -}}
+              {{- $content = replaceRE `(?s)(<h2>\s*What it is[\s\S]*?</h2><p>.*?</p>)` (printf "%s%s" "${1}" "<!--LIBGAL-->") $content 1 -}}
+            {{- end -}}
+            {{- $content = replace $content "<!--LIBGAL-->" $gal 1 -}}
+          {{- end -}}
           {{ $content | safeHTML }}
         </div>
         {{ partial "components/last-updated.html" . }}

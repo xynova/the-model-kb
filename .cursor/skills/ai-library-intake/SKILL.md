@@ -4,11 +4,11 @@ description: >-
   Intake AI news dumps or YouTube roundups into the curated library/: prepare
   transcripts, candidates, and stills with the Go tools/library-intake CLI
   (Fabric + Polypus GLM/Gemma), ask keep/drop one at a time, enrich keepers via
-  WebSearch for project links, write tagged markdown entries with optional media
-  gallery, refresh INDEX.md. Use when the user says library intake, catalog
-  roundup, keep into library, ingest this into the library, YouTube intake,
-  fabric transcript, frame gallery, or attaches a weekly AI news dump or video
-  URL for filing.
+  WebSearch for project links,   write tagged markdown entries with optional media
+  gallery, refresh INDEX.md and weekly additions. Use when the user says library
+  intake, catalog roundup, keep into library, ingest this into the library,
+  YouTube intake, fabric transcript, frame gallery, or attaches a weekly AI news
+  dump or video URL for filing.
 ---
 
 # AI library intake
@@ -25,22 +25,24 @@ Load when the user asks to ingest, catalog, or keep items into the library, or a
 
 **CONSTRAINT:** Catalog root and taxonomy
 
-- MUST: Read `library/taxonomy.md` before assigning `category` or `tags`.
+- MUST: Read `library/taxonomy.md` before assigning `category`, `does`, or `tags`.
 - MUST: Write entries under `library/<category>/<slug>.md` using structure from `library/_template.md`.
-- MUST NOT: Invent categories or tags absent from `taxonomy.md` (unless the user first updates taxonomy).
+- MUST NOT: Invent categories, `does` values, or tags absent from `taxonomy.md` (unless the user first updates taxonomy).
 
-Enforcement: Read taxonomy before the proposal table; Grep tags against the allowed list before write.
+Enforcement: Read taxonomy before the proposal table; Grep `does` and tags against the allowed lists before write.
 Violation: STOP, re-Read taxonomy, fix assignments, re-verify.
 
 CORRECT:
 ```text
 category: agents-memory
+does: memory
 tags: [memory, open, local, audio]
 ```
 
 PROHIBITED:
 ```text
 category: misc
+does: cool-stuff
 tags: [cool, new]
 ```
 
@@ -119,7 +121,7 @@ Skip WebSearch because a nice demo frame exists; invent links from the video ove
 - MUST NOT: Auto-keep the whole dump.
 - MUST NOT: Write that candidate's entry (or refresh INDEX for it) until the user answers `y` for that candidate.
 - MUST: On `n`, skip with no file; move to the next candidate.
-- MUST: On `y`, enrich (WebSearch links required) → attach curated stills when available → write → refresh INDEX for that keeper, then ask about the next candidate (unless the user stops the intake).
+- MUST: On `y`, enrich (WebSearch links required) → attach curated stills when available → write → `library-intake index refresh`, then ask about the next candidate (unless the user stops the intake).
 
 Enforcement: Each keep decision in chat names one candidate; no multi-keeper Write before one-per-candidate `y`.
 Violation: STOP, do not batch-write; revert unsolicited batch files if the user asks; resume one-at-a-time.
@@ -177,19 +179,19 @@ Write entry with only media.cover and empty/invented links
 
 - MUST: Before write, Grep/Glob `library/**/*.md` for matching `name:`.
 - MUST: Skip existing `name` unless the user asks to update.
-- MUST: Regenerate `library/INDEX.md` after successful writes (all entry rows).
+- MUST: After successful writes, run `library-intake index refresh --library <repo>/library` so global `INDEX.md`, each `library/<category>/INDEX.md`, and `library/additions/` week files stay current. Week open/closed status comes from each entry's `added` date (current ISO week is open; older weeks are closed).
 
-Enforcement: Grep `^name: <slug>` across library before Write; INDEX row count matches entry files (excluding `_template.md`).
-Violation: STOP, skip or update per user, rebuild INDEX.
+Enforcement: Grep `^name: <slug>` across library before Write; INDEX row counts match entry files (excluding `_template.md`); additions week for the keeper's `added` ISO week lists the name.
+Violation: STOP, skip or update per user, rebuild indexes.
 
 CORRECT:
 ```text
-Grep name: voicemem → miss → write → INDEX includes voicemem row
+Grep name: voicemem → miss → write → index refresh → models/INDEX.md and additions/YYYY-Www.md include voicemem
 ```
 
 PROHIBITED:
 ```text
-Overwrite existing voicemem.md without asking; leave INDEX stale
+Overwrite existing voicemem.md without asking; leave INDEX and additions stale
 ```
 
 ## Steps
@@ -201,7 +203,7 @@ Copy this checklist and track progress:
 - [ ] If YouTube: tools/library-intake prepare → tmp/library-intake/
 - [ ] Load candidates JSON (or agent-parse short paste)
 - [ ] For each candidate: ask keep? y/n; wait
-- [ ] On y: dedup, WebSearch enrich (required), attach media if any, write entry, refresh INDEX
+- [ ] On y: dedup, WebSearch enrich (required), attach media if any, write entry, `index refresh`
 - [ ] On n: skip; next candidate
 - [ ] After last candidate: summarize kept vs skipped
 ```
@@ -233,22 +235,29 @@ Copy this checklist and track progress:
 
 5. **On `n`** — Skip; no entry file. Continue with step 4 for the next candidate (or stop if the user ends intake).
 
-6. **On `y`** — Dedup (`name:` Grep). **WebSearch enrich first** (homepage, GitHub, license, run mode, `vram_hint` or `unknown`). Then attach media: copy Gemma cover/gallery stills and/or a verified project OG/card image into `library/<category>/<slug>/media/`; set optional `media.cover` / `media.gallery`. Write `library/<category>/<slug>.md`. Refresh `library/INDEX.md`. Then continue with step 4 for the next candidate.
+6. **On `y`** — Dedup (`name:` Grep). **WebSearch enrich first** (homepage, GitHub, license, run mode, `vram_hint` or `unknown`). Then attach media: copy Gemma cover/gallery stills and/or a verified project OG/card image into `library/<category>/<slug>/media/`; set optional `media.cover` / `media.gallery`. Write ~320px `thumb-*.jpg` copies and a compact markdown image table under **What it is** for Cursor preview. The Hugo site replaces that table with a GLightbox widget from frontmatter. No separate Gallery section. Write `library/<category>/<slug>.md`. Run:
+   ```bash
+   cd tools/library-intake && go run ./cmd/library-intake index refresh --library ../../library
+   ```
+   That refreshes global `INDEX.md`, each category `INDEX.md`, and the weekly additions file (section headings per category; open/closed from `added` dates). Then continue with step 4 for the next candidate.
 
 7. **Done** — After the last candidate (or user stop), summarize kept vs skipped. Do not re-ask batch approval.
 
 ## INDEX format
 
+Global `library/INDEX.md` (and matching `library/<category>/INDEX.md`):
+
 ```markdown
 # Library index
 
-Regenerated by `ai-library-intake` after writes.
+Regenerated by `library-intake index refresh` after writes.
 
-| name | title | category | status | tags | path |
-|------|-------|----------|--------|------|------|
-| voicemem | VoiceMem | agents-memory | watch | memory, open, local, audio | agents-memory/voicemem.md |
+| name | title | category | summary | tags | run | license |
+|------|-------|----------|---------|------|-----|---------|
+| voicemem | VoiceMem | agents-memory | Local voice memory for companion agents. | memory, open, local, audio | local | open |
 ```
 
+Weekly additions (`library/additions/YYYY-Www.md`) use calendar titles (for example `Sep 14–20, 2026`) and group keepers under `## <category>` tables (summary / tags / run / license). `library/additions/INDEX.md` lists weeks.
 ## Pre-completion checklist
 
 - [ ] **Taxonomy loaded:** `library/taxonomy.md` was Read this run
@@ -279,6 +288,10 @@ Regenerated by `ai-library-intake` after writes.
       Method: Diff tags vs taxonomy
       Pass: All tags listed
       Fail: STOP, fix or ask user to extend taxonomy
+- [ ] **Does legal:** Every entry has exactly one `does` from the taxonomy Does table
+      Method: Diff `does` vs taxonomy
+      Pass: Value listed; INDEX shows does/run/license
+      Fail: STOP, fix or ask user to extend taxonomy
 - [ ] **No invented links:** Every URL came from WebSearch/WebFetch or was omitted
       Method: Spot-check `links:` block
       Pass: Traceable or omitted
@@ -287,11 +300,10 @@ Regenerated by `ai-library-intake` after writes.
       Method: Grep before write
       Pass: Skip or user-approved update
       Fail: STOP, skip duplicate
-- [ ] **INDEX fresh:** INDEX lists all category entries after writes
-      Method: Count rows vs entry files
-      Pass: Counts match
-      Fail: STOP, regenerate INDEX
-- [ ] **No Perplexity:** Enrichment used WebSearch/WebFetch only
+- [ ] **INDEX fresh:** `index refresh` ran after writes; global + category INDEX rows match entries; additions week lists keepers
+      Method: Count rows vs entry files; spot-check additions week
+      Pass: Counts match; week file has section for each kept category
+      Fail: STOP, run `library-intake index refresh`- [ ] **No Perplexity:** Enrichment used WebSearch/WebFetch only
       Method: Tool history
       Pass: No perplexity_* calls
       Fail: STOP, do not treat Perplexity output as filed metadata

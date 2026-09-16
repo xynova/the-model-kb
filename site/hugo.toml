@@ -78,24 +78,29 @@ ignoreFiles = [
     weight = 1
 
   [[menu.main]]
+    name = "Additions"
+    pageRef = "/library/additions"
+    weight = 2
+
+  [[menu.main]]
     name = "Models"
     pageRef = "/models"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     name = "Roster"
     pageRef = "/roster"
-    weight = 3
+    weight = 4
 
   [[menu.main]]
     name = "Search"
-    weight = 4
+    weight = 5
     [menu.main.params]
       type = "search"
 
   [[menu.main]]
     name = "GitHub"
-    weight = 5
+    weight = 6
     url = "https://github.com/xynova/the-model-kb"
     [menu.main.params]
       icon = "github"

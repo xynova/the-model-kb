@@ -1,7 +1,9 @@
 ---
 name: code-world-model
 title: Code World Model
+summary: "Keeps an AI world consistent by storing rules and state in code (a coding agent as the “brain”), then uses a video model (MiniMax-H3 + CWM LoRA) only for what you see."
 category: agents-memory
+does: memory
 tags:
   - agentic
   - video
@@ -16,7 +18,13 @@ links:
   homepage: https://buaacyw.github.io/cwm/
   github: https://github.com/buaacyw/code-world-model
   weights: https://huggingface.co/NTU-yiwen/awm-minimax-h3-new1344-lora-checkpoints
-source: "weekly roundup 2026-08-31"
+media:
+  cover: agents-memory/code-world-model/media/cover.jpg
+  gallery:
+    - agents-memory/code-world-model/media/g01.jpg
+    - agents-memory/code-world-model/media/g02.jpg
+    - agents-memory/code-world-model/media/g03.jpg
+source: "youtube:4wjHNgMLeyY"
 added: 2026-08-31
 ---
 
@@ -25,6 +33,11 @@ added: 2026-08-31
 ## What it is
 
 Keeps an AI world consistent by storing rules and state in code (a coding agent as the “brain”), then uses a video model (MiniMax-H3 + CWM LoRA) only for what you see.
+
+| | |
+|:---:|:---:|
+| ![code-world-model 1](code-world-model/media/thumb-cover.jpg) | ![code-world-model 2](code-world-model/media/thumb-g01.jpg) |
+| ![code-world-model 3](code-world-model/media/thumb-g02.jpg) | ![code-world-model 4](code-world-model/media/thumb-g03.jpg) |
 
 ## Why keep
 

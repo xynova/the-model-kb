@@ -16,6 +16,7 @@ each keep decision.
 3. `frames` — download video and extract sparse JPEG frames via yt-dlp + ffmpeg.
 4. `curate` — map frames to candidates with Gemma vision via Polypus.
 5. `prepare` — run transcript + candidates, then soft-fail frames + curation.
+6. `index refresh` — regenerate `library/INDEX.md`, each `library/<category>/INDEX.md`, and `library/additions/` week files (section tables per category; open/closed from `added` dates).
 
 ## Docs and Libraries
 
@@ -51,3 +52,11 @@ cd tools/library-intake
 make build
 ./bin/library-intake prepare --url 'https://www.youtube.com/watch?v=VIDEO_ID'
 ```
+
+## Frame download notes
+
+YouTube often returns HTTP 403 for default `android_vr` / SABR-only formats.
+`frames` / `prepare` pass `--extractor-args youtube:player_client=android,web`
+by default and prefer progressive `mp4` under 720p. Override with
+`LIBRARY_INTAKE_YTDLP_EXTRACTOR_ARGS` when needed. Soft-fail messages include
+yt-dlp/ffmpeg stderr fields from the typed error.

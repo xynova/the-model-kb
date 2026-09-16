@@ -1,0 +1,57 @@
+{{/*
+  Renders a GLightbox gallery from library entry frontmatter media.
+  Expects .Params.media.cover and optional .Params.media.gallery (paths under library/).
+*/}}
+{{- $media := .Params.media -}}
+{{- if $media -}}
+{{- $paths := slice -}}
+{{- with $media.cover -}}
+  {{- $paths = $paths | append . -}}
+{{- end -}}
+{{- range $media.gallery -}}
+  {{- $paths = $paths | append . -}}
+{{- end -}}
+{{- if gt (len $paths) 0 -}}
+{{- $galleryID := printf "lib-gal-%s" (.RelPermalink | anchorize) -}}
+<link rel="stylesheet" href="{{ "vendor/glightbox/glightbox.min.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/library-gallery.css" | relURL }}">
+<div class="library-gallery" data-gallery-id="{{ $galleryID }}">
+  {{- range $i, $path := $paths -}}
+    {{- $base := path.Base $path -}}
+    {{- $dir := path.Dir $path -}}
+    {{- $thumbName := printf "thumb-%s" $base -}}
+    {{- $fullURL := printf "library/%s" $path | relURL -}}
+    {{- $thumbURL := printf "library/%s/%s" $dir $thumbName | relURL -}}
+    <a
+      href="{{ $fullURL }}"
+      class="library-gallery__item glightbox"
+      data-gallery="{{ $galleryID }}"
+      data-title="{{ $.Title }} ({{ add $i 1 }}/{{ len $paths }})"
+    >
+      <img
+        src="{{ $thumbURL }}"
+        alt="{{ $.Title }} still {{ add $i 1 }}"
+        loading="lazy"
+        width="320"
+      />
+    </a>
+  {{- end -}}
+</div>
+<script src="{{ "vendor/glightbox/glightbox.min.js" | relURL }}"></script>
+<script>
+  (function () {
+    if (window.__libraryGLightboxInit) return;
+    window.__libraryGLightboxInit = true;
+    if (typeof GLightbox === "function") {
+      GLightbox({
+        selector: ".library-gallery__item",
+        touchNavigation: true,
+        loop: true,
+        openEffect: "fade",
+        closeEffect: "fade",
+      });
+    }
+  })();
+</script>
+{{- end -}}
+{{- end -}}

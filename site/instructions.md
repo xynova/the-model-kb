@@ -20,6 +20,9 @@ Markdown catalogs stay outside `site/`. The site mounts them (or a generated ros
 - Exclude catalog authoring files (`README.md`, `INDEX.md`, `taxonomy.md`, `_template.md`)
 - Section overlays and package pages under `site/content/`
 - Offline FlexSearch via Hextra
+- Library section indexes: responsive skim rows with does / run / license chips (`layouts/_partials/library-section-index.html`, `static/css/library-catalog.css`)
+- Library entry skim strip under the title (`layouts/_partials/library-entry-meta.html`)
+- Library entry stills: GLightbox gallery grid injected under **What it is** from frontmatter `media` (`layouts/_partials/library-gallery.html`, vendored under `static/vendor/glightbox/`)
 - Root `make serve` / `make build` / `make clean`
 - GitHub Pages deploy from `.github/workflows/library-site.yml`
 

@@ -1,7 +1,9 @@
 ---
 name: voicemem
 title: VoiceMem
+summary: "Open memory layer for voice assistants: facts in one store, personality and emotion in another, built for low-latency streaming use (Apache-2.0)."
 category: agents-memory
+does: memory
 tags:
   - memory
   - audio

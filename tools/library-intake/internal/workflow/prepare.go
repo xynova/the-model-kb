@@ -103,9 +103,10 @@ func (p *Preparer) Prepare(ctx context.Context, youtubeURL, workRoot string) (*P
 	}
 
 	extractor := frames.ExtractConfig{
-		YtDlpBin:  p.cfg.YtDlpBin,
-		FFmpegBin: p.cfg.FFmpegBin,
-		Runner:    p.runner,
+		YtDlpBin:           p.cfg.YtDlpBin,
+		FFmpegBin:          p.cfg.FFmpegBin,
+		YtDlpExtractorArgs: p.cfg.YtDlpExtractorArgs,
+		Runner:             p.runner,
 	}.CreateExtractor()
 	frameCount, frameErr := extractor.Extract(ctx, youtubeURL, framesDir, p.cfg.FrameIntervalS)
 	if frameErr != nil {

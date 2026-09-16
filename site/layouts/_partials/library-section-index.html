@@ -1,0 +1,50 @@
+{{- /* Per-section index for library category pages and weekly additions. */ -}}
+{{- $inLibrary := or (eq .Section "library") (strings.Contains .RelPermalink "/library/") -}}
+{{- if and $inLibrary (gt (len .RegularPages) 0) -}}
+  {{- $isAdditions := or (eq .Title "Additions") (strings.Contains .RelPermalink "/library/additions") -}}
+<link rel="stylesheet" href="{{ "css/library-catalog.css" | relURL }}">
+<section class="library-index" aria-label="Library index">
+  <h2 class="library-index__heading">Index</h2>
+  {{- if $isAdditions -}}
+    {{- range sort .RegularPages "Params.week" "desc" -}}
+      <article class="library-index__row">
+        <div>
+          <a class="library-index__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="library-index__name">
+            {{- with .Params.week -}}{{ . }}{{- else -}}{{ .File.ContentBaseName }}{{- end -}}
+            {{- with .Params.week_start -}} · {{ . }}{{- end -}}
+            {{- with .Params.week_end -}}–{{ . }}{{- end -}}
+          </span>
+        </div>
+        <div class="library-index__chips">
+          {{ partial "library-chip.html" (dict "axis" "status" "value" .Params.status) }}
+        </div>
+        <div class="library-index__aside"></div>
+      </article>
+    {{- end -}}
+  {{- else -}}
+    {{- range sort .RegularPages "Params.added" "desc" -}}
+      {{- $name := .Params.name | default .File.ContentBaseName -}}
+      <article class="library-index__row">
+        <div>
+          <a class="library-index__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="library-index__name">{{ $name }}</span>
+          {{- with .Params.summary -}}
+            <p class="library-index__summary">{{ . }}</p>
+          {{- end -}}
+        </div>
+        <div class="library-index__chips">
+          {{- with .Params.tags -}}
+            {{- range . -}}
+              <span class="library-chip library-chip--tag">{{ . }}</span>
+            {{- end -}}
+          {{- end -}}
+          {{ partial "library-chip.html" (dict "axis" "run" "value" .Params.run) }}
+          {{ partial "library-chip.html" (dict "axis" "license" "value" .Params.license) }}
+        </div>
+        <div class="library-index__aside"></div>
+      </article>
+    {{- end -}}
+  {{- end -}}
+</section>
+{{- end -}}
