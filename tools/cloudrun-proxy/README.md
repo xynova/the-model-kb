@@ -132,7 +132,7 @@ curl -sS http://127.0.0.1:4318/v1/chat/completions \
 | Normal chat (default) | `enable_thinking: false` | 512+ (`defaults.min_max_tokens`) |
 | Reasoning workloads | `enable_thinking: true` | 2048+ (`defaults.min_max_tokens_thinking`) |
 
-See also [gemma4-12B/serve/INVOKE.md](../../gemma4-12B/serve/INVOKE.md) for Cloud Run service details.
+See also [models/gemma4-12B/serve/INVOKE.md](../../models/gemma4-12B/serve/INVOKE.md) for Cloud Run service details.
 
 ## Logging
 

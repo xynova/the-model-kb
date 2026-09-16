@@ -9,7 +9,7 @@ description: >-
 
 # Add Xynova Model Container
 
-Package a new model in a minimal `FROM scratch` image and register it in the root bake file.
+Package a new model under `models/` in a minimal `FROM scratch` image and register it in the root bake file.
 
 ## Workflow
 
@@ -18,10 +18,10 @@ Copy this checklist and track progress:
 ```
 - [ ] Inspect model directory and classify type (see reference.md)
 - [ ] Choose lowercase Docker Hub repo name (xynova/{name}-model)
-- [ ] Create {model-dir}/model-files/.gitkeep
-- [ ] Place model weights in {model-dir}/model-files/
-- [ ] Create {model-dir}/Dockerfile (COPY from model-files/)
-- [ ] Create {model-dir}/docker-bake.hcl
+- [ ] Create models/{short-dir}/model-files/.gitkeep
+- [ ] Place model weights in models/{short-dir}/model-files/
+- [ ] Create models/{short-dir}/Dockerfile (COPY from model-files/)
+- [ ] Create models/{short-dir}/docker-bake.hcl
 - [ ] Add .dockerignore if HuggingFace .cache may exist under model-files/
 - [ ] Add target to root docker-bake.hcl default group
 - [ ] Update README.md (structure, build list, extract section)
@@ -33,8 +33,8 @@ Copy this checklist and track progress:
 
 | Type | Example | model-files/ layout |
 |------|---------|---------------------|
-| Single GGUF | gemma-model | `model-files/{name}.gguf` |
-| GGUF + mmproj | qwen-model, gemma4-12B/static | `model-files/{main}.gguf` + `model-files/{mmproj}.gguf` |
+| Single GGUF | models/gemma-model | `model-files/{name}.gguf` |
+| GGUF + mmproj | models/qwen-model, models/gemma4-12B/static | `model-files/{main}.gguf` + `model-files/{mmproj}.gguf` |
 | HuggingFace dir | (example) | `model-files/{model-dir}/` |
 
 All weights live in `{model-dir}/model-files/` (gitignored). Dockerfiles COPY from `model-files/` and place artifacts at image root (`/filename.gguf` or `/model-dir/`).
@@ -44,7 +44,7 @@ All weights live in `{model-dir}/model-files/` (gitignored). Dockerfiles COPY fr
 - **Docker Hub repo**: lowercase only — `xynova/gemma4-12b-model`, not `gemma4-12B-model`
 - **Version tag**: may keep model casing — `:gemma-4-12B-it-QAT-Q4_0`
 - **Bake target**: HCL identifier, e.g. `gemma4-12B` (not a Docker tag)
-- **Filesystem dir**: may use mixed case — `gemma4-12B/`
+- **Filesystem dir**: under `models/`; may use mixed case — `models/gemma4-12B/`
 
 ## Step 3: Create model Dockerfile
 
@@ -74,7 +74,7 @@ target "model" {
 ## Step 5: Register in root docker-bake.hcl
 
 1. Add target name to `group "default" { targets = [...] }`
-2. Add matching `target "{name}"` block with same tags and `context = "{model-dir}"`
+2. Add matching `target "{name}"` block with same tags and `context = "models/{short-dir}"`
 
 ## Step 6: Update README.md
 

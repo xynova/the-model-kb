@@ -33,7 +33,7 @@ cd {model-dir}
 docker buildx bake --push
 ```
 
-Examples: `gemma-model`, `gemma4-12B`, `qwen-model`, `bge-base-model`
+Examples: `models/gemma-model`, `models/gemma4-12B`, `models/qwen-model`, `models/bge-base-model`
 
 ### Validate bake config (no build)
 
@@ -76,10 +76,10 @@ Chain with `;` — see [README.md](../../README.md) for per-model commands.
 
 | Image | Directory |
 |-------|-----------|
-| xynova/gemma-model | gemma-model |
-| xynova/gemma4-12b-model | gemma4-12B/static |
-| xynova/qwen-model | qwen-model |
-| xynova/bge-base-model | bge-base-model |
+| xynova/gemma-model | models/gemma-model |
+| xynova/gemma4-12b-model | models/gemma4-12B/static |
+| xynova/qwen-model | models/qwen-model |
+| xynova/bge-base-model | models/bge-base-model |
 
 Full artifact paths: [add-xynova-model/reference.md](../add-xynova-model/reference.md)
 

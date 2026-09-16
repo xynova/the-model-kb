@@ -1,6 +1,6 @@
 # models-in-docker
 
-Place weights in `{model-dir}/model-files/` before building. Build with `docker buildx bake --push` from repo root or a model directory.
+Scratch-image packages live under `models/`. Place weights in `models/{model-dir}/model-files/` before building. Build with `docker buildx bake --push` from repo root or a model directory.
 
 ## Extract
 
@@ -43,7 +43,7 @@ docker rm t
 
 ## Cloud Run (gemma4-12b-server)
 
-Runnable llama.cpp server image (CUDA). Requires weights in `gemma4-12B/static/model-files/` first.
+Runnable llama.cpp server image (CUDA). Requires weights in `models/gemma4-12B/static/model-files/` first.
 
 **Build**
 ```bash
@@ -78,4 +78,4 @@ Image is pulled via Artifact Registry Docker Hub proxy in production:
 
 Health check: `GET /health`. OpenAI-compatible API on `/v1/chat/completions`.
 
-Invocation guide (auth, curl, Python): [gemma4-12B/serve/INVOKE.md](gemma4-12B/serve/INVOKE.md).
+Invocation guide (auth, curl, Python): [models/gemma4-12B/serve/INVOKE.md](models/gemma4-12B/serve/INVOKE.md).

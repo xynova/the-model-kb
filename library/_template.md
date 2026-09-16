@@ -13,6 +13,10 @@ vram_hint: unknown
 links:
   homepage: https://example.com
   github: https://github.com/example/repo
+media:
+  cover: category/example-slug/media/cover.jpg
+  gallery:
+    - category/example-slug/media/01.jpg
 source: "weekly roundup YYYY-MM-DD"
 added: YYYY-MM-DD
 ---
@@ -34,6 +38,10 @@ Concrete trigger: situation or constraint that makes this the right pick.
 ## Caveats
 
 License, VRAM, quality limits, closed API, non-commercial components, or other blockers.
+
+## Gallery
+
+Optional identifying stills (roundup frames and/or project OG image). Omit this section when `media` is absent.
 
 ## Links
 

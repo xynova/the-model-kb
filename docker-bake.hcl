@@ -9,7 +9,7 @@ target "gemma" {
     "docker.io/xynova/gemma-model:latest",
     "docker.io/xynova/gemma-model:gemma-3n-E4B-it-Q6_K"
   ]
-  context = "gemma-model"
+  context = "models/gemma-model"
   output = ["type=registry"]
 }
 
@@ -20,7 +20,7 @@ target "qwen" {
     "docker.io/xynova/qwen-model:latest",
     "docker.io/xynova/qwen-model:Qwen3VL-4B-Instruct-Q4_K_M"
   ]
-  context = "qwen-model"
+  context = "models/qwen-model"
   output = ["type=registry"]
 }
 
@@ -31,7 +31,7 @@ target "bge-base" {
     "docker.io/xynova/bge-base-model:latest",
     "docker.io/xynova/bge-base-model:bge-base-en-v1.5-q4_k_m"
   ]
-  context = "bge-base-model"
+  context = "models/bge-base-model"
   output = ["type=registry"]
 }
 
@@ -42,7 +42,7 @@ target "gemma4-12B" {
     "docker.io/xynova/gemma4-12b-model:latest",
     "docker.io/xynova/gemma4-12b-model:gemma-4-12B-it-QAT-Q4_0"
   ]
-  context = "gemma4-12B/static"
+  context = "models/gemma4-12B/static"
   output = ["type=registry"]
 }
 
@@ -53,7 +53,7 @@ target "gemma4-12B-serve" {
     "docker.io/xynova/gemma4-12b-server:latest",
     "docker.io/xynova/gemma4-12b-server:gemma-4-12B-it-QAT-Q4_0"
   ]
-  context = "gemma4-12B"
+  context = "models/gemma4-12B"
   output = ["type=registry"]
 }
 
@@ -64,6 +64,6 @@ target "onrith-1" {
     "docker.io/xynova/onrith-1-model:latest",
     "docker.io/xynova/onrith-1-model:ornith-1.0-9b-Q4_K_M"
   ]
-  context = "onrith-1"
+  context = "models/onrith-1"
   output = ["type=registry"]
 }

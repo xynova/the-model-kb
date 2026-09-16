@@ -4,11 +4,11 @@
 
 | Directory | Docker repo | model-files/ contents | Artifacts in image |
 |-----------|-------------|----------------------|-------------------|
-| gemma-model | xynova/gemma-model | `gemma-3n-E4B-it-Q6_K.gguf` | `/gemma-3n-E4B-it-Q6_K.gguf` |
-| gemma4-12B/static | xynova/gemma4-12b-model | `gemma-4-12B-it-QAT-Q4_0.gguf`, `mmproj-...gguf` | `/gemma-4-12B-it-QAT-Q4_0.gguf`, `/mmproj-gemma-4-12B-it-QAT-BF16.gguf` |
-| qwen-model | xynova/qwen-model | `Qwen3VL-4B-Instruct-Q4_K_M.gguf`, `mmproj-...gguf` | `/Qwen3VL-4B-Instruct-Q4_K_M.gguf`, `/mmproj-Qwen3VL-4B-Instruct-F16.gguf` |
-| bge-base-model | xynova/bge-base-model | `bge-base-en-v1.5-q4_k_m.gguf` | `/bge-base-en-v1.5-q4_k_m.gguf` |
-| onrith-1 | xynova/onrith-1-model | `ornith-1.0-9b-Q4_K_M.gguf` | `/ornith-1.0-9b-Q4_K_M.gguf` |
+| models/gemma-model | xynova/gemma-model | `gemma-3n-E4B-it-Q6_K.gguf` | `/gemma-3n-E4B-it-Q6_K.gguf` |
+| models/gemma4-12B/static | xynova/gemma4-12b-model | `gemma-4-12B-it-QAT-Q4_0.gguf`, `mmproj-...gguf` | `/gemma-4-12B-it-QAT-Q4_0.gguf`, `/mmproj-gemma-4-12B-it-QAT-BF16.gguf` |
+| models/qwen-model | xynova/qwen-model | `Qwen3VL-4B-Instruct-Q4_K_M.gguf`, `mmproj-...gguf` | `/Qwen3VL-4B-Instruct-Q4_K_M.gguf`, `/mmproj-Qwen3VL-4B-Instruct-F16.gguf` |
+| models/bge-base-model | xynova/bge-base-model | `bge-base-en-v1.5-q4_k_m.gguf` | `/bge-base-en-v1.5-q4_k_m.gguf` |
+| models/onrith-1 | xynova/onrith-1-model | `ornith-1.0-9b-Q4_K_M.gguf` | `/ornith-1.0-9b-Q4_K_M.gguf` |
 
 Update this table when adding a model.
 
@@ -70,10 +70,12 @@ target "{bake-target}" {
     "docker.io/xynova/{repo-name}:latest",
     "docker.io/xynova/{repo-name}:{version-tag}"
   ]
-  context = "{model-dir}"
+  context = "models/{short-dir}"
   output = ["type=registry"]
 }
 ```
+
+Use a path under `models/` (for example `models/gemma-model` or `models/gemma4-12B/static`).
 
 ## README extract snippet templates
 
