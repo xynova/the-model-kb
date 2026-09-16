@@ -3,6 +3,8 @@ package errors
 import (
 	"errors"
 	"fmt"
+	"sort"
+	"strings"
 )
 
 // Code is a stable machine-readable error class.
@@ -29,10 +31,25 @@ func (e *Error) Error() string {
 	if e == nil {
 		return "<nil>"
 	}
+	var base string
 	if e.Cause == nil {
-		return fmt.Sprintf("%s: %s", e.Op, e.Message)
+		base = fmt.Sprintf("%s: %s", e.Op, e.Message)
+	} else {
+		base = fmt.Sprintf("%s: %s: %v", e.Op, e.Message, e.Cause)
 	}
-	return fmt.Sprintf("%s: %s: %v", e.Op, e.Message, e.Cause)
+	if len(e.Fields) == 0 {
+		return base
+	}
+	keys := make([]string, 0, len(e.Fields))
+	for k := range e.Fields {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	parts := make([]string, 0, len(keys))
+	for _, k := range keys {
+		parts = append(parts, fmt.Sprintf("%s=%v", k, e.Fields[k]))
+	}
+	return base + " [" + strings.Join(parts, " ") + "]"
 }
 
 func (e *Error) Unwrap() error {

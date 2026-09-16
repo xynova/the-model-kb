@@ -1,5 +1,6 @@
 ---
 title: Agents and memory
+weight: 20
 sidebar:
   open: true
 ---

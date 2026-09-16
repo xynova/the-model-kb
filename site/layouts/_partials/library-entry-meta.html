@@ -1,0 +1,14 @@
+{{- /*
+  Entry skim strip: does / run / license / status under the title.
+*/ -}}
+{{- $isLibrary := or (eq .Section "library") (strings.Contains .RelPermalink "/library/") -}}
+{{- $isEntry := and $isLibrary .Params.does -}}
+{{- if $isEntry -}}
+<link rel="stylesheet" href="{{ "css/library-catalog.css" | relURL }}">
+<div class="library-entry-meta" aria-label="Library skim">
+  {{ partial "library-chip.html" (dict "axis" "does" "value" .Params.does) }}
+  {{ partial "library-chip.html" (dict "axis" "run" "value" .Params.run) }}
+  {{ partial "library-chip.html" (dict "axis" "license" "value" .Params.license) }}
+  {{ partial "library-chip.html" (dict "axis" "status" "value" .Params.status) }}
+</div>
+{{- end -}}

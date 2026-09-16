@@ -13,16 +13,18 @@ import (
 
 // ExtractConfig holds frame extraction construction inputs.
 type ExtractConfig struct {
-	YtDlpBin  string
-	FFmpegBin string
-	Runner    *execx.Runner
+	YtDlpBin           string
+	FFmpegBin          string
+	YtDlpExtractorArgs string
+	Runner             *execx.Runner
 }
 
 // Extractor downloads a YouTube video and extracts sparse JPEG frames.
 type Extractor struct {
-	ytDlp  string
-	ffmpeg string
-	runner *execx.Runner
+	ytDlp         string
+	ffmpeg        string
+	extractorArgs string
+	runner        *execx.Runner
 }
 
 // CreateExtractor builds an Extractor.
@@ -39,7 +41,12 @@ func (c ExtractConfig) CreateExtractor() *Extractor {
 	if ff == "" {
 		ff = "ffmpeg"
 	}
-	return &Extractor{ytDlp: yt, ffmpeg: ff, runner: runner}
+	return &Extractor{
+		ytDlp:         yt,
+		ffmpeg:        ff,
+		extractorArgs: strings.TrimSpace(c.YtDlpExtractorArgs),
+		runner:        runner,
+	}
 }
 
 // Extract downloads the video into a scratch dir under outDir and writes frame_*.jpg.
@@ -73,15 +80,20 @@ func (e *Extractor) Extract(ctx context.Context, youtubeURL, outDir string, inte
 	defer os.RemoveAll(scratch)
 
 	outTemplate := filepath.Join(scratch, "video.%(ext)s")
-	_, err = e.runner.Run(ctx, e.ytDlp,
-		"--no-update",
-		"-f", "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/best",
+	ytArgs := []string{"--no-update"}
+	if e.extractorArgs != "" {
+		ytArgs = append(ytArgs, "--extractor-args", e.extractorArgs)
+	}
+	// Prefer progressive MP4 under 720p when available; fall back to merge/best.
+	ytArgs = append(ytArgs,
+		"-f", "b[height<=720][ext=mp4]/bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/best",
 		"-o", outTemplate,
 		"--merge-output-format", "mp4",
 		youtubeURL,
 	)
-	if err != nil {
-		return 0, err
+	if _, err = e.runner.Run(ctx, e.ytDlp, ytArgs...); err != nil {
+		return 0, derrors.Wrap(err, derrors.CodeFailed, "frames.Extract", "yt-dlp download").
+			With("url", youtubeURL)
 	}
 
 	videoPath, err := findVideo(scratch)
@@ -96,15 +108,16 @@ func (e *Extractor) Extract(ctx context.Context, youtubeURL, outDir string, inte
 	}
 
 	framePattern := filepath.Join(outDir, "frame_%04d.jpg")
-	_, err = e.runner.Run(ctx, e.ffmpeg,
+	if _, err = e.runner.Run(ctx, e.ffmpeg,
 		"-hide_banner", "-loglevel", "error", "-y",
 		"-i", videoPath,
 		"-vf", fmt.Sprintf("fps=1/%d", intervalSeconds),
 		"-q:v", "3",
 		framePattern,
-	)
-	if err != nil {
-		return 0, err
+	); err != nil {
+		return 0, derrors.Wrap(err, derrors.CodeFailed, "frames.Extract", "ffmpeg extract").
+			With("video", videoPath).
+			With("outdir", outDir)
 	}
 
 	files, err := filepath.Glob(filepath.Join(outDir, "frame_*.jpg"))

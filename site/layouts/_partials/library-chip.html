@@ -1,0 +1,12 @@
+{{- /*
+  Skim chip for library axes.
+  Params: dict "axis" "does|run|license|status" "value" "..."
+*/ -}}
+{{- $axis := .axis -}}
+{{- $value := .value -}}
+{{- if $value -}}
+<span class="library-chip library-chip--{{ $axis }}">
+  <span class="library-chip__axis">{{ $axis }}</span>
+  <span class="library-chip__value">{{ $value }}</span>
+</span>
+{{- end -}}

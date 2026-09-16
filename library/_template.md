@@ -1,7 +1,9 @@
 ---
 name: example-slug
 title: Example Title
+summary: "One-line what it is for index skim."
 category: models
+does: llm
 tags:
   - llm
   - open
@@ -27,6 +29,10 @@ added: YYYY-MM-DD
 
 One or two sentences: what the tool or model does.
 
+| | |
+|:---:|:---:|
+| ![example-slug 1](example-slug/media/thumb-cover.jpg) | ![example-slug 2](example-slug/media/thumb-01.jpg) |
+
 ## Why keep
 
 The future job this entry supports (run locally, wire into a pipeline, or compare when choosing).
@@ -38,10 +44,6 @@ Concrete trigger: situation or constraint that makes this the right pick.
 ## Caveats
 
 License, VRAM, quality limits, closed API, non-commercial components, or other blockers.
-
-## Gallery
-
-Optional identifying stills (roundup frames and/or project OG image). Omit this section when `media` is absent.
 
 ## Links
 

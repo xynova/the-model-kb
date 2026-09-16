@@ -1,7 +1,9 @@
 ---
 name: fibo-1.5
 title: Fibo 1.5
+summary: "Bria JSON-native image generator/editor; 1.5 is a faster few-step distilled FIBO build with structured prompts and natural-language edits."
 category: creative
+does: image
 tags:
   - image
   - open
@@ -15,7 +17,13 @@ links:
   homepage: https://github.com/Bria-AI/FIBO
   github: https://github.com/Bria-AI/FIBO
   weights: https://huggingface.co/briaai/Fibo-1.5
-source: "weekly roundup 2026-08-31"
+media:
+  cover: creative/fibo-1.5/media/cover.jpg
+  gallery:
+    - creative/fibo-1.5/media/g01.jpg
+    - creative/fibo-1.5/media/g02.jpg
+    - creative/fibo-1.5/media/g03.jpg
+source: "youtube:4wjHNgMLeyY"
 added: 2026-08-31
 ---
 
@@ -24,6 +32,11 @@ added: 2026-08-31
 ## What it is
 
 Bria JSON-native image generator/editor; 1.5 is a faster few-step distilled FIBO build with structured prompts and natural-language edits.
+
+| | |
+|:---:|:---:|
+| ![fibo-1.5 1](fibo-1.5/media/thumb-cover.jpg) | ![fibo-1.5 2](fibo-1.5/media/thumb-g01.jpg) |
+| ![fibo-1.5 3](fibo-1.5/media/thumb-g02.jpg) | ![fibo-1.5 4](fibo-1.5/media/thumb-g03.jpg) |
 
 ## Why keep
 

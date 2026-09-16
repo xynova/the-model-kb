@@ -1,7 +1,9 @@
 ---
 name: qwen-3.8-flash-next
 title: Qwen3.8-Flash-Next
+summary: "Alibaba Qwen open-weight multimodal MoE; early preview of the Qwen4-era architecture."
 category: models
+does: multimodal
 tags:
   - llm
   - vision
@@ -18,7 +20,13 @@ links:
   homepage: https://qwen.ai/blog?id=qwen3.8-flash-next
   github: https://github.com/qwenlm/qwen3.8-flash-next
   weights: https://huggingface.co/Qwen/Qwen3.8-Flash-Next
-source: "weekly roundup 2026-08-31"
+media:
+  cover: models/qwen-3.8-flash-next/media/cover.jpg
+  gallery:
+    - models/qwen-3.8-flash-next/media/g01.jpg
+    - models/qwen-3.8-flash-next/media/g02.jpg
+    - models/qwen-3.8-flash-next/media/g03.jpg
+source: "youtube:4wjHNgMLeyY"
 added: 2026-08-31
 ---
 
@@ -27,6 +35,11 @@ added: 2026-08-31
 ## What it is
 
 Alibaba Qwen open-weight multimodal MoE; early preview of the Qwen4-era architecture. Production hosted twin is Qwen3.8-Flash on QwenCloud.
+
+| | |
+|:---:|:---:|
+| ![qwen-3.8-flash-next 1](qwen-3.8-flash-next/media/thumb-cover.jpg) | ![qwen-3.8-flash-next 2](qwen-3.8-flash-next/media/thumb-g01.jpg) |
+| ![qwen-3.8-flash-next 3](qwen-3.8-flash-next/media/thumb-g02.jpg) | ![qwen-3.8-flash-next 4](qwen-3.8-flash-next/media/thumb-g03.jpg) |
 
 ## Why keep
 

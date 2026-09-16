@@ -1,5 +1,6 @@
 ---
 title: Hardware
+weight: 50
 ---
 
-Local AI boxes, chips, and offline personal AI devices. No kept entries yet.
+Local AI boxes, chips, and offline personal AI devices.

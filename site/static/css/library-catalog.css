@@ -1,0 +1,174 @@
+/* Library catalog skim: chips, index rows, entry meta. Hextra-compatible. */
+:root {
+  --lib-chip-bg: rgba(127, 127, 127, 0.12);
+  --lib-chip-fg: inherit;
+  --lib-row-border: rgba(127, 127, 127, 0.22);
+  --lib-row-hover: rgba(127, 127, 127, 0.08);
+}
+
+.library-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--lib-row-border);
+  background: var(--lib-chip-bg);
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+
+.library-chip__axis {
+  opacity: 0.55;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+}
+
+.library-chip--does {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.library-chip--run {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.library-chip--license {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.library-chip--status {
+  border-color: rgba(127, 127, 127, 0.35);
+}
+
+.library-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--lib-row-border);
+}
+
+.library-index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 1rem 0 1.75rem;
+}
+
+.library-index__heading {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.library-index__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--lib-row-border);
+  border-radius: 0.65rem;
+  background: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.library-index__row:hover,
+.library-index__row:focus-within {
+  background: var(--lib-row-hover);
+  border-color: rgba(127, 127, 127, 0.4);
+}
+
+.library-index__title {
+  display: block;
+  font-weight: 650;
+  font-size: 1.02rem;
+  line-height: 1.3;
+  text-decoration: none;
+  color: inherit;
+}
+
+.library-index__title:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.library-index__name {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.library-index__summary {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  opacity: 0.85;
+  font-weight: 450;
+}
+
+.library-chip--tag {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.08);
+  font-weight: 500;
+}
+
+.library-index__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.library-index__aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.library-index__aside dt {
+  display: inline;
+  font-weight: 550;
+  margin: 0;
+}
+
+.library-index__aside dd {
+  display: inline;
+  margin: 0 0 0 0.25rem;
+}
+
+.library-index__pair {
+  display: inline;
+}
+
+@media (min-width: 720px) {
+  .library-index__row {
+    grid-template-columns: minmax(10rem, 1.4fr) minmax(12rem, 1.6fr) auto;
+    align-items: center;
+  }
+
+  .library-index__aside {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}
+
+@media (max-width: 719px) {
+  .library-index__row {
+    padding: 0.9rem 0.95rem;
+  }
+}

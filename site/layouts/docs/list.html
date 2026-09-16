@@ -18,6 +18,7 @@
           </div>
           {{ end }}
           {{ $content | safeHTML }}
+          {{- partial "library-section-index.html" . -}}
         </div>
         {{ partial "components/last-updated.html" . }}
         {{- if (site.Params.page.displayPagination | default true) -}}

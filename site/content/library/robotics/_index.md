@@ -1,5 +1,6 @@
 ---
 title: Robotics
+weight: 60
 ---
 
-Robot models, demos, and humanoid systems. No kept entries yet.
+Robot models, demos, and humanoid systems.

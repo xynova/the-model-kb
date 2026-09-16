@@ -9,8 +9,10 @@ import (
 	"path/filepath"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/xynova/library-intake/internal/candidates"
+	"github.com/xynova/library-intake/internal/catalog"
 	"github.com/xynova/library-intake/internal/clients/polypus"
 	"github.com/xynova/library-intake/internal/config"
 	derrors "github.com/xynova/library-intake/internal/errors"
@@ -32,6 +34,7 @@ Commands:
   frames       Extract sparse JPEG frames via yt-dlp + ffmpeg
   curate       Map frames to candidates via Polypus Gemma vision
   prepare      transcript + candidates, then soft-fail frames + curate
+  index        Refresh library INDEX.md files and weekly additions
 
 Environment:
   POLYPUS_BASE_URL                 default {{.BaseURL}}
@@ -57,6 +60,8 @@ func Run(ctx context.Context, args []string) error {
 		return runCurate(ctx, cfg, args[1:])
 	case "prepare":
 		return runPrepare(ctx, cfg, args[1:])
+	case "index":
+		return runIndex(ctx, cfg, args[1:])
 	default:
 		return derrors.New(derrors.CodeInvalidArgument, "cli.Run", "unknown command: "+args[0])
 	}
@@ -147,9 +152,10 @@ func runFrames(ctx context.Context, cfg config.Config, args []string) error {
 		dir = filepath.Join(cfg.WorkRoot, id, "frames")
 	}
 	extractor := frames.ExtractConfig{
-		YtDlpBin:  cfg.YtDlpBin,
-		FFmpegBin: cfg.FFmpegBin,
-		Runner:    execx.NewRunner(),
+		YtDlpBin:           cfg.YtDlpBin,
+		FFmpegBin:          cfg.FFmpegBin,
+		YtDlpExtractorArgs: cfg.YtDlpExtractorArgs,
+		Runner:             execx.NewRunner(),
 	}.CreateExtractor()
 	n, err := extractor.Extract(ctx, *url, dir, *interval)
 	if err != nil {
@@ -226,4 +232,66 @@ func runPrepare(ctx context.Context, cfg config.Config, args []string) error {
 		return derrors.Wrap(err, derrors.CodeFailed, "cli.prepare", "encode result")
 	}
 	return nil
+}
+
+func runIndex(ctx context.Context, cfg config.Config, args []string) error {
+	_ = ctx
+	_ = cfg
+	if len(args) == 0 || args[0] == "-h" || args[0] == "--help" {
+		return derrors.New(derrors.CodeInvalidArgument, "cli.index", "usage: library-intake index refresh --library <path>")
+	}
+	switch args[0] {
+	case "refresh":
+		fs := flag.NewFlagSet("index refresh", flag.ContinueOnError)
+		library := fs.String("library", "", "path to library/ root")
+		if err := fs.Parse(args[1:]); err != nil {
+			return derrors.Wrap(err, derrors.CodeInvalidArgument, "cli.index.refresh", "parse flags")
+		}
+		root, err := resolveLibraryRoot(*library)
+		if err != nil {
+			return err
+		}
+		if err := catalog.RefreshIndexes(root); err != nil {
+			return err
+		}
+		if err := catalog.RebuildAdditions(root, time.Now()); err != nil {
+			return err
+		}
+		fmt.Fprintf(os.Stderr, "refreshed indexes under %s\n", root)
+		return nil
+	default:
+		return derrors.New(derrors.CodeInvalidArgument, "cli.index", "unknown subcommand: "+args[0])
+	}
+}
+
+func resolveLibraryRoot(flagValue string) (string, error) {
+	op := "cli.resolveLibraryRoot"
+	root := strings.TrimSpace(flagValue)
+	if root == "" {
+		root = strings.TrimSpace(os.Getenv("LIBRARY_INTAKE_LIBRARY_ROOT"))
+	}
+	if root == "" {
+		// Default: ../../library relative to tools/library-intake when run from that dir.
+		cwd, err := os.Getwd()
+		if err != nil {
+			return "", derrors.Wrap(err, derrors.CodeFailed, op, "getwd")
+		}
+		candidate := filepath.Clean(filepath.Join(cwd, "..", "..", "library"))
+		if st, err := os.Stat(candidate); err == nil && st.IsDir() {
+			root = candidate
+		}
+	}
+	if root == "" {
+		return "", derrors.New(derrors.CodeInvalidArgument, op, "--library is required (or set LIBRARY_INTAKE_LIBRARY_ROOT)")
+	}
+	abs, err := filepath.Abs(root)
+	if err != nil {
+		return "", derrors.Wrap(err, derrors.CodeInvalidArgument, op, "abs library path").With("library", root)
+	}
+	st, err := os.Stat(abs)
+	if err != nil || !st.IsDir() {
+		return "", derrors.Wrap(err, derrors.CodeNotFound, op, "library root is not a directory").
+			With("library", abs)
+	}
+	return abs, nil
 }
