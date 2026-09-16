@@ -1,7 +1,10 @@
 ---
 title: Roster
+type: docs
 sidebar:
   open: true
+cascade:
+  type: docs
 ---
 
 Decision shelf for choosing a model for a task: price, third-party capability signals, and your own experience notes.

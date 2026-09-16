@@ -2,7 +2,7 @@
 # Catalog sources remain outside site/ and are mounted as content.
 
 baseURL = "https://xynova.github.io/the-model-kb/"
-title = "Xynova Models"
+title = "the-model-kb"
 languageCode = "en-us"
 enableRobotsTXT = true
 enableGitInfo = true
@@ -101,7 +101,7 @@ ignoreFiles = [
       icon = "github"
 
 [params]
-  description = "Curated AI tools library, packaged Docker models, and a model decision roster."
+  description = "Model knowledge base: curated library, packaged Docker models, and a decision roster."
 
   [params.navbar]
     displayTitle = true

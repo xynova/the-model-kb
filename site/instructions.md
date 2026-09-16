@@ -1,4 +1,4 @@
-# Public catalog site
+# the-model-kb site
 
 ## Project overview
 

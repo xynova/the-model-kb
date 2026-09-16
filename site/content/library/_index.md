@@ -1,7 +1,10 @@
 ---
 title: Library
+type: docs
 sidebar:
   open: true
+cascade:
+  type: docs
 ---
 
 Curated shelf of AI tools and systems to revisit when there is time and a real need. Not a news archive.
