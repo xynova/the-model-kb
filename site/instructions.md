@@ -23,7 +23,8 @@ Markdown catalogs stay outside `site/`. The site mounts them (or a generated ros
 - Library section indexes: responsive skim rows with does / run / license chips (`layouts/_partials/library-section-index.html`, `static/css/library-catalog.css`)
 - Library entry skim strip under the title (`layouts/_partials/library-entry-meta.html`)
 - Library entry stills: GLightbox gallery grid injected under **What it is** from frontmatter `media` (`layouts/_partials/library-gallery.html`, vendored under `static/vendor/glightbox/`)
-- Root `make serve` / `make build` / `make clean`
+- Root `make serve` / `make build` / `make clean` / `make check-links`
+- Internal link gate via htmltest (CI on PR + deploy; optional local pre-push hook)
 - GitHub Pages deploy from `.github/workflows/library-site.yml`
 
 ## Docs and libraries
@@ -66,10 +67,19 @@ models/                    # Markdown docs mounted at content/models
 From the repository root:
 
 ```bash
-make serve   # http://localhost:1313/
-make build   # production build into site/public/
-make clean   # remove site/public/, resources/, generated/
+make serve        # http://localhost:1313/
+make build        # production build into site/public/
+make check-links  # build + htmltest internal link check (needs htmltest on PATH)
+make clean        # remove site/public/, resources/, generated/
 ```
+
+Install the optional pre-push hook (runs `make -C site check-links` when site/library/roster/models change):
+
+```bash
+./scripts/install-git-hooks.sh
+```
+
+`htmltest` install: `brew install htmltest` (or a release binary from [wjdp/htmltest](https://github.com/wjdp/htmltest/releases)).
 
 Packaging (also from repo root):
 

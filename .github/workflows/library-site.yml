@@ -1,4 +1,6 @@
 # Build and deploy the catalog Hugo site to GitHub Pages.
+# PRs and pushes that touch catalog/site paths run build + internal link check.
+# Deploy runs only on push to main (and workflow_dispatch).
 name: Deploy library site
 
 on:
@@ -10,15 +12,20 @@ on:
       - "models/**"
       - "site/**"
       - ".github/workflows/library-site.yml"
+  pull_request:
+    paths:
+      - "library/**"
+      - "roster/**"
+      - "models/**"
+      - "site/**"
+      - ".github/workflows/library-site.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.event.pull_request.number || github.ref }}"
   cancel-in-progress: false
 
 defaults:
@@ -30,6 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.152.2
+      HTMLTEST_VERSION: 0.17.0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,6 +52,7 @@ jobs:
           cache-dependency-path: site/go.sum
 
       - name: Setup Pages
+        if: github.event_name != 'pull_request'
         id: pages
         uses: actions/configure-pages@v5
 
@@ -54,7 +63,25 @@ jobs:
           sudo dpkg -i "${{ runner.temp }}/hugo.deb"
           hugo version
 
+      - name: Install htmltest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "v${HTMLTEST_VERSION}" \
+            --repo wjdp/htmltest \
+            --pattern "htmltest_${HTMLTEST_VERSION}_linux_amd64.tar.gz" \
+            --dir "${{ runner.temp }}"
+          tar -xzf "${{ runner.temp }}/htmltest_${HTMLTEST_VERSION}_linux_amd64.tar.gz" \
+            -C "${{ runner.temp }}"
+          sudo install -m 0755 "${{ runner.temp }}/htmltest" /usr/local/bin/htmltest
+          htmltest --version
+
+      - name: Check internal links
+        working-directory: site
+        run: make check-links
+
       - name: Build with Hugo
+        if: github.event_name != 'pull_request'
         working-directory: site
         env:
           HUGO_ENVIRONMENT: production
@@ -66,11 +93,16 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/public
 
   deploy:
+    if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

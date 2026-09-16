@@ -1,5 +1,5 @@
-.PHONY: serve build clean site-serve site-build site-clean \
-	docker-print docker-push docker-push-target
+.PHONY: serve build clean site-serve site-build site-clean site-check-links \
+	check-links docker-print docker-push docker-push-target
 
 BAKE_FILE ?= models/docker-bake.hcl
 
@@ -9,6 +9,9 @@ serve site-serve:
 
 build site-build:
 	$(MAKE) -C site build
+
+check-links site-check-links:
+	$(MAKE) -C site check-links
 
 clean site-clean:
 	$(MAKE) -C site clean

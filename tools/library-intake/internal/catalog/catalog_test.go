@@ -109,6 +109,12 @@ Closed music generator over an API.
 	if !strings.Contains(week, "## models") || !strings.Contains(week, "## creative") {
 		t.Fatalf("week missing section indexes:\n%s", week)
 	}
+	if !strings.Contains(week, "](/library/models/auk/)") {
+		t.Fatalf("week entry links must use Hugo site permalinks:\n%s", week)
+	}
+	if strings.Contains(week, "](../") || strings.Contains(week, ".md)") {
+		t.Fatalf("week entry links must not use repo-relative .md paths:\n%s", week)
+	}
 	if strings.Contains(week, "| added |") {
 		t.Fatalf("week tables should not show added column:\n%s", week)
 	}
