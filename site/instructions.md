@@ -23,6 +23,8 @@ Markdown catalogs stay outside `site/`. The site mounts them (or a generated ros
 - Library section indexes: responsive skim rows with does / run / license chips (`layouts/_partials/library-section-index.html`, `static/css/library-catalog.css`)
 - Library entry skim strip under the title (`layouts/_partials/library-entry-meta.html`)
 - Library entry stills: GLightbox gallery grid injected under **What it is** from frontmatter `media` (`layouts/_partials/library-gallery.html`, vendored under `static/vendor/glightbox/`)
+- Personal check board at `/board/` (`content/board.md`, `layouts/board/single.html`, `static/js/board.js`, `static/css/board.css`): browser-local kanban for library, models, and roster entries with personal notes; `localStorage` only (not synced across devices; does not change catalog Markdown)
+- Entry pages offer Add/Remove board controls via `layouts/_partials/board-entry-control.html`
 - Root `make serve` / `make build` / `make clean` / `make check-links`
 - Internal link gate via htmltest (CI on PR + deploy; optional local pre-push hook)
 - GitHub Pages deploy from `.github/workflows/library-site.yml`
@@ -47,9 +49,17 @@ site/
   instructions.md
   content/
     _index.md              # Homepage
+    board.md               # Personal check board (localStorage kanban)
     library/<category>/    # Library section overlays
     models/<package>/      # Package pages
     roster/<category>/     # Roster section overlays
+  layouts/
+    board/single.html      # Board page + catalog JSON payload
+    docs/single.html       # Catalog entry chrome + board control
+    _partials/board-entry-control.html
+  static/
+    js/board.js
+    css/board.css
   generated/roster/        # Build output (gitignored)
   public/                  # Build output (gitignored)
 
