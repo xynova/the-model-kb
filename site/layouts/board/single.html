@@ -1,0 +1,155 @@
+{{ define "main" }}
+  {{- /* Catalog payload: library/roster leaves plus top-level model packages. */ -}}
+  {{- $catalog := slice -}}
+  {{- range .Site.RegularPages -}}
+    {{- if in (slice "library" "roster") .Section -}}
+      {{- $summary := .Params.summary | default "" -}}
+      {{- if and (eq $summary "") .Params.does -}}
+        {{- $summary = printf "%s" .Params.does -}}
+      {{- end -}}
+      {{- $record := dict
+        "id" .RelPermalink
+        "title" (.Title | default .File.ContentBaseName)
+        "section" .Section
+        "url" .RelPermalink
+        "summary" $summary
+        "tags" (.Params.tags | default slice)
+        "catalogStatus" (.Params.status | default "")
+        "run" (.Params.run | default "")
+      -}}
+      {{- $catalog = $catalog | append $record -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with site.GetPage "/models" -}}
+    {{- range .Sections -}}
+      {{- $record := dict
+        "id" .RelPermalink
+        "title" (.Title | default .File.ContentBaseName)
+        "section" "models"
+        "url" .RelPermalink
+        "summary" (.Params.summary | default "")
+        "tags" (.Params.tags | default slice)
+        "catalogStatus" (.Params.status | default "")
+        "run" (.Params.run | default "")
+      -}}
+      {{- $catalog = $catalog | append $record -}}
+    {{- end -}}
+  {{- end -}}
+
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+        {{ partial "breadcrumb.html" (dict "page" . "enable" true) }}
+        <div class="content">
+          {{ if .Title }}
+          <div class="hx:flex hx:flex-col hx:sm:flex-row hx:items-start hx:sm:items-center hx:sm:justify-between hx:gap-4 hx:mb-4">
+            <h1 class="hx:mb-0">{{ .Title }}</h1>
+            {{ partial "components/page-context-menu" . }}
+          </div>
+          {{ end }}
+          {{ .Content }}
+
+          <link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
+          <noscript>
+            <p class="board-noscript">Enable JavaScript to manage your personal check board. Catalog links still work from Library, Models, and Roster.</p>
+          </noscript>
+
+          <div
+            id="board-app"
+            class="board-app"
+            data-board-root
+            hidden
+          >
+            <div class="board-toolbar" role="region" aria-label="Board controls">
+              <div class="board-toolbar__primary">
+                <button
+                  type="button"
+                  class="board-btn board-btn--primary"
+                  data-board-open-add
+                  aria-haspopup="dialog"
+                  aria-controls="board-add-dialog"
+                >
+                  Quick add
+                </button>
+                <label class="board-field board-field--inline">
+                  <span class="board-field__label">Section</span>
+                  <select class="board-select" data-board-section-filter>
+                    <option value="all">All</option>
+                    <option value="library">Library</option>
+                    <option value="models">Models</option>
+                    <option value="roster">Roster</option>
+                  </select>
+                </label>
+                <label class="board-field board-field--inline">
+                  <span class="board-field__label">Sort</span>
+                  <select class="board-select" data-board-sort>
+                    <option value="updated">Recently updated</option>
+                    <option value="added">Recently added</option>
+                    <option value="title">Title</option>
+                  </select>
+                </label>
+              </div>
+              <p class="board-message" data-board-message role="status" aria-live="polite"></p>
+            </div>
+
+            <section class="board-kanban" aria-label="Personal check board">
+              <h2 class="board-heading">Personal check status</h2>
+              <p class="board-hint">This is your browser-local check workflow. It is separate from each entry’s shared catalog status. Use Quick add to search the catalog.</p>
+              <div class="board-columns" data-board-columns>
+                {{- range (slice
+                  (dict "id" "to_check" "label" "To check")
+                  (dict "id" "checking" "label" "Checking")
+                  (dict "id" "done" "label" "Done")
+                ) -}}
+                <section class="board-column" data-board-column="{{ .id }}" aria-labelledby="board-col-{{ .id }}">
+                  <header class="board-column__header">
+                    <h3 id="board-col-{{ .id }}" class="board-column__title">{{ .label }}</h3>
+                    <span class="board-column__count" data-board-count="{{ .id }}">0</span>
+                  </header>
+                  <div class="board-column__cards" data-board-drop="{{ .id }}"></div>
+                </section>
+                {{- end -}}
+              </div>
+            </section>
+
+            <dialog
+              id="board-add-dialog"
+              class="board-dialog"
+              data-board-add-dialog
+              aria-labelledby="board-add-title"
+            >
+              <div class="board-dialog__panel">
+                <header class="board-dialog__header">
+                  <h2 id="board-add-title" class="board-dialog__title">Quick add</h2>
+                  <button type="button" class="board-btn board-btn--small" data-board-close-add>Close</button>
+                </header>
+                <div class="board-dialog__body">
+                  <div class="board-dialog__filters">
+                    <label class="board-field">
+                      <span class="board-field__label">Search catalog</span>
+                      <input type="search" class="board-input" data-board-search placeholder="Title, tag, or summary" autocomplete="off">
+                    </label>
+                    <label class="board-field">
+                      <span class="board-field__label">Section</span>
+                      <select class="board-select" data-board-add-section>
+                        <option value="all">All</option>
+                        <option value="library">Library</option>
+                        <option value="models">Models</option>
+                        <option value="roster">Roster</option>
+                      </select>
+                    </label>
+                  </div>
+                  <ul class="board-catalog" data-board-catalog></ul>
+                </div>
+              </div>
+            </dialog>
+          </div>
+
+          {{- $catalogJSON := $catalog | jsonify -}}
+          {{- printf "<script type=\"application/json\" id=\"board-catalog-data\">%s</script>" $catalogJSON | safeHTML -}}
+          <script src="{{ "js/board.js" | relURL }}" defer></script>
+        </div>
+      </main>
+    </article>
+  </div>
+{{ end }}

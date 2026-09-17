@@ -17,6 +17,7 @@
             {{ partial "components/page-context-menu" . }}
           </div>
           {{ end }}
+          {{- partial "board-entry-control.html" . -}}
           {{ $content | safeHTML }}
           {{- partial "library-section-index.html" . -}}
         </div>

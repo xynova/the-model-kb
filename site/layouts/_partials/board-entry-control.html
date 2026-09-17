@@ -1,0 +1,34 @@
+{{- /*
+  Add/remove control for catalog entry pages.
+  Library and roster: leaf pages only.
+  Models: top-level package sections only (not nested INVOKE docs).
+*/ -}}
+{{- $sec := .Section -}}
+{{- $isEntry := false -}}
+{{- if in (slice "library" "roster") $sec -}}
+  {{- if eq .Kind "page" -}}
+    {{- $isEntry = true -}}
+  {{- end -}}
+{{- else if eq $sec "models" -}}
+  {{- with site.GetPage "/models" -}}
+    {{- if and (eq $.Kind "section") $.Parent (eq $.Parent.RelPermalink .RelPermalink) -}}
+      {{- $isEntry = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $isEntry -}}
+<link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
+<div
+  class="board-entry-control"
+  data-board-entry
+  data-board-id="{{ .RelPermalink }}"
+  data-board-title="{{ .Title | default .File.ContentBaseName }}"
+  data-board-section="{{ $sec }}"
+  data-board-url="{{ .RelPermalink }}"
+  data-board-summary="{{ .Params.summary | default .Params.does | default "" }}"
+>
+  <button type="button" class="board-btn" data-board-toggle>Add to board</button>
+  <a class="board-entry-control__link" href="{{ "board/" | relURL }}">Open board</a>
+</div>
+<script src="{{ "js/board.js" | relURL }}" defer></script>
+{{- end -}}

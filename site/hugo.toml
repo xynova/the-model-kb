@@ -78,18 +78,18 @@ ignoreFiles = [
     weight = 1
 
   [[menu.main]]
-    name = "Additions"
-    pageRef = "/library/additions"
+    name = "Local Models"
+    pageRef = "/models"
     weight = 2
 
   [[menu.main]]
-    name = "Models"
-    pageRef = "/models"
+    name = "Model Picks"
+    pageRef = "/roster"
     weight = 3
 
   [[menu.main]]
-    name = "Roster"
-    pageRef = "/roster"
+    name = "Board"
+    pageRef = "/board"
     weight = 4
 
   [[menu.main]]
