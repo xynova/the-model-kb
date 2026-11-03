@@ -113,15 +113,52 @@ PROHIBITED:
 Skip WebSearch because a nice demo frame exists; invent links from the video overlay
 ```
 
+**CONSTRAINT:** Skip intro, outro, and sponsor reads before any keep ask
+
+Before writing `keep? y/n` for a candidate, complete this gate in working memory:
+
+```text
+Candidate: [title]
+Sponsor read or intro/outro with no product to file: YES: [quote from transcript, candidate why, or roundup wording] / NO
+Decision: SKIP silently | ASK keep? y/n
+If SKIP: next_keepable: [next title that would be ASK, or none]
+If ASK: name: [title]
+        category: [taxonomy category]
+```
+
+YES evidence MUST be a quote. Typical sponsor quotes: `sponsor of this video`, `this week's sponsor`, `paid partnership`, `check out [brand]` as a mid-roll ad, or a host pitch whose only job is the sponsor link. Intro/outro YES is spectacle with no product to file.
+
+- MUST: On SKIP, do not write `keep? y/n` for that candidate. Advance to the next ASK candidate in the same turn (one short skip clause is allowed).
+- MUST NOT: Ask keep on a paid sponsor even if they demo a real product (Relight Studio, agents, a model API).
+- MUST NOT: File a sponsor because GLM listed it in candidates JSON.
+
+Enforcement: Each keep ask's title was ASK in the gate; sponsor quotes never sit next to `keep? y/n`.
+Violation: STOP, skip remaining sponsor asks, continue with the next ASK candidate.
+
+CORRECT:
+```text
+Candidate: Luma
+Sponsor read or intro/outro with no product to file: YES: "sponsor of this video"
+Decision: SKIP silently
+If SKIP: next_keepable: JST-2
+```
+
+PROHIBITED:
+```text
+[9/21] Luma | creative
+... Relight Studio ...
+keep? y/n
+```
+
 **CONSTRAINT:** Keep gate before any write (one candidate at a time)
 
-- MUST: Parse all candidates first (skip intro/outro), then ask about **exactly one** candidate per turn.
-- MUST: For each candidate, show name, suggested category, one-line why (future job or drop reason), and ask `keep? y/n` (or Yes/No). Wait for the reply before the next candidate.
+- MUST: Parse all candidates first, then ask about **exactly one ASK candidate** per turn (see skip gate above).
+- MUST: For an ASK candidate, show name, suggested category, one-line why (future job or drop reason), and ask `keep? y/n` (or Yes/No). Wait for the reply before the next ASK candidate.
 - MUST NOT: Present a batch keep list and treat a single `y`/`yes` as approval of every candidate.
 - MUST NOT: Auto-keep the whole dump.
 - MUST NOT: Write that candidate's entry (or refresh INDEX for it) until the user answers `y` for that candidate.
-- MUST: On `n`, skip with no file; move to the next candidate.
-- MUST: On `y`, enrich (WebSearch links required) → attach curated stills when available → write → `library-intake index refresh`, then ask about the next candidate (unless the user stops the intake).
+- MUST: On `n`, skip with no file; move to the next ASK candidate.
+- MUST: On `y`, enrich (WebSearch links required) → attach curated stills when available → write → `library-intake index refresh`, then ask about the next ASK candidate (unless the user stops the intake).
 
 Enforcement: Each keep decision in chat names one candidate; no multi-keeper Write before one-per-candidate `y`.
 Violation: STOP, do not batch-write; revert unsolicited batch files if the user asks; resume one-at-a-time.
@@ -202,7 +239,7 @@ Copy this checklist and track progress:
 - [ ] Read library/taxonomy.md and library/_template.md
 - [ ] If YouTube: tools/library-intake prepare → tmp/library-intake/
 - [ ] Load candidates JSON (or agent-parse short paste)
-- [ ] For each candidate: ask keep? y/n; wait
+- [ ] For each candidate: skip-gate (sponsor / intro / outro); ask keep? y/n only on ASK; wait
 - [ ] On y: dedup, WebSearch enrich (required), attach media if any, write entry, `index refresh`
 - [ ] On n: skip; next candidate
 - [ ] After last candidate: summarize kept vs skipped
@@ -219,11 +256,11 @@ Copy this checklist and track progress:
      Fail closed if transcript or candidates fail. Soft-fail media is OK (`MediaSkipped` in prepare JSON).
    - **Pasted dump:** Use the attached text as-is.
 
-3. **Parse** — Load `tmp/library-intake/<id>.candidates.parsed.json` for YouTube. Skip intro/outro with no tool to file. One candidate = one product/model/system. Do not write yet.
+3. **Parse** — Load `tmp/library-intake/<id>.candidates.parsed.json` for YouTube. Run the skip gate on each row (intro/outro and sponsor reads). One candidate = one product/model/system. Do not write yet. Do not ask keep on SKIP rows.
    - Short paste: agent parse is allowed.
    - Set `source` for later frontmatter to the URL or dump label (e.g. `youtube:nZYJdwM-_nI`).
 
-4. **Ask one** — For the next candidate only: name, suggested category, then a **decision cold read**. End with `keep? y/n`.
+4. **Ask one** — For the next ASK candidate only: name, suggested category, then a **decision cold read**. End with `keep? y/n`.
    - MUST cover, when known: what it is; performance or why it matters; price/cost; how you run it; one caveat.
    - Voice: **direct but readable**. Short complete sentences. Lead with facts. No filler, no hype, no “worth keeping if…” pep talk unless it adds a real decision fork.
    - MUST NOT: Fluffy openers (“people are excited”, “the reason it is getting attention”). MUST NOT: Datasheet bullet stacks as the default. MUST NOT: Paper jargon unless the user asks `explain`.
@@ -284,6 +321,10 @@ Weekly additions (`library/additions/YYYY-Www.md`) use calendar titles (for exam
       Method: Timeline: one ask → one reply → at most one new entry
       Pass: One-at-a-time
       Fail: STOP, revert batch if user requests, resume interactive
+- [ ] **Sponsors not asked:** Sponsor reads and intro/outro spectacle were SKIP, not `keep? y/n`
+      Method: Chat keep asks vs transcript quotes (`sponsor of this video`, mid-roll ad, intro/outro with no product)
+      Pass: No `keep?` on those rows; next ASK candidate was asked instead
+      Fail: STOP, skip remaining sponsor asks, continue with the next ASK candidate
 - [ ] **Tags legal:** Every tag is in taxonomy allowed list
       Method: Diff tags vs taxonomy
       Pass: All tags listed

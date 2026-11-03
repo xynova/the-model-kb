@@ -7,6 +7,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -56,5 +57,12 @@ func TestProposeFromFile(t *testing.T) {
 	}
 	if _, err := os.Stat(out); err != nil {
 		t.Fatal(err)
+	}
+}
+
+func TestSystemPromptOmitsSponsorReads(t *testing.T) {
+	t.Parallel()
+	if !strings.Contains(candidates.SystemPrompt, "NEVER include paid sponsor reads") {
+		t.Fatal("system prompt must omit paid sponsor reads")
 	}
 }
