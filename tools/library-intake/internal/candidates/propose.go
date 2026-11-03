@@ -11,7 +11,8 @@ import (
 	derrors "github.com/xynova/library-intake/internal/errors"
 )
 
-const systemPrompt = `You extract library intake candidates from an AI news video transcript. Reply with JSON only matching {"candidates":[{"title","name_hint","category","why","cold_read"}]}. Categories must be one of: models, video, 3d, agents-memory, robotics, hardware, training-research, creative. Skip intro/outro with no product to file. Skip sponsors unless they are the product under review. One product/model/system per candidate. Do not invent URLs, licenses, or VRAM. Prefer real product names as spoken; correct obvious ASR mangling when the intended name is clear.`
+// SystemPrompt is the Polypus instruction for candidate JSON extraction.
+const SystemPrompt = `You extract library intake candidates from an AI news video transcript. Reply with JSON only matching {"candidates":[{"title","name_hint","category","why","cold_read"}]}. Categories must be one of: models, video, 3d, agents-memory, robotics, hardware, training-research, creative. Skip intro/outro with no product to file. NEVER include paid sponsor reads (the host names a sponsor, "sponsor of this video", mid-roll ad, "check out [brand]" as an ad). Do not emit the sponsor as a candidate even if they demo a real product. One product/model/system per candidate. Do not invent URLs, licenses, or VRAM. Prefer real product names as spoken; correct obvious ASR mangling when the intended name is clear.`
 
 // Candidate is one library intake proposal.
 type Candidate struct {
@@ -78,7 +79,7 @@ func (p *Proposer) ProposeFromFile(ctx context.Context, transcriptPath, outPath 
 // Propose asks Polypus for candidates from transcript text.
 func (p *Proposer) Propose(ctx context.Context, transcript string) (*List, error) {
 	content, err := p.client.ChatCompletions(ctx, p.model, 0.2, []polypus.Message{
-		{Role: "system", Content: systemPrompt},
+		{Role: "system", Content: SystemPrompt},
 		{Role: "user", Content: transcript},
 	})
 	if err != nil {

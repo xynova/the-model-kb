@@ -85,6 +85,7 @@ fabric -y "URL" --visual              # OCR text; not gallery stills
 
 - MUST use only `category` values from `library/taxonomy.md`.
 - MUST skip intro/outro spectacle with no tool to file.
+- MUST skip paid sponsor reads; NEVER ask `keep? y/n` on a mid-roll sponsor even if they demo a real product.
 - NEVER invent homepage, GitHub, license, or VRAM in this JSON.
 
 ## Frame-map JSON schema
