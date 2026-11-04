@@ -3,6 +3,9 @@ name: cursor-gpt-5.6-terra-medium
 title: Cursor GPT-5.6 Terra (Medium)
 kind: service
 category: general
+jobs:
+  - reasoning
+  - chat
 tags:
   - llm
   - closed
@@ -12,10 +15,13 @@ tags:
 status: watch
 lab: openai
 service: cursor
-runtime_model_id: gpt-5.6-terra
-price_in: 2
-price_out: 12
-price_note: "Other Models pool; $2/$2.5/$0.2/$12 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; Medium is picker reasoning effort; Max Mode on legacy request plans"
+hosts:
+  - id: cursor
+    runtime_model_id: gpt-5.6-terra
+    price_in: 2
+    price_out: 12
+    price_note: "Other Models pool; $2/$2.5/$0.2/$12 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; Medium is picker reasoning effort; Max Mode on legacy request plans"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 1000000

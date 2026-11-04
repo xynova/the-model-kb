@@ -7,7 +7,7 @@ cascade:
   type: docs
 ---
 
-Decision shelf for choosing a model for a task: price, third-party capability signals, and your own experience notes.
+Decision shelf for choosing a model for a task: price, third-party capability signals, and your own experience notes. The catalog goal is fit, cost, and host limits from filed facts (see repo `roster/OBJECTIVE.md`).
 
 Differs from the [library](/library/): library is "interesting to revisit later"; roster is "open this when picking a model now."
 

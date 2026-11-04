@@ -1,8 +1,11 @@
 ---
-name: glm-5.3-flash-cf
-title: GLM-5.3-Flash (Cloudflare)
+name: glm-5.3-flash
+title: GLM-5.3-Flash
 kind: sovereign
 category: multimodal
+jobs:
+  - vision
+  - reasoning
 tags:
   - llm
   - vision
@@ -13,16 +16,24 @@ tags:
   - agentic
 status: watch
 lab: zai
-runtime: cloudflare
-runtime_model_id: "@cf/zai-org/glm-5.3-flash"
-price_in: 0.15
-price_out: 0.50
-price_note: "Workers Paid or AI Gateway credits required; Neurons behind the scenes; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page"
+preferred_host: cloudflare
+aliases:
+  - /roster/multimodal/glm-5.3-flash-cf/
+hosts:
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: "@cf/zai-org/glm-5.3-flash"
+    price_in: 0.15
+    price_out: 0.50
+    price_note: "Workers Paid or AI Gateway credits required; Neurons behind the scenes; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page"
+    capacity: hobby
+    limits_note: "Paid Workers or AI Gateway credits required on CF"
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 aa_intelligence: 57
 arena_elo: unknown
 context_window: 1048576
 links:
-  cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
   artificial_analysis: https://artificialanalysis.ai/models/glm-5-3-flash
   models_dev: https://models.dev/
 source: "roster seed gemma-4 segment peers 2026-09-08"

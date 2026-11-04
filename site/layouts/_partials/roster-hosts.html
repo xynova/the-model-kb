@@ -1,0 +1,40 @@
+{{- $isRoster := eq .Section "roster" -}}
+{{- $isEntry := and $isRoster .Params.roster_kind .Params.hosts -}}
+{{- if $isEntry -}}
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<section class="roster-hosts" aria-label="Host offers">
+  <h2 class="roster-hosts__heading">Host offers</h2>
+  <div class="roster-hosts__wrap">
+    <table class="roster-hosts__table">
+      <thead>
+        <tr>
+          <th scope="col">Host</th>
+          <th scope="col">Runtime</th>
+          <th scope="col">Model id</th>
+          <th scope="col">In / out ($/M)</th>
+          <th scope="col">Capacity</th>
+          <th scope="col">Limits</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{- range .Params.hosts -}}
+        <tr{{- if eq $.Params.preferred_host .id }} class="roster-hosts__row--preferred"{{- end -}}>
+          <td><code>{{ .id }}</code></td>
+          <td>{{ .runtime | default "—" }}</td>
+          <td><code>{{ .runtime_model_id | default "—" }}</code></td>
+          <td>
+            {{- if and .price_in .price_out -}}
+              ${{ .price_in }} / ${{ .price_out }}
+            {{- else -}}
+              —
+            {{- end -}}
+          </td>
+          <td>{{ .capacity | default "unknown" }}</td>
+          <td>{{ .limits_note | default "—" }}</td>
+        </tr>
+        {{- end -}}
+      </tbody>
+    </table>
+  </div>
+</section>
+{{- end -}}

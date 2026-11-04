@@ -103,7 +103,7 @@ Hugo Extended, Go, and Python 3 are required for the site build (modules + roste
 
 ## Why roster is generated
 
-Hugo treats frontmatter `kind` as the page kind. Roster cards use `kind` for `sovereign` / `provider` / `service`. `scripts/generate-roster.py` copies `roster/` into `generated/roster/` and rewrites that key to `roster_kind` so the catalog files stay the authoring source of truth.
+Hugo treats frontmatter `kind` as the page kind. Roster cards use `kind` for `sovereign` / `provider` / `service`. `scripts/generate-roster.py` validates cards, copies `roster/` into `generated/roster/` (rewrites `kind` to `roster_kind`), and writes `roster/catalog.json`, `roster/INDEX.md`, and `site/static/roster.json` for `/roster.json`. Install deps once via `make -C site venv-roster` (creates `site/.venv` from `requirements-roster.txt`).
 
 ## GitHub Pages
 

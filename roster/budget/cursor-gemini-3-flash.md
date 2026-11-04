@@ -3,6 +3,9 @@ name: cursor-gemini-3-flash
 title: Cursor Gemini 3 Flash
 kind: service
 category: budget
+jobs:
+  - cheap
+  - chat
 tags:
   - llm
   - closed
@@ -13,10 +16,13 @@ tags:
 status: watch
 lab: google
 service: cursor
-runtime_model_id: gemini-3-flash
-price_in: 0.5
-price_out: 3
-price_note: "Other Models pool; $0.5/$0.05/$3 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+hosts:
+  - id: cursor
+    runtime_model_id: gemini-3-flash
+    price_in: 0.5
+    price_out: 3
+    price_note: "Other Models pool; $0.5/$0.05/$3 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown

@@ -1,8 +1,10 @@
 ---
-name: llama-4-scout-17b-cf
-title: Llama 4 Scout 17B (Cloudflare)
+name: llama-4-scout-17b
+title: Llama 4 Scout 17B
 kind: sovereign
 category: multimodal
+jobs:
+  - vision
 tags:
   - llm
   - vision
@@ -11,16 +13,24 @@ tags:
   - cloudflare
 status: watch
 lab: meta
-runtime: cloudflare
-runtime_model_id: "@cf/meta/llama-4-scout-17b-16e-instruct"
-price_in: 0.27
-price_out: 0.85
-price_note: "Workers AI Neurons; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page"
+preferred_host: cloudflare
+aliases:
+  - /roster/multimodal/llama-4-scout-17b-cf/
+hosts:
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: "@cf/meta/llama-4-scout-17b-16e-instruct"
+    price_in: 0.27
+    price_out: 0.85
+    price_note: "Workers AI Neurons; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page"
+    capacity: hobby
+    limits_note: "10k Neurons/day free tier"
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 aa_intelligence: 10
 arena_elo: unknown
 context_window: 131000
 links:
-  cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
   artificial_analysis: https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5
   models_dev: https://models.dev/
 source: "roster seed gemma-4 segment peers 2026-09-08"

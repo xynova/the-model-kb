@@ -3,6 +3,7 @@
   {{- $catalog := slice -}}
   {{- range .Site.RegularPages -}}
     {{- if in (slice "library" "roster") .Section -}}
+      {{- if or (ne .Section "roster") .Params.roster_kind -}}
       {{- $summary := .Params.summary | default "" -}}
       {{- if and (eq $summary "") .Params.does -}}
         {{- $summary = printf "%s" .Params.does -}}
@@ -18,6 +19,7 @@
         "run" (.Params.run | default "")
       -}}
       {{- $catalog = $catalog | append $record -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
   {{- with site.GetPage "/models" -}}

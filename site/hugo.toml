@@ -13,6 +13,7 @@ ignoreFiles = [
   "INDEX\\.md$",
   "taxonomy\\.md$",
   "_template\\.md$",
+  "OBJECTIVE\\.md$",
 ]
 
 [module]

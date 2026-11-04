@@ -1,0 +1,36 @@
+{{- $inRoster := eq .Section "roster" -}}
+{{- if and $inRoster (gt (len .RegularPages) 0) -}}
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<section class="roster-index" aria-label="Roster index">
+  <h2 class="roster-index__heading">Index</h2>
+  {{- range sort .RegularPages "Title" -}}
+    {{- if .Params.roster_kind -}}
+      {{- $name := .Params.name | default .File.ContentBaseName -}}
+      {{- $hostIds := slice -}}
+      {{- range .Params.hosts -}}
+        {{- $hostIds = $hostIds | append .id -}}
+      {{- end -}}
+      <article class="roster-index__row">
+        <div>
+          <a class="roster-index__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="roster-index__name">{{ $name }}</span>
+        </div>
+        <div class="roster-index__chips">
+          {{- with .Params.jobs -}}
+            {{- range . -}}
+              <span class="roster-chip roster-chip--job">{{ . }}</span>
+            {{- end -}}
+          {{- end -}}
+          {{- with .Params.preferred_host -}}
+            <span class="roster-chip roster-chip--preferred">pref: {{ . }}</span>
+          {{- end -}}
+          <span class="roster-chip roster-chip--hosts">{{ delimit $hostIds "," }}</span>
+        </div>
+        <div class="roster-index__aside">
+          {{ partial "roster-chip.html" (dict "axis" "status" "value" .Params.status) }}
+        </div>
+      </article>
+    {{- end -}}
+  {{- end -}}
+</section>
+{{- end -}}

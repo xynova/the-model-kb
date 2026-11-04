@@ -1,0 +1,8 @@
+{{- $axis := .axis -}}
+{{- $value := .value -}}
+{{- if $value -}}
+<span class="roster-chip roster-chip--{{ $axis }}">
+  <span class="roster-chip__axis">{{ $axis }}</span>
+  <span class="roster-chip__value">{{ $value }}</span>
+</span>
+{{- end -}}

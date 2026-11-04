@@ -3,6 +3,8 @@ name: cursor-composer-2.5-fast
 title: Cursor Composer 2.5 (Fast)
 kind: service
 category: coding
+jobs:
+  - coding
 tags:
   - llm
   - closed
@@ -13,10 +15,13 @@ tags:
 status: watch
 lab: cursor
 service: cursor
-runtime_model_id: composer-2.5
-price_in: 3
-price_out: 15
-price_note: "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate"
+hosts:
+  - id: cursor
+    runtime_model_id: composer-2.5
+    price_in: 3
+    price_out: 15
+    price_note: "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 200000

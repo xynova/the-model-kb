@@ -3,6 +3,9 @@ name: cursor-gpt-5.4-mini-medium
 title: Cursor GPT-5.4 Mini (Medium)
 kind: service
 category: budget
+jobs:
+  - cheap
+  - vision
 tags:
   - llm
   - vision
@@ -14,10 +17,13 @@ tags:
 status: watch
 lab: openai
 service: cursor
-runtime_model_id: gpt-5.4-mini
-price_in: 0.75
-price_out: 4.5
-price_note: "Other Models pool; $0.75/$0.075/$4.5 in/cache-read/out per MTok; 90% discount on cached input; Medium is picker reasoning effort; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+hosts:
+  - id: cursor
+    runtime_model_id: gpt-5.4-mini
+    price_in: 0.75
+    price_out: 4.5
+    price_note: "Other Models pool; $0.75/$0.075/$4.5 in/cache-read/out per MTok; 90% discount on cached input; Medium is picker reasoning effort; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown
