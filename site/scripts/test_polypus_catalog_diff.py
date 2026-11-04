@@ -37,6 +37,22 @@ class TestModelsUrl(unittest.TestCase):
             "http://127.0.0.1:1320/v1/apis/openai/models",
         )
 
+    def test_systemone_path(self) -> None:
+        self.assertEqual(
+            pcd.models_url("http://127.0.0.1:1320", "systemone"),
+            "http://127.0.0.1:1320/v1/apis/systemone/models",
+        )
+
+    def test_default_pair(self) -> None:
+        urls = pcd.default_models_urls("http://127.0.0.1:1320")
+        self.assertEqual(
+            urls,
+            [
+                "http://127.0.0.1:1320/v1/apis/openai/models",
+                "http://127.0.0.1:1320/v1/apis/systemone/models",
+            ],
+        )
+
 
 class TestMatchCloudflareRoute(unittest.TestCase):
     def test_cf_local_matches_at_cf_id(self) -> None:
@@ -175,6 +191,35 @@ class TestLoadModelsInjectedFetch(unittest.TestCase):
 
         with self.assertRaises(RuntimeError):
             pcd.load_models("http://example/v1/apis/openai/models", fetch=fetch)
+
+    def test_many_unions_unique(self) -> None:
+        bodies = {
+            "http://example/openai": json.dumps(
+                {"data": [{"id": "cf_local/@cf/google/gemma-4-26b-a4b-it"}]}
+            ),
+            "http://example/systemone": json.dumps(
+                {
+                    "data": [
+                        {"id": "cf_local/typesafe/jev"},
+                        {"id": "cf_local/@cf/google/gemma-4-26b-a4b-it"},
+                    ]
+                }
+            ),
+        }
+
+        def fetch(url: str) -> tuple[int, str]:
+            return 200, bodies[url]
+
+        ids = pcd.load_models_many(
+            ["http://example/openai", "http://example/systemone"], fetch=fetch
+        )
+        self.assertEqual(
+            ids,
+            [
+                "cf_local/@cf/google/gemma-4-26b-a4b-it",
+                "cf_local/typesafe/jev",
+            ],
+        )
 
 
 if __name__ == "__main__":

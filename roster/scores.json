@@ -20,7 +20,7 @@
       "price_in": 0.1,
       "price_out": 0.5,
       "cost_per_m": 0.6,
-      "rank_by_cost": 13,
+      "rank_by_cost": 16,
       "industrial_ok": false
     },
     {
@@ -37,7 +37,7 @@
       "price_in": 3.0,
       "price_out": 15.0,
       "cost_per_m": 18.0,
-      "rank_by_cost": 31,
+      "rank_by_cost": 34,
       "industrial_ok": false
     },
     {
@@ -55,7 +55,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 23,
+      "rank_by_cost": 26,
       "industrial_ok": false
     },
     {
@@ -73,7 +73,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 30,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -91,7 +91,7 @@
       "price_in": 0.75,
       "price_out": 4.5,
       "cost_per_m": 5.25,
-      "rank_by_cost": 26,
+      "rank_by_cost": 29,
       "industrial_ok": false
     },
     {
@@ -109,7 +109,7 @@
       "price_in": 0.2,
       "price_out": 1.2,
       "cost_per_m": 1.4,
-      "rank_by_cost": 19,
+      "rank_by_cost": 22,
       "industrial_ok": false
     },
     {
@@ -127,7 +127,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 30,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -145,7 +145,7 @@
       "price_in": 2.0,
       "price_out": 6.0,
       "cost_per_m": 8.0,
-      "rank_by_cost": 28,
+      "rank_by_cost": 31,
       "industrial_ok": false
     },
     {
@@ -163,7 +163,7 @@
       "price_in": 0.95,
       "price_out": 4.0,
       "cost_per_m": 4.95,
-      "rank_by_cost": 25,
+      "rank_by_cost": 28,
       "industrial_ok": false
     },
     {
@@ -185,7 +185,7 @@
       "price_in": 0.44,
       "price_out": 1.32,
       "cost_per_m": 1.76,
-      "rank_by_cost": 20,
+      "rank_by_cost": 23,
       "industrial_ok": false
     },
     {
@@ -207,7 +207,7 @@
       "price_in": 0.06,
       "price_out": 0.18,
       "cost_per_m": 0.24,
-      "rank_by_cost": 6,
+      "rank_by_cost": 9,
       "industrial_ok": false
     },
     {
@@ -227,7 +227,7 @@
       "price_in": 0.3,
       "price_out": 2.5,
       "cost_per_m": 2.8,
-      "rank_by_cost": 22,
+      "rank_by_cost": 25,
       "industrial_ok": false
     },
     {
@@ -247,7 +247,7 @@
       "price_in": 0.3,
       "price_out": 2.5,
       "cost_per_m": 2.8,
-      "rank_by_cost": 22,
+      "rank_by_cost": 25,
       "industrial_ok": false
     },
     {
@@ -267,7 +267,7 @@
       "price_in": 1.25,
       "price_out": 10.0,
       "cost_per_m": 11.25,
-      "rank_by_cost": 29,
+      "rank_by_cost": 32,
       "industrial_ok": false
     },
     {
@@ -287,7 +287,7 @@
       "price_in": 1.25,
       "price_out": 10.0,
       "cost_per_m": 11.25,
-      "rank_by_cost": 29,
+      "rank_by_cost": 32,
       "industrial_ok": false
     },
     {
@@ -307,7 +307,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 23,
+      "rank_by_cost": 26,
       "industrial_ok": false
     },
     {
@@ -327,7 +327,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 23,
+      "rank_by_cost": 26,
       "industrial_ok": false
     },
     {
@@ -347,7 +347,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 30,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -367,7 +367,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 30,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -388,7 +388,7 @@
       "price_in": 0.75,
       "price_out": 3.75,
       "cost_per_m": 4.5,
-      "rank_by_cost": 24,
+      "rank_by_cost": 27,
       "industrial_ok": false
     },
     {
@@ -409,7 +409,7 @@
       "price_in": 0.75,
       "price_out": 3.75,
       "cost_per_m": 4.5,
-      "rank_by_cost": 24,
+      "rank_by_cost": 27,
       "industrial_ok": false
     },
     {
@@ -429,7 +429,7 @@
       "price_in": 0.08,
       "price_out": 0.16,
       "cost_per_m": 0.24,
-      "rank_by_cost": 6,
+      "rank_by_cost": 9,
       "industrial_ok": false
     },
     {
@@ -449,7 +449,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 8,
+      "rank_by_cost": 11,
       "industrial_ok": false
     },
     {
@@ -469,7 +469,7 @@
       "price_in": 0.07,
       "price_out": 0.34,
       "cost_per_m": 0.41000000000000003,
-      "rank_by_cost": 9,
+      "rank_by_cost": 12,
       "industrial_ok": true
     },
     {
@@ -489,7 +489,7 @@
       "price_in": 0.15,
       "price_out": 0.6,
       "cost_per_m": 0.75,
-      "rank_by_cost": 16,
+      "rank_by_cost": 19,
       "industrial_ok": false
     },
     {
@@ -509,7 +509,7 @@
       "price_in": 0.04,
       "price_out": 0.15,
       "cost_per_m": 0.19,
-      "rank_by_cost": 5,
+      "rank_by_cost": 8,
       "industrial_ok": false
     },
     {
@@ -544,7 +544,7 @@
       "price_in": 0.2,
       "price_out": 0.4,
       "cost_per_m": 0.6000000000000001,
-      "rank_by_cost": 14,
+      "rank_by_cost": 17,
       "industrial_ok": false
     },
     {
@@ -580,7 +580,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 11,
+      "rank_by_cost": 14,
       "industrial_ok": false
     },
     {
@@ -600,7 +600,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 11,
+      "rank_by_cost": 14,
       "industrial_ok": false
     },
     {
@@ -619,7 +619,7 @@
       "price_in": 0.15,
       "price_out": 0.5,
       "cost_per_m": 0.65,
-      "rank_by_cost": 15,
+      "rank_by_cost": 18,
       "industrial_ok": false
     },
     {
@@ -638,7 +638,7 @@
       "price_in": 0.15,
       "price_out": 0.5,
       "cost_per_m": 0.65,
-      "rank_by_cost": 15,
+      "rank_by_cost": 18,
       "industrial_ok": false
     },
     {
@@ -657,7 +657,7 @@
       "price_in": 0.0269,
       "price_out": 0.0996,
       "cost_per_m": 0.1265,
-      "rank_by_cost": 3,
+      "rank_by_cost": 6,
       "industrial_ok": false
     },
     {
@@ -691,7 +691,7 @@
       "price_in": 0.2,
       "price_out": 0.3,
       "cost_per_m": 0.5,
-      "rank_by_cost": 12,
+      "rank_by_cost": 15,
       "industrial_ok": false
     },
     {
@@ -711,7 +711,7 @@
       "price_in": 0.008,
       "price_out": 0.032,
       "cost_per_m": 0.04,
-      "rank_by_cost": 2,
+      "rank_by_cost": 4,
       "industrial_ok": false
     },
     {
@@ -730,7 +730,7 @@
       "price_in": 0.017,
       "price_out": 0.112,
       "cost_per_m": 0.129,
-      "rank_by_cost": 4,
+      "rank_by_cost": 7,
       "industrial_ok": false
     },
     {
@@ -751,7 +751,26 @@
       "price_in": 0.06,
       "price_out": 0.25,
       "cost_per_m": 0.31,
-      "rank_by_cost": 7,
+      "rank_by_cost": 10,
+      "industrial_ok": false
+    },
+    {
+      "name": "jev",
+      "title": "Jev",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap"
+      ],
+      "host_id": "local",
+      "capacity": "unknown",
+      "runtime": "local",
+      "runtime_model_id": "typesafe/jev",
+      "price_in": 0.042,
+      "price_out": 0.0,
+      "cost_per_m": 0.042,
+      "rank_by_cost": 5,
       "industrial_ok": false
     },
     {
@@ -769,7 +788,7 @@
       "price_in": 0.293,
       "price_out": 2.253,
       "cost_per_m": 2.5460000000000003,
-      "rank_by_cost": 21,
+      "rank_by_cost": 24,
       "industrial_ok": false
     },
     {
@@ -787,7 +806,7 @@
       "price_in": 0.1,
       "price_out": 0.32,
       "cost_per_m": 0.42000000000000004,
-      "rank_by_cost": 10,
+      "rank_by_cost": 13,
       "industrial_ok": false
     },
     {
@@ -805,7 +824,7 @@
       "price_in": 0.27,
       "price_out": 0.85,
       "cost_per_m": 1.12,
-      "rank_by_cost": 18,
+      "rank_by_cost": 21,
       "industrial_ok": false
     },
     {
@@ -823,7 +842,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 8,
+      "rank_by_cost": 11,
       "industrial_ok": false
     },
     {
@@ -841,7 +860,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 8,
+      "rank_by_cost": 11,
       "industrial_ok": false
     },
     {
@@ -855,6 +874,26 @@
       "host_id": "xinference",
       "capacity": "unknown",
       "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
+      "name": "mercury-decide",
+      "title": "Mercury Decide",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "inception/mercury-decide",
+      "price_in": 0.02,
+      "price_out": 0.0,
+      "cost_per_m": 0.02,
+      "rank_by_cost": 2,
       "industrial_ok": false
     },
     {
@@ -873,7 +912,7 @@
       "price_in": 0.01656,
       "price_out": 0.0216,
       "cost_per_m": 0.03816,
-      "rank_by_cost": 1,
+      "rank_by_cost": 3,
       "industrial_ok": false
     },
     {
@@ -893,7 +932,7 @@
       "price_in": 0.351,
       "price_out": 0.555,
       "cost_per_m": 0.906,
-      "rank_by_cost": 17,
+      "rank_by_cost": 20,
       "industrial_ok": false
     },
     {
@@ -914,7 +953,7 @@
       "price_in": 1.25,
       "price_out": 4.25,
       "cost_per_m": 5.5,
-      "rank_by_cost": 27,
+      "rank_by_cost": 30,
       "industrial_ok": false
     },
     {
@@ -935,7 +974,47 @@
       "price_in": 4.0,
       "price_out": 20.0,
       "cost_per_m": 24.0,
-      "rank_by_cost": 32,
+      "rank_by_cost": 35,
+      "industrial_ok": false
+    },
+    {
+      "name": "pplx-decider",
+      "title": "Perplexity Decider V1.2",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "perplexity/pplx-decider-v1.2",
+      "price_in": 0.02,
+      "price_out": 0.0,
+      "cost_per_m": 0.02,
+      "rank_by_cost": 2,
+      "industrial_ok": false
+    },
+    {
+      "name": "pplx-decider-flash",
+      "title": "Perplexity Decider Flash V1.2",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "perplexity/pplx-decider-flash-v1.2",
+      "price_in": 0.01,
+      "price_out": 0.0,
+      "cost_per_m": 0.01,
+      "rank_by_cost": 1,
       "industrial_ok": false
     }
   ]

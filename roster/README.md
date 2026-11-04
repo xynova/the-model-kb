@@ -66,7 +66,7 @@ Local dry run: `make -C site mine-hosts` (network for retrieve).
 
 ## Polypus catalog diff
 
-`make -C site polypus-diff` GETs `$POLYPUS_BASE_URL/v1/apis/openai/models` (default `http://127.0.0.1:1320`) and prints which gateway ids already match `catalog.json` `runtime_model_id` values, which look like new **model-roster** keep/drop candidates, and which are embeddings/audio/router skips. It does not write cards, mint a `polypus` host, or file prices. Use `--url` for a full models URL, `--json` for the report object. Tests inject a payload; they do not hit the network.
+`make -C site polypus-diff` GETs `$POLYPUS_BASE_URL/v1/apis/openai/models` and `/v1/apis/systemone/models` (default `http://127.0.0.1:1320`) and prints which gateway ids already match `catalog.json` `runtime_model_id` values, which look like new **model-roster** keep/drop candidates, and which are embeddings/audio/router skips. It does not write cards, mint a `polypus` host, or file prices. Use `--url` for a single models URL, `--json` for the report object. Tests inject a payload; they do not hit the network.
 
 ## Providers mint
 
