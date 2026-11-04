@@ -255,9 +255,29 @@
       "capacity": "hobby",
       "runtime": "cloudflare",
       "runtime_model_id": "@cf/zai-org/glm-4.7-flash",
-      "price_in": 0.06,
+      "price_in": 0.0605,
       "price_out": 0.4,
-      "cost_per_m": 0.46,
+      "cost_per_m": 0.4605,
+      "rank_by_cost": 4,
+      "industrial_ok": false
+    },
+    {
+      "name": "glm-4.7-flash",
+      "title": "GLM-4.7-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "reasoning",
+        "cheap",
+        "chat"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "z-ai/glm-4.7-flash",
+      "price_in": 0.0605,
+      "price_out": 0.4,
+      "cost_per_m": 0.4605,
       "rank_by_cost": 4,
       "industrial_ok": false
     },

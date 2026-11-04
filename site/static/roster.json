@@ -315,12 +315,25 @@
           "capacity": "hobby",
           "runtime": "cloudflare",
           "runtime_model_id": "@cf/zai-org/glm-4.7-flash",
-          "price_in": 0.06,
+          "price_in": 0.0605,
           "price_out": 0.4,
-          "price_note": "Workers AI Neurons; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page",
-          "limits_note": "10k Neurons/day free tier",
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "10k Neurons/day free tier; 131k context on Workers AI",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        },
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "z-ai/glm-4.7-flash",
+          "price_in": 0.0605,
+          "price_out": 0.4,
+          "price_note": "OpenRouter list; routes Cloudflare or NovitaAI behind the slug; confirm openrouter.ai model page",
+          "limits_note": "Marketplace routing; 200k context on OpenRouter listing; not industrial throughput",
+          "links": {
+            "openrouter": "https://openrouter.ai/z-ai/glm-4.7-flash"
           }
         }
       ],
