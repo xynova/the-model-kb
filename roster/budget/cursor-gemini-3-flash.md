@@ -28,27 +28,27 @@ arena_elo: unknown
 context_window: unknown
 links:
   service_docs: https://cursor.com/docs/models/gemini-3-flash
-source: "cursor picker seed 2026-09-09"
-refreshed: 2026-09-10
+source: "cursor picker seed 2026-09-09; scorecard refresh 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Cursor Gemini 3 Flash
 
 ## When to reach for it
 
-Google Gemini 3 Flash in Cursor for simple coding, quick edits, and executing plans from a stronger model when speed and cost dominate. Still `kind: service`. Treat as a **baseline** next to Gemini 3.1 Pro (not the same capability class).
+Use this picker id when you want a fast, cheap Gemini lane in Cursor for simple coding and quick edits. Treat it as a **baseline** next to Gemini 3.1 Pro, not the same capability class. The card is **kind: service**.
 
 ## Signals
 
-Cursor docs (2026-09-10): $0.50 / $3.00 per M input/output; cache read $0.05. Positioned as speed-optimized and among the cheapest Gemini options in Cursor. AA / Arena not filed.
+Cursor's pricing table lists Gemini 3 Flash at $0.50 / $3 per M input/output and cache read $0.05. AA and Arena are not filed.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Not for peak multimodal or hard reasoning; use Gemini 3.1 Pro (or newer Flash cuts if you enable them) when that matters. Other Models pool only. Confirm current table on models-and-pricing.
+**Start** has no Other Models pool. Step up to Gemini 3.1 Pro when vision or reasoning depth matters. Confirm the live table before large runs.
 
 ## Links
 

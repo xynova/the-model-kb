@@ -27,27 +27,27 @@ arena_elo: unknown
 context_window: 1000000
 links:
   service_docs: https://cursor.com/docs/models/gpt-5-6-terra
-source: "cursor picker seed 2026-09-09"
-refreshed: 2026-09-09
+source: "cursor picker seed 2026-09-09; scorecard refresh 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Cursor GPT-5.6 Terra (Medium)
 
 ## When to reach for it
 
-OpenAI GPT-5.6 Terra at Medium effort in Cursor when you want the mid GPT-5.6 tier (between Luna and Sol) for everyday agent work and you are willing to spend the Other Models pool instead of first-party Grok/Composer. Still `kind: service` (Cursor picker), not a direct OpenAI API pin.
+Use this picker id when you want the mid GPT-5.6 tier at **Medium** effort for everyday agent work on the **Other Models** pool instead of first-party Grok or Composer. The card is **kind: service**, not a direct OpenAI API pin.
 
 ## Signals
 
-Cursor docs (2026-09-09): $2 / $12 per M input/output; cache write $2.5, cache read $0.2. Fast mode 2x. Long context above 272k: input 2x, output 1.5x; up to 1M tokens. Mid-tier between Sol and Luna per Cursor model page. AA / Arena not filed.
+Cursor's pricing table lists GPT-5.6 Terra at $2 / $12 per M input/output, cache write $2.50, cache read $0.20. Fast mode is 2x. Long context above 272k uses higher multipliers; context up to 1M. AA and Arena are not filed.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Draws from Other Models (Start plan has no Other Models pool). Teams/Enterprise add Cursor Token Rate on third-party. Not the top of the GPT-5.6 family; use Sol for harder long runs, Luna when cost/speed dominate. Confirm current table on models-and-pricing.
+**Start** has no Other Models pool. Teams and Enterprise add Cursor Token Rate. Use Sol for harder long runs and Luna when cost or speed dominates. Confirm the live table before large runs.
 
 ## Links
 

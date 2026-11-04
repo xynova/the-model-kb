@@ -19,7 +19,8 @@
           "runtime_model_id": "composer-2.5",
           "price_in": 3,
           "price_out": 15,
-          "price_note": "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate"
+          "price_note": "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate",
+          "limits_note": "Cursor Models pool; Fast $3/$15 per M in/out; Standard $0.5/$2.5; weekly pool shared with Grok"
         }
       ],
       "service": "cursor",
@@ -233,7 +234,7 @@
           "runtime_model_id": "@cf/google/gemma-4-26b-a4b-it",
           "price_in": 0.1,
           "price_out": 0.3,
-          "price_note": "Workers AI Neurons ($0.011/1k Neurons); 10k Neurons/day free; 9091/27273 neurons per M in/out; confirm CF pricing page",
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 9091/27273 neurons per M in/out; CF table Oct 2026",
           "limits_note": "10k Neurons/day free tier; verify dashboard after large jobs",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"

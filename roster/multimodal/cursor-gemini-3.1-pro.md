@@ -27,27 +27,27 @@ arena_elo: unknown
 context_window: 1000000
 links:
   service_docs: https://cursor.com/docs/models/gemini-3-1-pro
-source: "cursor picker seed 2026-09-09"
-refreshed: 2026-09-10
+source: "cursor picker seed 2026-09-09; scorecard refresh 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Cursor Gemini 3.1 Pro
 
 ## When to reach for it
 
-Google Gemini 3.1 Pro in Cursor when you want image-in plus code (UI/UX from mockups, visual understanding) or large-context Gemini, and you accept Other Models pool spend. Still `kind: service` (Cursor picker), not a direct Google API pin.
+Use this picker id when you want Gemini 3.1 Pro in Cursor for image-in plus code or large-context Gemini work on the **Other Models** pool. The card is **kind: service**, not a direct Google API pin.
 
 ## Signals
 
-Cursor docs (2026-09-10): $2 / $12 per M input/output; cache read $0.2. Up to 1M context. Positioned for multimodal UI/UX and whole-codebase analysis. AA / Arena not filed.
+Cursor's pricing table lists Gemini 3.1 Pro at $2 / $12 per M input/output and cache read $0.20. Context up to 1M. AA and Arena are not filed.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Other Models pool only (absent on Start). Teams/Enterprise add Cursor Token Rate. Prefer Flash when cost/speed dominate and Pro-level vision is not required. Confirm long-context multipliers on models-and-pricing.
+**Start** has no Other Models pool. Teams and Enterprise add Cursor Token Rate. Prefer Gemini 3 Flash when cost and speed dominate and Pro-level vision is not required. Confirm long-context multipliers on the live table.
 
 ## Links
 
