@@ -147,6 +147,15 @@ gemma-4-26b-a4b-deepinfra.md
 Enforcement: Every `links.*` value and numeric signal must come from search/fetch or be omitted/`unknown`.
 Violation: STOP, clear inventions, re-enrich.
 
+**CONSTRAINT:** Nightly mine and capacity confirmation
+
+- MUST: Treat `roster/retrieval/limits-review.json` as spider evidence from the **`roster-mine`** PR workflow, not as filed capacity by itself.
+- MUST: Change a host row's `capacity` only after the operator adds `{name, host_id, capacity}` to `roster/retrieval/capacity-decisions.yaml` and the mine apply step runs (or the user edits the card by hand with the same intent).
+- MUST NOT: Set `capacity: industrial` (or any other capacity) from page text, `suggested_capacity`, or agent hunch without a `capacity-decisions` row or explicit user instruction on the card.
+
+Enforcement: Grep the card after apply; capacity matches decisions or prior filed value.
+Violation: STOP, revert capacity, file a decisions row only after the user confirms.
+
 **CONSTRAINT:** Dedup, compiler, INDEX
 
 - MUST: Before write, Grep `roster/**/*.md` for matching `name:`.

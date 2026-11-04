@@ -1,0 +1,51 @@
+{
+  "scores_schema": 1,
+  "generated_at": "2026-11-04",
+  "source_catalog_schema": 1,
+  "offers": [
+    {
+      "name": "demo-hobby",
+      "title": "Demo Hobby",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": ["cheap", "chat"],
+      "host_id": "cloudflare",
+      "capacity": "hobby",
+      "price_in": 0.1,
+      "price_out": 0.2,
+      "cost_per_m": 0.3,
+      "rank_by_cost": 2,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": ["vision", "reasoning", "cheap"],
+      "host_id": "deepinfra",
+      "runtime": "deepinfra",
+      "runtime_model_id": "google/gemma-4-26B-A4B-it",
+      "capacity": "industrial",
+      "price_in": 0.07,
+      "price_out": 0.34,
+      "cost_per_m": 0.41,
+      "rank_by_cost": 1,
+      "industrial_ok": true
+    },
+    {
+      "name": "old-model",
+      "title": "Old Model",
+      "kind": "sovereign",
+      "status": "retired",
+      "jobs": ["cheap", "vision"],
+      "host_id": "local",
+      "capacity": "industrial",
+      "price_in": 0.01,
+      "price_out": 0.01,
+      "cost_per_m": 0.02,
+      "rank_by_cost": 1,
+      "industrial_ok": true
+    }
+  ]
+}

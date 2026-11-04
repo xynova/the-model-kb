@@ -1,0 +1,9 @@
+# Environment-only paths. Safe to commit: no secrets in this file.
+roster_analytics:
+  target: offline
+  outputs:
+    offline:
+      type: duckdb
+      path: "{{ env_var('ROSTER_DUCKDB', '../artifacts/roster_analytics.duckdb') }}"
+      schema: analytics
+      threads: 2

@@ -1,0 +1,26 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+formatters:
+  enable:
+    - gofumpt
+
+linters:
+  enable:
+    - errorlint
+    - exhaustive
+    - gocognit
+    - gosec
+    - godot
+
+linters-settings:
+  exhaustive:
+    default-signifies-exhaustive: false
+  goconst:
+    ignore-tests: true
+    min-len: 3
+    min-occurrences: 6
+  gocognit:
+    min-complexity: 32

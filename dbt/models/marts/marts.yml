@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: fct_ranked_offers
+    columns:
+      - name: offer_id
+        tests:
+          - not_null
+          - unique
