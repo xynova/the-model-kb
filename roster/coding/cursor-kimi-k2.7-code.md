@@ -28,27 +28,27 @@ arena_elo: unknown
 context_window: unknown
 links:
   service_docs: https://cursor.com/docs/models/kimi-k2-7-code
-source: "cursor picker seed 2026-09-09"
-refreshed: 2026-09-16
+source: "cursor picker seed 2026-09-09; scorecard refresh 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Cursor Kimi K2.7 Code
 
 ## When to reach for it
 
-Moonshot Kimi K2.7 Code in Cursor when you want a lower-cost coding lane on the Other Models pool and you already have this picker id enabled. Still `kind: service` (Cursor serves it via Fireworks); open weights elsewhere do not make this card sovereign.
+Use this picker id when you want Moonshot Kimi K2.7 Code on Cursor's **Other Models** pool at a lower list price than Kimi K3. Cursor serves it; the card stays **kind: service**.
 
 ## Signals
 
-Cursor docs (2026-09-16): $0.95 / $4.00 per M input/output; cache read $0.19. Docs recommend Kimi K3 for new work; K2.7 Code remains as the cheaper Moonshot option. AA / Arena not filed.
+Cursor's pricing table lists Kimi K2.7 Code at $0.95 / $4 per M input/output and cache read $0.19. Cursor recommends Kimi K3 for new work; this slug remains the cheaper Moonshot lane. AA and Arena are not filed.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Hidden by default in some Cursor tables. Prefer Composer 2.5 for first-party Cursor Models pool coding, or Kimi K3 when Cursor says so for new work. Other Models pool only. Confirm current table on models-and-pricing.
+The model is hidden by default in some tables. **Start** has no Other Models pool. Prefer Composer 2.5 on the Cursor Models pool or Kimi K3 when Cursor docs point you there. Confirm the live table before large runs.
 
 ## Links
 

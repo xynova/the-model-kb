@@ -27,28 +27,29 @@ arena_elo: unknown
 context_window: unknown
 links:
   service_docs: https://cursor.com/docs/models/grok-4-6
-source: "cursor picker seed 2026-09-09"
-refreshed: 2026-09-09
+source: "cursor picker seed 2026-09-09; scorecard refresh 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Cursor Grok 4.6 (High)
 
 ## When to reach for it
 
-Cursor-bundled Grok 4.6 at High effort for long-horizon agent and knowledge work when you want the product's first-party Grok lane rather than Composer or a third-party model. Access is `kind: service` (picker id in Cursor); you cannot rehost this exact product path.
+Use this picker id when you want Cursor's first-party Grok 4.6 lane at **High** effort for long-horizon agent and knowledge work instead of Composer or a third-party model. You cannot rehost this path; the card is **kind: service**.
 
 ## Signals
 
-Cursor docs (2026-09-09): Standard on-demand $2 / $6 per M input/output ($0.50 cached input); Fast $4 / $12 ($1 cached). Draws from the Cursor Models usage pool. High is the named-model default effort; four levels exist (low, medium, high, xhigh). AA / Arena not filed for this card yet.
+Cursor's pricing table lists Grok 4.6 Standard at $2 / $6 per M input/output and cache read $0.50; Fast is $4 / $12. Usage draws from the weekly **Cursor Models** pool shared with Composer and other Grok cuts. **High** is the named-model default effort; low, medium, high, and xhigh exist. AA and Arena are not filed.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Plan and pool caps apply; Start (India) fixes medium effort without Fast. Fast is a separate speed tier on Pro+, not the same as High effort. Distinct from Grok Bot. Confirm current Cursor docs before large on-demand runs.
+Plan caps apply; **Start** fixes medium effort without Fast. **Fast** is a speed tier, not the same knob as **High** effort. This card is distinct from Grok Bot. Confirm the live table before large on-demand runs.
 
 ## Links
 
 - Service docs: https://cursor.com/docs/models/grok-4-6
+- Models and pricing: https://cursor.com/docs/models-and-pricing

@@ -1,4 +1,4 @@
-.PHONY: serve build clean generate-roster retrieve-limits apply-mine mine-hosts check-links ensure-htmltest test-roster venv-roster
+.PHONY: serve build clean generate-roster retrieve-limits apply-mine mine-hosts polypus-diff check-links ensure-htmltest test-roster venv-roster
 
 HUGO ?= hugo
 VENV ?= .venv
@@ -18,6 +18,9 @@ apply-mine: venv-roster
 
 mine-hosts: generate-roster retrieve-limits apply-mine generate-roster
 
+polypus-diff: venv-roster
+	$(VENV)/bin/python scripts/polypus-catalog-diff.py
+
 venv-roster:
 	@if [ ! -x $(VENV)/bin/python ]; then \
 		python3 -m venv $(VENV); \
@@ -25,7 +28,7 @@ venv-roster:
 	fi
 
 test-roster: venv-roster
-	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine
+	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine test_polypus_catalog_diff
 
 serve: generate-roster
 	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/

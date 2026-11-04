@@ -26,7 +26,7 @@ hosts:
     runtime_model_id: "@cf/google/gemma-4-26b-a4b-it"
     price_in: 0.10
     price_out: 0.30
-    price_note: "Workers AI Neurons ($0.011/1k Neurons); 10k Neurons/day free; 9091/27273 neurons per M in/out; confirm CF pricing page"
+    price_note: "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 9091/27273 neurons per M in/out; CF table Oct 2026"
     capacity: hobby
     limits_note: "10k Neurons/day free tier; verify dashboard after large jobs"
     links:
@@ -74,7 +74,7 @@ context_window: 256000
 links:
   artificial_analysis: https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
   models_dev: https://models.dev/
-source: "roster seed gemma-4 segment 2026-09-08; hosts enriched 2026-11-04; xinference host 2026-11-04"
+source: "roster seed gemma-4 segment 2026-09-08; scorecard refresh 2026-11-04"
 refreshed: 2026-11-04
 ---
 
@@ -82,23 +82,25 @@ refreshed: 2026-11-04
 
 ## When to reach for it
 
-Open multimodal MoE when you want portable Gemma 4 weights. Compare **host offers** in the table above: Cloudflare for cheap hobby use, OpenRouter for marketplace routing, Google Vertex for lab-hosted MaaS, DeepInfra when you need **industrial** throughput.
+Pick this card when you want portable open Gemma 4 with vision and reasoning on the shelf. Use **cloudflare** for hobby spend and the neuron free tier. Use **openrouter** when you want a cheaper aggregate slug. Use **google** when you run Vertex MaaS in your project. Use **deepinfra** when you filed **industrial** capacity for batch throughput. Use **xinference** only after you confirm model access with the vendor (on-request pricing).
 
 ## Signals
 
-CF $0.10 / $0.30 per M (Neurons). OpenRouter aggregate $0.04 / $0.15 per M (confirm on OpenRouter). Google Vertex MaaS about $0.15 / $0.60 per M (confirm region table). DeepInfra $0.07 / $0.34 per M with **industrial** capacity filed for batch production. AA Intelligence Index about 31 for Gemma 4 26B-A4B (Reasoning).
+Artificial Analysis puts Gemma 4 26B-A4B (Reasoning) at intelligence index about 31. Context is about 256k on the card. Host list prices live in frontmatter; compare hosts by **capacity** and job, not by body prose.
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Billed in Neurons with a daily free allocation; token-equivalent rates can drift if CF revises the table. Community has reported neuron metering quirks on this model in the past; verify dashboard usage after large jobs. Apache-style open license per Gemma 4 family (confirm current terms on the model card).
+Neurons on **cloudflare** can meter differently than token math suggests; check the dashboard after large jobs. **deepinfra** **industrial** capacity is an operator filing, not an automatic mine result. **xinference** has no public list price on the pricing page for Gemma.
 
 ## Links
 
-- DeepInfra: https://deepinfra.com/google/gemma-4-26B-A4B-it
+- Cloudflare pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 - OpenRouter: https://openrouter.ai/google/gemma-4-26b-a4b-it
+- DeepInfra: https://deepinfra.com/google/gemma-4-26B-A4B-it
+- Xinference: https://xinference.co/pricing.html
 - Artificial Analysis: https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
 - models.dev: https://models.dev/

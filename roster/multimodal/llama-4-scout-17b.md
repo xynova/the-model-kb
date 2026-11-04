@@ -22,11 +22,31 @@ hosts:
     runtime_model_id: "@cf/meta/llama-4-scout-17b-16e-instruct"
     price_in: 0.27
     price_out: 0.85
-    price_note: "Workers AI Neurons; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page"
+    price_note: "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page"
     capacity: hobby
-    limits_note: "10k Neurons/day free tier"
+    limits_note: "10k Neurons/day free tier; 131k context on Workers AI"
     links:
       cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta-llama/llama-4-scout
+    price_in: 0.10
+    price_out: 0.30
+    price_note: "OpenRouter list; routes DeepInfra or Vertex behind the slug; confirm openrouter.ai model page"
+    capacity: hobby
+    limits_note: "Marketplace routing; 1.3M context on OpenRouter listing; not industrial throughput"
+    links:
+      openrouter: https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: meta-llama/Llama-4-Scout-17B-16E-Instruct
+    price_in: 0.10
+    price_out: 0.30
+    price_note: "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist"
+    capacity: hobby
+    limits_note: "Lower list price than CF; confirm DeepInfra model page before batch jobs"
+    links:
+      deepinfra: https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct
   - id: xinference
     runtime: xinference
     price_note: "Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed"
@@ -40,31 +60,33 @@ context_window: 131000
 links:
   artificial_analysis: https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5
   models_dev: https://models.dev/
-source: "roster seed gemma-4 segment peers 2026-09-08; xinference host 2026-11-04"
+source: "roster seed gemma-4 segment peers 2026-09-08; scorecard refresh 2026-11-04"
 refreshed: 2026-11-04
 ---
 
-# Llama 4 Scout 17B (Cloudflare)
+# Llama 4 Scout 17B
 
 ## When to reach for it
 
-Open multimodal MoE on Cloudflare when you want Llama 4 vision/text on the same host as Gemma 4, and you accept a lower intelligence band and higher CF list price.
+Use this card when you need open Llama 4 vision on a hosted API and you accept a low intelligence index next to Gemma 4 on the same shelf. Pick **cloudflare** if you already meter Neurons on Workers AI. Pick **openrouter** or **deepinfra** when you want a lower list rate ($0.10 / $0.30 per M) and can handle routing or a second vendor.
 
 ## Signals
 
-CF list $0.27 / $0.85 per M (about 3× Gemma 4 input on CF). Artificial Analysis Intelligence Index about 10 for Llama 4 Scout; AA marks reasoning as no. Peer for **modality + open MoE on CF**, not for intelligence/reasoning class next to Gemma 4 26B-A4B (~26–31). CF context 131k (AA lists much larger native windows elsewhere; use the CF figure for this runtime).
+Artificial Analysis puts Llama 4 Scout at intelligence index about 10 with reasoning marked no. **cloudflare** lists $0.27 / $0.85 per M with a 131k context window. **openrouter** and **deepinfra** list $0.10 / $0.30 per M on their public pages (OpenRouter shows a much larger context window on the aggregate slug). This is a modality peer on CF, not a reasoning peer to Gemma 4 26B-A4B (~26–31).
 
 ## My experience
 
-(Not used yet.)
+(Operator notes only.)
 
 ## Caveats
 
-Not an intelligence peer to Gemma 4 despite multimodal MoE shape. Prefer Gemma 4 or GLM-4.7-Flash on CF when quality-per-dollar matters. Neurons billing applies.
+Do not treat Scout as a quality substitute for Gemma 4 or GLM-5.3-Flash when reasoning density matters. **xinference** stays on-request with no filed list price. Neurons and free-tier rules apply on **cloudflare**.
 
 ## Links
 
 - Cloudflare pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- Model page: https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/
-- Artificial Analysis (example compare): https://artificialanalysis.ai/models/comparisons/gpt-5-vs-llama-4-scout
+- Cloudflare model: https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/
+- OpenRouter: https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct
+- DeepInfra: https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct
+- Artificial Analysis: https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5
 - models.dev: https://models.dev/
