@@ -1,0 +1,93 @@
+name: roster-mine
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: roster-mine
+  cancel-in-progress: false
+
+jobs:
+  mine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Install Python roster deps
+        run: python3 -m pip install -r site/requirements-roster.txt
+
+      - name: Install Fusion dbt
+        run: |
+          curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update --yes
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Mine hosts
+        run: make -C site mine-hosts
+
+      - name: Build dbt scores
+        run: make -C dbt build
+
+      - name: Stage roster outputs
+        run: git add roster site/static/roster.json
+
+      - name: Skip when no diff
+        id: diff
+        run: |
+          if git diff --cached --quiet; then
+            echo "no mine diff"
+            exit 0
+          fi
+          echo "has_diff=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit mine
+        if: steps.diff.outputs.has_diff == 'true'
+        run: git commit -m "Roster mine"
+
+      - name: Push roster-mine branch
+        if: steps.diff.outputs.has_diff == 'true'
+        run: git push --force-with-lease origin HEAD:roster-mine
+
+      - name: Open or update PR
+        if: steps.diff.outputs.has_diff == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          body="$(mktemp)"
+          python3 <<'PY' > "$body"
+          import json
+          from pathlib import Path
+
+          data = json.loads(
+              Path("roster/retrieval/limits-review.json").read_text(encoding="utf-8")
+          )
+          print("## Roster mine review\n")
+          for row in data.get("rows", []):
+              print(f"- **{row.get('name')}** / `{row.get('host_id')}`")
+              print(f"  - url: {row.get('url') or '(skipped)'}")
+              print(f"  - evidence: {row.get('evidence') or '(none)'}")
+              print(f"  - suggested_capacity: {row.get('suggested_capacity')}")
+              print(f"  - current_capacity: {row.get('current_capacity')}")
+              print(f"  - capacity_applied: {row.get('capacity_applied')}")
+              print()
+          PY
+          num="$(gh pr list --head roster-mine --state open --json number -q '.[0].number' || true)"
+          if [ -z "$num" ] || [ "$num" = "null" ]; then
+            gh pr create --base main --head roster-mine --title "Roster mine" --body-file "$body"
+          else
+            gh pr edit "$num" --body-file "$body"
+          fi

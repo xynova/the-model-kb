@@ -8,11 +8,19 @@ on:
     paths:
       - "tools/library-intake/**"
       - "tools/cloudrun-proxy/**"
+      - "tools/roster-pick/**"
+      - "dbt/**"
+      - "roster/catalog.json"
+      - "roster/scores.json"
       - ".github/workflows/quality.yml"
   pull_request:
     paths:
       - "tools/library-intake/**"
       - "tools/cloudrun-proxy/**"
+      - "tools/roster-pick/**"
+      - "dbt/**"
+      - "roster/catalog.json"
+      - "roster/scores.json"
       - ".github/workflows/quality.yml"
   workflow_dispatch:
 
@@ -74,3 +82,42 @@ jobs:
 
       - name: Build
         run: make build
+
+  roster-pick:
+    name: roster-pick
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/roster-pick
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: tools/roster-pick/go.mod
+          cache-dependency-path: tools/roster-pick/go.sum
+
+      - name: Vet
+        run: go tool task vet
+
+      - name: Test
+        run: go tool task test
+
+  roster-dbt:
+    name: roster-dbt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Fusion dbt
+        run: |
+          curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update --yes
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Build warehouse and scores.json
+        run: |
+          make -C site generate-roster
+          make -C dbt build

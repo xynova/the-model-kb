@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_hosts
+    columns:
+      - name: name
+        tests:
+          - not_null
+      - name: host_id
+        tests:
+          - not_null
+      - name: kind
+        tests:
+          - not_null
+      - name: capacity
+        tests:
+          - not_null

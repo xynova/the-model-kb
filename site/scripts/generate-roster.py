@@ -210,6 +210,15 @@ def dump_hugo_frontmatter(fm: dict) -> str:
     ).rstrip()
 
 
+def dump_source_frontmatter(fm: dict) -> str:
+    return yaml.dump(
+        fm,
+        default_flow_style=False,
+        sort_keys=False,
+        allow_unicode=True,
+    ).rstrip()
+
+
 def write_index(cards: list[tuple[dict, Path]], index_path: Path) -> None:
     lines = [
         "# Roster index",

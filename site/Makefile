@@ -1,4 +1,4 @@
-.PHONY: serve build clean generate-roster check-links ensure-htmltest test-roster venv-roster
+.PHONY: serve build clean generate-roster retrieve-limits apply-mine mine-hosts check-links ensure-htmltest test-roster venv-roster
 
 HUGO ?= hugo
 VENV ?= .venv
@@ -10,6 +10,14 @@ CHECK_BASE_URL ?= /
 generate-roster: venv-roster
 	$(VENV)/bin/python scripts/generate-roster.py
 
+retrieve-limits: venv-roster
+	$(VENV)/bin/python scripts/retrieve-limits.py
+
+apply-mine: venv-roster
+	$(VENV)/bin/python scripts/apply-mine.py
+
+mine-hosts: generate-roster retrieve-limits apply-mine generate-roster
+
 venv-roster:
 	@if [ ! -x $(VENV)/bin/python ]; then \
 		python3 -m venv $(VENV); \
@@ -17,7 +25,7 @@ venv-roster:
 	fi
 
 test-roster: venv-roster
-	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster
+	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine
 
 serve: generate-roster
 	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/

@@ -1,0 +1,34 @@
+version: "3"
+
+tasks:
+  default:
+    desc: List tasks
+    silent: true
+    cmds:
+      - go tool task --list
+
+  format:
+    desc: Format Go sources
+    cmds:
+      - go tool gofumpt -w ./cmd ./internal
+
+  lint:
+    desc: Run golangci-lint
+    cmds:
+      - go tool golangci-lint run ./...
+
+  vet:
+    desc: Run go vet
+    cmds:
+      - go vet ./...
+
+  test:
+    desc: Run unit tests
+    cmds:
+      - go test ./...
+
+  build:
+    desc: Build bin/roster-pick
+    cmds:
+      - mkdir -p bin
+      - go build -o bin/roster-pick ./cmd/roster-pick

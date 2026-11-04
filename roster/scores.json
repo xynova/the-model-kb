@@ -1,0 +1,287 @@
+{
+  "scores_schema": 1,
+  "generated_at": "2026-11-04",
+  "source_catalog_schema": 1,
+  "offers": [
+    {
+      "name": "cursor-composer-2.5-fast",
+      "title": "Cursor Composer 2.5 (Fast)",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "coding"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "composer-2.5",
+      "price_in": 3.0,
+      "price_out": 15.0,
+      "cost_per_m": 18.0,
+      "rank_by_cost": 14,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-gemini-3-flash",
+      "title": "Cursor Gemini 3 Flash",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "cheap",
+        "chat"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "gemini-3-flash",
+      "price_in": 0.5,
+      "price_out": 3.0,
+      "cost_per_m": 3.5,
+      "rank_by_cost": 9,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-gemini-3.1-pro",
+      "title": "Cursor Gemini 3.1 Pro",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "gemini-3.1-pro",
+      "price_in": 2.0,
+      "price_out": 12.0,
+      "cost_per_m": 14.0,
+      "rank_by_cost": 13,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-gpt-5.4-mini-medium",
+      "title": "Cursor GPT-5.4 Mini (Medium)",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "cheap",
+        "vision"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "gpt-5.4-mini",
+      "price_in": 0.75,
+      "price_out": 4.5,
+      "cost_per_m": 5.25,
+      "rank_by_cost": 11,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-gpt-5.6-luna-high",
+      "title": "Cursor GPT-5.6 Luna (High)",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "cheap",
+        "reasoning"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "gpt-5.6-luna",
+      "price_in": 0.2,
+      "price_out": 1.2,
+      "cost_per_m": 1.4,
+      "rank_by_cost": 8,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-gpt-5.6-terra-medium",
+      "title": "Cursor GPT-5.6 Terra (Medium)",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "reasoning",
+        "chat"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "gpt-5.6-terra",
+      "price_in": 2.0,
+      "price_out": 12.0,
+      "cost_per_m": 14.0,
+      "rank_by_cost": 13,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-grok-4.6-high",
+      "title": "Cursor Grok 4.6 (High)",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "reasoning",
+        "chat"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "grok-4.6",
+      "price_in": 2.0,
+      "price_out": 6.0,
+      "cost_per_m": 8.0,
+      "rank_by_cost": 12,
+      "industrial_ok": false
+    },
+    {
+      "name": "cursor-kimi-k2.7-code",
+      "title": "Cursor Kimi K2.7 Code",
+      "kind": "service",
+      "status": "watch",
+      "jobs": [
+        "coding",
+        "cheap"
+      ],
+      "host_id": "cursor",
+      "capacity": "unknown",
+      "runtime_model_id": "kimi-k2.7-code",
+      "price_in": 0.95,
+      "price_out": 4.0,
+      "cost_per_m": 4.95,
+      "rank_by_cost": 10,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "host_id": "cloudflare",
+      "capacity": "hobby",
+      "runtime": "cloudflare",
+      "runtime_model_id": "@cf/google/gemma-4-26b-a4b-it",
+      "price_in": 0.1,
+      "price_out": 0.3,
+      "cost_per_m": 0.4,
+      "rank_by_cost": 2,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "host_id": "deepinfra",
+      "capacity": "industrial",
+      "runtime": "deepinfra",
+      "runtime_model_id": "google/gemma-4-26B-A4B-it",
+      "price_in": 0.07,
+      "price_out": 0.34,
+      "cost_per_m": 0.41000000000000003,
+      "rank_by_cost": 3,
+      "industrial_ok": true
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "host_id": "google",
+      "capacity": "hobby",
+      "runtime": "google",
+      "runtime_model_id": "gemma-4-26b-a4b-it-maas",
+      "price_in": 0.15,
+      "price_out": 0.6,
+      "cost_per_m": 0.75,
+      "rank_by_cost": 6,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "google/gemma-4-26b-a4b-it",
+      "price_in": 0.04,
+      "price_out": 0.15,
+      "cost_per_m": 0.19,
+      "rank_by_cost": 1,
+      "industrial_ok": false
+    },
+    {
+      "name": "glm-4.7-flash",
+      "title": "GLM-4.7-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "reasoning",
+        "cheap",
+        "chat"
+      ],
+      "host_id": "cloudflare",
+      "capacity": "hobby",
+      "runtime": "cloudflare",
+      "runtime_model_id": "@cf/zai-org/glm-4.7-flash",
+      "price_in": 0.06,
+      "price_out": 0.4,
+      "cost_per_m": 0.46,
+      "rank_by_cost": 4,
+      "industrial_ok": false
+    },
+    {
+      "name": "glm-5.3-flash",
+      "title": "GLM-5.3-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "host_id": "cloudflare",
+      "capacity": "hobby",
+      "runtime": "cloudflare",
+      "runtime_model_id": "@cf/zai-org/glm-5.3-flash",
+      "price_in": 0.15,
+      "price_out": 0.5,
+      "cost_per_m": 0.65,
+      "rank_by_cost": 5,
+      "industrial_ok": false
+    },
+    {
+      "name": "llama-4-scout-17b",
+      "title": "Llama 4 Scout 17B",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision"
+      ],
+      "host_id": "cloudflare",
+      "capacity": "hobby",
+      "runtime": "cloudflare",
+      "runtime_model_id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+      "price_in": 0.27,
+      "price_out": 0.85,
+      "cost_per_m": 1.12,
+      "rank_by_cost": 7,
+      "industrial_ok": false
+    }
+  ]
+}
