@@ -161,6 +161,8 @@ Violation: STOP, revert capacity, file a decisions row only after the user confi
 
 **CONSTRAINT:** Dedup, compiler, INDEX
 
+- MAY: Run `make -C site polypus-diff` to list Polypus gateway ids missing from `catalog.json`. Treat that stdout as keep/drop proposals only.
+- MUST NOT: Mint `polypus` as a host id, or file Polypus route strings as `price_in` / `price_out` / `capacity`.
 - MUST: Before write, Grep `roster/**/*.md` for matching `name:`.
 - MUST: Skip existing `name` unless the user asks to update/refresh or add a host row.
 - MUST: After any write or refresh, run `make -C site generate-roster` (writes `roster/INDEX.md`, `roster/catalog.json`, `site/static/roster.json`, and generated Hugo pages). MUST NOT hand-edit INDEX.

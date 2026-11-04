@@ -64,6 +64,10 @@ Pipeline: `generate-roster` → `retrieve-limits.py` (public pages) → `apply-m
 
 Local dry run: `make -C site mine-hosts` (network for retrieve).
 
+## Polypus catalog diff
+
+`make -C site polypus-diff` GETs `$POLYPUS_BASE_URL/v1/apis/openai/models` (default `http://127.0.0.1:1320`) and prints which gateway ids already match `catalog.json` `runtime_model_id` values, which look like new **model-roster** keep/drop candidates, and which are embeddings/audio/router skips. It does not write cards, mint a `polypus` host, or file prices. Use `--url` for a full models URL, `--json` for the report object. Tests inject a payload; they do not hit the network.
+
 ## Providers mint
 
 New serving companies (for example Xinference) are **not** discovered by the nightly spider. Use project skill `providers-mint`: name a host or paste a public pricing URL, wait for `keep? y/n`, then the skill updates [taxonomy.md](taxonomy.md), `ALLOWED_HOST_IDS`, and retrieve-limits `LINK_KEYS`. Perplexity may suggest a name; filed URLs and prices MUST come from that public page. Attaching the host to a model card is `model-roster`, after the id exists.
