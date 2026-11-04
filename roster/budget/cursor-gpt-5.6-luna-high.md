@@ -3,6 +3,9 @@ name: cursor-gpt-5.6-luna-high
 title: Cursor GPT-5.6 Luna (High)
 kind: service
 category: budget
+jobs:
+  - cheap
+  - reasoning
 tags:
   - llm
   - closed
@@ -14,10 +17,13 @@ tags:
 status: watch
 lab: openai
 service: cursor
-runtime_model_id: gpt-5.6-luna
-price_in: 0.2
-price_out: 1.2
-price_note: "Other Models pool; $0.2/$0.25/$0.02/$1.2 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; High is picker reasoning effort on the cheap base; Max Mode on legacy request plans"
+hosts:
+  - id: cursor
+    runtime_model_id: gpt-5.6-luna
+    price_in: 0.2
+    price_out: 1.2
+    price_note: "Other Models pool; $0.2/$0.25/$0.02/$1.2 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; High is picker reasoning effort on the cheap base; Max Mode on legacy request plans"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 1000000

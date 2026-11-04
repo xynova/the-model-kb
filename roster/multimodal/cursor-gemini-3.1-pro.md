@@ -3,6 +3,9 @@ name: cursor-gemini-3.1-pro
 title: Cursor Gemini 3.1 Pro
 kind: service
 category: multimodal
+jobs:
+  - vision
+  - reasoning
 tags:
   - llm
   - vision
@@ -12,10 +15,13 @@ tags:
 status: watch
 lab: google
 service: cursor
-runtime_model_id: gemini-3.1-pro
-price_in: 2
-price_out: 12
-price_note: "Other Models pool; $2/$0.2/$12 in/cache-read/out per MTok (no separate cache-write listed); long context >200k may raise rates (confirm table); Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool"
+hosts:
+  - id: cursor
+    runtime_model_id: gemini-3.1-pro
+    price_in: 2
+    price_out: 12
+    price_note: "Other Models pool; $2/$0.2/$12 in/cache-read/out per MTok (no separate cache-write listed); long context >200k may raise rates (confirm table); Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 1000000

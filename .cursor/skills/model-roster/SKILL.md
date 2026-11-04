@@ -19,7 +19,7 @@ Load when the user asks to add, refresh, or update model roster cards, or to fil
 
 **CONSTRAINT:** Catalog root and taxonomy
 
-- MUST: Read `roster/taxonomy.md` before assigning `kind`, `category`, or `tags`.
+- MUST: Read `roster/taxonomy.md` before assigning `kind`, `category`, `tags`, `jobs`, or `hosts`.
 - MUST: Write entries under `roster/<category>/<slug>.md` using structure from `roster/_template.md`.
 - MUST NOT: Invent kinds, categories, tags, or runtimes absent from `taxonomy.md` (unless the user first updates taxonomy).
 
@@ -44,7 +44,7 @@ tags: [best]
 **CONSTRAINT:** Kind is required and must match control model
 
 - MUST: Propose exactly one of `sovereign` | `provider` | `service` on every cold read.
-- MUST: Treat Cloudflare/DeepInfra **open hosted** weights as `sovereign` with `runtime` set.
+- MUST: Treat Cloudflare/DeepInfra **open hosted** weights as `sovereign`; put each host offer in `hosts` with `runtime` on the row.
 - MUST: Treat lab-locked APIs (OpenAI, Anthropic, Gemini, …) as `provider`.
 - MUST: Treat Cursor (and similar product-bundled models) as `service` with `service: cursor`.
 - MUST: Treat a host as `provider` only when it **proxies** a lab-locked API; note the proxy in `price_note`.
@@ -103,9 +103,9 @@ Violation: STOP, reclassify or drop the candidate before `keep? y/n`.
 
 CORRECT:
 ```text
-[2/4] gemma-4-26b-a4b-deepinfra | sovereign | multimodal | peer (same weights, host price)
+[2/4] gemma-4-26b-a4b | sovereign | multimodal | add host deepinfra
 
-Same Gemma 4 26B-A4B on DeepInfra. Fair sovereign host compare vs CF.
+Append a `hosts` row on existing card `gemma-4-26b-a4b`. Same weights; host price compare vs cloudflare row.
 ```
 
 CORRECT:
@@ -121,10 +121,23 @@ PROHIBITED:
 # older cut, weaker class, presented as peer
 ```
 
+PROHIBITED:
+```text
+gemma-4-26b-a4b-deepinfra.md
+# second file for same open weights
+```
+
+**CONSTRAINT:** One card per model; hosts are rows
+
+- MUST: Keep one markdown file per model (`name` slug). Same open weights on another host = append a `hosts` row on that `name`.
+- MUST NOT: Create a second slug/file for the same weights (e.g. `*-deepinfra.md` beside the anchor card).
+- MUST: Assign required `jobs` and per-host `capacity` from taxonomy.
+- MUST NOT: File blended ranks or computed scores in YAML (see `roster/OBJECTIVE.md`).
+
 **CONSTRAINT:** Enrichment (v1)
 
 - MUST: Use WebSearch / WebFetch only against sources listed in `roster/taxonomy.md`.
-- MUST: Prefer runtime pricing when `runtime` is `cloudflare` or `deepinfra` (public pages, not login dashboards).
+- MUST: Prefer host-row pricing when `hosts[].runtime` is `cloudflare`, `deepinfra`, `openrouter`, or `google` (public pages, not login dashboards).
 - MUST: Prefer lab pricing for `kind: provider`; product docs for `kind: service`.
 - MUST: Mark uncertain fields `unknown` or omit the key.
 - MUST NOT: Invent URLs, prices, or scores.
@@ -134,19 +147,19 @@ PROHIBITED:
 Enforcement: Every `links.*` value and numeric signal must come from search/fetch or be omitted/`unknown`.
 Violation: STOP, clear inventions, re-enrich.
 
-**CONSTRAINT:** Dedup and INDEX
+**CONSTRAINT:** Dedup, compiler, INDEX
 
 - MUST: Before write, Grep `roster/**/*.md` for matching `name:`.
-- MUST: Skip existing `name` unless the user asks to update/refresh.
-- MUST: Regenerate `roster/INDEX.md` after successful writes (all entry rows; include `kind`).
-- MUST: Same weights on different hosts MAY use different slugs (e.g. `llama-3.3-70b-cf` vs `llama-3.3-70b-deepinfra`); both stay `kind: sovereign` when open.
+- MUST: Skip existing `name` unless the user asks to update/refresh or add a host row.
+- MUST: After any write or refresh, run `make -C site generate-roster` (writes `roster/INDEX.md`, `roster/catalog.json`, `site/static/roster.json`, and generated Hugo pages). MUST NOT hand-edit INDEX.
+- MUST NOT: Create a second file when the user asked for another host on an existing model.
 
-Enforcement: Grep before Write; INDEX row count matches entry files (excluding `_template.md` and `.gitkeep`).
-Violation: STOP, skip or update per user, rebuild INDEX.
+Enforcement: Grep before Write; INDEX row count matches entry files after generate-roster.
+Violation: STOP, skip or update per user, re-run generate-roster.
 
 **CONSTRAINT:** Refresh preserves experience
 
-- MUST: On refresh, re-fetch price/capability fields per `kind` and `runtime`; bump `refreshed`.
+- MUST: On refresh, re-fetch every `hosts` row and card-level signals; bump `refreshed`.
 - MUST: Preserve **My experience** and `status` unless the user asks to change them.
 - MUST NOT: Overwrite human experience notes with generated prose.
 
@@ -160,7 +173,7 @@ Copy this checklist and track progress:
 - [ ] Read roster/taxonomy.md and roster/_template.md
 - [ ] Parse candidates (or a single named model)
 - [ ] For each: cold read with kind; keep? y/n; wait
-- [ ] On y: dedup, enrich by kind/runtime, write, refresh INDEX
+- [ ] On y: dedup, enrich, write, run make -C site generate-roster
 - [ ] On n: skip; next
 - [ ] Summarize kept vs skipped
 ```
@@ -169,7 +182,7 @@ Copy this checklist and track progress:
 2. **Parse** — Build an ordered candidate list. Do not write yet.
 3. **Ask one** — Name, proposed `kind`, category, cold read (what it is; kind path; price/capability if known; one caveat). End with `keep? y/n`.
 4. **On `n`** — Skip; continue with the next candidate.
-5. **On `y`** — Dedup. Enrich (see branching below). Write `roster/<category>/<slug>.md`. Refresh INDEX. Continue.
+5. **On `y`** — Dedup. Enrich. Write `roster/<category>/<slug>.md`. Run `make -C site generate-roster`. Continue.
 6. **Done** — Summarize kept vs skipped.
 
 ### Refresh
@@ -177,42 +190,36 @@ Copy this checklist and track progress:
 ```
 - [ ] Read taxonomy
 - [ ] Resolve slug(s) or stale-after-N-days set
-- [ ] For each entry: re-fetch by kind/runtime; preserve My experience and status
-- [ ] Bump refreshed; rewrite frontmatter signals; refresh INDEX
+- [ ] For each entry: re-fetch each host row; preserve My experience and status
+- [ ] Bump refreshed; run make -C site generate-roster
 ```
 
 1. User names a slug, a list, or “stale after N days.”
 2. Branch enrichment by `kind` and `runtime` (below).
 3. Preserve **My experience** and `status` unless asked otherwise.
-4. Bump `refreshed`; regenerate INDEX.
+4. Bump `refreshed`; run `make -C site generate-roster`.
 
 ### Enrichment branching
 
-| kind / runtime | Prefer |
-|----------------|--------|
-| `sovereign` + `cloudflare` | https://developers.cloudflare.com/workers-ai/platform/pricing/ then AA / Arena / Aider as relevant |
-| `sovereign` + `deepinfra` | https://deepinfra.com/pricing (and model page) then AA / Arena / Aider |
-| `sovereign` + `local` | Infra / hardware `price_note`; AA / Arena when the model is listed |
-| `provider` | Lab (or proxy) pricing; optional OpenRouter / models.dev; AA / Arena |
-| `service` | Product docs / plan limits in `price_note` and `links.service_docs`; do not invent `$/MTok` |
+| host row `runtime` | Prefer |
+|--------------------|--------|
+| `cloudflare` | https://developers.cloudflare.com/workers-ai/platform/pricing/ then AA / Arena / Aider |
+| `deepinfra` | https://deepinfra.com/pricing (and model page) then AA / Arena / Aider |
+| `openrouter` | https://openrouter.ai/models then models.dev |
+| `google` | Google AI / Vertex Gemma pricing docs |
+| `local` | Infra / hardware `price_note`; AA / Arena when listed |
+| `kind: provider` | Lab (or proxy) pricing on the host row |
+| `kind: service` | Product docs in host `price_note` and `links.service_docs` |
 
 Also pull Artificial Analysis, LMArena, OpenRouter, models.dev, Aider when the job and model coverage warrant it (see taxonomy source table).
 
 ## INDEX format
 
-```markdown
-# Roster index
+Regenerated by `make -C site generate-roster`, not by hand.
 
-Regenerated by `model-roster` after writes.
+| name | title | kind | service | category | status | lab | hosts | jobs | tags | path |
 
-| name | title | kind | category | status | lab | runtime | tags | path |
-|------|-------|------|----------|--------|-----|---------|------|------|
-| llama-3.2-3b-cf | Llama 3.2 3B (CF) | sovereign | general | watch | meta | cloudflare | llm, open, cloudflare | general/llama-3.2-3b-cf.md |
-```
-
-Include `service` in the table only if you extend the header; otherwise keep `kind: service` visible in the `kind` column and put the product in tags/`lab` as appropriate. Prefer adding a `service` column when any service entries exist:
-
-| name | title | kind | service | category | status | lab | runtime | tags | path |
+`hosts` column lists comma-separated host `id` values from each card.
 
 ## Pre-completion checklist
 
@@ -224,7 +231,7 @@ Include `service` in the table only if you extend the header; otherwise keep `ki
 - [ ] **No invented links/scores:** Traceable to WebSearch/WebFetch or omitted/`unknown`
 - [ ] **Experience preserved:** Refresh did not fabricate or clobber **My experience**
 - [ ] **Dedup:** No silent overwrite of existing `name`
-- [ ] **INDEX fresh:** Row count matches entry files; every row shows `kind`
+- [ ] **INDEX fresh:** generate-roster ran; row count matches entry files
 - [ ] **No Perplexity for filed metadata**
 
 ## Additional resources

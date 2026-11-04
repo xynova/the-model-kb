@@ -1,8 +1,12 @@
 ---
-name: glm-4.7-flash-cf
-title: GLM-4.7-Flash (Cloudflare)
+name: glm-4.7-flash
+title: GLM-4.7-Flash
 kind: sovereign
 category: general
+jobs:
+  - reasoning
+  - cheap
+  - chat
 tags:
   - llm
   - open
@@ -13,16 +17,24 @@ tags:
   - agentic
 status: watch
 lab: zai
-runtime: cloudflare
-runtime_model_id: "@cf/zai-org/glm-4.7-flash"
-price_in: 0.06
-price_out: 0.40
-price_note: "Workers AI Neurons; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page"
+preferred_host: cloudflare
+aliases:
+  - /roster/general/glm-4.7-flash-cf/
+hosts:
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: "@cf/zai-org/glm-4.7-flash"
+    price_in: 0.06
+    price_out: 0.40
+    price_note: "Workers AI Neurons; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page"
+    capacity: hobby
+    limits_note: "10k Neurons/day free tier"
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 aa_intelligence: 23
 arena_elo: unknown
 context_window: 131072
 links:
-  cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
   artificial_analysis: https://artificialanalysis.ai/models/releases/glm-4-7-flash
   models_dev: https://models.dev/
 source: "roster seed gemma-4 segment peers 2026-09-08"

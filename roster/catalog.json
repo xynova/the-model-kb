@@ -1,0 +1,393 @@
+{
+  "catalog_schema": 1,
+  "generated_at": "2026-11-04",
+  "cards": [
+    {
+      "name": "cursor-composer-2.5-fast",
+      "title": "Cursor Composer 2.5 (Fast)",
+      "kind": "service",
+      "category": "coding",
+      "jobs": [
+        "coding"
+      ],
+      "status": "watch",
+      "lab": "cursor",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "composer-2.5",
+          "price_in": 3,
+          "price_out": 15,
+          "price_note": "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate"
+        }
+      ],
+      "service": "cursor",
+      "context_window": 200000,
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/cursor-composer-2-5"
+      }
+    },
+    {
+      "name": "cursor-gemini-3-flash",
+      "title": "Cursor Gemini 3 Flash",
+      "kind": "service",
+      "category": "budget",
+      "jobs": [
+        "cheap",
+        "chat"
+      ],
+      "status": "watch",
+      "lab": "google",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "gemini-3-flash",
+          "price_in": 0.5,
+          "price_out": 3,
+          "price_note": "Other Models pool; $0.5/$0.05/$3 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+        }
+      ],
+      "service": "cursor",
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/gemini-3-flash"
+      }
+    },
+    {
+      "name": "cursor-gemini-3.1-pro",
+      "title": "Cursor Gemini 3.1 Pro",
+      "kind": "service",
+      "category": "multimodal",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "status": "watch",
+      "lab": "google",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "gemini-3.1-pro",
+          "price_in": 2,
+          "price_out": 12,
+          "price_note": "Other Models pool; $2/$0.2/$12 in/cache-read/out per MTok (no separate cache-write listed); long context >200k may raise rates (confirm table); Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool"
+        }
+      ],
+      "service": "cursor",
+      "context_window": 1000000,
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/gemini-3-1-pro"
+      }
+    },
+    {
+      "name": "cursor-gpt-5.4-mini-medium",
+      "title": "Cursor GPT-5.4 Mini (Medium)",
+      "kind": "service",
+      "category": "budget",
+      "jobs": [
+        "cheap",
+        "vision"
+      ],
+      "status": "watch",
+      "lab": "openai",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "gpt-5.4-mini",
+          "price_in": 0.75,
+          "price_out": 4.5,
+          "price_note": "Other Models pool; $0.75/$0.075/$4.5 in/cache-read/out per MTok; 90% discount on cached input; Medium is picker reasoning effort; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
+        }
+      ],
+      "service": "cursor",
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/gpt-5-4-mini"
+      }
+    },
+    {
+      "name": "cursor-gpt-5.6-luna-high",
+      "title": "Cursor GPT-5.6 Luna (High)",
+      "kind": "service",
+      "category": "budget",
+      "jobs": [
+        "cheap",
+        "reasoning"
+      ],
+      "status": "watch",
+      "lab": "openai",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "gpt-5.6-luna",
+          "price_in": 0.2,
+          "price_out": 1.2,
+          "price_note": "Other Models pool; $0.2/$0.25/$0.02/$1.2 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; High is picker reasoning effort on the cheap base; Max Mode on legacy request plans"
+        }
+      ],
+      "service": "cursor",
+      "context_window": 1000000,
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/gpt-5-6-luna"
+      }
+    },
+    {
+      "name": "cursor-gpt-5.6-terra-medium",
+      "title": "Cursor GPT-5.6 Terra (Medium)",
+      "kind": "service",
+      "category": "general",
+      "jobs": [
+        "reasoning",
+        "chat"
+      ],
+      "status": "watch",
+      "lab": "openai",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "gpt-5.6-terra",
+          "price_in": 2,
+          "price_out": 12,
+          "price_note": "Other Models pool; $2/$2.5/$0.2/$12 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; Medium is picker reasoning effort; Max Mode on legacy request plans"
+        }
+      ],
+      "service": "cursor",
+      "context_window": 1000000,
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/gpt-5-6-terra"
+      }
+    },
+    {
+      "name": "cursor-grok-4.6-high",
+      "title": "Cursor Grok 4.6 (High)",
+      "kind": "service",
+      "category": "general",
+      "jobs": [
+        "reasoning",
+        "chat"
+      ],
+      "status": "watch",
+      "lab": "xai",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "grok-4.6",
+          "price_in": 2,
+          "price_out": 6,
+          "price_note": "Cursor Models pool (with Grok 4.5, Composer 2.5); Standard $2/$0.50/$6 in/cache/out per MTok; Fast $4/$1/$12; High is the named-model default effort (also low/medium/xhigh); Start plan locks medium non-fast"
+        }
+      ],
+      "service": "cursor",
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/grok-4-6"
+      }
+    },
+    {
+      "name": "cursor-kimi-k2.7-code",
+      "title": "Cursor Kimi K2.7 Code",
+      "kind": "service",
+      "category": "coding",
+      "jobs": [
+        "coding",
+        "cheap"
+      ],
+      "status": "watch",
+      "lab": "moonshot",
+      "hosts": [
+        {
+          "id": "cursor",
+          "capacity": "unknown",
+          "runtime_model_id": "kimi-k2.7-code",
+          "price_in": 0.95,
+          "price_out": 4,
+          "price_note": "Other Models pool; $0.95/$0.19/$4 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default; Cursor recommends Kimi K3 for new work"
+        }
+      ],
+      "service": "cursor",
+      "links": {
+        "service_docs": "https://cursor.com/docs/models/kimi-k2-7-code"
+      }
+    },
+    {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "category": "multimodal",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "status": "reach-for",
+      "lab": "google",
+      "hosts": [
+        {
+          "id": "cloudflare",
+          "capacity": "hobby",
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/google/gemma-4-26b-a4b-it",
+          "price_in": 0.1,
+          "price_out": 0.3,
+          "price_note": "Workers AI Neurons ($0.011/1k Neurons); 10k Neurons/day free; 9091/27273 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "10k Neurons/day free tier; verify dashboard after large jobs",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        },
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemma-4-26b-a4b-it",
+          "price_in": 0.04,
+          "price_out": 0.15,
+          "price_note": "OpenRouter aggregate route; provider mix behind the slug can shift; confirm openrouter.ai model page",
+          "limits_note": "Marketplace routing; not industrial throughput",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemma-4-26b-a4b-it"
+          }
+        },
+        {
+          "id": "google",
+          "capacity": "hobby",
+          "runtime": "google",
+          "runtime_model_id": "gemma-4-26b-a4b-it-maas",
+          "price_in": 0.15,
+          "price_out": 0.6,
+          "price_note": "Vertex AI Gemma open-weights MaaS list; confirm Google Cloud pricing for your region",
+          "limits_note": "Cloud project quotas apply; not filed as industrial here",
+          "links": {
+            "provider_pricing": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+          }
+        },
+        {
+          "id": "deepinfra",
+          "capacity": "industrial",
+          "runtime": "deepinfra",
+          "runtime_model_id": "google/gemma-4-26B-A4B-it",
+          "price_in": 0.07,
+          "price_out": 0.34,
+          "price_note": "DeepInfra published list on model page; Priority 1.5x and Flex 0.8x tiers exist",
+          "limits_note": "Operator pick for high-volume batch; DeepInfra supports production throughput vs CF neuron hobby tier",
+          "links": {
+            "deepinfra": "https://deepinfra.com/google/gemma-4-26B-A4B-it"
+          }
+        }
+      ],
+      "preferred_host": "cloudflare",
+      "aa_intelligence": 31,
+      "context_window": 256000,
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know",
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "glm-4.7-flash",
+      "title": "GLM-4.7-Flash",
+      "kind": "sovereign",
+      "category": "general",
+      "jobs": [
+        "reasoning",
+        "cheap",
+        "chat"
+      ],
+      "status": "watch",
+      "lab": "zai",
+      "hosts": [
+        {
+          "id": "cloudflare",
+          "capacity": "hobby",
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/zai-org/glm-4.7-flash",
+          "price_in": 0.06,
+          "price_out": 0.4,
+          "price_note": "Workers AI Neurons; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "10k Neurons/day free tier",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        }
+      ],
+      "preferred_host": "cloudflare",
+      "aa_intelligence": 23,
+      "context_window": 131072,
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/models/releases/glm-4-7-flash",
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "glm-5.3-flash",
+      "title": "GLM-5.3-Flash",
+      "kind": "sovereign",
+      "category": "multimodal",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "status": "watch",
+      "lab": "zai",
+      "hosts": [
+        {
+          "id": "cloudflare",
+          "capacity": "hobby",
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/zai-org/glm-5.3-flash",
+          "price_in": 0.15,
+          "price_out": 0.5,
+          "price_note": "Workers Paid or AI Gateway credits required; Neurons behind the scenes; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "Paid Workers or AI Gateway credits required on CF",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        }
+      ],
+      "preferred_host": "cloudflare",
+      "aa_intelligence": 57,
+      "context_window": 1048576,
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/models/glm-5-3-flash",
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "llama-4-scout-17b",
+      "title": "Llama 4 Scout 17B",
+      "kind": "sovereign",
+      "category": "multimodal",
+      "jobs": [
+        "vision"
+      ],
+      "status": "watch",
+      "lab": "meta",
+      "hosts": [
+        {
+          "id": "cloudflare",
+          "capacity": "hobby",
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+          "price_in": 0.27,
+          "price_out": 0.85,
+          "price_note": "Workers AI Neurons; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "10k Neurons/day free tier",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        }
+      ],
+      "preferred_host": "cloudflare",
+      "aa_intelligence": 10,
+      "context_window": 131000,
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5",
+        "models_dev": "https://models.dev/"
+      }
+    }
+  ]
+}

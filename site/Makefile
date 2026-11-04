@@ -1,13 +1,23 @@
-.PHONY: serve build clean generate-roster check-links ensure-htmltest
+.PHONY: serve build clean generate-roster check-links ensure-htmltest test-roster venv-roster
 
 HUGO ?= hugo
-PYTHON ?= python3
+VENV ?= .venv
+PYTHON ?= $(if $(wildcard $(VENV)/bin/python),$(VENV)/bin/python,python3)
 HTMLTEST ?= htmltest
 # Build with a root baseURL so htmltest resolves site-local paths under public/.
 CHECK_BASE_URL ?= /
 
-generate-roster:
-	$(PYTHON) scripts/generate-roster.py
+generate-roster: venv-roster
+	$(VENV)/bin/python scripts/generate-roster.py
+
+venv-roster:
+	@if [ ! -x $(VENV)/bin/python ]; then \
+		python3 -m venv $(VENV); \
+		$(VENV)/bin/pip install -q -r requirements-roster.txt; \
+	fi
+
+test-roster: venv-roster
+	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster
 
 serve: generate-roster
 	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/

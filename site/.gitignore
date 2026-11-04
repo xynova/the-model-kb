@@ -2,6 +2,7 @@
 /public/
 /resources/
 /generated/
+/.venv/
 .hugo_build.lock
 
 # htmltest cache and log

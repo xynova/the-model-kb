@@ -3,6 +3,9 @@ name: cursor-kimi-k2.7-code
 title: Cursor Kimi K2.7 Code
 kind: service
 category: coding
+jobs:
+  - coding
+  - cheap
 tags:
   - llm
   - closed
@@ -13,10 +16,13 @@ tags:
 status: watch
 lab: moonshot
 service: cursor
-runtime_model_id: kimi-k2.7-code
-price_in: 0.95
-price_out: 4
-price_note: "Other Models pool; $0.95/$0.19/$4 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default; Cursor recommends Kimi K3 for new work"
+hosts:
+  - id: cursor
+    runtime_model_id: kimi-k2.7-code
+    price_in: 0.95
+    price_out: 4
+    price_note: "Other Models pool; $0.95/$0.19/$4 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default; Cursor recommends Kimi K3 for new work"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown

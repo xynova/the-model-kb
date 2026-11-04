@@ -75,6 +75,13 @@ jobs:
           sudo install -m 0755 "${{ runner.temp }}/htmltest" /usr/local/bin/htmltest
           htmltest --version
 
+      - name: Setup Python roster deps
+        run: python3 -m pip install -r site/requirements-roster.txt
+
+      - name: Test roster compiler
+        working-directory: site
+        run: make test-roster
+
       - name: Check internal links
         working-directory: site
         run: make check-links

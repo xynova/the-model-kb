@@ -3,6 +3,9 @@ name: cursor-grok-4.6-high
 title: Cursor Grok 4.6 (High)
 kind: service
 category: general
+jobs:
+  - reasoning
+  - chat
 tags:
   - llm
   - closed
@@ -12,10 +15,13 @@ tags:
 status: watch
 lab: xai
 service: cursor
-runtime_model_id: grok-4.6
-price_in: 2
-price_out: 6
-price_note: "Cursor Models pool (with Grok 4.5, Composer 2.5); Standard $2/$0.50/$6 in/cache/out per MTok; Fast $4/$1/$12; High is the named-model default effort (also low/medium/xhigh); Start plan locks medium non-fast"
+hosts:
+  - id: cursor
+    runtime_model_id: grok-4.6
+    price_in: 2
+    price_out: 6
+    price_note: "Cursor Models pool (with Grok 4.5, Composer 2.5); Standard $2/$0.50/$6 in/cache/out per MTok; Fast $4/$1/$12; High is the named-model default effort (also low/medium/xhigh); Start plan locks medium non-fast"
+    capacity: unknown
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown

@@ -19,7 +19,9 @@
           </div>
           {{ end }}
           {{- partial "library-entry-meta.html" . -}}
+          {{- partial "roster-entry-meta.html" . -}}
           {{- partial "board-entry-control.html" . -}}
+          {{- partial "roster-hosts.html" . -}}
           {{- /* Library stills: strip markdown gallery tables and inject GLightbox. */ -}}
           {{- $isLibrary := or (eq .Section "library") (strings.Contains .RelPermalink "/library/") -}}
           {{- if and $isLibrary .Params.media -}}

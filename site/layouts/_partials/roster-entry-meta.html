@@ -1,0 +1,30 @@
+{{- $isRoster := eq .Section "roster" -}}
+{{- $isEntry := and $isRoster .Params.roster_kind -}}
+{{- if $isEntry -}}
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<div class="roster-entry-meta" aria-label="Roster skim">
+  {{ partial "roster-chip.html" (dict "axis" "kind" "value" .Params.roster_kind) }}
+  {{- with .Params.status -}}
+    {{ partial "roster-chip.html" (dict "axis" "status" "value" .) }}
+  {{- end -}}
+  {{- with .Params.jobs -}}
+    {{- range . -}}
+      {{ partial "roster-chip.html" (dict "axis" "job" "value" .) }}
+    {{- end -}}
+  {{- end -}}
+  {{- with .Params.preferred_host -}}
+    {{ partial "roster-chip.html" (dict "axis" "preferred" "value" .) }}
+  {{- end -}}
+  {{- $pref := .Params.preferred_host -}}
+  {{- range .Params.hosts -}}
+    {{- if and $pref (eq .id $pref) -}}
+      {{- with .capacity -}}
+        {{ partial "roster-chip.html" (dict "axis" "capacity" "value" .) }}
+      {{- end -}}
+      {{- if and .price_in .price_out -}}
+        {{ partial "roster-chip.html" (dict "axis" "price" "value" (printf "$%v / $%v per M" .price_in .price_out)) }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</div>
+{{- end -}}
