@@ -40,11 +40,26 @@ ALLOWED_JOBS = frozenset(
     }
 )
 ALLOWED_RUNTIMES = frozenset(
-    {"cloudflare", "deepinfra", "openrouter", "google", "local"}
+    {
+        "cloudflare",
+        "deepinfra",
+        "openrouter",
+        "google",
+        "xinference",
+        "local",
+    }
 )
 ALLOWED_CAPACITY = frozenset({"hobby", "industrial", "local", "unknown"})
 ALLOWED_HOST_IDS = frozenset(
-    {"cloudflare", "deepinfra", "openrouter", "google", "cursor", "local"}
+    {
+        "cloudflare",
+        "deepinfra",
+        "openrouter",
+        "google",
+        "xinference",
+        "cursor",
+        "local",
+    }
 )
 
 SKIP_NAMES = {

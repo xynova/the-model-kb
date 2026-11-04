@@ -190,6 +190,7 @@ Use on each `hosts` entry when `kind` is `sovereign` or `provider`:
 - `deepinfra`
 - `openrouter`
 - `google`
+- `xinference`
 - `local`
 
 Do **not** use `cursor` as a runtime. Cursor offers use `id: cursor` on `kind: service` cards without `runtime`.
@@ -215,10 +216,20 @@ Stable `id` on each `hosts` entry:
 - `deepinfra`
 - `openrouter`
 - `google`
+- `xinference`
 - `cursor`
 - `local`
 
-Other ids require a taxonomy update first.
+Other ids require a taxonomy update first. Use project skill `providers-mint` (one public pricing URL, `keep? y/n`) so `ALLOWED_HOST_IDS` and retrieve-limits `LINK_KEYS` stay in sync. MUST NOT add an id only in markdown.
+
+## Minting a host
+
+A new serving company is a **mint**, not a nightly mine fetch. Mine only GETs hostnames already in `LINK_KEYS`.
+
+- MUST: Fetch the host's own public pricing or model page (WebSearch / WebFetch).
+- MUST NOT: File Perplexity output as `id`, URL, price, or capacity.
+- MUST: Add `id` here, in `site/scripts/generate-roster.py` allowlists, and in `site/scripts/retrieve-limits.py` `LINK_KEYS` on the same keep.
+- MUST NOT: Reuse `provider_pricing` for a non-Google hostname.
 
 ## Service values
 
@@ -271,6 +282,7 @@ MUST NOT put `kind` on a host row. MUST NOT put card-level `runtime`, `price_in`
 - `cloudflare_pricing`
 - `deepinfra`
 - `provider_pricing`
+- `xinference`
 - `service_docs`
 - `artificial_analysis`
 - `openrouter`
@@ -290,7 +302,9 @@ Uncertain enrichment fields: use `unknown` or omit the key. MUST NOT invent URLs
 | Aider Polyglot | Coding-edit signal | https://aider.chat/docs/leaderboards/ |
 | Cloudflare Workers AI | Price when `runtime: cloudflare` | https://developers.cloudflare.com/workers-ai/platform/pricing/ |
 | DeepInfra | Price when `runtime: deepinfra` | https://deepinfra.com/pricing |
+| Xinference | Price when `runtime: xinference` | https://xinference.co/pricing.html |
 | Lab pricing pages | Ground truth for `kind: provider` | per vendor |
+| Minted host pricing pages | Price when `runtime` matches a `providers-mint` id | that host's public page (skill `providers-mint`) |
 
 **Drop for v1:** Hugging Face Open LLM Leaderboard. Skip secondary price-aggregator blogs. Do not use login dashboards (e.g. DeepInfra dash) for agent WebFetch.
 

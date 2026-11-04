@@ -61,13 +61,20 @@ hosts:
     limits_note: "Operator pick for high-volume batch; DeepInfra supports production throughput vs CF neuron hobby tier"
     links:
       deepinfra: https://deepinfra.com/google/gemma-4-26B-A4B-it
+  - id: xinference
+    runtime: xinference
+    price_note: "Xinference AU Model API; Gemma listed on request on pricing page (Oct 2026); no public list price filed"
+    capacity: unknown
+    limits_note: "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use"
+    links:
+      xinference: https://xinference.co/pricing.html
 aa_intelligence: 31
 arena_elo: unknown
 context_window: 256000
 links:
   artificial_analysis: https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
   models_dev: https://models.dev/
-source: "roster seed gemma-4 segment 2026-09-08; hosts enriched 2026-11-04"
+source: "roster seed gemma-4 segment 2026-09-08; hosts enriched 2026-11-04; xinference host 2026-11-04"
 refreshed: 2026-11-04
 ---
 

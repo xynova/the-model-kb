@@ -277,6 +277,16 @@
           "links": {
             "deepinfra": "https://deepinfra.com/google/gemma-4-26B-A4B-it"
           }
+        },
+        {
+          "id": "xinference",
+          "capacity": "unknown",
+          "runtime": "xinference",
+          "price_note": "Xinference AU Model API; Gemma listed on request on pricing page (Oct 2026); no public list price filed",
+          "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
+          "links": {
+            "xinference": "https://xinference.co/pricing.html"
+          }
         }
       ],
       "preferred_host": "cloudflare",
@@ -346,6 +356,16 @@
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
           }
+        },
+        {
+          "id": "xinference",
+          "capacity": "unknown",
+          "runtime": "xinference",
+          "price_note": "Xinference AU Model API; GLM 5.3 on request on pricing page (Oct 2026); no public list price filed",
+          "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
+          "links": {
+            "xinference": "https://xinference.co/pricing.html"
+          }
         }
       ],
       "preferred_host": "cloudflare",
@@ -378,6 +398,16 @@
           "limits_note": "10k Neurons/day free tier",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        },
+        {
+          "id": "xinference",
+          "capacity": "unknown",
+          "runtime": "xinference",
+          "price_note": "Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed",
+          "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
+          "links": {
+            "xinference": "https://xinference.co/pricing.html"
           }
         }
       ],

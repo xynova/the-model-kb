@@ -227,6 +227,21 @@
       "industrial_ok": false
     },
     {
+      "name": "gemma-4-26b-a4b",
+      "title": "Gemma 4 26B A4B",
+      "kind": "sovereign",
+      "status": "reach-for",
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "host_id": "xinference",
+      "capacity": "unknown",
+      "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
       "name": "glm-4.7-flash",
       "title": "GLM-4.7-Flash",
       "kind": "sovereign",
@@ -266,6 +281,20 @@
       "industrial_ok": false
     },
     {
+      "name": "glm-5.3-flash",
+      "title": "GLM-5.3-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "host_id": "xinference",
+      "capacity": "unknown",
+      "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
       "name": "llama-4-scout-17b",
       "title": "Llama 4 Scout 17B",
       "kind": "sovereign",
@@ -281,6 +310,19 @@
       "price_out": 0.85,
       "cost_per_m": 1.12,
       "rank_by_cost": 7,
+      "industrial_ok": false
+    },
+    {
+      "name": "llama-4-scout-17b",
+      "title": "Llama 4 Scout 17B",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision"
+      ],
+      "host_id": "xinference",
+      "capacity": "unknown",
+      "runtime": "xinference",
       "industrial_ok": false
     }
   ]
