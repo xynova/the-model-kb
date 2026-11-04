@@ -37,6 +37,7 @@ ALLOWED_JOBS = frozenset(
         "long-context",
         "cheap",
         "high-throughput",
+        "classify",
     }
 )
 ALLOWED_RUNTIMES = frozenset(

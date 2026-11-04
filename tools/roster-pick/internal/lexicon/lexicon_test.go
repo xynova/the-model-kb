@@ -28,6 +28,24 @@ func TestLexiconIndustrialCheapVision(t *testing.T) {
 	}
 }
 
+func TestLexiconClassifySystemone(t *testing.T) {
+	t.Parallel()
+	m, err := lexicon.ParseTask("cheap systemone classify")
+	if err != nil {
+		t.Fatal(err)
+	}
+	wantJobs := map[string]bool{"cheap": true, "classify": true}
+	for _, j := range m.Jobs {
+		if !wantJobs[j] {
+			t.Fatalf("unexpected job %q in %v", j, m.Jobs)
+		}
+		delete(wantJobs, j)
+	}
+	if len(wantJobs) != 0 {
+		t.Fatalf("missing jobs %v", wantJobs)
+	}
+}
+
 func TestLexiconNoJob(t *testing.T) {
 	t.Parallel()
 	_, err := lexicon.ParseTask("hello")

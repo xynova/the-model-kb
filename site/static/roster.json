@@ -915,6 +915,32 @@
       }
     },
     {
+      "name": "jev",
+      "title": "Jev",
+      "kind": "provider",
+      "category": "budget",
+      "jobs": [
+        "classify",
+        "cheap"
+      ],
+      "status": "watch",
+      "lab": "typesafe",
+      "hosts": [
+        {
+          "id": "local",
+          "capacity": "unknown",
+          "runtime": "local",
+          "runtime_model_id": "typesafe/jev",
+          "price_in": 0.042,
+          "price_out": 0,
+          "price_note": "TypeSafe list $0.042/M input, output free (blog 2026-09-15); Polypus route cf_local/typesafe/jev",
+          "limits_note": "System One API (noul/choice/score); not a chat model; ~64k context; early access"
+        }
+      ],
+      "preferred_host": "local",
+      "context_window": 64000
+    },
+    {
       "name": "llama-3.3-70b",
       "title": "Llama 3.3 70B",
       "kind": "sovereign",
@@ -1024,6 +1050,39 @@
       "context_window": 131000,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5",
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "mercury-decide",
+      "title": "Mercury Decide",
+      "kind": "provider",
+      "category": "budget",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "status": "watch",
+      "lab": "inception",
+      "hosts": [
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "inception/mercury-decide",
+          "price_in": 0.02,
+          "price_out": 0,
+          "price_note": "OpenRouter headline $0.02/M input, output free; 50% off vs $0.04 list noted on fetch; Inception is the sole provider",
+          "limits_note": "System One Decisions API, not chat completions; 65,536 context; up to 14 decisions/s on the model page",
+          "links": {
+            "openrouter": "https://openrouter.ai/inception/mercury-decide"
+          }
+        }
+      ],
+      "preferred_host": "openrouter",
+      "context_window": 65536,
+      "links": {
         "models_dev": "https://models.dev/"
       }
     },
@@ -1156,6 +1215,72 @@
       "preferred_host": "openrouter",
       "aa_intelligence": 44,
       "context_window": 1048576,
+      "links": {
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "pplx-decider",
+      "title": "Perplexity Decider V1.2",
+      "kind": "provider",
+      "category": "budget",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "status": "watch",
+      "lab": "perplexity",
+      "hosts": [
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "perplexity/pplx-decider-v1.2",
+          "price_in": 0.02,
+          "price_out": 0,
+          "price_note": "OpenRouter Perplexity list $0.02/M input, output free",
+          "limits_note": "System One Decisions API, not chat completions; 262,144 context; 27B cut",
+          "links": {
+            "openrouter": "https://openrouter.ai/perplexity/pplx-decider-v1.2"
+          }
+        }
+      ],
+      "preferred_host": "openrouter",
+      "context_window": 262144,
+      "links": {
+        "models_dev": "https://models.dev/"
+      }
+    },
+    {
+      "name": "pplx-decider-flash",
+      "title": "Perplexity Decider Flash V1.2",
+      "kind": "provider",
+      "category": "budget",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "status": "watch",
+      "lab": "perplexity",
+      "hosts": [
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "perplexity/pplx-decider-flash-v1.2",
+          "price_in": 0.01,
+          "price_out": 0,
+          "price_note": "OpenRouter Perplexity list $0.01/M input, output free",
+          "limits_note": "System One Decisions API, not chat completions; 262,144 context; 4B cut",
+          "links": {
+            "openrouter": "https://openrouter.ai/perplexity/pplx-decider-flash-v1.2"
+          }
+        }
+      ],
+      "preferred_host": "openrouter",
+      "context_window": 262144,
       "links": {
         "models_dev": "https://models.dev/"
       }

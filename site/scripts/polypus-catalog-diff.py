@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Diff a Polypus /v1/apis/openai/models list against roster/catalog.json.
+"""Diff Polypus models lists against roster/catalog.json.
 
-Prints proposed model-roster keep/drop candidates. Does not write cards, mint
-hosts, or treat the gateway as a priced host. Tests inject a models payload;
-live GET is opt-in via main().
+GETs /v1/apis/openai/models and /v1/apis/systemone/models by default. Prints
+proposed model-roster keep/drop candidates. Does not write cards, mint hosts,
+or treat the gateway as a priced host. Tests inject a models payload; live GET
+is opt-in via main().
 """
 
 from __future__ import annotations
@@ -17,7 +18,10 @@ from typing import Callable
 from urllib import error, request
 
 DEFAULT_BASE_URL = "http://127.0.0.1:1320"
-MODELS_PATH = "/v1/apis/openai/models"
+API_PATHS: dict[str, str] = {
+    "openai": "/v1/apis/openai/models",
+    "systemone": "/v1/apis/systemone/models",
+}
 USER_AGENT = "the-model-kb-polypus-catalog-diff/1.0"
 TIMEOUT_S = 20
 
@@ -47,15 +51,20 @@ SKIP_NEEDLES: tuple[str, ...] = (
 STEM_SUFFIXES: tuple[str, ...] = ("-maas", "-it", "-instruct")
 
 
-def models_url(base_url: str) -> str:
+def models_url(base_url: str, api: str = "openai") -> str:
     raw = (base_url or "").strip().rstrip("/")
     if not raw:
         raw = DEFAULT_BASE_URL
-    if raw.endswith("/apis/openai/models"):
+    if raw.endswith("/apis/openai/models") or raw.endswith("/apis/systemone/models"):
         return raw
+    path = API_PATHS.get(api, API_PATHS["openai"])
     if raw.endswith("/v1"):
-        return raw + "/apis/openai/models"
-    return raw + MODELS_PATH
+        return raw + path.removeprefix("/v1")
+    return raw + path
+
+
+def default_models_urls(base_url: str) -> list[str]:
+    return [models_url(base_url, "openai"), models_url(base_url, "systemone")]
 
 
 def split_route(model_id: str) -> tuple[str, str, str]:
@@ -283,6 +292,22 @@ def load_models(
     return parse_models_payload(payload)
 
 
+def load_models_many(
+    urls: list[str],
+    *,
+    fetch: Callable[[str], tuple[int, str]] | None = None,
+) -> list[str]:
+    ids: list[str] = []
+    seen: set[str] = set()
+    for url in urls:
+        for model_id in load_models(url, fetch=fetch):
+            if model_id in seen:
+                continue
+            seen.add(model_id)
+            ids.append(model_id)
+    return ids
+
+
 def render_human(report: dict, *, url: str, catalog_path: Path) -> str:
     counts = report["counts"]
     lines = [
@@ -351,7 +376,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--url",
         default=None,
-        help="Full models URL (overrides --base-url)",
+        help="Full models URL (overrides --base-url; skips the default openai+systemone pair)",
     )
     parser.add_argument(
         "--json",
@@ -372,23 +397,25 @@ def main(argv: list[str] | None = None) -> int:
         catalog = json.load(f)
 
     if args.url:
-        url = args.url.strip()
+        urls = [args.url.strip()]
     else:
         base = (args.base_url or os.environ.get("POLYPUS_BASE_URL") or DEFAULT_BASE_URL)
-        url = models_url(base)
+        urls = default_models_urls(base)
+    url_label = " ".join(urls)
 
     try:
-        model_ids = load_models(url)
+        model_ids = load_models_many(urls)
     except RuntimeError as exc:
         print(str(exc), file=sys.stderr)
         return 1
 
     report = classify_models(model_ids, catalog)
-    report["url"] = url
+    report["url"] = url_label
+    report["urls"] = urls
     if args.json:
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return 0
-    print(render_human(report, url=url, catalog_path=catalog_path), end="")
+    print(render_human(report, url=url_label, catalog_path=catalog_path), end="")
     return 0
 
 

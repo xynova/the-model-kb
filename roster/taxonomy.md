@@ -135,6 +135,7 @@ Routing keys. Use only values from this list:
 - `long-context`
 - `cheap`
 - `high-throughput`
+- `classify`
 
 Assign every kept card at least one job. Category and tags help choose jobs but `jobs` is the machine key.
 
