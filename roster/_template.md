@@ -36,19 +36,19 @@ refreshed: YYYY-MM-DD
 
 ## When to reach for it
 
-Concrete job trigger: situation or constraint that makes this the right pick. State `kind` implications (portable open weights vs lab-locked API vs product-bundled). Name which host row fits which constraint (price vs industrial limits).
+State the job and constraint in active voice. Name which **host id** fits (price vs industrial limits vs product bundle). One or two short paragraphs.
 
 ## Signals
 
-Short prose restating capability numbers and which source won if prices conflict. Summarize host rows (price and capacity). Omit or say unknown when enrichment found nothing.
+Restate capability numbers in plain words. Say which source wins if host prices disagree. Omit what is unknown.
 
 ## My experience
 
-Personal notes only. Leave empty or a placeholder until you have used the model; the skill MUST NOT invent this section.
+Personal notes only. Leave empty or `(Operator notes only.)` until the operator has used the model.
 
 ## Caveats
 
-Limits, routing quirks, license, neuron free tier, Flex/Priority, proxy-via-gateway notes, or plan caps. Per-host limits belong here or in host `limits_note`.
+Per-host limits, routing quirks, license, neurons, Flex/Priority, proxy notes. Active voice; no hype.
 
 ## Links
 
