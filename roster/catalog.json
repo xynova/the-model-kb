@@ -364,10 +364,36 @@
           "runtime_model_id": "@cf/zai-org/glm-5.3-flash",
           "price_in": 0.15,
           "price_out": 0.5,
-          "price_note": "Workers Paid or AI Gateway credits required; Neurons behind the scenes; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page",
-          "limits_note": "Paid Workers or AI Gateway credits required on CF",
+          "price_note": "Workers Paid or AI Gateway credits required; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "Paid Workers or AI Gateway credits required on CF; ~1M context on CF listing",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        },
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "z-ai/glm-5.3-flash",
+          "price_in": 0.0269,
+          "price_out": 0.0996,
+          "price_note": "OpenRouter aggregate list; upstream provider mix can shift; confirm openrouter.ai model page",
+          "limits_note": "Marketplace routing; headline OR prices differ from CF/DeepInfra list; verify before budgeting",
+          "links": {
+            "openrouter": "https://openrouter.ai/z-ai/glm-5.3-flash"
+          }
+        },
+        {
+          "id": "deepinfra",
+          "capacity": "unknown",
+          "runtime": "deepinfra",
+          "runtime_model_id": "zai-org/GLM-5.3-Flash",
+          "price_in": 0.15,
+          "price_out": 0.5,
+          "price_note": "DeepInfra published list; $0.03/M cached input on model page",
+          "limits_note": "Strong agentic/coding signals on public benchmarks; operator has not filed industrial capacity",
+          "links": {
+            "deepinfra": "https://deepinfra.com/zai-org/GLM-5.3-Flash"
           }
         },
         {
@@ -407,10 +433,36 @@
           "runtime_model_id": "@cf/meta/llama-4-scout-17b-16e-instruct",
           "price_in": 0.27,
           "price_out": 0.85,
-          "price_note": "Workers AI Neurons; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page",
-          "limits_note": "10k Neurons/day free tier",
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page",
+          "limits_note": "10k Neurons/day free tier; 131k context on Workers AI",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          }
+        },
+        {
+          "id": "openrouter",
+          "capacity": "hobby",
+          "runtime": "openrouter",
+          "runtime_model_id": "meta-llama/llama-4-scout",
+          "price_in": 0.1,
+          "price_out": 0.3,
+          "price_note": "OpenRouter list; routes DeepInfra or Vertex behind the slug; confirm openrouter.ai model page",
+          "limits_note": "Marketplace routing; 1.3M context on OpenRouter listing; not industrial throughput",
+          "links": {
+            "openrouter": "https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct"
+          }
+        },
+        {
+          "id": "deepinfra",
+          "capacity": "hobby",
+          "runtime": "deepinfra",
+          "runtime_model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+          "price_in": 0.1,
+          "price_out": 0.3,
+          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "limits_note": "Lower list price than CF; confirm DeepInfra model page before batch jobs",
+          "links": {
+            "deepinfra": "https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct"
           }
         },
         {

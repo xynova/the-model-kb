@@ -17,7 +17,7 @@
       "price_in": 3.0,
       "price_out": 15.0,
       "cost_per_m": 18.0,
-      "rank_by_cost": 14,
+      "rank_by_cost": 15,
       "industrial_ok": false
     },
     {
@@ -35,7 +35,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 9,
+      "rank_by_cost": 10,
       "industrial_ok": false
     },
     {
@@ -53,7 +53,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 13,
+      "rank_by_cost": 14,
       "industrial_ok": false
     },
     {
@@ -71,7 +71,7 @@
       "price_in": 0.75,
       "price_out": 4.5,
       "cost_per_m": 5.25,
-      "rank_by_cost": 11,
+      "rank_by_cost": 12,
       "industrial_ok": false
     },
     {
@@ -89,7 +89,7 @@
       "price_in": 0.2,
       "price_out": 1.2,
       "cost_per_m": 1.4,
-      "rank_by_cost": 8,
+      "rank_by_cost": 9,
       "industrial_ok": false
     },
     {
@@ -107,7 +107,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 13,
+      "rank_by_cost": 14,
       "industrial_ok": false
     },
     {
@@ -125,7 +125,7 @@
       "price_in": 2.0,
       "price_out": 6.0,
       "cost_per_m": 8.0,
-      "rank_by_cost": 12,
+      "rank_by_cost": 13,
       "industrial_ok": false
     },
     {
@@ -143,7 +143,7 @@
       "price_in": 0.95,
       "price_out": 4.0,
       "cost_per_m": 4.95,
-      "rank_by_cost": 10,
+      "rank_by_cost": 11,
       "industrial_ok": false
     },
     {
@@ -163,7 +163,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 2,
+      "rank_by_cost": 3,
       "industrial_ok": false
     },
     {
@@ -183,7 +183,7 @@
       "price_in": 0.07,
       "price_out": 0.34,
       "cost_per_m": 0.41000000000000003,
-      "rank_by_cost": 3,
+      "rank_by_cost": 4,
       "industrial_ok": true
     },
     {
@@ -203,7 +203,7 @@
       "price_in": 0.15,
       "price_out": 0.6,
       "cost_per_m": 0.75,
-      "rank_by_cost": 6,
+      "rank_by_cost": 7,
       "industrial_ok": false
     },
     {
@@ -223,7 +223,7 @@
       "price_in": 0.04,
       "price_out": 0.15,
       "cost_per_m": 0.19,
-      "rank_by_cost": 1,
+      "rank_by_cost": 2,
       "industrial_ok": false
     },
     {
@@ -258,7 +258,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 4,
+      "rank_by_cost": 5,
       "industrial_ok": false
     },
     {
@@ -278,7 +278,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 4,
+      "rank_by_cost": 5,
       "industrial_ok": false
     },
     {
@@ -297,7 +297,45 @@
       "price_in": 0.15,
       "price_out": 0.5,
       "cost_per_m": 0.65,
-      "rank_by_cost": 5,
+      "rank_by_cost": 6,
+      "industrial_ok": false
+    },
+    {
+      "name": "glm-5.3-flash",
+      "title": "GLM-5.3-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "host_id": "deepinfra",
+      "capacity": "unknown",
+      "runtime": "deepinfra",
+      "runtime_model_id": "zai-org/GLM-5.3-Flash",
+      "price_in": 0.15,
+      "price_out": 0.5,
+      "cost_per_m": 0.65,
+      "rank_by_cost": 6,
+      "industrial_ok": false
+    },
+    {
+      "name": "glm-5.3-flash",
+      "title": "GLM-5.3-Flash",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision",
+        "reasoning"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "z-ai/glm-5.3-flash",
+      "price_in": 0.0269,
+      "price_out": 0.0996,
+      "cost_per_m": 0.1265,
+      "rank_by_cost": 1,
       "industrial_ok": false
     },
     {
@@ -329,7 +367,43 @@
       "price_in": 0.27,
       "price_out": 0.85,
       "cost_per_m": 1.12,
-      "rank_by_cost": 7,
+      "rank_by_cost": 8,
+      "industrial_ok": false
+    },
+    {
+      "name": "llama-4-scout-17b",
+      "title": "Llama 4 Scout 17B",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision"
+      ],
+      "host_id": "deepinfra",
+      "capacity": "hobby",
+      "runtime": "deepinfra",
+      "runtime_model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "price_in": 0.1,
+      "price_out": 0.3,
+      "cost_per_m": 0.4,
+      "rank_by_cost": 3,
+      "industrial_ok": false
+    },
+    {
+      "name": "llama-4-scout-17b",
+      "title": "Llama 4 Scout 17B",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "vision"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "runtime": "openrouter",
+      "runtime_model_id": "meta-llama/llama-4-scout",
+      "price_in": 0.1,
+      "price_out": 0.3,
+      "cost_per_m": 0.4,
+      "rank_by_cost": 3,
       "industrial_ok": false
     },
     {
