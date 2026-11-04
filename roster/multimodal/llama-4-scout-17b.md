@@ -27,14 +27,21 @@ hosts:
     limits_note: "10k Neurons/day free tier"
     links:
       cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: xinference
+    runtime: xinference
+    price_note: "Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed"
+    capacity: unknown
+    limits_note: "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use"
+    links:
+      xinference: https://xinference.co/pricing.html
 aa_intelligence: 10
 arena_elo: unknown
 context_window: 131000
 links:
   artificial_analysis: https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5
   models_dev: https://models.dev/
-source: "roster seed gemma-4 segment peers 2026-09-08"
-refreshed: 2026-09-08
+source: "roster seed gemma-4 segment peers 2026-09-08; xinference host 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # Llama 4 Scout 17B (Cloudflare)

@@ -30,14 +30,21 @@ hosts:
     limits_note: "Paid Workers or AI Gateway credits required on CF"
     links:
       cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: xinference
+    runtime: xinference
+    price_note: "Xinference AU Model API; GLM 5.3 on request on pricing page (Oct 2026); no public list price filed"
+    capacity: unknown
+    limits_note: "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use"
+    links:
+      xinference: https://xinference.co/pricing.html
 aa_intelligence: 57
 arena_elo: unknown
 context_window: 1048576
 links:
   artificial_analysis: https://artificialanalysis.ai/models/glm-5-3-flash
   models_dev: https://models.dev/
-source: "roster seed gemma-4 segment peers 2026-09-08"
-refreshed: 2026-09-08
+source: "roster seed gemma-4 segment peers 2026-09-08; xinference host 2026-11-04"
+refreshed: 2026-11-04
 ---
 
 # GLM-5.3-Flash (Cloudflare)

@@ -164,6 +164,30 @@ class TestSkipCursor(unittest.TestCase):
         self.assertFalse(called)
 
 
+class TestXinferenceUnknown(unittest.TestCase):
+    def test_public_pricing_stays_unknown(self) -> None:
+        html = (
+            "<p>Model API served from Australia. Enterprise hardens it "
+            "for production. Gemma on request.</p>"
+        )
+
+        def fetch(_url: str) -> tuple[int, str]:
+            return 200, html
+
+        cat = catalog_with_host(
+            {
+                "id": "xinference",
+                "capacity": "unknown",
+                "links": {"xinference": "https://xinference.co/pricing.html"},
+            }
+        )
+        out = rl.retrieve(cat, fetch=fetch, now=NOW, sleep=lambda _: None)
+        row = out["rows"][0]
+        self.assertEqual(row["status"], "ok")
+        self.assertEqual(row["suggested_capacity"], "unknown")
+        self.assertEqual(row["suggestion_reason"], "xinference_no_rpm")
+
+
 class TestRejectOffAllowlist(unittest.TestCase):
     def test_wrong_hostname_skipped(self) -> None:
         called = False

@@ -21,6 +21,7 @@ LINK_KEYS: dict[str, str] = {
     "openrouter": "openrouter.ai",
     "provider_pricing": "cloud.google.com",
     "deepinfra": "deepinfra.com",
+    "xinference": "xinference.co",
 }
 
 EVIDENCE_PATTERN = re.compile(
@@ -120,6 +121,8 @@ def suggest_capacity(
         if "flex" in lower or "priority" in lower:
             return "unknown", "deepinfra_no_rpm"
         return "unknown", "deepinfra_no_rpm"
+    if link_key == "xinference":
+        return "unknown", "xinference_no_rpm"
     return "unknown", "fetch_error"
 
 

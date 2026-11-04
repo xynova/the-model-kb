@@ -64,6 +64,10 @@ Pipeline: `generate-roster` → `retrieve-limits.py` (public pages) → `apply-m
 
 Local dry run: `make -C site mine-hosts` (network for retrieve).
 
+## Providers mint
+
+New serving companies (for example Xinference) are **not** discovered by the nightly spider. Use project skill `providers-mint`: name a host or paste a public pricing URL, wait for `keep? y/n`, then the skill updates [taxonomy.md](taxonomy.md), `ALLOWED_HOST_IDS`, and retrieve-limits `LINK_KEYS`. Perplexity may suggest a name; filed URLs and prices MUST come from that public page. Attaching the host to a model card is `model-roster`, after the id exists.
+
 ## Keep rule
 
 Keep only if you would open this card when choosing a model for a real job. Drop spectacle, one-off demos, and cards with no named use.
