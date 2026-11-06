@@ -16,6 +16,8 @@ vram_hint: vram-heavy
 links:
   homepage: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
   weights: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
+media:
+  cover: models/nanbeige-4.3-33b/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -25,6 +27,10 @@ added: 2026-11-04
 ## What it is
 
 **Nanbeige4.3-33B** is Nanbeige LLM Lab’s (~BOSS Zhipin) dense **~33B** chat model for **agentic coding and office cowork**: **512K** context, **thinking** and **tool-call** chat templates (XML tools recommended), post-trained from **Nanbeige4.3-33B-Base**. Weights are ungated on Hugging Face (~**66 GB** BF16). Card and metadata tag **Apache 2.0** (no standalone LICENSE file in the weight repo at filing time).
+
+| | |
+|:---:|:---:|
+| ![nanbeige-4.3-33b 1](nanbeige-4.3-33b/media/thumb-cover.jpg) | |
 
 ## Why keep
 

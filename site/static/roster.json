@@ -1,12 +1,12 @@
 {
   "catalog_schema": 1,
-  "generated_at": "2026-11-04",
+  "generated_at": "2026-11-06",
   "cards": [
     {
       "name": "claude-haiku-5.5",
       "title": "Claude Haiku 5.5",
       "kind": "provider",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "coding",
@@ -30,15 +30,17 @@
         }
       ],
       "preferred_host": "openrouter",
+      "aa_intelligence": 36.5,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/claude-haiku-5-5"
       }
     },
     {
       "name": "cursor-composer-2.5-fast",
       "title": "Cursor Composer 2.5 (Fast)",
       "kind": "service",
-      "category": "coding",
+      "category": "unpriced",
       "jobs": [
         "coding"
       ],
@@ -65,7 +67,7 @@
       "name": "cursor-gemini-3-flash",
       "title": "Cursor Gemini 3 Flash",
       "kind": "service",
-      "category": "budget",
+      "category": "unpriced",
       "jobs": [
         "cheap",
         "chat"
@@ -91,7 +93,7 @@
       "name": "cursor-gemini-3.1-pro",
       "title": "Cursor Gemini 3.1 Pro",
       "kind": "service",
-      "category": "multimodal",
+      "category": "unpriced",
       "jobs": [
         "vision",
         "reasoning"
@@ -118,7 +120,7 @@
       "name": "cursor-gpt-5.4-mini-medium",
       "title": "Cursor GPT-5.4 Mini (Medium)",
       "kind": "service",
-      "category": "budget",
+      "category": "unpriced",
       "jobs": [
         "cheap",
         "vision"
@@ -144,7 +146,7 @@
       "name": "cursor-gpt-5.6-luna-high",
       "title": "Cursor GPT-5.6 Luna (High)",
       "kind": "service",
-      "category": "budget",
+      "category": "unpriced",
       "jobs": [
         "cheap",
         "reasoning"
@@ -171,7 +173,7 @@
       "name": "cursor-gpt-5.6-terra-medium",
       "title": "Cursor GPT-5.6 Terra (Medium)",
       "kind": "service",
-      "category": "general",
+      "category": "unpriced",
       "jobs": [
         "reasoning",
         "chat"
@@ -198,7 +200,7 @@
       "name": "cursor-grok-4.6-high",
       "title": "Cursor Grok 4.6 (High)",
       "kind": "service",
-      "category": "general",
+      "category": "unpriced",
       "jobs": [
         "reasoning",
         "chat"
@@ -224,7 +226,7 @@
       "name": "cursor-kimi-k2.7-code",
       "title": "Cursor Kimi K2.7 Code",
       "kind": "service",
-      "category": "coding",
+      "category": "unpriced",
       "jobs": [
         "coding",
         "cheap"
@@ -250,7 +252,7 @@
       "name": "deepseek-v4-flash",
       "title": "DeepSeek V4 Flash",
       "kind": "sovereign",
-      "category": "general",
+      "category": "cheap",
       "jobs": [
         "reasoning",
         "cheap",
@@ -289,7 +291,6 @@
         }
       ],
       "preferred_host": "deepinfra",
-      "aa_intelligence": 52,
       "context_window": 1048576,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/deepseek-v4-flash",
@@ -300,7 +301,7 @@
       "name": "gemini-2.5-flash",
       "title": "Gemini 2.5 Flash",
       "kind": "provider",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "vision",
@@ -345,7 +346,7 @@
       "name": "gemini-2.5-pro",
       "title": "Gemini 2.5 Pro",
       "kind": "provider",
-      "category": "general",
+      "category": "cheap",
       "jobs": [
         "reasoning",
         "vision",
@@ -391,7 +392,7 @@
       "name": "gemini-3-flash",
       "title": "Gemini 3 Flash",
       "kind": "provider",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "vision",
@@ -436,7 +437,7 @@
       "name": "gemini-3.1-pro",
       "title": "Gemini 3.1 Pro",
       "kind": "provider",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "reasoning",
@@ -482,7 +483,7 @@
       "name": "gemini-3.8-flash",
       "title": "Gemini 3.8 Flash",
       "kind": "provider",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "vision",
@@ -520,16 +521,18 @@
         }
       ],
       "preferred_host": "google",
+      "aa_intelligence": 30.8,
       "context_window": 1000000,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/gemini-3-8-flash"
       }
     },
     {
       "name": "gemma-3-27b",
       "title": "Gemma 3 27B",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "cheap",
@@ -562,7 +565,7 @@
       "name": "gemma-4-26b-a4b",
       "title": "Gemma 4 26B A4B",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "reasoning",
@@ -635,7 +638,6 @@
         }
       ],
       "preferred_host": "cloudflare",
-      "aa_intelligence": 31,
       "context_window": 256000,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know",
@@ -646,7 +648,7 @@
       "name": "gemma-4-31b",
       "title": "Gemma 4 31B",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "reasoning",
@@ -681,16 +683,18 @@
         }
       ],
       "preferred_host": "deepinfra",
+      "aa_intelligence": 4.4,
       "context_window": 262144,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/gemma-4-31b"
       }
     },
     {
       "name": "glm-4.7-flash",
       "title": "GLM-4.7-Flash",
       "kind": "sovereign",
-      "category": "general",
+      "category": "cheap",
       "jobs": [
         "reasoning",
         "cheap",
@@ -727,7 +731,6 @@
         }
       ],
       "preferred_host": "cloudflare",
-      "aa_intelligence": 23,
       "context_window": 131072,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/releases/glm-4-7-flash",
@@ -738,7 +741,7 @@
       "name": "glm-5.3-flash",
       "title": "GLM-5.3-Flash",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "reasoning"
@@ -797,7 +800,7 @@
         }
       ],
       "preferred_host": "cloudflare",
-      "aa_intelligence": 57,
+      "aa_intelligence": 27.8,
       "context_window": 1048576,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/glm-5-3-flash",
@@ -808,7 +811,7 @@
       "name": "gpt-oss-20b",
       "title": "GPT-OSS 20B",
       "kind": "sovereign",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "coding",
@@ -853,7 +856,7 @@
       "name": "granite-4.0-h-micro",
       "title": "Granite 4.0 H Micro",
       "kind": "sovereign",
-      "category": "budget",
+      "category": "cheap",
       "jobs": [
         "cheap",
         "chat"
@@ -884,7 +887,7 @@
       "name": "granite-4.2-8b",
       "title": "Granite 4.2 8B",
       "kind": "sovereign",
-      "category": "general",
+      "category": "cheap",
       "jobs": [
         "reasoning",
         "cheap",
@@ -909,16 +912,18 @@
         }
       ],
       "preferred_host": "deepinfra",
+      "aa_intelligence": 5.1,
       "context_window": 131072,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/granite-4-2-8b"
       }
     },
     {
       "name": "jev",
       "title": "Jev",
       "kind": "provider",
-      "category": "budget",
+      "category": "classify",
       "jobs": [
         "classify",
         "cheap"
@@ -944,7 +949,7 @@
       "name": "llama-3.3-70b",
       "title": "Llama 3.3 70B",
       "kind": "sovereign",
-      "category": "general",
+      "category": "cheap",
       "jobs": [
         "chat"
       ],
@@ -988,7 +993,7 @@
       "name": "llama-4-scout-17b",
       "title": "Llama 4 Scout 17B",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision"
       ],
@@ -1046,7 +1051,6 @@
         }
       ],
       "preferred_host": "cloudflare",
-      "aa_intelligence": 10,
       "context_window": 131000,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5",
@@ -1057,7 +1061,7 @@
       "name": "mercury-decide",
       "title": "Mercury Decide",
       "kind": "provider",
-      "category": "budget",
+      "category": "classify",
       "jobs": [
         "classify",
         "cheap",
@@ -1090,7 +1094,7 @@
       "name": "mistral-nemo",
       "title": "Mistral Nemo",
       "kind": "sovereign",
-      "category": "budget",
+      "category": "spend",
       "jobs": [
         "cheap",
         "chat"
@@ -1121,7 +1125,7 @@
       "name": "mistral-small-3.1-24b",
       "title": "Mistral Small 3.1 24B",
       "kind": "sovereign",
-      "category": "multimodal",
+      "category": "cheap",
       "jobs": [
         "vision",
         "chat",
@@ -1153,7 +1157,7 @@
       "name": "muse-spark-1.3",
       "title": "Muse Spark 1.3",
       "kind": "provider",
-      "category": "multimodal",
+      "category": "mid",
       "jobs": [
         "vision",
         "reasoning",
@@ -1178,17 +1182,18 @@
         }
       ],
       "preferred_host": "openrouter",
-      "aa_intelligence": 37,
+      "aa_intelligence": 36.6,
       "context_window": 1048576,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/muse-spark-1-3"
       }
     },
     {
       "name": "muse-wonder",
       "title": "Muse Wonder",
       "kind": "provider",
-      "category": "multimodal",
+      "category": "spend",
       "jobs": [
         "vision",
         "reasoning",
@@ -1213,17 +1218,18 @@
         }
       ],
       "preferred_host": "openrouter",
-      "aa_intelligence": 44,
+      "aa_intelligence": 43.6,
       "context_window": 1048576,
       "links": {
-        "models_dev": "https://models.dev/"
+        "models_dev": "https://models.dev/",
+        "artificial_analysis": "https://artificialanalysis.ai/models/muse-wonder"
       }
     },
     {
       "name": "pplx-decider",
       "title": "Perplexity Decider V1.2",
       "kind": "provider",
-      "category": "budget",
+      "category": "classify",
       "jobs": [
         "classify",
         "cheap",
@@ -1256,7 +1262,7 @@
       "name": "pplx-decider-flash",
       "title": "Perplexity Decider Flash V1.2",
       "kind": "provider",
-      "category": "budget",
+      "category": "classify",
       "jobs": [
         "classify",
         "cheap",

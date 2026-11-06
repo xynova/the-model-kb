@@ -18,6 +18,8 @@ links:
   homepage: https://github.com/OpenSenseNova/SenseNova-6.8-Code2Video
   github: https://github.com/OpenSenseNova/SenseNova-6.8-Code2Video
   weights: https://huggingface.co/sensenova/SenseNova-6.8-Code2Video
+media:
+  cover: video/sensenova-6-8-code2video/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **SenseNova 6.8 Code2Video** is SenseTime’s open **code-driven video** model (~**27B**, fine-tuned from **Qwen3.8-27B**): it plans and writes **executable render code** for short motion-design clips instead of emitting pixels directly. The release includes **agent skill** (`code-video`), prompt templates, example **trajectories**, and deploy notes for **vLLM / SGLang / LightLLM** with very long context (512K target in docs). Weights on Hugging Face are tagged **Apache 2.0**.
+
+| | |
+|:---:|:---:|
+| ![sensenova-6-8-code2video 1](sensenova-6-8-code2video/media/thumb-cover.jpg) | |
 
 ## Why keep
 

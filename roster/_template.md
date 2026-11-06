@@ -2,7 +2,7 @@
 name: example-slug
 title: Example Title
 kind: sovereign
-category: general
+category: cheap
 jobs:
   - chat
   - cheap
@@ -24,6 +24,7 @@ hosts:
     links:
       cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 aa_intelligence: unknown
+# Maps to quality.general_problem_solving.benchmark_composite (see taxonomy Quality leaves)
 arena_elo: unknown
 context_window: unknown
 links:

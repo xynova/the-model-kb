@@ -19,6 +19,8 @@ vram_hint: consumer
 links:
   homepage: https://www.liquid.ai/blog/lfm3
   weights: https://huggingface.co/collections/LiquidAI/lfm3
+media:
+  cover: models/lfm3/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -28,6 +30,10 @@ added: 2026-11-04
 ## What it is
 
 **LFM3** is Liquid AI’s **~2B** **Liquid Foundation Model** generation: **text**, **vision-language**, **audio**, **omni**, and **decision** checkpoints built from **LFM3-1.7B-Base**, with **GGUF**, **ONNX**, **MLX**, and **FP8/NVFP4** exports for edge devices. The blog cites a tri-hybrid architecture and large-scale pretraining aimed at **specialized fine-tunes on one GPU**. Weights live in the **LFM3 Hugging Face collection**; Liquid also offers playground and API hosting.
+
+| | |
+|:---:|:---:|
+| ![lfm3 1](lfm3/media/thumb-cover.jpg) | |
 
 ## Why keep
 

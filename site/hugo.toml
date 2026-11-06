@@ -66,6 +66,10 @@ ignoreFiles = [
     source = "archetypes"
     target = "archetypes"
 
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+
 [markup.goldmark.renderer]
   unsafe = true
 

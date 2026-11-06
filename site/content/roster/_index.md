@@ -7,13 +7,14 @@ cascade:
   type: docs
 ---
 
-Decision shelf for choosing a model for a task: price, third-party capability signals, and your own experience notes. The catalog goal is fit, cost, and host limits from filed facts (see repo `roster/OBJECTIVE.md`).
+Model Picks overview: filed [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index scores on chat-index cards, a second table for models we carry without a filed index, then price-band shelves for task fit and host list prices. Filed facts and your notes only; see repo `roster/OBJECTIVE.md`.
 
-Differs from the [library](/library/): library is "interesting to revisit later"; roster is "open this when picking a model now."
+Not the [library](/library/): library is revisit later; roster is pick a model now.
 
 {{< cards >}}
-  {{< card link="/roster/general" title="General" subtitle="Default chat, reasoning, and agents" >}}
-  {{< card link="/roster/coding" title="Coding" subtitle="Code edit, refactor, agents-on-code" >}}
-  {{< card link="/roster/multimodal" title="Multimodal" subtitle="Vision and image-in picks" >}}
-  {{< card link="/roster/budget" title="Budget" subtitle="Explicitly cost-first picks" >}}
+  {{< card link="/roster/cheap" title="Cheap" subtitle="Under $3/M combined on the cheapest listed host" >}}
+  {{< card link="/roster/mid" title="Mid" subtitle="$3/M to under $15/M combined" >}}
+  {{< card link="/roster/spend" title="Spend" subtitle="$15/M combined or higher" >}}
+  {{< card link="/roster/unpriced" title="Unpriced" subtitle="Cursor copies and missing list prices" >}}
+  {{< card link="/roster/classify" title="Classify" subtitle="Typed-decision models (not AA board peers)" >}}
 {{< /cards >}}

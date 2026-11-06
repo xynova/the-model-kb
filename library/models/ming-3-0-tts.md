@@ -17,6 +17,8 @@ links:
   homepage: https://github.com/inclusionAI/Ming-3.0-tts
   github: https://github.com/inclusionAI/Ming-3.0-tts
   weights: https://huggingface.co/inclusionAI/Ming-3.0-tts-0.5B
+media:
+  cover: models/ming-3-0-tts/media/cover.jpg
 source: "youtube:EfyQOAJjx1A"
 added: 2026-11-03
 ---
@@ -26,6 +28,10 @@ added: 2026-11-03
 ## What it is
 
 Ant Group **inclusionAI** open **text-to-speech** family (**MIT**). Two checkpoints: **Ming-3.0-tts-0.5B** (dense **0.5B** backbone, full bundle ~**3 GB** on HF) and **Ming-3.0-tts-tiny** (**7.9B** MoE, **~1.3B** active, sharded ~**18 GB**). Supports **multilingual** speech, **zero-shot cloning**, **natural-language voice design**, inline **paralinguistic tags** (emotion, breath, SFX), and **multi-speaker podcast** mode on the tiny variant. **Inference code lives on GitHub**; Hugging Face repos distribute weights only.
+
+| | |
+|:---:|:---:|
+| ![ming-3-0-tts 1](ming-3-0-tts/media/thumb-cover.jpg) | |
 
 ## Why keep
 

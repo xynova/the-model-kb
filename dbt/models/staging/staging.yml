@@ -15,3 +15,7 @@ models:
       - name: capacity
         tests:
           - not_null
+      - name: aa_intelligence
+      - name: arena_elo
+      - name: aider_polyglot
+      - name: context_window

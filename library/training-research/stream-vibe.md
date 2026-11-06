@@ -15,6 +15,8 @@ vram_hint: unknown
 links:
   homepage: https://stream-vibe.github.io/
   github: https://github.com/Stream-Vibe/Stream-Vibe.github.io
+media:
+  cover: training-research/stream-vibe/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -24,6 +26,10 @@ added: 2026-11-04
 ## What it is
 
 **StreamVibe** is a research stack for **proactive video assistants**: a streaming **StreamVibe-VL** model chooses each second whether to stay silent or help, and **StreamVibe-Harness** tracks multiple user requests and task progress in hierarchical memory. **StreamVibe-Bench** (~4.1K eval, ~85K train samples) covers **explicit, implicit, and dynamic** intents (cooking, tool use, UI navigation). Paper: [arXiv:2610.34662](https://arxiv.org/abs/2610.34662).
+
+| | |
+|:---:|:---:|
+| ![stream-vibe 1](stream-vibe/media/thumb-cover.jpg) | |
 
 ## Why keep
 

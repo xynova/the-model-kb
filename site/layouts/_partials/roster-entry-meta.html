@@ -26,5 +26,12 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
+  {{- with .Params.links -}}
+    {{- with .artificial_analysis -}}
+      {{- if findRE `artificialanalysis\.ai/models/` . -}}
+        <a class="roster-chip roster-chip--aa" href="{{ . }}" rel="noopener noreferrer">Artificial Analysis</a>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 </div>
 {{- end -}}

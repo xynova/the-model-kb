@@ -18,6 +18,8 @@ links:
   homepage: https://github.com/OpenSenseNova/SenseNova-Loop
   github: https://github.com/OpenSenseNova/SenseNova-Loop
   weights: https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview
+media:
+  cover: models/sensenova-loop-9b-preview/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **SenseNova-Loop-9B-Preview** is SenseTime’s **image-text-to-text** model for **long-context agent** work: a **looped decoder** reruns a shared layer block with **two-stream manifold hyper-connections (mHC)**, giving ~**14.6B inference-equivalent** compute from ~**9.7B** stored weights. Inputs are **text and images**; training context up to **262K** tokens. **Apache 2.0** on the GitHub repo; HF card tags match.
+
+| | |
+|:---:|:---:|
+| ![sensenova-loop-9b-preview 1](sensenova-loop-9b-preview/media/thumb-cover.jpg) | |
 
 ## Why keep
 

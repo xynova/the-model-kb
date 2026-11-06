@@ -1,5 +1,5 @@
 .PHONY: serve build clean site-serve site-build site-clean site-check-links \
-	check-links docker-print docker-push docker-push-target hooks-install
+	check-links docker-print docker-push docker-push-target hooks-install init
 
 BAKE_FILE ?= models/docker-bake.hcl
 
@@ -28,6 +28,9 @@ docker-push:
 docker-push-target:
 	@test -n "$(TARGET)" || (echo 'Usage: make docker-push-target TARGET=<bake-target>' >&2; exit 1)
 	docker buildx bake --push -f $(BAKE_FILE) $(TARGET)
+
+init:
+	$(MAKE) -C site init
 
 hooks-install:
 	@command -v lefthook >/dev/null 2>&1 || { \

@@ -11,6 +11,8 @@ layout: hextra-home
   Three catalogs in one place: tools to revisit later, Docker-packaged model images, and decision cards for picking a model now.
 {{< /hextra/hero-subtitle >}}
 
+{{< home-banner >}}
+
 <div class="hx:mt-16"></div>
 
 {{< hextra/feature-grid cols="3" >}}

@@ -18,7 +18,7 @@ FIXTURE_CARD = """---
 name: test-model
 title: Test Model
 kind: sovereign
-category: general
+category: cheap
 jobs:
   - chat
 tags:
@@ -54,7 +54,7 @@ class GenerateRosterTests(unittest.TestCase):
     def test_hosts_survive_generation(self) -> None:
         fm, body = gr.split_frontmatter(FIXTURE_CARD)
         self.assertIsNotNone(fm)
-        gr.validate_card(fm, Path("general/test-model.md"))
+        gr.validate_card(fm, Path("cheap/test-model.md"))
         text = "---\n" + gr.dump_hugo_frontmatter(fm) + "\n---\n\n" + body
         self.assertIn("hosts:", text)
         out_fm, _ = gr.split_frontmatter(text)
@@ -74,6 +74,55 @@ class GenerateRosterTests(unittest.TestCase):
 
     def test_objective_in_skip_list(self) -> None:
         self.assertIn("OBJECTIVE.md", gr.SKIP_NAMES)
+
+    def test_hugo_frontmatter_quotes_aa_intelligence(self) -> None:
+        fm, _ = gr.split_frontmatter(FIXTURE_CARD)
+        self.assertIsNotNone(fm)
+        fm["aa_intelligence"] = 43.6
+        dumped = gr.dump_hugo_frontmatter(fm)
+        self.assertRegex(dumped, r"aa_intelligence: ['\"]43\.6['\"]")
+        fm["aa_intelligence"] = 52
+        dumped = gr.dump_hugo_frontmatter(fm)
+        self.assertRegex(dumped, r"aa_intelligence: ['\"]52['\"]")
+
+    def test_allowed_categories(self) -> None:
+        self.assertEqual(
+            gr.ALLOWED_CATEGORIES,
+            frozenset({"cheap", "mid", "spend", "unpriced", "classify"}),
+        )
+        fm, _ = gr.split_frontmatter(FIXTURE_CARD)
+        assert fm
+        fm["category"] = "classify"
+        gr.validate_card(fm, Path("classify/x.md"))
+        fm["category"] = "budget"
+        with self.assertRaises(ValueError):
+            gr.validate_card(fm, Path("budget/x.md"))
+
+    def test_assign_category(self) -> None:
+        def fm(**kwargs: object) -> dict:
+            base = {
+                "kind": "sovereign",
+                "jobs": ["chat"],
+                "hosts": [{"id": "x", "price_in": 1.0, "price_out": 0.55}],
+            }
+            base.update(kwargs)
+            return base
+
+        self.assertEqual(gr.assign_category(fm(jobs=["classify", "cheap"])), "classify")
+        self.assertEqual(gr.assign_category(fm(kind="service", jobs=["coding"])), "unpriced")
+        self.assertEqual(
+            gr.assign_category(fm(hosts=[{"price_in": 1.0, "price_out": 0.55}])),
+            "cheap",
+        )
+        self.assertEqual(
+            gr.assign_category(fm(hosts=[{"price_in": 10.0, "price_out": 4.0}])),
+            "mid",
+        )
+        self.assertEqual(
+            gr.assign_category(fm(hosts=[{"price_in": 10.0, "price_out": 10.0}])),
+            "spend",
+        )
+        self.assertEqual(gr.assign_category(fm(hosts=[{"price_note": "on request"}])), "unpriced")
 
     def test_card_to_json(self) -> None:
         fm, _ = gr.split_frontmatter(FIXTURE_CARD)

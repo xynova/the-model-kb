@@ -1,6 +1,8 @@
 {{- $inRoster := eq .Section "roster" -}}
 {{- if and $inRoster (gt (len .RegularPages) 0) -}}
 <link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<div data-roster-filter-root>
+{{ partial "roster-filter-bar.html" . }}
 <section class="roster-index" aria-label="Roster index">
   <h2 class="roster-index__heading">Index</h2>
   {{- range sort .RegularPages "Title" -}}
@@ -10,7 +12,14 @@
       {{- range .Params.hosts -}}
         {{- $hostIds = $hostIds | append .id -}}
       {{- end -}}
-      <article class="roster-index__row">
+      {{- $raw := .Params.aa_intelligence -}}
+      {{- $rawStr := printf "%v" $raw -}}
+      {{- $aaAttr := "unknown" -}}
+      {{- if and (ne $rawStr "unknown") (ne $rawStr "<nil>") (ne $rawStr "<no value>") (ne $rawStr "") -}}
+        {{- $aaAttr = "filed" -}}
+      {{- end -}}
+      {{- $jobAttr := delimit (.Params.jobs | default slice) " " -}}
+      <article class="roster-index__row" data-roster-row data-jobs="{{ $jobAttr }}" data-aa="{{ $aaAttr }}">
         <div>
           <a class="roster-index__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
           <span class="roster-index__name">{{ $name }}</span>
@@ -33,4 +42,5 @@
     {{- end -}}
   {{- end -}}
 </section>
+</div>
 {{- end -}}

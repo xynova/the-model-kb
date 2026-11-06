@@ -1,0 +1,15 @@
+/* Site-local Hextra overrides. */
+
+.home-banner {
+  display: block;
+  width: 100%;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.home-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}

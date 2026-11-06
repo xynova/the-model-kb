@@ -16,6 +16,8 @@ vram_hint: consumer
 links:
   homepage: https://huggingface.co/ConwayResearch/Underdog-Bark-3.0
   weights: https://huggingface.co/ConwayResearch/Underdog-Bark-3.0
+media:
+  cover: models/underdog-bark-3-0/media/cover.jpg
 source: "youtube:EfyQOAJjx1A"
 added: 2026-11-03
 ---
@@ -25,6 +27,10 @@ added: 2026-11-03
 ## What it is
 
 English **automatic speech recognition** from Conway Research (the roundup’s “Bark 3”). A **0.6B** model shipped as **`model.bark`** (~163 MB download). The model card reports **~4.94% average WER** across seven Open ASR Leaderboard English sets, in the same band as NVIDIA **Parakeet TDT 0.6B v3** at a much smaller download. Run locally via **`bark_loader.py`** (PyTorch on CUDA, CPU, or MPS) or **`bark_mlx.py`** on Apple Silicon; Core ML and Windows helper scripts ship on the same Hugging Face repo.
+
+| | |
+|:---:|:---:|
+| ![underdog-bark-3-0 1](underdog-bark-3-0/media/thumb-cover.jpg) | |
 
 ## Why keep
 

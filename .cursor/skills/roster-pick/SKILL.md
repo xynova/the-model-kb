@@ -20,6 +20,7 @@ Load when the user asks which model, host, or offer to use for a task, budget, o
 
 - MUST: Pass the full user task as the `task` argument.
 - MUST: Surface `matched_jobs`, `matched_capacity`, and the top offer (`name`, `host_id`, `cost_per_m`).
+- MAY: Mention that offers in `scores.json` also carry `quality` and `capability_cohort` for inspect; pick sort does not use them in v1.
 - MUST NOT: Open `roster/*.md` or `catalog.json` to invent a pick.
 - MUST NOT: Run `make -C dbt build` or edit roster facts during a pick request.
 

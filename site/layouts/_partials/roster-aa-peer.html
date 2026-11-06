@@ -1,0 +1,18 @@
+{{- /* One off-shelf AA peer: name, creator, index, optional cost per task. */ -}}
+{{- if . -}}
+  <div class="roster-intel__peer">
+    {{- with .url -}}
+      <a href="{{ . }}" rel="noopener noreferrer">{{ $.name }}</a>
+    {{- else -}}
+      {{ .name }}
+    {{- end -}}
+    {{- with .creator -}}
+      <span class="roster-intel__peer-creator">{{ . }}</span>
+    {{- end -}}
+    <span class="roster-intel__peer-meta">
+      {{ .aa_intelligence }}{{- with .cost_per_task }} / ${{ printf "%.2f" (float .) }} task{{ end }}
+    </span>
+  </div>
+{{- else -}}
+  -
+{{- end -}}
