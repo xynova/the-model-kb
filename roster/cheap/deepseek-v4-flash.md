@@ -4,47 +4,44 @@ title: DeepSeek V4 Flash
 kind: sovereign
 category: cheap
 jobs:
-- reasoning
-- cheap
-- chat
-- coding
-- long-context
+  - reasoning
+  - cheap
+  - chat
+  - coding
+  - long-context
 tags:
-- llm
-- open
-- moe
-- reasoning
-- cloudflare
-- deepinfra
-- cheap
-- agentic
+  - llm
+  - open
+  - moe
+  - reasoning
+  - cloudflare
+  - deepinfra
+  - cheap
+  - agentic
 status: watch
 lab: deepseek
 preferred_host: deepinfra
 hosts:
-- id: cloudflare
-  runtime: cloudflare
-  runtime_model_id: '@cf/deepseek-ai/deepseek-v4-flash-0731'
-  price_in: 0.44
-  price_out: 1.32
-  price_note: Workers AI Neurons at $0.011/1k; $0.014/M cached input; 40000/120000
-    neurons per M in/out; CF table Oct 2026; Workers Paid or AI Gateway credits required
-  capacity: hobby
-  limits_note: Not on the 10k Neurons/day free list; 1,048,576 context on Workers
-    AI; reasoning_effort none/low/high/max
-  links:
-    cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- id: deepinfra
-  runtime: deepinfra
-  runtime_model_id: deepseek-ai/DeepSeek-V4-Flash-0731
-  price_in: 0.06
-  price_out: 0.18
-  price_note: DeepInfra published list; cached input $0.015/M; Priority 1.5x and Flex
-    0.8x tiers exist
-  capacity: hobby
-  limits_note: 1,048,576 context; fp8; function calling; lower list price than CF
-  links:
-    deepinfra: https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash-0731
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: '@cf/deepseek-ai/deepseek-v4-flash-0731'
+    price_in: 0.1
+    price_out: 2.51
+    price_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    capacity: hobby
+    limits_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: deepseek-ai/DeepSeek-V4-Flash-0731
+    price_in: 1.0
+    price_out: 0.9
+    price_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    capacity: hobby
+    limits_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    links:
+      deepinfra: https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash-0731
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 1048576
@@ -52,9 +49,9 @@ links:
   artificial_analysis: https://artificialanalysis.ai/models/deepseek-v4-flash
   models_dev: https://models.dev/
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-06"
 aliases:
-- /roster/general/deepseek-v4-flash/
+  - /roster/general/deepseek-v4-flash/
 ---
 
 

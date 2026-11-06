@@ -1,6 +1,6 @@
 {
   "scores_schema": 1,
-  "generated_at": "2026-11-05",
+  "generated_at": "2026-11-06",
   "source_catalog_schema": 1,
   "offers": [
     {
@@ -61,6 +61,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -134,6 +137,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -205,6 +211,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -279,6 +288,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -349,6 +361,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -422,6 +437,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -493,6 +511,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -566,6 +587,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -638,6 +662,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -683,15 +710,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 52.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -718,6 +740,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -765,15 +790,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 52.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -800,6 +820,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -876,6 +899,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -950,6 +976,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1026,6 +1055,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1100,6 +1132,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1176,6 +1211,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1250,6 +1288,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1326,6 +1367,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1400,6 +1444,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1482,6 +1529,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1563,6 +1613,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1638,6 +1691,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1682,15 +1738,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1717,6 +1768,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1762,15 +1816,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1797,6 +1846,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1842,15 +1894,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1877,6 +1924,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1922,15 +1972,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1957,6 +2002,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2002,15 +2050,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2037,6 +2080,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2112,6 +2158,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2193,6 +2242,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2232,15 +2284,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 23.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2267,6 +2314,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2311,15 +2361,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 23.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2346,6 +2391,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2426,6 +2474,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2504,6 +2555,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2584,6 +2638,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2663,6 +2720,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2677,6 +2737,77 @@
         }
       },
       "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
+      "name": "gpt-audio",
+      "title": "GPT Audio",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "openai/gpt-audio",
       "industrial_ok": false
     },
     {
@@ -2732,6 +2863,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2808,6 +2942,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2880,6 +3017,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2962,6 +3102,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3037,6 +3180,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3056,6 +3202,222 @@
       "price_out": 0.0,
       "cost_per_m": 0.042,
       "rank_by_cost": 5,
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "deepinfra",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "deepinfra",
+      "runtime_model_id": "hexgrad/Kokoro-82M",
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "local",
+      "capacity": "local",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "local",
+      "runtime_model_id": "hexgrad/Kokoro-82M",
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "hexgrad/kokoro-82m",
       "industrial_ok": false
     },
     {
@@ -3108,6 +3470,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3181,6 +3546,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3251,6 +3619,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3323,6 +3694,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3393,6 +3767,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3465,6 +3842,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3479,6 +3859,148 @@
         }
       },
       "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
+      "name": "mai-voice-2.1",
+      "title": "MAI-Voice-2.1",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "microsoft/mai-voice-2.1",
+      "industrial_ok": false
+    },
+    {
+      "name": "mai-voice-2.1-flash",
+      "title": "MAI-Voice-2.1-Flash",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "microsoft/mai-voice-2.1-flash",
       "industrial_ok": false
     },
     {
@@ -3537,6 +4059,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3609,6 +4134,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3684,6 +4212,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3767,6 +4298,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3849,6 +4383,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3926,6 +4463,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -4003,6 +4543,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {

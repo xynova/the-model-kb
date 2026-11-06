@@ -4,78 +4,71 @@ title: Gemma 4 26B A4B
 kind: sovereign
 category: cheap
 jobs:
-- vision
-- reasoning
-- cheap
+  - vision
+  - reasoning
+  - cheap
 tags:
-- llm
-- vision
-- open
-- moe
-- reasoning
-- cloudflare
-- cheap
+  - llm
+  - vision
+  - open
+  - moe
+  - reasoning
+  - cloudflare
+  - cheap
 status: reach-for
 lab: google
 preferred_host: cloudflare
 aliases:
-- /roster/multimodal/gemma-4-26b-a4b/
-- /roster/multimodal/gemma-4-26b-a4b-cf/
+  - /roster/multimodal/gemma-4-26b-a4b/
+  - /roster/multimodal/gemma-4-26b-a4b-cf/
 hosts:
-- id: cloudflare
-  runtime: cloudflare
-  runtime_model_id: '@cf/google/gemma-4-26b-a4b-it'
-  price_in: 0.1
-  price_out: 0.3
-  price_note: Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 9091/27273 neurons
-    per M in/out; CF table Oct 2026
-  capacity: hobby
-  limits_note: 10k Neurons/day free tier; verify dashboard after large jobs
-  links:
-    cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: google/gemma-4-26b-a4b-it
-  price_in: 0.04
-  price_out: 0.15
-  price_note: OpenRouter aggregate route; provider mix behind the slug can shift;
-    confirm openrouter.ai model page
-  capacity: hobby
-  limits_note: Marketplace routing; not industrial throughput
-  links:
-    openrouter: https://openrouter.ai/google/gemma-4-26b-a4b-it
-- id: google
-  runtime: google
-  runtime_model_id: gemma-4-26b-a4b-it-maas
-  price_in: 0.15
-  price_out: 0.6
-  price_note: Vertex AI Gemma open-weights MaaS list; confirm Google Cloud pricing
-    for your region
-  capacity: hobby
-  limits_note: Cloud project quotas apply; not filed as industrial here
-  links:
-    provider_pricing: https://cloud.google.com/vertex-ai/generative-ai/pricing
-- id: deepinfra
-  runtime: deepinfra
-  runtime_model_id: google/gemma-4-26B-A4B-it
-  price_in: 0.07
-  price_out: 0.34
-  price_note: DeepInfra published list on model page; Priority 1.5x and Flex 0.8x
-    tiers exist
-  capacity: industrial
-  limits_note: Operator pick for high-volume batch; DeepInfra supports production
-    throughput vs CF neuron hobby tier
-  links:
-    deepinfra: https://deepinfra.com/google/gemma-4-26B-A4B-it
-- id: xinference
-  runtime: xinference
-  price_note: Xinference AU Model API; Gemma listed on request on pricing page (Oct
-    2026); no public list price filed
-  capacity: unknown
-  limits_note: Australian data centres; OpenAI-compatible API; confirm model id with
-    Xinference before use
-  links:
-    xinference: https://xinference.co/pricing.html
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: '@cf/google/gemma-4-26b-a4b-it'
+    price_in: 0.1
+    price_out: 2.51
+    price_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    capacity: hobby
+    limits_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: google/gemma-4-26b-a4b-it
+    price_in: 0.15
+    price_out: 19.0
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/google/gemma-4-26b-a4b-it
+  - id: google
+    runtime: google
+    runtime_model_id: gemma-4-26b-a4b-it-maas
+    price_in: 300.0
+    price_out: 5.77
+    price_note: ver{-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.2);box-shadow:0 1px 0 rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.2)}.gb_Eb .gb_z,.gb_Fb .gb_z{position:absolute;right:1px}.gb_Hb.gb_aa,.gb_bb.gb_aa,.gb_z.gb_aa{-webkit-box-
+    capacity: hobby
+    limits_note: ver{-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.2);box-shadow:0 1px 0 rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.2)}.gb_Eb .gb_z,.gb_Fb .gb_z{position:absolute;right:1px}.gb_Hb.gb_aa,.gb_bb.gb_aa,.gb_z.gb_aa{-webkit-box-
+    links:
+      provider_pricing: https://cloud.google.com/vertex-ai/generative-ai/pricing
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: google/gemma-4-26B-A4B-it
+    price_in: 1.0
+    price_out: 0.9
+    price_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    capacity: industrial
+    limits_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    links:
+      deepinfra: https://deepinfra.com/google/gemma-4-26B-A4B-it
+  - id: xinference
+    runtime: xinference
+    price_note: Xinference AU Model API; Gemma listed on request on pricing page (Oct 2026); no public list price filed
+    capacity: unknown
+    limits_note: ine-tune models unless you agree in writing. They’re processed in Australian data centres or on your own hardware."}},{"@type":"Question","name":"What does Enterprise add over Community?","acceptedAnswer":{"@type":"Answer","text":"Up to 2
+    links:
+      xinference: https://xinference.co/pricing.html
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 256000
@@ -83,7 +76,7 @@ links:
   artificial_analysis: https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
   models_dev: https://models.dev/
 source: roster seed gemma-4 segment 2026-09-08; scorecard refresh 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-06"
 ---
 
 

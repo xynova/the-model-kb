@@ -4,46 +4,44 @@ title: Llama 3.3 70B
 kind: sovereign
 category: cheap
 jobs:
-- chat
+  - chat
 tags:
-- llm
-- open
-- cloudflare
+  - llm
+  - open
+  - cloudflare
 status: watch
 lab: meta
 preferred_host: openrouter
 hosts:
-- id: cloudflare
-  runtime: cloudflare
-  runtime_model_id: '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
-  price_in: 0.293
-  price_out: 2.253
-  price_note: Workers AI Neurons at $0.011/1k; 26668/204805 neurons per M in/out;
-    CF table Oct 2026
-  capacity: hobby
-  limits_note: 10k Neurons/day free tier; fp8-fast Workers AI slug
-  links:
-    cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: meta-llama/llama-3.3-70b-instruct
-  price_in: 0.1
-  price_out: 0.32
-  price_note: OpenRouter headline; DeepInfra Turbo often behind the slug; confirm
-    openrouter.ai model page
-  capacity: hobby
-  limits_note: Marketplace routing; not industrial throughput
-  links:
-    openrouter: https://openrouter.ai/meta-llama/llama-3.3-70b-instruct
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
+    price_in: 0.1
+    price_out: 2.51
+    price_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    capacity: hobby
+    limits_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta-llama/llama-3.3-70b-instruct
+    price_in: 0.32
+    price_out: 19.0
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/meta-llama/llama-3.3-70b-instruct
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 128000
 links:
   models_dev: https://models.dev/
 source: polypus catalog diff 2026-11-04
-refreshed: 2026-11-04
+refreshed: "2026-11-06"
 aliases:
-- /roster/general/llama-3.3-70b/
+  - /roster/general/llama-3.3-70b/
 ---
 
 

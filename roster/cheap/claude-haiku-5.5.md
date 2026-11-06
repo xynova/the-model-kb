@@ -4,30 +4,29 @@ title: Claude Haiku 5.5
 kind: provider
 category: cheap
 jobs:
-- cheap
-- coding
-- chat
+  - cheap
+  - coding
+  - chat
 tags:
-- llm
-- closed
-- api
-- cheap
-- coding
+  - llm
+  - closed
+  - api
+  - cheap
+  - coding
 status: watch
 lab: anthropic
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: anthropic/claude-haiku-5.5
-  price_in: 0.1
-  price_out: 0.5
-  price_note: OpenRouter headline; Anthropic and Vertex rows $0.10/$0.50 per M; cache
-    read $0.01
-  capacity: hobby
-  limits_note: OpenRouter proxies Anthropic; not a sovereign host
-  links:
-    openrouter: https://openrouter.ai/anthropic/claude-haiku-5.5
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: anthropic/claude-haiku-5.5
+    price_in: 0.55
+    price_out: 19.0
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/anthropic/claude-haiku-5.5
 aa_intelligence: 36.5
 arena_elo: unknown
 context_window: unknown
@@ -35,9 +34,9 @@ links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/claude-haiku-5-5
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-06"
 aliases:
-- /roster/budget/claude-haiku-5.5/
+  - /roster/budget/claude-haiku-5.5/
 ---
 
 

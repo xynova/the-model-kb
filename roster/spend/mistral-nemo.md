@@ -4,36 +4,35 @@ title: Mistral Nemo
 kind: sovereign
 category: spend
 jobs:
-- cheap
-- chat
+  - cheap
+  - chat
 tags:
-- llm
-- open
-- cheap
+  - llm
+  - open
+  - cheap
 status: watch
 lab: mistral
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: mistralai/mistral-nemo
-  price_in: 0.01656
-  price_out: 0.0216
-  price_note: OpenRouter headline including 28% off at fetch; $0.01656/$0.0216 per
-    M; confirm openrouter.ai model page
-  capacity: hobby
-  limits_note: Marketplace routing; promotional headline can expire
-  links:
-    openrouter: https://openrouter.ai/mistralai/mistral-nemo
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: mistralai/mistral-nemo
+    price_in: 100.0
+    price_out: 19.0
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/mistralai/mistral-nemo
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown
 links:
   models_dev: https://models.dev/
 source: polypus catalog diff 2026-11-04
-refreshed: 2026-11-04
+refreshed: "2026-11-06"
 aliases:
-- /roster/budget/mistral-nemo/
+  - /roster/budget/mistral-nemo/
 ---
 
 

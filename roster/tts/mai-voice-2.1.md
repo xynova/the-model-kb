@@ -4,28 +4,27 @@ title: MAI-Voice-2.1
 kind: provider
 category: tts
 jobs:
-- tts
+  - tts
 tags:
-- audio
-- closed
-- api
+  - audio
+  - closed
+  - api
 status: watch
 lab: microsoft
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: microsoft/mai-voice-2.1
-  price_note: OpenRouter $22 per 1M characters (page 2026-11-06); Azure listed as the
-    upstream at the same character rate; not token $/M
-  capacity: hobby
-  limits_note: OpenRouter proxies Azure; not a sovereign host; not EU in-region routing;
-    voice ids include the model suffix (for example en-US-Harper:MAI-Voice-2.1); mp3
-    or pcm 24 kHz mono
-  links:
-    openrouter: https://openrouter.ai/microsoft/mai-voice-2.1
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: microsoft/mai-voice-2.1
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/microsoft/mai-voice-2.1
+    price_in: 1.0
+    price_out: 19.0
 source: operator TTS trial 2026-11-06
-refreshed: 2026-11-06
+refreshed: "2026-11-06"
 ---
 
 # MAI-Voice-2.1

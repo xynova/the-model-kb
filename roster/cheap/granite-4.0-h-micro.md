@@ -4,38 +4,37 @@ title: Granite 4.0 H Micro
 kind: sovereign
 category: cheap
 jobs:
-- cheap
-- chat
+  - cheap
+  - chat
 tags:
-- llm
-- open
-- cloudflare
-- cheap
-- fast
+  - llm
+  - open
+  - cloudflare
+  - cheap
+  - fast
 status: watch
 lab: ibm
 preferred_host: cloudflare
 hosts:
-- id: cloudflare
-  runtime: cloudflare
-  runtime_model_id: '@cf/ibm-granite/granite-4.0-h-micro'
-  price_in: 0.017
-  price_out: 0.112
-  price_note: Workers AI Neurons at $0.011/1k; 1542/10158 neurons per M in/out; CF
-    table Oct 2026
-  capacity: hobby
-  limits_note: 10k Neurons/day free tier; tiny IBM Granite cut
-  links:
-    cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: '@cf/ibm-granite/granite-4.0-h-micro'
+    price_in: 0.1
+    price_out: 2.51
+    price_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    capacity: hobby
+    limits_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: unknown
 links:
   models_dev: https://models.dev/
 source: polypus catalog diff 2026-11-04
-refreshed: 2026-11-04
+refreshed: "2026-11-06"
 aliases:
-- /roster/budget/granite-4.0-h-micro/
+  - /roster/budget/granite-4.0-h-micro/
 ---
 
 

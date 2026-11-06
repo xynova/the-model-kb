@@ -4,38 +4,38 @@ title: Gemma 3 27B
 kind: sovereign
 category: cheap
 jobs:
-- vision
-- cheap
-- chat
+  - vision
+  - cheap
+  - chat
 tags:
-- llm
-- vision
-- open
-- deepinfra
-- cheap
+  - llm
+  - vision
+  - open
+  - deepinfra
+  - cheap
 status: watch
 lab: google
 preferred_host: deepinfra
 hosts:
-- id: deepinfra
-  runtime: deepinfra
-  runtime_model_id: google/gemma-3-27b-it
-  price_in: 0.08
-  price_out: 0.16
-  price_note: DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist
-  capacity: hobby
-  limits_note: 131,072 context; multimodal; max 30 images per request on DeepInfra
-  links:
-    deepinfra: https://deepinfra.com/google/gemma-3-27b-it
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: google/gemma-3-27b-it
+    price_in: 1.0
+    price_out: 0.9
+    price_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    capacity: hobby
+    limits_note: '{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-670439{display:-webkit-inline-box;display:-webkit-inline-'
+    links:
+      deepinfra: https://deepinfra.com/google/gemma-3-27b-it
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 131072
 links:
   models_dev: https://models.dev/
 source: polypus catalog diff 2026-11-04
-refreshed: 2026-11-04
+refreshed: "2026-11-06"
 aliases:
-- /roster/multimodal/gemma-3-27b/
+  - /roster/multimodal/gemma-3-27b/
 ---
 
 

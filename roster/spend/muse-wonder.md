@@ -4,31 +4,31 @@ title: Muse Wonder
 kind: provider
 category: spend
 jobs:
-- vision
-- reasoning
-- coding
-- long-context
+  - vision
+  - reasoning
+  - coding
+  - long-context
 tags:
-- llm
-- vision
-- closed
-- api
-- agentic
-- reasoning
+  - llm
+  - vision
+  - closed
+  - api
+  - agentic
+  - reasoning
 status: watch
 lab: meta
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: meta/muse-wonder
-  price_in: 4
-  price_out: 20
-  price_note: OpenRouter Meta list $4/$20 per M; cache read $0.20
-  capacity: hobby
-  limits_note: 1,048,576 context; Meta is the sole OpenRouter provider on fetch
-  links:
-    openrouter: https://openrouter.ai/meta/muse-wonder
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta/muse-wonder
+    price_in: 20.0
+    price_out: 19.0
+    price_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    capacity: hobby
+    limits_note: te()); gtag('config', 'G-R8YZRJS2XN'); html[data-nav-arm='treatment'] [data-nav-tree='control'],html:not([data-nav-arm='treatment']) [data-nav-tree='treatment']{display:none}html[data-nav-arm='treatment'] [data-nav-search]{margin-left:auto;
+    links:
+      openrouter: https://openrouter.ai/meta/muse-wonder
 aa_intelligence: 43.6
 arena_elo: unknown
 context_window: 1048576
@@ -36,9 +36,9 @@ links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/muse-wonder
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-06"
 aliases:
-- /roster/multimodal/muse-wonder/
+  - /roster/multimodal/muse-wonder/
 ---
 
 
