@@ -15,6 +15,12 @@ select
   price_out,
   cost_per_m,
   industrial_ok,
+  capability_cohort,
+  input_modalities,
+  output_contracts,
+  execution_modes,
+  quality,
+  performance,
   case
     when cost_per_m is null then null
     else dense_rank() over (order by cost_per_m)

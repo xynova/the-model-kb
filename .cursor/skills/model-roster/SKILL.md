@@ -135,11 +135,15 @@ gemma-4-26b-a4b-deepinfra.md
 - MUST: Assign required `jobs` and per-host `capacity` from taxonomy.
 - MUST: If the user names a host `id` that is not in taxonomy **Host row ids**, STOP and load skill `providers-mint` before writing a `hosts` row.
 - MUST NOT: Invent a new `hosts[].id` or `runtime` inside a card-only edit.
-- MUST NOT: File blended ranks or computed scores in YAML (see `roster/OBJECTIVE.md`).
+- MUST NOT: File blended ranks or computed scores in YAML (see `roster/OBJECTIVE.md` and taxonomy **Quality leaves**).
+- MUST: Map every filed benchmark number to a **leaf id** in taxonomy **Quality leaves** before write (`aa_intelligence`, `arena_elo`, `aider_polyglot` map to named leaves).
+- MUST NOT: File [BenchLM](https://benchlm.ai/) overall, Estimated ranks, or copied prices as card or scores metadata.
+- MUST NOT: File Perplexity output as prices, URLs, or scores.
 
 **CONSTRAINT:** Enrichment (v1)
 
-- MUST: Use WebSearch / WebFetch only against sources listed in `roster/taxonomy.md`.
+- MUST: Use WebSearch / WebFetch only against sources listed in `roster/taxonomy.md`, except `aa_intelligence` MAY come from `make -C site retrieve-aa` / `apply-aa` when `AA_API_KEY` is set.
+- MUST: Prefer the AA Data API (`GET /api/v2/language/models/free`) over a model-page WebFetch for `aa_intelligence`.
 - MUST: Prefer host-row pricing when `hosts[].runtime` is `cloudflare`, `deepinfra`, `openrouter`, or `google` (public pages, not login dashboards).
 - MUST: Prefer lab pricing for `kind: provider`; product docs for `kind: service`.
 - MUST: Mark uncertain fields `unknown` or omit the key.

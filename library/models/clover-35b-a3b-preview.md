@@ -18,6 +18,8 @@ links:
   homepage: https://diffuspace.ai/blog/clover-35b/
   github: https://github.com/DiffuSpace/Clover-35B-A3B-Preview
   weights: https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview
+media:
+  cover: models/clover-35b-a3b-preview/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **Clover-35B-A3B-Preview** is DiffuSpace’s first **diffusion language model (dLLM)**: a **35B MoE** text stack (~**3B active** per token) derived from **Qwen3.6-35B-A3B**, using **block diffusion** with bidirectional attention inside each block and up to **128K** context. Inference paths include **Transformers**, **SGLang**, and **llama.cpp** per the release docs. **Apache 2.0** on weights and GitHub.
+
+| | |
+|:---:|:---:|
+| ![clover-35b-a3b-preview 1](clover-35b-a3b-preview/media/thumb-cover.jpg) | |
 
 ## Why keep
 

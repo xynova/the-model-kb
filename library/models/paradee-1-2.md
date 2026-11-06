@@ -17,6 +17,8 @@ links:
   homepage: https://www.sahilmahendrakar.com/writings/paradee-1-2
   github: https://github.com/sahilmahendrakar/paradee
   weights: https://huggingface.co/sahilmahendrakar/Paradee-8M-v1.2
+media:
+  cover: models/paradee-1-2/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-03
 ---
@@ -26,6 +28,10 @@ added: 2026-11-03
 ## What it is
 
 **Paradee 1.2** (`Paradee-8M-v1.2`) is a small **English text-to-speech** model (~7.9M parameters) **distilled from Kokoro-82M**, shipped as **ONNX** via the `paradee` Python package and **onnxruntime** (no GPU required). v1.2 adds **four preset voices** (two US and two British). Weights and code are **Apache 2.0**.
+
+| | |
+|:---:|:---:|
+| ![paradee-1-2 1](paradee-1-2/media/thumb-cover.jpg) | |
 
 ## Why keep
 

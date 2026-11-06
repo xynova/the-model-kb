@@ -14,6 +14,8 @@ license: closed
 vram_hint: unknown
 links:
   homepage: https://ideogram.ai/models/vector/
+media:
+  cover: creative/ideogram-vector-1-0/media/cover.jpg
 source: "youtube:EfyQOAJjx1A"
 added: 2026-11-04
 ---
@@ -23,6 +25,10 @@ added: 2026-11-04
 ## What it is
 
 **Ideogram Vector 1.0** (`ideogram-vector-1`): **hosted** model for **text-to-SVG** and **image-to-vector** (logos, wordmarks, illustrations, technical drawings). Outputs **SVG** with individually editable shapes for Figma/Illustrator workflows. Live in the **Ideogram app** (Generate vector) and **Ideogram API** (`POST /v2/svg/generate/ideogram-vector-1`, `POST /v2/svg/vectorize/ideogram-vector-1`). API pricing on Ideogram’s model page starts around **$0.13–$0.20 per generated SVG** by quality tier (verify current table).
+
+| | |
+|:---:|:---:|
+| ![ideogram-vector-1-0 1](ideogram-vector-1-0/media/thumb-cover.jpg) | |
 
 ## Why keep
 

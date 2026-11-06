@@ -18,6 +18,8 @@ links:
   homepage: https://github.com/MemTensor/MemT-1.0
   github: https://github.com/MemTensor/MemT-1.0
   weights: https://huggingface.co/MemTensor/MemT-1.0-Nano
+media:
+  cover: agents-memory/memt-1-0/media/cover.jpg
 source: "youtube:EfyQOAJjx1A"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **MemT-1.0** from **MemTensor**: **memory-native** causal LMs that keep a **fixed-size persistent memory state** across turns instead of re-reading full chat history (project cites ~**66×** lower storage vs full **128K** KV at their comparison point). Two checkpoints: **MemT-1.0-Nano** (**36B** total, **3B** active, Qwen3.6 MoE backbone) and **MemT-1.0-Flash** (**288B** total, **17B** active). Weights on Hugging Face with **`trust_remote_code`**; **SGLang** integration lives in the GitHub repo.
+
+| | |
+|:---:|:---:|
+| ![memt-1-0 1](memt-1-0/media/thumb-cover.jpg) | |
 
 ## Why keep
 

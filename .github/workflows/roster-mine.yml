@@ -37,6 +37,8 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Mine hosts
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
         run: make -C site mine-hosts
 
       - name: Build dbt scores
@@ -83,6 +85,20 @@ jobs:
               print(f"  - suggested_capacity: {row.get('suggested_capacity')}")
               print(f"  - current_capacity: {row.get('current_capacity')}")
               print(f"  - capacity_applied: {row.get('capacity_applied')}")
+              print()
+          aa_path = Path("roster/retrieval/aa-intelligence-review.json")
+          if aa_path.is_file():
+              aa = json.loads(aa_path.read_text(encoding="utf-8"))
+              print("## AA Intelligence Index\n")
+              print(f"status: {aa.get('status')}")
+              print(f"index version: {aa.get('intelligence_index_version')}\n")
+              for row in aa.get("rows") or []:
+                  print(
+                      f"- **{row.get('name')}**: {row.get('status')} "
+                      f"score={row.get('aa_intelligence')} "
+                      f"effort={row.get('effort') or '-'} "
+                      f"applied={row.get('applied')}"
+                  )
               print()
           PY
           num="$(gh pr list --head roster-mine --state open --json number -q '.[0].number' || true)"

@@ -9,6 +9,7 @@ site/static/roster.json, and roster/INDEX.md.
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import shutil
 import sys
@@ -26,7 +27,7 @@ except ImportError:
 
 # Keep in sync with roster/taxonomy.md.
 ALLOWED_KINDS = frozenset({"sovereign", "provider", "service"})
-ALLOWED_CATEGORIES = frozenset({"general", "coding", "multimodal", "budget"})
+ALLOWED_CATEGORIES = frozenset({"cheap", "mid", "spend", "unpriced", "classify"})
 ALLOWED_STATUS = frozenset({"reach-for", "watch", "retired"})
 ALLOWED_JOBS = frozenset(
     {
@@ -85,6 +86,37 @@ CARD_REQUIRED = (
     "refreshed",
     "hosts",
 )
+
+CHEAP_MAX = 3.0
+MID_MAX = 15.0
+
+
+def assign_category(fm: dict) -> str:
+    """Price-band sidebar home; classify and service override (see taxonomy.md)."""
+    jobs = fm.get("jobs")
+    if isinstance(jobs, list) and "classify" in jobs:
+        return "classify"
+    if fm.get("kind") == "service":
+        return "unpriced"
+    cheapest: float | None = None
+    for host in fm.get("hosts") or []:
+        if not isinstance(host, dict):
+            continue
+        pin = host.get("price_in")
+        pout = host.get("price_out")
+        if isinstance(pin, bool) or isinstance(pout, bool):
+            continue
+        if isinstance(pin, (int, float)) and isinstance(pout, (int, float)):
+            total = float(pin) + float(pout)
+            if cheapest is None or total < cheapest:
+                cheapest = total
+    if cheapest is None:
+        return "unpriced"
+    if cheapest < CHEAP_MAX:
+        return "cheap"
+    if cheapest < MID_MAX:
+        return "mid"
+    return "spend"
 
 
 def split_frontmatter(text: str) -> tuple[dict | None, str]:
@@ -218,6 +250,14 @@ def dump_hugo_frontmatter(fm: dict) -> str:
     kind = hugo_fm.pop("kind", None)
     if kind is not None:
         hugo_fm["roster_kind"] = kind
+    aa = hugo_fm.get("aa_intelligence")
+    if isinstance(aa, bool):
+        pass
+    elif isinstance(aa, float):
+        # Quote so Hugo does not coerce 43.6 to uint64 44.
+        hugo_fm["aa_intelligence"] = format(aa, ".15g")
+    elif isinstance(aa, int):
+        hugo_fm["aa_intelligence"] = str(aa)
     return yaml.dump(
         hugo_fm,
         default_flow_style=False,
@@ -278,6 +318,8 @@ def main() -> int:
         rel = path.relative_to(src)
         if path.name in SKIP_NAMES:
             continue
+        if rel.parts and rel.parts[0] in ("retrieval",):
+            continue
         if rel.parts and rel.parts[0].startswith("."):
             continue
 
@@ -323,6 +365,23 @@ def main() -> int:
     static_json.parent.mkdir(parents=True, exist_ok=True)
     static_json.write_text(catalog_bytes, encoding="utf-8")
     write_index(index_rows, index_path)
+
+    review_path = src / "retrieval" / "aa-intelligence-review.json"
+    compare_path = site_dir / "data" / "aa_compare.json"
+    if review_path.is_file():
+        ra_spec = importlib.util.spec_from_file_location(
+            "retrieve_aa", Path(__file__).resolve().parent / "retrieve-aa.py"
+        )
+        assert ra_spec and ra_spec.loader
+        retrieve_aa = importlib.util.module_from_spec(ra_spec)
+        ra_spec.loader.exec_module(retrieve_aa)
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        compare_path.parent.mkdir(parents=True, exist_ok=True)
+        compare_path.write_text(
+            json.dumps(retrieve_aa.compare_data(review), indent=2, ensure_ascii=False)
+            + "\n",
+            encoding="utf-8",
+        )
 
     print(f"generated roster pages under {dst}")
     print(f"wrote {catalog_path} and {static_json}")

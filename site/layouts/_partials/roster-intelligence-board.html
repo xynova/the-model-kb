@@ -1,0 +1,230 @@
+{{- /* Ranked AA Intelligence Index on Model Picks home only. */ -}}
+{{- $isRosterHome := and (eq .Section "roster") (eq .CurrentSection .FirstSection) -}}
+{{- if $isRosterHome -}}
+  {{- $measured := slice -}}
+  {{- $unknown := slice -}}
+  {{- range .Sections -}}
+    {{- range .RegularPages -}}
+      {{- if and .Params.roster_kind (not (in .Params.jobs "classify")) -}}
+      {{- $raw := .Params.aa_intelligence -}}
+      {{- $hosts := slice -}}
+      {{- $cheapSum := 0.0 -}}
+      {{- $cheapIn := "" -}}
+      {{- $cheapOut := "" -}}
+      {{- $cheapHost := "" -}}
+      {{- $priced := false -}}
+      {{- range .Params.hosts -}}
+        {{- if .id -}}
+          {{- $hosts = $hosts | append .id -}}
+        {{- end -}}
+        {{- $pin := index . "price_in" -}}
+        {{- $pout := index . "price_out" -}}
+        {{- $pinStr := printf "%v" $pin -}}
+        {{- $poutStr := printf "%v" $pout -}}
+        {{- if and (ne $pinStr "<no value>") (ne $poutStr "<no value>") (ne $pinStr "<nil>") (ne $poutStr "<nil>") (ne $pinStr "") (ne $poutStr "") -}}
+          {{- $sum := add (float $pin) (float $pout) -}}
+          {{- if or (not $priced) (lt $sum $cheapSum) -}}
+            {{- $priced = true -}}
+            {{- $cheapSum = $sum -}}
+            {{- $cheapIn = $pinStr -}}
+            {{- $cheapOut = $poutStr -}}
+            {{- $cheapHost = .id -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $aaUrl := "" -}}
+      {{- with .Params.links -}}
+        {{- with .artificial_analysis -}}
+          {{- if findRE `artificialanalysis\.ai/models/` . -}}
+            {{- $aaUrl = . -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $row := dict
+        "title" .Title
+        "name" (.Params.name | default .File.ContentBaseName)
+        "permalink" .RelPermalink
+        "aaUrl" $aaUrl
+        "hosts" (delimit $hosts ", ")
+        "priced" $priced
+        "cheapIn" $cheapIn
+        "cheapOut" $cheapOut
+        "cheapHost" $cheapHost
+        "jobs" (delimit (.Params.jobs | default slice) " ")
+        "roster_kind" .Params.roster_kind
+      -}}
+      {{- $rawStr := printf "%v" $raw -}}
+      {{- if and (ne $rawStr "unknown") (ne $rawStr "<nil>") (ne $rawStr "<no value>") (ne $rawStr "") -}}
+        {{- $measured = $measured | append (merge $row (dict
+          "score" (int (mul (float $raw) 1000))
+          "label" $rawStr
+        )) -}}
+      {{- else if ne .Params.roster_kind "service" -}}
+        {{- $unknown = $unknown | append $row -}}
+      {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $measured = sort $measured "score" "desc" -}}
+  {{- $unknown = sort $unknown "title" -}}
+  {{- $compareCards := dict -}}
+  {{- with site.Data.aa_compare -}}
+    {{- with .cards -}}
+      {{- $compareCards = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $highest := "" -}}
+  {{- $highestTitle := "" -}}
+  {{- with index $measured 0 -}}
+    {{- $highest = .label -}}
+    {{- $highestTitle = .title -}}
+  {{- end -}}
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}?v=intel">
+<section class="roster-intel" aria-label="Model Picks overview">
+  <h2 class="roster-intel__heading">Filed Intelligence Index</h2>
+  <p class="roster-intel__lede">
+    Ranked by card <code>aa_intelligence</code> from the Artificial Analysis Data API (index major 5).
+    Thinking cut when AA lists one. <strong>Alternative</strong>: off-shelf thinking peer with at least this index and lower AA cost-per-task (best index per cost among those). <strong>Similar</strong>: closest off-shelf thinking index (cost ignored). Peers name the AA creator, not our hosts.
+    The <a href="https://artificialanalysis.ai/leaderboards/models">public leaderboard</a> rounds differently and lists models this shelf does not carry.
+  </p>
+  <div class="roster-intel__stats">
+    <div class="roster-intel__stat">
+      <div class="roster-intel__stat-value">{{ len $measured }}</div>
+      <div class="roster-intel__stat-label">Scored on board</div>
+    </div>
+    <div class="roster-intel__stat">
+      <div class="roster-intel__stat-value">{{ len $unknown }}</div>
+      <div class="roster-intel__stat-label">No AA index</div>
+    </div>
+    <div class="roster-intel__stat">
+      <div class="roster-intel__stat-value">5</div>
+      <div class="roster-intel__stat-label">Price shelves</div>
+    </div>
+    <div class="roster-intel__stat">
+      <div class="roster-intel__stat-value">{{ or $highest "-" }}</div>
+      <div class="roster-intel__stat-label">Highest{{ with $highestTitle }} ({{ . }}){{ end }}</div>
+    </div>
+  </div>
+  {{- if gt (len $measured) 0 -}}
+  <ol class="roster-intel__bars">
+    {{- range $measured -}}
+    <li class="roster-intel__bar">
+      <a class="roster-intel__bar-label" href="{{ .permalink }}">{{ .title }}</a>
+      <div class="roster-intel__bar-track">
+        <div
+          class="roster-intel__bar-fill"
+          style="width: {{ .label }}%;"
+          role="img"
+          aria-label="{{ .title }} {{ .label }} of 100"
+        ></div>
+      </div>
+      <span class="roster-intel__bar-score">{{ .label }}</span>
+    </li>
+    {{- end -}}
+  </ol>
+  <div class="roster-intel__wrap">
+    <table class="roster-intel__table roster-intel__table--ranked">
+      <thead>
+        <tr>
+          <th scope="col">Model</th>
+          <th scope="col">Index</th>
+          <th scope="col">AA cost/task</th>
+          <th scope="col">Alternative</th>
+          <th scope="col">Similar</th>
+          <th scope="col">Model page</th>
+          <th scope="col">Cheapest list ($/M in / out)</th>
+          <th scope="col">Hosts</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{- range $measured -}}
+        <tr>
+          <th scope="row"><a href="{{ .permalink }}">{{ .title }}</a></th>
+          <td>{{ .label }}</td>
+          {{- $peers := index $compareCards .name -}}
+          <td>
+            {{- if and $peers $peers.cost_per_task -}}
+              ${{ printf "%.2f" (float $peers.cost_per_task) }} task
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>
+            {{- if and $peers $peers.alternative -}}
+              {{ partial "roster-aa-peer.html" $peers.alternative }}
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>
+            {{- if and $peers $peers.similar -}}
+              {{ partial "roster-aa-peer.html" $peers.similar }}
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>
+            {{- if .aaUrl -}}
+              <a href="{{ .aaUrl }}" rel="noopener noreferrer">Artificial Analysis</a>
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>
+            {{- if .priced -}}
+              ${{ .cheapIn }} / ${{ .cheapOut }}
+              <span class="roster-intel__cheap-host">{{ .cheapHost }}</span>
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>{{ or .hosts "-" }}</td>
+        </tr>
+        {{- end -}}
+      </tbody>
+    </table>
+  </div>
+  {{- end -}}
+  {{- if gt (len $unknown) 0 -}}
+  <h3 class="roster-intel__unknown-heading">No AA index</h3>
+  <p class="roster-intel__lede roster-intel__lede--tight">
+    Unranked catalog models without a filed <code>aa_intelligence</code>. Cursor service copies are on the Unpriced shelf, not here.
+  </p>
+  <div class="roster-intel__wrap">
+    <table class="roster-intel__table roster-intel__table--unranked">
+      <thead>
+        <tr>
+          <th scope="col">Model</th>
+          <th scope="col">Cheapest list ($/M in / out)</th>
+          <th scope="col">Hosts</th>
+          <th scope="col">Model page</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{- range $unknown -}}
+        <tr>
+          <th scope="row"><a href="{{ .permalink }}">{{ .title }}</a></th>
+          <td>
+            {{- if .priced -}}
+              ${{ .cheapIn }} / ${{ .cheapOut }}
+              <span class="roster-intel__cheap-host">{{ .cheapHost }}</span>
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+          <td>{{ or .hosts "-" }}</td>
+          <td>
+            {{- if .aaUrl -}}
+              <a href="{{ .aaUrl }}" rel="noopener noreferrer">Artificial Analysis</a>
+            {{- else -}}
+              -
+            {{- end -}}
+          </td>
+        </tr>
+        {{- end -}}
+      </tbody>
+    </table>
+  </div>
+  {{- end -}}
+</section>
+{{- end -}}

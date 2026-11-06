@@ -17,6 +17,8 @@ links:
   homepage: https://nvlabs.github.io/motionbricks/
   github: https://github.com/NVlabs/motionbricks
   weights: https://huggingface.co/nvidia/MotionBricks
+media:
+  cover: video/motion-bricks/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-03
 ---
@@ -26,6 +28,10 @@ added: 2026-11-03
 ## What it is
 
 NVIDIA’s open **real-time motion generation** stack: one modular latent backbone targets navigation and object interaction via “smart primitives,” with shipped **SOMA** human and **Unitree G1** models (bundled ONNX plus Hugging Face SafeTensors). The project page claims very high FPS and low latency at large skill counts; the repo includes Warp/Newton/TensorRT runtimes, UE-style demos in Python, and editors for primitives and scenes.
+
+| | |
+|:---:|:---:|
+| ![motion-bricks 1](motion-bricks/media/thumb-cover.jpg) | |
 
 ## Why keep
 

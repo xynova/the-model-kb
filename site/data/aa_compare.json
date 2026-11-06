@@ -1,0 +1,406 @@
+{
+  "generated_at": "2026-11-05",
+  "cards": {
+    "claude-haiku-5.5": {
+      "aa_intelligence": 36.5,
+      "cost_per_task": 0.411,
+      "creator": "Anthropic",
+      "effort": "max",
+      "url": "https://artificialanalysis.ai/models/claude-haiku-5-5",
+      "alternative": {
+        "name": "GPT-6.1 Terra (Medium)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-1-terra-medium",
+        "effort": "medium",
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "similar": {
+        "name": "Grok 4.7 (Xhigh)",
+        "creator": "SpaceXAI",
+        "slug": "grok-4-7",
+        "effort": "xhigh",
+        "aa_intelligence": 35.5,
+        "cost_per_task": 7.7715,
+        "url": "https://artificialanalysis.ai/models/grok-4-7"
+      }
+    },
+    "cursor-composer-2.5-fast": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-gemini-3-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-gemini-3.1-pro": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-gpt-5.4-mini-medium": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-gpt-5.6-luna-high": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-gpt-5.6-terra-medium": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-grok-4.6-high": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "cursor-kimi-k2.7-code": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "deepseek-v4-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "DeepSeek",
+      "effort": "max",
+      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "alternative": null,
+      "similar": null
+    },
+    "gemini-2.5-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "reasoning",
+      "url": "https://artificialanalysis.ai/models/gemini-2-5-flash-reasoning",
+      "alternative": null,
+      "similar": null
+    },
+    "gemini-2.5-pro": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "",
+      "url": "https://artificialanalysis.ai/models/gemini-2-5-pro",
+      "alternative": null,
+      "similar": null
+    },
+    "gemini-3-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "reasoning",
+      "url": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
+      "alternative": null,
+      "similar": null
+    },
+    "gemini-3.1-pro": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "gemini-3.8-flash": {
+      "aa_intelligence": 30.8,
+      "cost_per_task": 7.766,
+      "creator": "Google",
+      "effort": "high",
+      "url": "https://artificialanalysis.ai/models/gemini-3-8-flash",
+      "alternative": {
+        "name": "GPT-6.1 Terra (Medium)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-1-terra-medium",
+        "effort": "medium",
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "similar": {
+        "name": "Claude Sonnet 5.5 (Medium, Default Fallback)",
+        "creator": "Anthropic",
+        "slug": "claude-sonnet-5-5-medium",
+        "effort": "medium",
+        "aa_intelligence": 30.8,
+        "cost_per_task": 0.7807,
+        "url": "https://artificialanalysis.ai/models/claude-sonnet-5-5-medium"
+      }
+    },
+    "gemma-3-27b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "",
+      "url": "https://artificialanalysis.ai/models/gemma-3-27b",
+      "alternative": null,
+      "similar": null
+    },
+    "gemma-4-26b-a4b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "reasoning",
+      "url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "alternative": null,
+      "similar": null
+    },
+    "gemma-4-31b": {
+      "aa_intelligence": 4.4,
+      "cost_per_task": null,
+      "creator": "Google",
+      "effort": "reasoning",
+      "url": "https://artificialanalysis.ai/models/gemma-4-31b",
+      "alternative": null,
+      "similar": {
+        "name": "Mistral Small 4 (Reasoning)",
+        "creator": "Mistral",
+        "slug": "mistral-small-4",
+        "effort": "reasoning",
+        "aa_intelligence": 4.3,
+        "cost_per_task": 0.0399,
+        "url": "https://artificialanalysis.ai/models/mistral-small-4"
+      }
+    },
+    "glm-4.7-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "Z AI",
+      "effort": "reasoning",
+      "url": "https://artificialanalysis.ai/models/glm-4-7-flash",
+      "alternative": null,
+      "similar": null
+    },
+    "glm-5.3-flash": {
+      "aa_intelligence": 27.8,
+      "cost_per_task": 0.5833,
+      "creator": "Z AI",
+      "effort": "",
+      "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
+      "alternative": {
+        "name": "GPT-6.1 Terra (Low)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-1-terra-low",
+        "effort": "low",
+        "aa_intelligence": 29.4,
+        "cost_per_task": 0.0713,
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-low"
+      },
+      "similar": {
+        "name": "GPT-6 Luna (Max)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-luna",
+        "effort": "max",
+        "aa_intelligence": 27.9,
+        "cost_per_task": 0.152,
+        "url": "https://artificialanalysis.ai/models/gpt-6-luna"
+      }
+    },
+    "gpt-oss-20b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "OpenAI",
+      "effort": "high",
+      "url": "https://artificialanalysis.ai/models/gpt-oss-20b",
+      "alternative": null,
+      "similar": null
+    },
+    "granite-4.0-h-micro": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "granite-4.2-8b": {
+      "aa_intelligence": 5.1,
+      "cost_per_task": 0.0405,
+      "creator": "IBM",
+      "effort": "",
+      "url": "https://artificialanalysis.ai/models/granite-4-2-8b",
+      "alternative": {
+        "name": "GPT-6 Luna (Low)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-luna-low",
+        "effort": "low",
+        "aa_intelligence": 9.7,
+        "cost_per_task": 0.0051,
+        "url": "https://artificialanalysis.ai/models/gpt-6-luna-low"
+      },
+      "similar": {
+        "name": "Granite 4.2 3B",
+        "creator": "IBM",
+        "slug": "granite-4-2-3b",
+        "effort": "",
+        "aa_intelligence": 4.7,
+        "cost_per_task": null,
+        "url": "https://artificialanalysis.ai/models/granite-4-2-3b"
+      }
+    },
+    "jev": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "llama-3.3-70b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "llama-4-scout-17b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "mercury-decide": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "mistral-nemo": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "mistral-small-3.1-24b": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "muse-spark-1.3": {
+      "aa_intelligence": 36.6,
+      "cost_per_task": 2.3858,
+      "creator": "Meta",
+      "effort": "max",
+      "url": "https://artificialanalysis.ai/models/muse-spark-1-3",
+      "alternative": {
+        "name": "GPT-6.1 Terra (Medium)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-1-terra-medium",
+        "effort": "medium",
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "similar": {
+        "name": "Grok 4.7 (Xhigh)",
+        "creator": "SpaceXAI",
+        "slug": "grok-4-7",
+        "effort": "xhigh",
+        "aa_intelligence": 35.5,
+        "cost_per_task": 7.7715,
+        "url": "https://artificialanalysis.ai/models/grok-4-7"
+      }
+    },
+    "muse-wonder": {
+      "aa_intelligence": 43.6,
+      "cost_per_task": 6.952,
+      "creator": "Meta",
+      "effort": "max",
+      "url": "https://artificialanalysis.ai/models/muse-wonder",
+      "alternative": {
+        "name": "GPT-6.1 Sol (Medium)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-1-sol-medium",
+        "effort": "medium",
+        "aa_intelligence": 46.3,
+        "cost_per_task": 0.3594,
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-sol-medium"
+      },
+      "similar": {
+        "name": "GPT-6 Astra (Low)",
+        "creator": "OpenAI",
+        "slug": "gpt-6-astra-low",
+        "effort": "low",
+        "aa_intelligence": 43.3,
+        "cost_per_task": 1.4237,
+        "url": "https://artificialanalysis.ai/models/gpt-6-astra-low"
+      }
+    },
+    "pplx-decider": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    },
+    "pplx-decider-flash": {
+      "aa_intelligence": null,
+      "cost_per_task": null,
+      "creator": "",
+      "effort": "",
+      "url": "",
+      "alternative": null,
+      "similar": null
+    }
+  }
+}

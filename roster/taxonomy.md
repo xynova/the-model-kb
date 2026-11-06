@@ -109,18 +109,151 @@ pick_score: 0.87
 
 Scores and host ranks belong in a later dbt layer, not in markdown or `catalog.json` schema 1.
 
+PROHIBITED in YAML and in `scores.json`: `pick_score`, `iq`, `overall_quality`, `intelligence_vector`, and BenchAlign-style blended scores.
+
+## Quality leaves
+
+Source of truth for **leaf ids**, **measurement status**, and **comparison keys** on every host offer in `scores.json`. Cards keep sparse facts (`aa_intelligence`, `arena_elo`, `aider_polyglot`). dbt derives status and emits a full grid per offer. `roster-pick` still sorts by `cost_per_m`; quality is for compare and inspect, not a blended pick rank.
+
+### Five dimensions (conceptual)
+
+| Dimension | Role in this repo |
+|-----------|-------------------|
+| capability | Eligibility from `jobs` (not a score) |
+| quality | Job-specific measurements (never blend branches) |
+| economics | `price_in`, `price_out`, `cost_per_m` on each offer |
+| performance | Latency leaves (status only until filed) |
+| evidence | `status`, `attribution`, `comparison_key` on each leaf |
+
+Economics leaf names (document only; flat fields on offers today):
+
+- `economics.list_price.input_usd_per_1m_tokens` → `price_in`
+- `economics.list_price.output_usd_per_1m_tokens` → `price_out`
+
+### Quality leaf ids (emit every id on every offer)
+
+- `quality.general_problem_solving.benchmark_composite`
+- `quality.human_preference.pairwise_rating`
+- `quality.coding.agent_benchmark_composite`
+- `quality.coding.code_edit_first_attempt`
+- `quality.multimodal_understanding.benchmark_accuracy`
+- `quality.typed_decision.classification_accuracy`
+- `quality.typed_decision.precision`
+- `quality.typed_decision.recall`
+- `quality.typed_decision.brier_loss`
+- `quality.typed_decision.ordinal_mae`
+
+### Performance leaf ids (status only until values are filed)
+
+- `performance.end_to_end_latency_ms`
+- `performance.time_to_first_token_ms`
+- `performance.request_success_rate`
+
+### Observation status
+
+Exactly one of: `measured` | `unknown` | `not_applicable` | `invalid` (`invalid` is not produced in v1).
+
+- `value` only when `status=measured` (including real zero)
+- `attribution` only when `status=measured` (v1: `model_only` for AA / Arena / Aider on cards)
+- `comparison_key` only when `status=measured`
+- NEVER coerce missing to zero in YAML, dbt, or export
+
+### Comparison keys (v1 constants)
+
+- AA composite: `aa_intelligence_index:v5.0.1` (maps from card `aa_intelligence`)
+- Aider first-pass: `aider_polyglot_first_pass` (maps from card `aider_polyglot`; **Pass rate 1** only, not headline percent)
+- Arena: do not file `measured` until a board id is recorded; until then `unknown` or `not_applicable`
+
+Two numbers are comparable only when they share the same **leaf id** and the same **comparison_key** (plus the same test contract in future refreshes).
+
+### Capability derivation (`jobs` only)
+
+`catalog.json` does not emit `tags`. Derive capability from `jobs` only:
+
+- Default: `input_modalities` includes `text`; `execution_modes` is `single_response`
+- IF `vision` in jobs → add `image` to `input_modalities`
+- IF `chat` OR `reasoning` in jobs → add `generated_text` to `output_contracts`
+- IF `coding` in jobs → add `code` to `output_contracts`
+- IF `classify` in jobs → add `binary_probability`, `categorical_distribution`, `ordinal_distribution` to `output_contracts`
+
+`cheap`, `high-throughput`, and `long-context` do not change capability.
+
+**capability_cohort:** sort each list lexicographically, join members with `+`, join the three lists with `__`.
+
+Examples:
+
+- Jev (`classify`, `cheap`): `text__binary_probability+categorical_distribution+ordinal_distribution__single_response`
+- DeepSeek V4 Flash (`chat`, `reasoning`, `coding`, …): `text__code+generated_text__single_response`
+
+### Leaf applicability (dbt)
+
+| Leaf | Applicable when | Value source |
+|------|-----------------|--------------|
+| `quality.general_problem_solving.benchmark_composite` | `generated_text` or `code` in output_contracts | `aa_intelligence` |
+| `quality.human_preference.pairwise_rating` | same as AA composite | `arena_elo` |
+| `quality.coding.code_edit_first_attempt` | `coding` in jobs | `aider_polyglot` |
+| `quality.coding.agent_benchmark_composite` | `coding` in jobs | none (always unknown when applicable) |
+| `quality.multimodal_understanding.benchmark_accuracy` | `image` in input_modalities | none |
+| `quality.typed_decision.*` (all five) | `classify` in jobs | none (unknown when applicable) |
+| `performance.time_to_first_token_ms` | `generated_text` in output_contracts | none |
+| `performance.end_to_end_latency_ms`, `performance.request_success_rate` | every offer | none |
+
+### Comparability clusters (derived in scores.json)
+
+- **capability_cohort:** same interface (see derivation above)
+- **leaf_cohorts:** sorted list of quality leaf ids with `status=measured` on that offer
+
+Do not cluster on a blended quality vector. Do not add YAML `cluster`.
+
+Same-segment peer rules (generation, modality, MoE band) remain a human keep-gate; they are not the numeric comparison key.
+
+### Leaf-mapped allowlisted sources
+
+An allowed URL is necessary but not sufficient: the row, metric name, model id, and version must match the leaf.
+
+| Leaf | Primary sources | MUST NOT use for |
+|------|-----------------|------------------|
+| `quality.general_problem_solving.benchmark_composite` | [AA Intelligence Index](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index), [methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking), [Data API](https://artificialanalysis.ai/data-api/docs/reference) `GET /api/v2/language/models/free` | Arena, Aider, MMMU, typed-decision metrics |
+| `quality.human_preference.pairwise_rating` | [Arena leaderboard](https://lmarena.ai/leaderboard), [FAQ](https://lmarena.ai/faq) | [Arena-Hard](https://news.lmarena.ai/arena-hard/) (model judges) |
+| `quality.coding.agent_benchmark_composite` | [AA coding agents](https://artificialanalysis.ai/agents/coding-agents) | Aider first-pass, AA Intelligence Index |
+| `quality.coding.code_edit_first_attempt` | [Aider Polyglot](https://aider.chat/docs/leaderboards/) (**Pass rate 1** only) | Headline percent, Pass rate 2 |
+| `quality.multimodal_understanding.benchmark_accuracy` | [AA MMMU-Pro](https://artificialanalysis.ai/evaluations/mmmu-pro); [MMMU site](https://mmmu-benchmark.github.io/) author rows are vendor self-report | Original MMMU as MMMU-Pro |
+| `quality.typed_decision.*` | Independent evals only (e.g. [Deußer et al. on Jev](https://arxiv.org/abs/2609.37647) for a pinned model version) | [evals.typesafe.ai](https://evals.typesafe.ai/) teacher-agreement |
+| Host list prices | Cloudflare, DeepInfra, OpenRouter, Google Gemini API, minted host pages (see enrichment table) | Quality or latency |
+| Capability metadata | [models.dev](https://models.dev/), lab/host docs | Accuracy scores |
+
+**Exclude from filed numbers:** Perplexity answers; login dashboards; Twitter screenshots; Hugging Face Open LLM Leaderboard aggregates; third-party mirrors when the primary page exists; [BenchLM](https://benchlm.ai/) overall / Estimated / copied prices (pointer to primary only); [systemonemodels.org](https://systemonemodels.org/guides/jev-benchmarks/) style blends.
+
+MUST map a filed number to a **leaf id** before write. MUST NOT file Perplexity output as metadata.
+
+Frontmatter mapping (unchanged keys):
+
+| YAML key | Leaf |
+|----------|------|
+| `aa_intelligence` | `quality.general_problem_solving.benchmark_composite` |
+| `arena_elo` | `quality.human_preference.pairwise_rating` |
+| `aider_polyglot` | `quality.coding.code_edit_first_attempt` |
+
 ## Categories (exactly one per entry)
 
-Job-shaped (orthogonal to `kind`):
+Exclusive sidebar home (orthogonal to `jobs`; use `jobs` for filters, not folders):
 
 | Category | Use for |
 |----------|---------|
-| `general` | Default chat / reasoning / agents |
-| `coding` | Code edit, refactor, agents-on-code |
-| `multimodal` | Vision / image-in or similar |
-| `budget` | Explicitly cost-first picks |
+| `classify` | Typed-decision models (`classify` in `jobs`); not Intelligence Index peers |
+| `cheap` | Cheapest listed in+out under $3/M combined |
+| `mid` | Cheapest listed in+out from $3/M to under $15/M combined |
+| `spend` | Cheapest listed in+out $15/M combined or higher |
+| `unpriced` | `kind: service`, or no numeric list price on any host row |
 
 Directory path: `roster/<category>/<slug>.md`.
+
+Assignment order when filing or migrating (sticky after move; nightly mine does not re-band):
+
+1. If `classify` in `jobs` → `classify`.
+2. Else if `kind` is `service` → `unpriced`.
+3. Else cheapest listed = min(`price_in` + `price_out`) over hosts with both numeric.
+4. If no cheapest → `unpriced`; else `< 3` → `cheap`, `< 15` → `mid`, else `spend`.
 
 Do **not** use a `local` category; locality is `kind: sovereign` and a host row with `id: local` or `runtime: local`.
 
@@ -296,7 +429,7 @@ Uncertain enrichment fields: use `unknown` or omit the key. MUST NOT invent URLs
 
 | Source | Role | Primary URL |
 |--------|------|-------------|
-| Artificial Analysis | Intelligence / cost / speed | https://artificialanalysis.ai/leaderboards/models |
+| Artificial Analysis | Intelligence / cost / speed | https://artificialanalysis.ai/leaderboards/models (bulk: Data API free models list) |
 | LMArena (Arena AI) | Human-preference Elo | https://lmarena.ai/ |
 | OpenRouter | Cross-host pricing / ids | https://openrouter.ai/models |
 | models.dev | Specs, pricing, capabilities | https://models.dev/ |

@@ -16,6 +16,8 @@ links:
   homepage: https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/
   github: https://github.com/Edge0-AI/Audio8_TTS
   weights: https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b
+media:
+  cover: models/audio8-tts-realistic-0.6b/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -25,6 +27,10 @@ added: 2026-11-04
 ## What it is
 
 **Audio8-TTS-Realistic-0.6B** (~601M parameters plus a **44.1 kHz neural codec**) is Edge0’s **zero-shot cloning TTS** built on the DualAR architecture (Fish Audio S2 Pro lineage). It improves on **Preview 0.6B** with stronger realism, **23 languages**, and a standard **Transformers** inference path (`trust_remote_code=True`). Weights and repo are **Apache 2.0**.
+
+| | |
+|:---:|:---:|
+| ![audio8-tts-realistic-0.6b 1](audio8-tts-realistic-0.6b/media/thumb-cover.jpg) | |
 
 ## Why keep
 

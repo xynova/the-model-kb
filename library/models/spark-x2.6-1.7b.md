@@ -18,6 +18,8 @@ links:
   homepage: https://huggingface.co/XHToken/Spark-X2.6-1.7B
   github: https://github.com/XHToken/Spark-X2.6
   weights: https://huggingface.co/XHToken/Spark-X2.6-1.7B
+media:
+  cover: models/spark-x2.6-1.7b/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **Spark-X2.6-1.7B** is XHToken’s compact **agentic LLM** for **on-device** use: same architecture as Spark-X2.5-1.7B with stronger post-training on **coding, tools, long context, and multilingual** tasks. The chat template exposes **none / low / high** thinking budgets. Official paths include **Transformers**, **SGLang**, **vLLM** (Spark plugin), **MLX**, **llama.cpp** GGUF, and **Ollama**. **Apache 2.0**.
+
+| | |
+|:---:|:---:|
+| ![spark-x2.6-1.7b 1](spark-x2.6-1.7b/media/thumb-cover.jpg) | |
 
 ## Why keep
 

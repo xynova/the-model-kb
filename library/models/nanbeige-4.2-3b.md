@@ -18,6 +18,8 @@ links:
   homepage: https://arxiv.org/abs/2607.22083
   github: https://github.com/Nanbeige/llama.cpp
   weights: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
+media:
+  cover: models/nanbeige-4.2-3b/media/cover.jpg
 source: "youtube:fMaPaK4gcNE"
 added: 2026-11-04
 ---
@@ -27,6 +29,10 @@ added: 2026-11-04
 ## What it is
 
 **Nanbeige4.2-3B** is a compact **agentic** chat model (~**3B** non-embedding params, ~**4B** total with embeddings) built on a **Looped Transformer**: the same decoder stack runs **two passes** for extra effective depth without a second weight set. Apache-2.0 weights on Hugging Face, with official forks for **vLLM**, **SGLang**, **llama.cpp**, and **Ollama** under the Nanbeige org.
+
+| | |
+|:---:|:---:|
+| ![nanbeige-4.2-3b 1](nanbeige-4.2-3b/media/thumb-cover.jpg) | |
 
 ## Why keep
 

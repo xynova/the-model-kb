@@ -9,6 +9,67 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Keep in sync with roster/taxonomy.md Quality leaves and tools/roster-pick/internal/scores/leaves.go
+QUALITY_LEAF_IDS = [
+    "quality.general_problem_solving.benchmark_composite",
+    "quality.human_preference.pairwise_rating",
+    "quality.coding.agent_benchmark_composite",
+    "quality.coding.code_edit_first_attempt",
+    "quality.multimodal_understanding.benchmark_accuracy",
+    "quality.typed_decision.classification_accuracy",
+    "quality.typed_decision.precision",
+    "quality.typed_decision.recall",
+    "quality.typed_decision.brier_loss",
+    "quality.typed_decision.ordinal_mae",
+]
+PERFORMANCE_LEAF_IDS = [
+    "performance.end_to_end_latency_ms",
+    "performance.time_to_first_token_ms",
+    "performance.request_success_rate",
+]
+
+
+def _parse_json_map(raw: object) -> dict:
+    if raw is None:
+        return {}
+    if isinstance(raw, str):
+        return json.loads(raw)
+    if isinstance(raw, dict):
+        return raw
+    raise TypeError(f"expected JSON map, got {type(raw)!r}")
+
+
+def _normalize_leaf(raw: object) -> dict:
+    leaf = _parse_json_map(raw) if not isinstance(raw, dict) else raw
+    out: dict = {"status": leaf["status"]}
+    if leaf.get("status") == "measured":
+        out["value"] = leaf["value"]
+        out["attribution"] = leaf.get("attribution", "model_only")
+        if "comparison_key" in leaf:
+            out["comparison_key"] = leaf["comparison_key"]
+    return out
+
+
+def _leaf_map(raw: object, registered: list[str], label: str) -> dict:
+    parsed = _parse_json_map(raw)
+    keys = set(parsed)
+    expected = set(registered)
+    if keys != expected:
+        missing = expected - keys
+        extra = keys - expected
+        raise ValueError(
+            f"{label} keys mismatch: missing={sorted(missing)} extra={sorted(extra)}"
+        )
+    return {leaf_id: _normalize_leaf(parsed[leaf_id]) for leaf_id in registered}
+
+
+def _string_list(raw: object) -> list[str]:
+    if raw is None:
+        return []
+    if isinstance(raw, str):
+        raw = json.loads(raw)
+    return list(raw)
+
 
 def main() -> int:
     dbt_dir = Path(__file__).resolve().parent.parent
@@ -66,6 +127,27 @@ def main() -> int:
         else:
             jobs = list(jobs)
 
+        quality_raw = rec.pop("quality")
+        performance_raw = rec.pop("performance")
+        capability_cohort = rec.pop("capability_cohort")
+        input_modalities = _string_list(rec.pop("input_modalities"))
+        output_contracts = _string_list(rec.pop("output_contracts"))
+        execution_modes = _string_list(rec.pop("execution_modes"))
+
+        try:
+            quality = _leaf_map(quality_raw, QUALITY_LEAF_IDS, "quality")
+            performance = _leaf_map(performance_raw, PERFORMANCE_LEAF_IDS, "performance")
+        except (TypeError, ValueError, KeyError, json.JSONDecodeError) as exc:
+            print(
+                f"leaf map failed for {rec.get('name')}|{rec.get('host_id')}: {exc}",
+                file=sys.stderr,
+            )
+            return 1
+
+        leaf_cohorts = sorted(
+            leaf_id for leaf_id, leaf in quality.items() if leaf.get("status") == "measured"
+        )
+
         offer: dict = {
             "name": rec["name"],
             "title": rec["title"],
@@ -74,6 +156,13 @@ def main() -> int:
             "jobs": jobs,
             "host_id": rec["host_id"],
             "capacity": rec["capacity"],
+            "capability_cohort": capability_cohort,
+            "input_modalities": input_modalities,
+            "output_contracts": output_contracts,
+            "execution_modes": execution_modes,
+            "leaf_cohorts": leaf_cohorts,
+            "quality": quality,
+            "performance": performance,
         }
         if rec.get("runtime"):
             offer["runtime"] = rec["runtime"]

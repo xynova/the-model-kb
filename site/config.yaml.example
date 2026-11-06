@@ -1,0 +1,7 @@
+# Live operator config. Copy via `make -C site init`.
+# Do not put literal API keys here.
+secrets:
+  - env: AA_API_KEY
+    required: true
+aa:
+  api_key: "${AA_API_KEY}"

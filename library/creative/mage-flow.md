@@ -16,6 +16,8 @@ links:
   homepage: https://microsoft.github.io/Mage/flow/
   github: https://github.com/microsoft/Mage
   weights: https://huggingface.co/microsoft/Mage-Flow
+media:
+  cover: creative/mage-flow/media/cover.jpg
 source: "youtube:fMaPaK4gcNE"
 added: 2026-11-04
 ---
@@ -25,6 +27,10 @@ added: 2026-11-04
 ## What it is
 
 Microsoft’s **Mage-Flow** is a ~4B rectified-flow image stack: **Mage-VAE** plus a native-resolution **MMDiT** backbone. Checkpoints cover text-to-image (**Mage-Flow**) and instruction editing (**Mage-Flow-Edit**), each in Base, RL-aligned, and **4-step Turbo** variants on Hugging Face.
+
+| | |
+|:---:|:---:|
+| ![mage-flow 1](mage-flow/media/thumb-cover.jpg) | |
 
 ## Why keep
 

@@ -17,6 +17,8 @@ links:
   homepage: https://github.com/baidu/Unlimited-OCR
   github: https://github.com/baidu/Unlimited-OCR
   weights: https://huggingface.co/baidu/Unlimited-OCR-2
+media:
+  cover: models/unlimited-ocr-2/media/cover.jpg
 source: "youtube:IGICYFyP_EI"
 added: 2026-11-03
 ---
@@ -26,6 +28,10 @@ added: 2026-11-03
 ## What it is
 
 **Unlimited OCR 2** (~3.3B parameters, Hugging Face `baidu/Unlimited-OCR-2`) is Baidu’s open **image-text-to-text** model for **very long documents**: many pages in one request with **sparse reference sliding-window attention (SR-SWA)** so cross-page structure is not lost. The GitHub repo documents **Transformers**, **vLLM**, and **SGLang** paths; weights are ungated SafeTensors (~6.6 GB on disk).
+
+| | |
+|:---:|:---:|
+| ![unlimited-ocr-2 1](unlimited-ocr-2/media/thumb-cover.jpg) | |
 
 ## Why keep
 

@@ -1,4 +1,4 @@
-.PHONY: serve build clean generate-roster retrieve-limits apply-mine mine-hosts polypus-diff check-links ensure-htmltest test-roster venv-roster
+.PHONY: serve build clean generate-roster retrieve-limits apply-mine retrieve-aa apply-aa mine-hosts polypus-diff check-links ensure-htmltest test-roster venv-roster init store-aa-key
 
 HUGO ?= hugo
 VENV ?= .venv
@@ -16,7 +16,19 @@ retrieve-limits: venv-roster
 apply-mine: venv-roster
 	$(VENV)/bin/python scripts/apply-mine.py
 
-mine-hosts: generate-roster retrieve-limits apply-mine generate-roster
+init: venv-roster
+	$(VENV)/bin/python scripts/operator_config.py init
+
+store-aa-key: venv-roster
+	$(VENV)/bin/python scripts/operator_config.py store-aa-key
+
+retrieve-aa: venv-roster
+	$(VENV)/bin/python scripts/retrieve-aa.py
+
+apply-aa: venv-roster
+	$(VENV)/bin/python scripts/apply-aa.py
+
+mine-hosts: generate-roster retrieve-limits apply-mine retrieve-aa apply-aa generate-roster
 
 polypus-diff: venv-roster
 	$(VENV)/bin/python scripts/polypus-catalog-diff.py
@@ -28,7 +40,7 @@ venv-roster:
 	fi
 
 test-roster: venv-roster
-	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine test_polypus_catalog_diff
+	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine test_retrieve_aa test_apply_aa test_operator_config test_polypus_catalog_diff
 
 serve: generate-roster
 	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/
