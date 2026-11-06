@@ -1,7 +1,7 @@
 {{- $isRoster := eq .Section "roster" -}}
 {{- $isEntry := and $isRoster .Params.roster_kind -}}
 {{- if $isEntry -}}
-<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}?v=candle-fill">
 <div class="roster-entry-meta" aria-label="Roster skim">
   {{ partial "roster-chip.html" (dict "axis" "kind" "value" .Params.roster_kind) }}
   {{- with .Params.status -}}

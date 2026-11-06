@@ -89,6 +89,243 @@
   background: var(--roster-pref);
 }
 
+.roster-aa {
+  --roster-candle-wick: #64748b;
+  --roster-candle-median: #d97706;
+  --roster-candle-body-up-fill: rgba(37, 99, 235, 0.55);
+  --roster-candle-body-up-stroke: #1d4ed8;
+  --roster-candle-body-down-fill: rgba(225, 29, 72, 0.42);
+  --roster-candle-body-down-stroke: #be123c;
+  --roster-candle-body-even-fill: rgba(37, 99, 235, 0.22);
+  --roster-candle-value-up: #1e3a8a;
+  --roster-candle-value-down: #9f1239;
+  margin: 0 0 1.5rem;
+}
+
+:root.dark .roster-aa,
+.dark .roster-aa {
+  --roster-candle-wick: #94a3b8;
+  --roster-candle-median: #fbbf24;
+  --roster-candle-body-up-fill: rgba(96, 165, 250, 0.55);
+  --roster-candle-body-up-stroke: #93c5fd;
+  --roster-candle-body-down-fill: rgba(251, 113, 133, 0.45);
+  --roster-candle-body-down-stroke: #fda4af;
+  --roster-candle-body-even-fill: rgba(96, 165, 250, 0.22);
+  --roster-candle-value-up: #dbeafe;
+  --roster-candle-value-down: #fecdd3;
+}
+
+.roster-aa__heading {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+.roster-aa__lede {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.roster-aa__key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.roster-aa__key li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.roster-aa__swatch {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 0.7rem;
+  border-radius: 1px;
+}
+
+.roster-aa__swatch--wick {
+  height: 2px;
+  width: 1.1rem;
+  background: var(--roster-candle-wick);
+}
+
+.roster-aa__swatch--body-up {
+  background: var(--roster-candle-body-up-fill);
+}
+
+.roster-aa__swatch--body-down {
+  background: var(--roster-candle-body-down-fill);
+}
+
+.roster-aa__swatch--median {
+  width: 3px;
+  height: 0.9rem;
+  background: var(--roster-candle-median);
+}
+
+.roster-aa__swatch--value {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--roster-candle-value-up);
+}
+
+.roster-aa__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.roster-aa__sub {
+  font-size: 0.85rem;
+  margin: 0 0 0.45rem;
+  font-weight: 600;
+}
+
+.roster-aa__col .roster-aa__sub + .roster-aa__table {
+  margin-bottom: 1rem;
+}
+
+.roster-aa__table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.roster-aa__table th,
+.roster-aa__table td {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--roster-row-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.roster-aa__table thead th {
+  font-weight: 600;
+  background: var(--roster-chip-bg);
+}
+
+.roster-aa__table thead th:nth-child(1),
+.roster-aa__table tbody th {
+  width: 28%;
+}
+
+.roster-aa__table tbody th {
+  font-weight: 550;
+}
+
+.roster-aa__table thead th:nth-child(2),
+.roster-aa__table td:first-of-type {
+  width: 6.5rem;
+}
+
+.roster-aa__table td {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.roster-aa__table thead th:last-child,
+.roster-aa__table td:last-child {
+  text-align: left;
+  width: auto;
+}
+
+.roster-aa__candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.roster-aa__candle-plot {
+  position: relative;
+  width: 95%;
+}
+
+.roster-aa__candle-svg {
+  display: block;
+  width: 100%;
+  height: 24px;
+  overflow: visible;
+}
+
+.roster-aa__candle-wick,
+.roster-aa__candle-median {
+  vector-effect: non-scaling-stroke;
+}
+
+.roster-aa__candle-wick {
+  stroke: var(--roster-candle-wick);
+  stroke-width: 2;
+}
+
+.roster-aa__candle-body {
+  fill: var(--roster-candle-body-up-fill);
+  stroke: none;
+}
+
+.roster-aa__candle--down .roster-aa__candle-body {
+  fill: var(--roster-candle-body-down-fill);
+}
+
+.roster-aa__candle--even .roster-aa__candle-body {
+  fill: var(--roster-candle-body-even-fill);
+}
+
+.roster-aa__candle-value {
+  position: absolute;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: -0.275rem;
+  border-radius: 50%;
+  background: var(--roster-candle-value-up);
+  transform: translateY(-50%);
+}
+
+.roster-aa__candle--down .roster-aa__candle-value {
+  background: var(--roster-candle-value-down);
+}
+
+.roster-aa__candle-median {
+  stroke: var(--roster-candle-median);
+  stroke-width: 2;
+}
+
+.roster-aa__range-meta {
+  display: block;
+  width: 95%;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.roster-aa__range-min,
+.roster-aa__range-max {
+  color: var(--roster-candle-wick);
+}
+
+.roster-aa__range-median {
+  color: var(--roster-candle-median);
+  font-weight: 600;
+}
+
+.roster-aa__range-mean {
+  color: var(--roster-candle-body-up-stroke);
+}
+
+.roster-aa__candle--down .roster-aa__range-mean {
+  color: var(--roster-candle-body-down-stroke);
+}
+
 .roster-index {
   display: flex;
   flex-direction: column;

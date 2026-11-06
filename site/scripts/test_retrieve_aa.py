@@ -23,13 +23,21 @@ def aa_model(
     *,
     creator: str = "Lab",
     cost: float | None = None,
+    evaluations: dict | None = None,
+    pricing: dict | None = None,
+    performance: dict | None = None,
 ) -> dict:
+    evals = {"artificial_analysis_intelligence_index": score}
+    if evaluations:
+        evals.update(evaluations)
     payload: dict = {
         "name": name,
         "slug": slug,
         "model_creator": {"name": creator},
-        "evaluations": {"artificial_analysis_intelligence_index": score},
+        "evaluations": evals,
         "artificial_analysis_intelligence_index_cost": None,
+        "pricing": pricing or {},
+        "performance": performance or {},
     }
     if cost is not None:
         payload["artificial_analysis_intelligence_index_cost"] = {
@@ -382,6 +390,67 @@ class TestComparePeers(unittest.TestCase):
         by_name = {row["name"]: row for row in rows}
         self.assertIsNone(by_name["muse-wonder"]["alternative"])
         self.assertIsNone(by_name["muse-wonder"]["similar"])
+
+
+class TestOverview(unittest.TestCase):
+    def test_compare_keeps_free_api_overview(self) -> None:
+        catalog = {
+            "cards": [
+                {
+                    "name": "muse-wonder",
+                    "title": "Muse Wonder",
+                    "kind": "provider",
+                }
+            ]
+        }
+        models = [
+            aa_model(
+                "Muse Wonder (Max)",
+                "muse-wonder",
+                43.6,
+                creator="Meta",
+                cost=6.95,
+                evaluations={
+                    "artificial_analysis_coding_index": 40.1,
+                    "artificial_analysis_engineering_index": 41.2,
+                },
+                pricing={
+                    "price_1m_input_tokens": 4,
+                    "price_1m_output_tokens": 20,
+                },
+                performance={
+                    "median_output_tokens_per_second": 80.07,
+                    "median_time_to_first_token_seconds": 2.22,
+                },
+            )
+        ]
+        rows = ra.match_cards(catalog, models)
+        overview = rows[0]["overview"]
+        self.assertEqual(
+            overview["evaluations"]["artificial_analysis_intelligence_index"],
+            43.6,
+        )
+        self.assertEqual(
+            overview["evaluations"]["artificial_analysis_coding_index"],
+            40.1,
+        )
+        self.assertEqual(overview["pricing"]["price_1m_input_tokens"], 4)
+        self.assertEqual(overview["performance"]["median_output_tokens_per_second"], 80.07)
+        payload = ra.compare_data({"generated_at": "2026-11-05", "rows": rows})
+        entry = payload["cards"]["muse-wonder"]
+        self.assertEqual(entry["overview"]["pricing"]["price_1m_output_tokens"], 20)
+        intel = payload["stats"]["evaluations"]["artificial_analysis_intelligence_index"]
+        self.assertEqual(intel["min"], 43.6)
+        self.assertEqual(intel["max"], 43.6)
+        self.assertEqual(intel["n"], 1)
+
+    def test_roster_stats_min_median_mean_max(self) -> None:
+        summary = ra.metric_summary([4.4, 43.6, 27.8, 36.5, 5.1])
+        self.assertEqual(summary["min"], 4.4)
+        self.assertEqual(summary["max"], 43.6)
+        self.assertEqual(summary["median"], 27.8)
+        self.assertEqual(summary["mean"], 23.48)
+        self.assertEqual(summary["n"], 5)
 
 
 if __name__ == "__main__":

@@ -123,6 +123,40 @@ def model_page_url(slug: str) -> str:
     return f"https://artificialanalysis.ai/models/{slug}"
 
 
+EVALUATION_KEYS = (
+    "artificial_analysis_intelligence_index",
+    "artificial_analysis_coding_index",
+    "artificial_analysis_agentic_index",
+    "artificial_analysis_finance_and_accounting_index",
+    "artificial_analysis_strategy_and_ops_index",
+    "artificial_analysis_legal_index",
+    "artificial_analysis_healthcare_and_medical_index",
+    "artificial_analysis_engineering_index",
+    "artificial_analysis_economics_index",
+)
+PERFORMANCE_KEYS = (
+    "median_output_tokens_per_second",
+    "median_time_to_first_token_seconds",
+    "median_time_to_first_answer_token_seconds",
+    "median_end_to_end_response_time_seconds",
+)
+PRICING_KEYS = (
+    "price_1m_input_tokens",
+    "price_1m_output_tokens",
+)
+
+
+def extract_overview(model: dict) -> dict:
+    evaluations = model.get("evaluations") if isinstance(model.get("evaluations"), dict) else {}
+    pricing = model.get("pricing") if isinstance(model.get("pricing"), dict) else {}
+    performance = model.get("performance") if isinstance(model.get("performance"), dict) else {}
+    return {
+        "evaluations": {key: yaml_score(evaluations.get(key)) for key in EVALUATION_KEYS},
+        "pricing": {key: yaml_score(pricing.get(key)) for key in PRICING_KEYS},
+        "performance": {key: yaml_score(performance.get(key)) for key in PERFORMANCE_KEYS},
+    }
+
+
 def intelligence_per_cost(score: float | int | None, cost: float | None) -> float | None:
     if score is None or cost is None or cost <= 0:
         return None
@@ -278,6 +312,7 @@ def pick_best(models: list[dict]) -> dict[str, dict]:
                 model.get("artificial_analysis_intelligence_index_cost")
             ),
             "rank": effort_rank(effort),
+            "overview": extract_overview(model),
         }
         current = best.get(key)
         if current is None:
@@ -339,6 +374,7 @@ def match_cards(catalog: dict, aa_models: list[dict]) -> list[dict]:
             "aa_intelligence": None,
             "alternative": None,
             "similar": None,
+            "overview": None,
             "previous": card.get("aa_intelligence"),
             "applied": False,
         }
@@ -360,6 +396,7 @@ def match_cards(catalog: dict, aa_models: list[dict]) -> list[dict]:
         row["aa_creator"] = hit.get("creator") or ""
         row["aa_cost_per_task"] = hit.get("cost_per_task")
         row["aa_intelligence"] = hit["aa_intelligence"]
+        row["overview"] = hit.get("overview")
         if hit["aa_intelligence"] is None:
             row["status"] = "no_score"
         else:
@@ -485,6 +522,74 @@ def write_review(path: Path, payload: dict) -> None:
     os.replace(tmp, path)
 
 
+def compact_num(value: float) -> int | float:
+    if float(value).is_integer():
+        return int(value)
+    return round(float(value), 4)
+
+
+def metric_summary(values: list[float]) -> dict | None:
+    nums = sorted(float(v) for v in values)
+    if not nums:
+        return None
+    n = len(nums)
+    mid = n // 2
+    if n % 2 == 1:
+        median = nums[mid]
+    else:
+        median = (nums[mid - 1] + nums[mid]) / 2
+    return {
+        "min": compact_num(nums[0]),
+        "max": compact_num(nums[-1]),
+        "median": compact_num(median),
+        "mean": compact_num(sum(nums) / n),
+        "n": n,
+    }
+
+
+def overview_stats(cards: dict[str, dict]) -> dict:
+    eval_values: dict[str, list[float]] = {key: [] for key in EVALUATION_KEYS}
+    price_values: dict[str, list[float]] = {key: [] for key in PRICING_KEYS}
+    price_values["cost_per_task"] = []
+    perf_values: dict[str, list[float]] = {key: [] for key in PERFORMANCE_KEYS}
+    for card in cards.values():
+        overview = card.get("overview")
+        if not isinstance(overview, dict):
+            overview = {}
+        evaluations = overview.get("evaluations")
+        if isinstance(evaluations, dict):
+            for key in EVALUATION_KEYS:
+                score = yaml_score(evaluations.get(key))
+                if score is not None:
+                    eval_values[key].append(float(score))
+        pricing = overview.get("pricing")
+        if isinstance(pricing, dict):
+            for key in PRICING_KEYS:
+                score = yaml_score(pricing.get(key))
+                if score is not None:
+                    price_values[key].append(float(score))
+        cost = yaml_score(card.get("cost_per_task"))
+        if cost is not None:
+            price_values["cost_per_task"].append(float(cost))
+        performance = overview.get("performance")
+        if isinstance(performance, dict):
+            for key in PERFORMANCE_KEYS:
+                score = yaml_score(performance.get(key))
+                if score is not None:
+                    perf_values[key].append(float(score))
+    return {
+        "evaluations": {
+            key: metric_summary(vals) for key, vals in eval_values.items() if vals
+        },
+        "pricing": {
+            key: metric_summary(vals) for key, vals in price_values.items() if vals
+        },
+        "performance": {
+            key: metric_summary(vals) for key, vals in perf_values.items() if vals
+        },
+    }
+
+
 def card_compare_entry(row: dict) -> dict:
     slug = row.get("aa_slug") or ""
     return {
@@ -495,6 +600,7 @@ def card_compare_entry(row: dict) -> dict:
         "url": model_page_url(str(slug)) if slug else "",
         "alternative": row.get("alternative"),
         "similar": row.get("similar"),
+        "overview": row.get("overview"),
     }
 
 
@@ -508,6 +614,7 @@ def compare_data(review: dict) -> dict:
     return {
         "generated_at": review.get("generated_at"),
         "cards": cards,
+        "stats": overview_stats(cards),
     }
 
 

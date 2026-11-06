@@ -13,3 +13,59 @@
   height: auto;
   border: 0;
 }
+
+/* Roster pages: use the leftover page width after the left nav. */
+main.roster-wide {
+  max-width: none;
+}
+
+.roster-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+  margin: 0 0 1.15rem;
+  font-size: 0.8125rem;
+}
+
+.roster-toc__label {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.roster-toc a {
+  text-decoration: none;
+}
+
+.roster-toc a:hover {
+  text-decoration: underline;
+}
+
+/* Mini candle on sidebar names that draw an AA candlestick. */
+.hextra-sidebar-container a > span::after {
+  content: "";
+  display: var(--roster-sidebar-candle-display, none);
+  width: 8px;
+  height: 11px;
+  margin-left: 0.4rem;
+  vertical-align: -1px;
+  border-radius: 1px;
+  background: rgba(37, 99, 235, 0.7);
+  box-shadow:
+    0 -3px 0 -3px #64748b,
+    inset 1px 0 0 #d97706;
+}
+
+.dark .hextra-sidebar-container a > span::after {
+  background: rgba(96, 165, 250, 0.75);
+  box-shadow:
+    0 -3px 0 -3px #94a3b8,
+    inset 1px 0 0 #fbbf24;
+}
+
+.hextra-sidebar-container a.hextra-sidebar-active-item > span::after {
+  background: #fff;
+  box-shadow:
+    0 -3px 0 -3px #d97706,
+    inset 1px 0 0 #1d4ed8;
+}
