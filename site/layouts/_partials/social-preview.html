@@ -1,0 +1,31 @@
+{{- /*
+  Resolve the share-card image for Open Graph and Twitter.
+  Returns dict: src (absolute URL), alt, width, height (0 when unknown).
+*/ -}}
+{{- $src := "" -}}
+{{- $alt := "" -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- with .Params.images -}}
+  {{- $src = (index . 0) | absURL -}}
+  {{- $alt = $.Params.image_alt | default $.Title -}}
+{{- else -}}
+  {{- $cover := "" -}}
+  {{- with .Params.media -}}
+    {{- with .cover -}}
+      {{- $cover = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and $cover (eq $.Section "library") -}}
+    {{- $src = printf "library/%s" $cover | absURL -}}
+    {{- $alt = $.Title -}}
+  {{- else -}}
+    {{- with site.Params.images -}}
+      {{- $src = (index . 0) | absURL -}}
+      {{- $alt = site.Params.image_alt | default site.Title -}}
+      {{- $width = 1200 -}}
+      {{- $height = 630 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "src" $src "alt" $alt "width" $width "height" $height) -}}

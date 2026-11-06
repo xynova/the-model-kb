@@ -112,6 +112,8 @@ ignoreFiles = [
 
 [params]
   description = "Model knowledge base: curated library, packaged Docker models, and a decision roster."
+  images = ["img/og.jpg"]
+  image_alt = "Leonardo-style sketch studies: a shelf, stacked packages, and a ranked decision guide"
 
   [params.navbar]
     displayTitle = true

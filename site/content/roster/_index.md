@@ -1,5 +1,6 @@
 ---
 title: Roster
+description: Price-band Model Picks with filed Artificial Analysis Intelligence Index scores, host list prices, and experience notes.
 type: docs
 sidebar:
   open: true
