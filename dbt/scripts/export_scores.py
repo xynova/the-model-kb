@@ -21,6 +21,7 @@ QUALITY_LEAF_IDS = [
     "quality.typed_decision.recall",
     "quality.typed_decision.brier_loss",
     "quality.typed_decision.ordinal_mae",
+    "quality.speech.human_preference",
 ]
 PERFORMANCE_LEAF_IDS = [
     "performance.end_to_end_latency_ms",

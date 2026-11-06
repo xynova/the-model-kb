@@ -46,6 +46,20 @@ func TestLexiconClassifySystemone(t *testing.T) {
 	}
 }
 
+func TestLexiconTTS(t *testing.T) {
+	t.Parallel()
+	m, err := lexicon.ParseTask("local speech tts")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if m.Capacity != "local" {
+		t.Fatalf("capacity=%q", m.Capacity)
+	}
+	if len(m.Jobs) != 1 || m.Jobs[0] != "tts" {
+		t.Fatalf("jobs=%v", m.Jobs)
+	}
+}
+
 func TestLexiconNoJob(t *testing.T) {
 	t.Parallel()
 	_, err := lexicon.ParseTask("hello")

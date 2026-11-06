@@ -1,6 +1,6 @@
 # Category assignment (price-band homes)
 
-Generated from `assign_category()` in `site/scripts/generate-roster.py` against roster card frontmatter. Sticky after migration; do not auto-reband on nightly mine.
+Generated from `AssignCategory` in `tools/roster-mill/internal/card` against roster card frontmatter. Sticky after migration; do not auto-reband on nightly mine.
 
 | name | old category | category | path |
 |------|--------------|----------|------|

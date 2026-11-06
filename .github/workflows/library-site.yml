@@ -11,6 +11,7 @@ on:
       - "roster/**"
       - "models/**"
       - "site/**"
+      - "tools/roster-mill/**"
       - ".github/workflows/library-site.yml"
   pull_request:
     paths:
@@ -18,6 +19,7 @@ on:
       - "roster/**"
       - "models/**"
       - "site/**"
+      - "tools/roster-mill/**"
       - ".github/workflows/library-site.yml"
   workflow_dispatch:
 
@@ -48,7 +50,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: site/go.mod
-          cache-dependency-path: site/go.sum
+          cache-dependency-path: |
+            site/go.sum
+            tools/roster-mill/go.sum
 
       - name: Setup Pages
         if: github.event_name != 'pull_request'
@@ -75,10 +79,7 @@ jobs:
           sudo install -m 0755 "${{ runner.temp }}/htmltest" /usr/local/bin/htmltest
           htmltest --version
 
-      - name: Setup Python roster deps
-        run: python3 -m pip install -r site/requirements-roster.txt
-
-      - name: Test roster compiler
+      - name: Test roster mill
         working-directory: site
         run: make test-roster
 
@@ -93,7 +94,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          python3 scripts/generate-roster.py
+          make generate-roster
           hugo \
             --gc --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"

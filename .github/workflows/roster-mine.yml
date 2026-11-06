@@ -28,8 +28,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Install Python roster deps
-        run: python3 -m pip install -r site/requirements-roster.txt
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: tools/roster-mill/go.mod
+          cache-dependency-path: tools/roster-mill/go.sum
 
       - name: Install Fusion dbt
         run: |
@@ -70,37 +73,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           body="$(mktemp)"
-          python3 <<'PY' > "$body"
-          import json
-          from pathlib import Path
-
-          data = json.loads(
-              Path("roster/retrieval/limits-review.json").read_text(encoding="utf-8")
-          )
-          print("## Roster mine review\n")
-          for row in data.get("rows", []):
-              print(f"- **{row.get('name')}** / `{row.get('host_id')}`")
-              print(f"  - url: {row.get('url') or '(skipped)'}")
-              print(f"  - evidence: {row.get('evidence') or '(none)'}")
-              print(f"  - suggested_capacity: {row.get('suggested_capacity')}")
-              print(f"  - current_capacity: {row.get('current_capacity')}")
-              print(f"  - capacity_applied: {row.get('capacity_applied')}")
-              print()
-          aa_path = Path("roster/retrieval/aa-intelligence-review.json")
-          if aa_path.is_file():
-              aa = json.loads(aa_path.read_text(encoding="utf-8"))
-              print("## AA Intelligence Index\n")
-              print(f"status: {aa.get('status')}")
-              print(f"index version: {aa.get('intelligence_index_version')}\n")
-              for row in aa.get("rows") or []:
-                  print(
-                      f"- **{row.get('name')}**: {row.get('status')} "
-                      f"score={row.get('aa_intelligence')} "
-                      f"effort={row.get('effort') or '-'} "
-                      f"applied={row.get('applied')}"
-                  )
-              print()
-          PY
+          go run ./tools/roster-mill/cmd/roster-mill review-body > "$body"
           num="$(gh pr list --head roster-mine --state open --json number -q '.[0].number' || true)"
           if [ -z "$num" ] || [ "$num" = "null" ]; then
             gh pr create --base main --head roster-mine --title "Roster mine" --body-file "$body"

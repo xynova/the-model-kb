@@ -17,4 +17,5 @@ Not the [library](/library/): library is revisit later; roster is pick a model n
   {{< card link="/roster/spend" title="Spend" subtitle="$15/M combined or higher" >}}
   {{< card link="/roster/unpriced" title="Unpriced" subtitle="Cursor copies and missing list prices" >}}
   {{< card link="/roster/classify" title="Classify" subtitle="Typed-decision models (not AA board peers)" >}}
+  {{< card link="/roster/tts" title="Speech" subtitle="Text-to-speech models (not AA board or token-price peers)" >}}
 {{< /cards >}}

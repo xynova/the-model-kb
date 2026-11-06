@@ -12,6 +12,7 @@ var QualityLeafIDs = []string{
 	"quality.typed_decision.recall",
 	"quality.typed_decision.brier_loss",
 	"quality.typed_decision.ordinal_mae",
+	"quality.speech.human_preference",
 }
 
 // PerformanceLeafIDs lists performance dimension leaves on every offer.

@@ -30,6 +30,9 @@ var jobAliases = map[string]string{
 	"decision":        "classify",
 	"decider":         "classify",
 	"systemone":       "classify",
+	"tts":             "tts",
+	"speech":          "tts",
+	"voice":           "tts",
 }
 
 var capacityAliases = map[string]string{
@@ -51,7 +54,7 @@ var kindAliases = map[string]string{
 }
 
 var allowedJobs = []string{
-	"chat", "reasoning", "coding", "vision", "long-context", "cheap", "high-throughput", "classify",
+	"chat", "reasoning", "coding", "vision", "long-context", "cheap", "high-throughput", "classify", "tts",
 }
 
 // Match holds parsed task axes.

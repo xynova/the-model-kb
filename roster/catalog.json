@@ -1,1295 +1,1415 @@
 {
-  "catalog_schema": 1,
-  "generated_at": "2026-11-06",
   "cards": [
     {
-      "name": "claude-haiku-5.5",
-      "title": "Claude Haiku 5.5",
-      "kind": "provider",
+      "aa_intelligence": 36.5,
       "category": "cheap",
-      "jobs": [
-        "cheap",
-        "coding",
-        "chat"
-      ],
-      "status": "watch",
-      "lab": "anthropic",
       "hosts": [
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "anthropic/claude-haiku-5.5",
-          "price_in": 0.1,
-          "price_out": 0.5,
-          "price_note": "OpenRouter headline; Anthropic and Vertex rows $0.10/$0.50 per M; cache read $0.01",
+          "id": "openrouter",
           "limits_note": "OpenRouter proxies Anthropic; not a sovereign host",
           "links": {
             "openrouter": "https://openrouter.ai/anthropic/claude-haiku-5.5"
-          }
+          },
+          "price_in": 0.1,
+          "price_note": "OpenRouter headline; Anthropic and Vertex rows $0.10/$0.50 per M; cache read $0.01",
+          "price_out": 0.5,
+          "runtime": "openrouter",
+          "runtime_model_id": "anthropic/claude-haiku-5.5"
         }
       ],
-      "preferred_host": "openrouter",
-      "aa_intelligence": 36.5,
+      "jobs": [
+        "cheap",
+        "coding",
+        "chat"
+      ],
+      "kind": "provider",
+      "lab": "anthropic",
       "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/claude-haiku-5-5"
-      }
+        "artificial_analysis": "https://artificialanalysis.ai/models/claude-haiku-5-5",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "claude-haiku-5.5",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Claude Haiku 5.5"
     },
     {
-      "name": "cursor-composer-2.5-fast",
-      "title": "Cursor Composer 2.5 (Fast)",
-      "kind": "service",
       "category": "unpriced",
+      "context_window": 200000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "limits_note": "Cursor Models pool; Fast $3/$15 per M in/out; Standard $0.5/$2.5; weekly pool shared with Grok",
+          "price_in": 3,
+          "price_note": "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate",
+          "price_out": 15,
+          "runtime_model_id": "composer-2.5"
+        }
+      ],
       "jobs": [
         "coding"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "cursor",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "composer-2.5",
-          "price_in": 3,
-          "price_out": 15,
-          "price_note": "Cursor Models pool; Fast (default in product) $3/$0.5/$15 in/cache/out per MTok; Standard same intelligence at $0.5/$0.2/$2.5; toggle Fast via picker Edit; Start plan non-fast only; exempt from Cursor Token Rate",
-          "limits_note": "Cursor Models pool; Fast $3/$15 per M in/out; Standard $0.5/$2.5; weekly pool shared with Grok"
-        }
-      ],
-      "service": "cursor",
-      "context_window": 200000,
       "links": {
         "service_docs": "https://cursor.com/docs/models/cursor-composer-2-5"
-      }
+      },
+      "name": "cursor-composer-2.5-fast",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor Composer 2.5 (Fast)"
     },
     {
-      "name": "cursor-gemini-3-flash",
-      "title": "Cursor Gemini 3 Flash",
-      "kind": "service",
       "category": "unpriced",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 0.5,
+          "price_note": "Other Models pool; $0.5/$0.05/$3 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables",
+          "price_out": 3,
+          "runtime_model_id": "gemini-3-flash"
+        }
+      ],
       "jobs": [
         "cheap",
         "chat"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "gemini-3-flash",
-          "price_in": 0.5,
-          "price_out": 3,
-          "price_note": "Other Models pool; $0.5/$0.05/$3 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
-        }
-      ],
-      "service": "cursor",
       "links": {
         "service_docs": "https://cursor.com/docs/models/gemini-3-flash"
-      }
+      },
+      "name": "cursor-gemini-3-flash",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor Gemini 3 Flash"
     },
     {
-      "name": "cursor-gemini-3.1-pro",
-      "title": "Cursor Gemini 3.1 Pro",
-      "kind": "service",
       "category": "unpriced",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 2,
+          "price_note": "Other Models pool; $2/$0.2/$12 in/cache-read/out per MTok (no separate cache-write listed); long context >200k may raise rates (confirm table); Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool",
+          "price_out": 12,
+          "runtime_model_id": "gemini-3.1-pro"
+        }
+      ],
       "jobs": [
         "vision",
         "reasoning"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "gemini-3.1-pro",
-          "price_in": 2,
-          "price_out": 12,
-          "price_note": "Other Models pool; $2/$0.2/$12 in/cache-read/out per MTok (no separate cache-write listed); long context >200k may raise rates (confirm table); Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool"
-        }
-      ],
-      "service": "cursor",
-      "context_window": 1000000,
       "links": {
         "service_docs": "https://cursor.com/docs/models/gemini-3-1-pro"
-      }
+      },
+      "name": "cursor-gemini-3.1-pro",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor Gemini 3.1 Pro"
     },
     {
-      "name": "cursor-gpt-5.4-mini-medium",
-      "title": "Cursor GPT-5.4 Mini (Medium)",
-      "kind": "service",
       "category": "unpriced",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 0.75,
+          "price_note": "Other Models pool; $0.75/$0.075/$4.5 in/cache-read/out per MTok; 90% discount on cached input; Medium is picker reasoning effort; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables",
+          "price_out": 4.5,
+          "runtime_model_id": "gpt-5.4-mini"
+        }
+      ],
       "jobs": [
         "cheap",
         "vision"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "openai",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "gpt-5.4-mini",
-          "price_in": 0.75,
-          "price_out": 4.5,
-          "price_note": "Other Models pool; $0.75/$0.075/$4.5 in/cache-read/out per MTok; 90% discount on cached input; Medium is picker reasoning effort; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default in some Cursor tables"
-        }
-      ],
-      "service": "cursor",
       "links": {
         "service_docs": "https://cursor.com/docs/models/gpt-5-4-mini"
-      }
+      },
+      "name": "cursor-gpt-5.4-mini-medium",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor GPT-5.4 Mini (Medium)"
     },
     {
-      "name": "cursor-gpt-5.6-luna-high",
-      "title": "Cursor GPT-5.6 Luna (High)",
-      "kind": "service",
       "category": "unpriced",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 0.2,
+          "price_note": "Other Models pool; $0.2/$0.25/$0.02/$1.2 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; High is picker reasoning effort on the cheap base; Max Mode on legacy request plans",
+          "price_out": 1.2,
+          "runtime_model_id": "gpt-5.6-luna"
+        }
+      ],
       "jobs": [
         "cheap",
         "reasoning"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "openai",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "gpt-5.6-luna",
-          "price_in": 0.2,
-          "price_out": 1.2,
-          "price_note": "Other Models pool; $0.2/$0.25/$0.02/$1.2 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; High is picker reasoning effort on the cheap base; Max Mode on legacy request plans"
-        }
-      ],
-      "service": "cursor",
-      "context_window": 1000000,
       "links": {
         "service_docs": "https://cursor.com/docs/models/gpt-5-6-luna"
-      }
+      },
+      "name": "cursor-gpt-5.6-luna-high",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor GPT-5.6 Luna (High)"
     },
     {
-      "name": "cursor-gpt-5.6-terra-medium",
-      "title": "Cursor GPT-5.6 Terra (Medium)",
-      "kind": "service",
       "category": "unpriced",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 2,
+          "price_note": "Other Models pool; $2/$2.5/$0.2/$12 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; Medium is picker reasoning effort; Max Mode on legacy request plans",
+          "price_out": 12,
+          "runtime_model_id": "gpt-5.6-terra"
+        }
+      ],
       "jobs": [
         "reasoning",
         "chat"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "openai",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "gpt-5.6-terra",
-          "price_in": 2,
-          "price_out": 12,
-          "price_note": "Other Models pool; $2/$2.5/$0.2/$12 in/cache-write/cache-read/out per MTok; Fast 2x; long context >272k input 2x and output 1.5x; Teams Cursor Token Rate $0.25/MTok; Medium is picker reasoning effort; Max Mode on legacy request plans"
-        }
-      ],
-      "service": "cursor",
-      "context_window": 1000000,
       "links": {
         "service_docs": "https://cursor.com/docs/models/gpt-5-6-terra"
-      }
+      },
+      "name": "cursor-gpt-5.6-terra-medium",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor GPT-5.6 Terra (Medium)"
     },
     {
-      "name": "cursor-grok-4.6-high",
-      "title": "Cursor Grok 4.6 (High)",
-      "kind": "service",
       "category": "unpriced",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 2,
+          "price_note": "Cursor Models pool (with Grok 4.5, Composer 2.5); Standard $2/$0.50/$6 in/cache/out per MTok; Fast $4/$1/$12; High is the named-model default effort (also low/medium/xhigh); Start plan locks medium non-fast",
+          "price_out": 6,
+          "runtime_model_id": "grok-4.6"
+        }
+      ],
       "jobs": [
         "reasoning",
         "chat"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "xai",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "grok-4.6",
-          "price_in": 2,
-          "price_out": 6,
-          "price_note": "Cursor Models pool (with Grok 4.5, Composer 2.5); Standard $2/$0.50/$6 in/cache/out per MTok; Fast $4/$1/$12; High is the named-model default effort (also low/medium/xhigh); Start plan locks medium non-fast"
-        }
-      ],
-      "service": "cursor",
       "links": {
         "service_docs": "https://cursor.com/docs/models/grok-4-6"
-      }
+      },
+      "name": "cursor-grok-4.6-high",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor Grok 4.6 (High)"
     },
     {
-      "name": "cursor-kimi-k2.7-code",
-      "title": "Cursor Kimi K2.7 Code",
-      "kind": "service",
       "category": "unpriced",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "cursor",
+          "price_in": 0.95,
+          "price_note": "Other Models pool; $0.95/$0.19/$4 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default; Cursor recommends Kimi K3 for new work",
+          "price_out": 4,
+          "runtime_model_id": "kimi-k2.7-code"
+        }
+      ],
       "jobs": [
         "coding",
         "cheap"
       ],
-      "status": "watch",
+      "kind": "service",
       "lab": "moonshot",
-      "hosts": [
-        {
-          "id": "cursor",
-          "capacity": "unknown",
-          "runtime_model_id": "kimi-k2.7-code",
-          "price_in": 0.95,
-          "price_out": 4,
-          "price_note": "Other Models pool; $0.95/$0.19/$4 in/cache-read/out per MTok; Teams Cursor Token Rate $0.25/MTok; Start has no Other Models pool; hidden by default; Cursor recommends Kimi K3 for new work"
-        }
-      ],
-      "service": "cursor",
       "links": {
         "service_docs": "https://cursor.com/docs/models/kimi-k2-7-code"
-      }
+      },
+      "name": "cursor-kimi-k2.7-code",
+      "service": "cursor",
+      "status": "watch",
+      "title": "Cursor Kimi K2.7 Code"
     },
     {
-      "name": "deepseek-v4-flash",
-      "title": "DeepSeek V4 Flash",
-      "kind": "sovereign",
       "category": "cheap",
-      "jobs": [
-        "reasoning",
-        "cheap",
-        "chat",
-        "coding",
-        "long-context"
-      ],
-      "status": "watch",
-      "lab": "deepseek",
+      "context_window": 1048576,
       "hosts": [
         {
-          "id": "cloudflare",
           "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/deepseek-ai/deepseek-v4-flash-0731",
-          "price_in": 0.44,
-          "price_out": 1.32,
-          "price_note": "Workers AI Neurons at $0.011/1k; $0.014/M cached input; 40000/120000 neurons per M in/out; CF table Oct 2026; Workers Paid or AI Gateway credits required",
+          "id": "cloudflare",
           "limits_note": "Not on the 10k Neurons/day free list; 1,048,576 context on Workers AI; reasoning_effort none/low/high/max",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
+          },
+          "price_in": 0.44,
+          "price_note": "Workers AI Neurons at $0.011/1k; $0.014/M cached input; 40000/120000 neurons per M in/out; CF table Oct 2026; Workers Paid or AI Gateway credits required",
+          "price_out": 1.32,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/deepseek-ai/deepseek-v4-flash-0731"
         },
         {
-          "id": "deepinfra",
           "capacity": "hobby",
-          "runtime": "deepinfra",
-          "runtime_model_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-          "price_in": 0.06,
-          "price_out": 0.18,
-          "price_note": "DeepInfra published list; cached input $0.015/M; Priority 1.5x and Flex 0.8x tiers exist",
+          "id": "deepinfra",
           "limits_note": "1,048,576 context; fp8; function calling; lower list price than CF",
           "links": {
             "deepinfra": "https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash-0731"
-          }
+          },
+          "price_in": 0.06,
+          "price_note": "DeepInfra published list; cached input $0.015/M; Priority 1.5x and Flex 0.8x tiers exist",
+          "price_out": 0.18,
+          "runtime": "deepinfra",
+          "runtime_model_id": "deepseek-ai/DeepSeek-V4-Flash-0731"
         }
       ],
-      "preferred_host": "deepinfra",
-      "context_window": 1048576,
+      "jobs": [
+        "reasoning",
+        "cheap",
+        "chat",
+        "coding",
+        "long-context"
+      ],
+      "kind": "sovereign",
+      "lab": "deepseek",
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/deepseek-v4-flash",
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "deepseek-v4-flash",
+      "preferred_host": "deepinfra",
+      "status": "watch",
+      "title": "DeepSeek V4 Flash"
     },
     {
-      "name": "gemini-2.5-flash",
-      "title": "Gemini 2.5 Flash",
-      "kind": "provider",
       "category": "cheap",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Polypus gemini_paid/gemini-2.5-flash",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 0.3,
+          "price_note": "OpenRouter Google AI Studio list $0.30/$2.50 per M; cache read $0.03; confirm ai.google.dev",
+          "price_out": 2.5,
+          "runtime": "google",
+          "runtime_model_id": "gemini-2.5-flash"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace routing",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-2.5-flash"
+          },
+          "price_in": 0.3,
+          "price_note": "OpenRouter headline; Google AI Studio row $0.30/$2.50",
+          "price_out": 2.5,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-2.5-flash"
+        }
+      ],
       "jobs": [
         "cheap",
         "vision",
         "chat"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "google",
-          "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemini-2.5-flash",
-          "price_in": 0.3,
-          "price_out": 2.5,
-          "price_note": "OpenRouter Google AI Studio list $0.30/$2.50 per M; cache read $0.03; confirm ai.google.dev",
-          "limits_note": "Polypus gemini_paid/gemini-2.5-flash",
-          "links": {
-            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemini-2.5-flash",
-          "price_in": 0.3,
-          "price_out": 2.5,
-          "price_note": "OpenRouter headline; Google AI Studio row $0.30/$2.50",
-          "limits_note": "Marketplace routing",
-          "links": {
-            "openrouter": "https://openrouter.ai/google/gemini-2.5-flash"
-          }
-        }
-      ],
-      "preferred_host": "google",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "gemini-2.5-flash",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini 2.5 Flash"
     },
     {
-      "name": "gemini-2.5-pro",
-      "title": "Gemini 2.5 Pro",
-      "kind": "provider",
       "category": "cheap",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Polypus gemini_paid/gemini-2.5-pro; 1M context on OpenRouter listing",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 1.25,
+          "price_note": "OpenRouter headline $1.25/$10 per M; confirm ai.google.dev",
+          "price_out": 10,
+          "runtime": "google",
+          "runtime_model_id": "gemini-2.5-pro"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "1M context on listing",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-2.5-pro"
+          },
+          "price_in": 1.25,
+          "price_note": "OpenRouter headline; confirm openrouter.ai model page",
+          "price_out": 10,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-2.5-pro"
+        }
+      ],
       "jobs": [
         "reasoning",
         "vision",
         "chat"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "google",
-          "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemini-2.5-pro",
-          "price_in": 1.25,
-          "price_out": 10,
-          "price_note": "OpenRouter headline $1.25/$10 per M; confirm ai.google.dev",
-          "limits_note": "Polypus gemini_paid/gemini-2.5-pro; 1M context on OpenRouter listing",
-          "links": {
-            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemini-2.5-pro",
-          "price_in": 1.25,
-          "price_out": 10,
-          "price_note": "OpenRouter headline; confirm openrouter.ai model page",
-          "limits_note": "1M context on listing",
-          "links": {
-            "openrouter": "https://openrouter.ai/google/gemini-2.5-pro"
-          }
-        }
-      ],
-      "preferred_host": "google",
-      "context_window": 1000000,
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "gemini-2.5-pro",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini 2.5 Pro"
     },
     {
-      "name": "gemini-3-flash",
-      "title": "Gemini 3 Flash",
-      "kind": "provider",
       "category": "cheap",
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Polypus gemini_paid/gemini-3-flash-preview; preview id may change",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 0.5,
+          "price_note": "OpenRouter Google AI Studio list $0.50/$3.00 per M; cache read $0.05; confirm ai.google.dev",
+          "price_out": 3,
+          "runtime": "google",
+          "runtime_model_id": "gemini-3-flash-preview"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Preview slug; marketplace routing",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-3-flash-preview"
+          },
+          "price_in": 0.5,
+          "price_note": "OpenRouter headline; Google AI Studio and Vertex rows match $0.50/$3.00",
+          "price_out": 3,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-3-flash-preview"
+        }
+      ],
       "jobs": [
         "cheap",
         "vision",
         "chat"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "google",
-          "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemini-3-flash-preview",
-          "price_in": 0.5,
-          "price_out": 3,
-          "price_note": "OpenRouter Google AI Studio list $0.50/$3.00 per M; cache read $0.05; confirm ai.google.dev",
-          "limits_note": "Polypus gemini_paid/gemini-3-flash-preview; preview id may change",
-          "links": {
-            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemini-3-flash-preview",
-          "price_in": 0.5,
-          "price_out": 3,
-          "price_note": "OpenRouter headline; Google AI Studio and Vertex rows match $0.50/$3.00",
-          "limits_note": "Preview slug; marketplace routing",
-          "links": {
-            "openrouter": "https://openrouter.ai/google/gemini-3-flash-preview"
-          }
-        }
-      ],
-      "preferred_host": "google",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "gemini-3-flash",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini 3 Flash"
     },
     {
-      "name": "gemini-3.1-pro",
-      "title": "Gemini 3.1 Pro",
-      "kind": "provider",
       "category": "cheap",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Polypus gemini_paid/gemini-3.1-pro-preview; 1M context on OpenRouter listing",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 2,
+          "price_note": "OpenRouter headline $2/$12 per M; confirm ai.google.dev",
+          "price_out": 12,
+          "runtime": "google",
+          "runtime_model_id": "gemini-3.1-pro-preview"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Preview slug; 1M context",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-3.1-pro-preview"
+          },
+          "price_in": 2,
+          "price_note": "OpenRouter headline; confirm openrouter.ai model page",
+          "price_out": 12,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-3.1-pro-preview"
+        }
+      ],
       "jobs": [
         "vision",
         "reasoning",
         "long-context"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "google",
-          "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemini-3.1-pro-preview",
-          "price_in": 2,
-          "price_out": 12,
-          "price_note": "OpenRouter headline $2/$12 per M; confirm ai.google.dev",
-          "limits_note": "Polypus gemini_paid/gemini-3.1-pro-preview; 1M context on OpenRouter listing",
-          "links": {
-            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemini-3.1-pro-preview",
-          "price_in": 2,
-          "price_out": 12,
-          "price_note": "OpenRouter headline; confirm openrouter.ai model page",
-          "limits_note": "Preview slug; 1M context",
-          "links": {
-            "openrouter": "https://openrouter.ai/google/gemini-3.1-pro-preview"
-          }
-        }
-      ],
-      "preferred_host": "google",
-      "context_window": 1000000,
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "gemini-3.1-pro",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini 3.1 Pro"
     },
     {
-      "name": "gemini-3.8-flash",
-      "title": "Gemini 3.8 Flash",
-      "kind": "provider",
+      "aa_intelligence": 30.8,
       "category": "cheap",
+      "context_window": 1000000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Polypus gemini_paid route; 1M context on OpenRouter listing",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 0.75,
+          "price_note": "OpenRouter Google AI Studio headline $0.75/$3.75 per M (50% off noted on fetch); confirm ai.google.dev",
+          "price_out": 3.75,
+          "runtime": "google",
+          "runtime_model_id": "gemini-3.8-flash"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace listing; 1M context",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-3.8-flash"
+          },
+          "price_in": 0.75,
+          "price_note": "OpenRouter headline; 50% off noted on fetch; confirm openrouter.ai model page",
+          "price_out": 3.75,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-3.8-flash"
+        }
+      ],
       "jobs": [
         "cheap",
         "vision",
         "chat",
         "reasoning"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "google",
-      "hosts": [
-        {
-          "id": "google",
-          "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemini-3.8-flash",
-          "price_in": 0.75,
-          "price_out": 3.75,
-          "price_note": "OpenRouter Google AI Studio headline $0.75/$3.75 per M (50% off noted on fetch); confirm ai.google.dev",
-          "limits_note": "Polypus gemini_paid route; 1M context on OpenRouter listing",
-          "links": {
-            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemini-3.8-flash",
-          "price_in": 0.75,
-          "price_out": 3.75,
-          "price_note": "OpenRouter headline; 50% off noted on fetch; confirm openrouter.ai model page",
-          "limits_note": "Marketplace listing; 1M context",
-          "links": {
-            "openrouter": "https://openrouter.ai/google/gemini-3.8-flash"
-          }
-        }
-      ],
-      "preferred_host": "google",
-      "aa_intelligence": 30.8,
-      "context_window": 1000000,
       "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/gemini-3-8-flash"
-      }
+        "artificial_analysis": "https://artificialanalysis.ai/models/gemini-3-8-flash",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "gemini-3.8-flash",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini 3.8 Flash"
     },
     {
-      "name": "gemma-3-27b",
-      "title": "Gemma 3 27B",
-      "kind": "sovereign",
       "category": "cheap",
-      "jobs": [
-        "vision",
-        "cheap",
-        "chat"
-      ],
-      "status": "watch",
-      "lab": "google",
+      "context_window": 131072,
       "hosts": [
         {
-          "id": "deepinfra",
           "capacity": "hobby",
-          "runtime": "deepinfra",
-          "runtime_model_id": "google/gemma-3-27b-it",
-          "price_in": 0.08,
-          "price_out": 0.16,
-          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "id": "deepinfra",
           "limits_note": "131,072 context; multimodal; max 30 images per request on DeepInfra",
           "links": {
             "deepinfra": "https://deepinfra.com/google/gemma-3-27b-it"
-          }
+          },
+          "price_in": 0.08,
+          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "price_out": 0.16,
+          "runtime": "deepinfra",
+          "runtime_model_id": "google/gemma-3-27b-it"
         }
       ],
-      "preferred_host": "deepinfra",
-      "context_window": 131072,
-      "links": {
-        "models_dev": "https://models.dev/"
-      }
-    },
-    {
-      "name": "gemma-4-26b-a4b",
-      "title": "Gemma 4 26B A4B",
-      "kind": "sovereign",
-      "category": "cheap",
       "jobs": [
         "vision",
-        "reasoning",
-        "cheap"
+        "cheap",
+        "chat"
       ],
-      "status": "reach-for",
+      "kind": "sovereign",
       "lab": "google",
+      "links": {
+        "models_dev": "https://models.dev/"
+      },
+      "name": "gemma-3-27b",
+      "preferred_host": "deepinfra",
+      "status": "watch",
+      "title": "Gemma 3 27B"
+    },
+    {
+      "category": "cheap",
+      "context_window": 256000,
       "hosts": [
         {
-          "id": "cloudflare",
           "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/google/gemma-4-26b-a4b-it",
-          "price_in": 0.1,
-          "price_out": 0.3,
-          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 9091/27273 neurons per M in/out; CF table Oct 2026",
+          "id": "cloudflare",
           "limits_note": "10k Neurons/day free tier; verify dashboard after large jobs",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
+          },
+          "price_in": 0.1,
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 9091/27273 neurons per M in/out; CF table Oct 2026",
+          "price_out": 0.3,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/google/gemma-4-26b-a4b-it"
         },
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "google/gemma-4-26b-a4b-it",
-          "price_in": 0.04,
-          "price_out": 0.15,
-          "price_note": "OpenRouter aggregate route; provider mix behind the slug can shift; confirm openrouter.ai model page",
+          "id": "openrouter",
           "limits_note": "Marketplace routing; not industrial throughput",
           "links": {
             "openrouter": "https://openrouter.ai/google/gemma-4-26b-a4b-it"
-          }
+          },
+          "price_in": 0.04,
+          "price_note": "OpenRouter aggregate route; provider mix behind the slug can shift; confirm openrouter.ai model page",
+          "price_out": 0.15,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemma-4-26b-a4b-it"
         },
         {
-          "id": "google",
           "capacity": "hobby",
-          "runtime": "google",
-          "runtime_model_id": "gemma-4-26b-a4b-it-maas",
-          "price_in": 0.15,
-          "price_out": 0.6,
-          "price_note": "Vertex AI Gemma open-weights MaaS list; confirm Google Cloud pricing for your region",
+          "id": "google",
           "limits_note": "Cloud project quotas apply; not filed as industrial here",
           "links": {
             "provider_pricing": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
-          }
+          },
+          "price_in": 0.15,
+          "price_note": "Vertex AI Gemma open-weights MaaS list; confirm Google Cloud pricing for your region",
+          "price_out": 0.6,
+          "runtime": "google",
+          "runtime_model_id": "gemma-4-26b-a4b-it-maas"
         },
         {
-          "id": "deepinfra",
           "capacity": "industrial",
-          "runtime": "deepinfra",
-          "runtime_model_id": "google/gemma-4-26B-A4B-it",
-          "price_in": 0.07,
-          "price_out": 0.34,
-          "price_note": "DeepInfra published list on model page; Priority 1.5x and Flex 0.8x tiers exist",
+          "id": "deepinfra",
           "limits_note": "Operator pick for high-volume batch; DeepInfra supports production throughput vs CF neuron hobby tier",
           "links": {
             "deepinfra": "https://deepinfra.com/google/gemma-4-26B-A4B-it"
-          }
+          },
+          "price_in": 0.07,
+          "price_note": "DeepInfra published list on model page; Priority 1.5x and Flex 0.8x tiers exist",
+          "price_out": 0.34,
+          "runtime": "deepinfra",
+          "runtime_model_id": "google/gemma-4-26B-A4B-it"
         },
         {
-          "id": "xinference",
           "capacity": "unknown",
-          "runtime": "xinference",
-          "price_note": "Xinference AU Model API; Gemma listed on request on pricing page (Oct 2026); no public list price filed",
+          "id": "xinference",
           "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
           "links": {
             "xinference": "https://xinference.co/pricing.html"
-          }
+          },
+          "price_note": "Xinference AU Model API; Gemma listed on request on pricing page (Oct 2026); no public list price filed",
+          "runtime": "xinference"
         }
       ],
-      "preferred_host": "cloudflare",
-      "context_window": 256000,
-      "links": {
-        "artificial_analysis": "https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know",
-        "models_dev": "https://models.dev/"
-      }
-    },
-    {
-      "name": "gemma-4-31b",
-      "title": "Gemma 4 31B",
-      "kind": "sovereign",
-      "category": "cheap",
       "jobs": [
         "vision",
         "reasoning",
         "cheap"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "google",
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "gemma-4-26b-a4b",
+      "preferred_host": "cloudflare",
+      "status": "reach-for",
+      "title": "Gemma 4 26B A4B"
+    },
+    {
+      "aa_intelligence": 4.4,
+      "category": "cheap",
+      "context_window": 262144,
       "hosts": [
         {
-          "id": "deepinfra",
           "capacity": "hobby",
-          "runtime": "deepinfra",
-          "runtime_model_id": "google/gemma-4-31B-it",
-          "price_in": 0.2,
-          "price_out": 0.4,
-          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "id": "deepinfra",
           "limits_note": "262,144 context on DeepInfra; fp8; multimodal",
           "links": {
             "deepinfra": "https://deepinfra.com/google/gemma-4-31B-it"
-          }
+          },
+          "price_in": 0.2,
+          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "price_out": 0.4,
+          "runtime": "deepinfra",
+          "runtime_model_id": "google/gemma-4-31B-it"
         },
         {
-          "id": "google",
           "capacity": "unknown",
-          "runtime": "google",
-          "runtime_model_id": "gemma-4-31b-it",
-          "price_note": "Polypus gemini_free and gemini_paid routes; Vertex/AI Studio list not filed (pricing page fetch timed out)",
+          "id": "google",
           "limits_note": "Confirm model id and region price on Google Cloud before batch jobs",
           "links": {
             "provider_pricing": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
-          }
+          },
+          "price_note": "Polypus gemini_free and gemini_paid routes; Vertex/AI Studio list not filed (pricing page fetch timed out)",
+          "runtime": "google",
+          "runtime_model_id": "gemma-4-31b-it"
         }
       ],
-      "preferred_host": "deepinfra",
-      "aa_intelligence": 4.4,
-      "context_window": 262144,
+      "jobs": [
+        "vision",
+        "reasoning",
+        "cheap"
+      ],
+      "kind": "sovereign",
+      "lab": "google",
       "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/gemma-4-31b"
-      }
+        "artificial_analysis": "https://artificialanalysis.ai/models/gemma-4-31b",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "gemma-4-31b",
+      "preferred_host": "deepinfra",
+      "status": "watch",
+      "title": "Gemma 4 31B"
     },
     {
-      "name": "glm-4.7-flash",
-      "title": "GLM-4.7-Flash",
-      "kind": "sovereign",
       "category": "cheap",
+      "context_window": 131072,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
+          "limits_note": "10k Neurons/day free tier; 131k context on Workers AI",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          },
+          "price_in": 0.0605,
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page",
+          "price_out": 0.4,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/zai-org/glm-4.7-flash"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace routing; 200k context on OpenRouter listing; not industrial throughput",
+          "links": {
+            "openrouter": "https://openrouter.ai/z-ai/glm-4.7-flash"
+          },
+          "price_in": 0.0605,
+          "price_note": "OpenRouter list; routes Cloudflare or NovitaAI behind the slug; confirm openrouter.ai model page",
+          "price_out": 0.4,
+          "runtime": "openrouter",
+          "runtime_model_id": "z-ai/glm-4.7-flash"
+        }
+      ],
       "jobs": [
         "reasoning",
         "cheap",
         "chat"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "zai",
-      "hosts": [
-        {
-          "id": "cloudflare",
-          "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/zai-org/glm-4.7-flash",
-          "price_in": 0.0605,
-          "price_out": 0.4,
-          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 5500/36400 neurons per M in/out; confirm CF pricing page",
-          "limits_note": "10k Neurons/day free tier; 131k context on Workers AI",
-          "links": {
-            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "z-ai/glm-4.7-flash",
-          "price_in": 0.0605,
-          "price_out": 0.4,
-          "price_note": "OpenRouter list; routes Cloudflare or NovitaAI behind the slug; confirm openrouter.ai model page",
-          "limits_note": "Marketplace routing; 200k context on OpenRouter listing; not industrial throughput",
-          "links": {
-            "openrouter": "https://openrouter.ai/z-ai/glm-4.7-flash"
-          }
-        }
-      ],
-      "preferred_host": "cloudflare",
-      "context_window": 131072,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/releases/glm-4-7-flash",
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "glm-4.7-flash",
+      "preferred_host": "cloudflare",
+      "status": "watch",
+      "title": "GLM-4.7-Flash"
     },
     {
-      "name": "glm-5.3-flash",
-      "title": "GLM-5.3-Flash",
-      "kind": "sovereign",
+      "aa_intelligence": 27.8,
       "category": "cheap",
+      "context_window": 1048576,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
+          "limits_note": "Paid Workers or AI Gateway credits required on CF; ~1M context on CF listing",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          },
+          "price_in": 0.15,
+          "price_note": "Workers Paid or AI Gateway credits required; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page",
+          "price_out": 0.5,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/zai-org/glm-5.3-flash"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace routing; headline OR prices differ from CF/DeepInfra list; verify before budgeting",
+          "links": {
+            "openrouter": "https://openrouter.ai/z-ai/glm-5.3-flash"
+          },
+          "price_in": 0.0269,
+          "price_note": "OpenRouter aggregate list; upstream provider mix can shift; confirm openrouter.ai model page",
+          "price_out": 0.0996,
+          "runtime": "openrouter",
+          "runtime_model_id": "z-ai/glm-5.3-flash"
+        },
+        {
+          "capacity": "unknown",
+          "id": "deepinfra",
+          "limits_note": "Strong agentic/coding signals on public benchmarks; operator has not filed industrial capacity",
+          "links": {
+            "deepinfra": "https://deepinfra.com/zai-org/GLM-5.3-Flash"
+          },
+          "price_in": 0.15,
+          "price_note": "DeepInfra published list; $0.03/M cached input on model page",
+          "price_out": 0.5,
+          "runtime": "deepinfra",
+          "runtime_model_id": "zai-org/GLM-5.3-Flash"
+        },
+        {
+          "capacity": "unknown",
+          "id": "xinference",
+          "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
+          "links": {
+            "xinference": "https://xinference.co/pricing.html"
+          },
+          "price_note": "Xinference AU Model API; GLM 5.3 on request on pricing page (Oct 2026); no public list price filed",
+          "runtime": "xinference"
+        }
+      ],
       "jobs": [
         "vision",
         "reasoning"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "zai",
-      "hosts": [
-        {
-          "id": "cloudflare",
-          "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/zai-org/glm-5.3-flash",
-          "price_in": 0.15,
-          "price_out": 0.5,
-          "price_note": "Workers Paid or AI Gateway credits required; $0.03/M cached input; 13636/45455 neurons per M in/out; confirm CF pricing page",
-          "limits_note": "Paid Workers or AI Gateway credits required on CF; ~1M context on CF listing",
-          "links": {
-            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
-        },
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "z-ai/glm-5.3-flash",
-          "price_in": 0.0269,
-          "price_out": 0.0996,
-          "price_note": "OpenRouter aggregate list; upstream provider mix can shift; confirm openrouter.ai model page",
-          "limits_note": "Marketplace routing; headline OR prices differ from CF/DeepInfra list; verify before budgeting",
-          "links": {
-            "openrouter": "https://openrouter.ai/z-ai/glm-5.3-flash"
-          }
-        },
-        {
-          "id": "deepinfra",
-          "capacity": "unknown",
-          "runtime": "deepinfra",
-          "runtime_model_id": "zai-org/GLM-5.3-Flash",
-          "price_in": 0.15,
-          "price_out": 0.5,
-          "price_note": "DeepInfra published list; $0.03/M cached input on model page",
-          "limits_note": "Strong agentic/coding signals on public benchmarks; operator has not filed industrial capacity",
-          "links": {
-            "deepinfra": "https://deepinfra.com/zai-org/GLM-5.3-Flash"
-          }
-        },
-        {
-          "id": "xinference",
-          "capacity": "unknown",
-          "runtime": "xinference",
-          "price_note": "Xinference AU Model API; GLM 5.3 on request on pricing page (Oct 2026); no public list price filed",
-          "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
-          "links": {
-            "xinference": "https://xinference.co/pricing.html"
-          }
-        }
-      ],
-      "preferred_host": "cloudflare",
-      "aa_intelligence": 27.8,
-      "context_window": 1048576,
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/glm-5-3-flash",
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "glm-5.3-flash",
+      "preferred_host": "cloudflare",
+      "status": "watch",
+      "title": "GLM-5.3-Flash"
     },
     {
-      "name": "gpt-oss-20b",
-      "title": "GPT-OSS 20B",
-      "kind": "sovereign",
+      "category": "tts",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "OpenRouter proxies OpenAI; not a sovereign host; not EU in-region routing; 128k context; Cedar is a voice id, not a separate model",
+          "links": {
+            "openrouter": "https://openrouter.ai/openai/gpt-audio"
+          },
+          "price_note": "OpenRouter and OpenAI list text $2.50/$10 per 1M tokens and audio $32/$64 per 1M tokens (pages 2026-11-06); audio-out is the speech cost, not Cheap token banding",
+          "runtime": "openrouter",
+          "runtime_model_id": "openai/gpt-audio"
+        }
+      ],
+      "jobs": [
+        "tts"
+      ],
+      "kind": "provider",
+      "lab": "openai",
+      "name": "gpt-audio",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "GPT Audio"
+    },
+    {
       "category": "cheap",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace routing; not industrial throughput",
+          "links": {
+            "openrouter": "https://openrouter.ai/openai/gpt-oss-20b"
+          },
+          "price_in": 0.008,
+          "price_note": "OpenRouter headline aggregate $0.008/$0.032 per M; upstream mix can shift",
+          "price_out": 0.032,
+          "runtime": "openrouter",
+          "runtime_model_id": "openai/gpt-oss-20b"
+        },
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
+          "limits_note": "10k Neurons/day free tier; same open weights as the OpenRouter slug",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          },
+          "price_in": 0.2,
+          "price_note": "Workers AI Neurons at $0.011/1k; 18182/27273 neurons per M in/out; CF table Oct 2026",
+          "price_out": 0.3,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/openai/gpt-oss-20b"
+        }
+      ],
       "jobs": [
         "cheap",
         "coding",
         "chat"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "openai",
-      "hosts": [
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "openai/gpt-oss-20b",
-          "price_in": 0.008,
-          "price_out": 0.032,
-          "price_note": "OpenRouter headline aggregate $0.008/$0.032 per M; upstream mix can shift",
-          "limits_note": "Marketplace routing; not industrial throughput",
-          "links": {
-            "openrouter": "https://openrouter.ai/openai/gpt-oss-20b"
-          }
-        },
-        {
-          "id": "cloudflare",
-          "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/openai/gpt-oss-20b",
-          "price_in": 0.2,
-          "price_out": 0.3,
-          "price_note": "Workers AI Neurons at $0.011/1k; 18182/27273 neurons per M in/out; CF table Oct 2026",
-          "limits_note": "10k Neurons/day free tier; same open weights as the OpenRouter slug",
-          "links": {
-            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
-        }
-      ],
-      "preferred_host": "openrouter",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "gpt-oss-20b",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "GPT-OSS 20B"
     },
     {
-      "name": "granite-4.0-h-micro",
-      "title": "Granite 4.0 H Micro",
-      "kind": "sovereign",
       "category": "cheap",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
+          "limits_note": "10k Neurons/day free tier; tiny IBM Granite cut",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          },
+          "price_in": 0.017,
+          "price_note": "Workers AI Neurons at $0.011/1k; 1542/10158 neurons per M in/out; CF table Oct 2026",
+          "price_out": 0.112,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/ibm-granite/granite-4.0-h-micro"
+        }
+      ],
       "jobs": [
         "cheap",
         "chat"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "ibm",
-      "hosts": [
-        {
-          "id": "cloudflare",
-          "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/ibm-granite/granite-4.0-h-micro",
-          "price_in": 0.017,
-          "price_out": 0.112,
-          "price_note": "Workers AI Neurons at $0.011/1k; 1542/10158 neurons per M in/out; CF table Oct 2026",
-          "limits_note": "10k Neurons/day free tier; tiny IBM Granite cut",
-          "links": {
-            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
-        }
-      ],
-      "preferred_host": "cloudflare",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "granite-4.0-h-micro",
+      "preferred_host": "cloudflare",
+      "status": "watch",
+      "title": "Granite 4.0 H Micro"
     },
     {
-      "name": "granite-4.2-8b",
-      "title": "Granite 4.2 8B",
-      "kind": "sovereign",
+      "aa_intelligence": 5.1,
       "category": "cheap",
+      "context_window": 131072,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "deepinfra",
+          "limits_note": "131,072 native context; Apache 2.0; thinking modes on the model page",
+          "links": {
+            "deepinfra": "https://deepinfra.com/ibm-granite/granite-4.2-8b"
+          },
+          "price_in": 0.06,
+          "price_note": "DeepInfra published list; cached input $0.015/M",
+          "price_out": 0.25,
+          "runtime": "deepinfra",
+          "runtime_model_id": "ibm-granite/granite-4.2-8b"
+        }
+      ],
       "jobs": [
         "reasoning",
         "cheap",
         "chat",
         "coding"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "ibm",
-      "hosts": [
-        {
-          "id": "deepinfra",
-          "capacity": "hobby",
-          "runtime": "deepinfra",
-          "runtime_model_id": "ibm-granite/granite-4.2-8b",
-          "price_in": 0.06,
-          "price_out": 0.25,
-          "price_note": "DeepInfra published list; cached input $0.015/M",
-          "limits_note": "131,072 native context; Apache 2.0; thinking modes on the model page",
-          "links": {
-            "deepinfra": "https://deepinfra.com/ibm-granite/granite-4.2-8b"
-          }
-        }
-      ],
-      "preferred_host": "deepinfra",
-      "aa_intelligence": 5.1,
-      "context_window": 131072,
       "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/granite-4-2-8b"
-      }
+        "artificial_analysis": "https://artificialanalysis.ai/models/granite-4-2-8b",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "granite-4.2-8b",
+      "preferred_host": "deepinfra",
+      "status": "watch",
+      "title": "Granite 4.2 8B"
     },
     {
-      "name": "jev",
-      "title": "Jev",
-      "kind": "provider",
       "category": "classify",
+      "context_window": 64000,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "local",
+          "limits_note": "System One API (noul/choice/score); not a chat model; ~64k context; early access",
+          "price_in": 0.042,
+          "price_note": "TypeSafe list $0.042/M input, output free (blog 2026-09-15); Polypus route cf_local/typesafe/jev",
+          "price_out": 0,
+          "runtime": "local",
+          "runtime_model_id": "typesafe/jev"
+        }
+      ],
       "jobs": [
         "classify",
         "cheap"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "typesafe",
-      "hosts": [
-        {
-          "id": "local",
-          "capacity": "unknown",
-          "runtime": "local",
-          "runtime_model_id": "typesafe/jev",
-          "price_in": 0.042,
-          "price_out": 0,
-          "price_note": "TypeSafe list $0.042/M input, output free (blog 2026-09-15); Polypus route cf_local/typesafe/jev",
-          "limits_note": "System One API (noul/choice/score); not a chat model; ~64k context; early access"
-        }
-      ],
+      "name": "jev",
       "preferred_host": "local",
-      "context_window": 64000
+      "status": "watch",
+      "title": "Jev"
     },
     {
-      "name": "llama-3.3-70b",
-      "title": "Llama 3.3 70B",
-      "kind": "sovereign",
-      "category": "cheap",
-      "jobs": [
-        "chat"
-      ],
-      "status": "watch",
-      "lab": "meta",
+      "category": "tts",
       "hosts": [
         {
-          "id": "cloudflare",
+          "capacity": "local",
+          "id": "local",
+          "limits_note": "Python package kokoro with espeak-ng and misaki G2P; 54 preset voices; 8 languages",
+          "price_note": "Local inference; Apache 2.0 weights; no list character price",
+          "runtime": "local",
+          "runtime_model_id": "hexgrad/Kokoro-82M"
+        },
+        {
           "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
-          "price_in": 0.293,
-          "price_out": 2.253,
-          "price_note": "Workers AI Neurons at $0.011/1k; 26668/204805 neurons per M in/out; CF table Oct 2026",
+          "id": "openrouter",
+          "limits_note": "POST /api/v1/audio/speech; not EU in-region routing; routes DeepInfra or Together",
+          "links": {
+            "openrouter": "https://openrouter.ai/hexgrad/kokoro-82m"
+          },
+          "price_note": "OpenRouter $0.62 per 1M characters (page 2026-11-06); not token $/M",
+          "runtime": "openrouter",
+          "runtime_model_id": "hexgrad/kokoro-82m"
+        },
+        {
+          "capacity": "hobby",
+          "id": "deepinfra",
+          "limits_note": "Native inference hexgrad/Kokoro-82M; OpenRouter lists this upstream cheaper than DeepInfra's own page",
+          "links": {
+            "deepinfra": "https://deepinfra.com/hexgrad/Kokoro-82M"
+          },
+          "price_note": "DeepInfra $0.99 per 1M characters (page 2026-11-06); Priority and Flex tiers exist",
+          "runtime": "deepinfra",
+          "runtime_model_id": "hexgrad/Kokoro-82M"
+        }
+      ],
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "kind": "sovereign",
+      "lab": "hexgrad",
+      "name": "kokoro-82m",
+      "preferred_host": "local",
+      "status": "watch",
+      "title": "Kokoro 82M"
+    },
+    {
+      "category": "cheap",
+      "context_window": 128000,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
           "limits_note": "10k Neurons/day free tier; fp8-fast Workers AI slug",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
+          },
+          "price_in": 0.293,
+          "price_note": "Workers AI Neurons at $0.011/1k; 26668/204805 neurons per M in/out; CF table Oct 2026",
+          "price_out": 2.253,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
         },
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "meta-llama/llama-3.3-70b-instruct",
-          "price_in": 0.1,
-          "price_out": 0.32,
-          "price_note": "OpenRouter headline; DeepInfra Turbo often behind the slug; confirm openrouter.ai model page",
+          "id": "openrouter",
           "limits_note": "Marketplace routing; not industrial throughput",
           "links": {
             "openrouter": "https://openrouter.ai/meta-llama/llama-3.3-70b-instruct"
-          }
+          },
+          "price_in": 0.1,
+          "price_note": "OpenRouter headline; DeepInfra Turbo often behind the slug; confirm openrouter.ai model page",
+          "price_out": 0.32,
+          "runtime": "openrouter",
+          "runtime_model_id": "meta-llama/llama-3.3-70b-instruct"
         }
       ],
-      "preferred_host": "openrouter",
-      "context_window": 128000,
+      "jobs": [
+        "chat"
+      ],
+      "kind": "sovereign",
+      "lab": "meta",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "llama-3.3-70b",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Llama 3.3 70B"
     },
     {
-      "name": "llama-4-scout-17b",
-      "title": "Llama 4 Scout 17B",
-      "kind": "sovereign",
       "category": "cheap",
-      "jobs": [
-        "vision"
-      ],
-      "status": "watch",
-      "lab": "meta",
+      "context_window": 131000,
       "hosts": [
         {
-          "id": "cloudflare",
           "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/meta/llama-4-scout-17b-16e-instruct",
-          "price_in": 0.27,
-          "price_out": 0.85,
-          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page",
+          "id": "cloudflare",
           "limits_note": "10k Neurons/day free tier; 131k context on Workers AI",
           "links": {
             "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
+          },
+          "price_in": 0.27,
+          "price_note": "Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 24545/77273 neurons per M in/out; confirm CF pricing page",
+          "price_out": 0.85,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/meta/llama-4-scout-17b-16e-instruct"
         },
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "meta-llama/llama-4-scout",
-          "price_in": 0.1,
-          "price_out": 0.3,
-          "price_note": "OpenRouter list; routes DeepInfra or Vertex behind the slug; confirm openrouter.ai model page",
+          "id": "openrouter",
           "limits_note": "Marketplace routing; 1.3M context on OpenRouter listing; not industrial throughput",
           "links": {
             "openrouter": "https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct"
-          }
+          },
+          "price_in": 0.1,
+          "price_note": "OpenRouter list; routes DeepInfra or Vertex behind the slug; confirm openrouter.ai model page",
+          "price_out": 0.3,
+          "runtime": "openrouter",
+          "runtime_model_id": "meta-llama/llama-4-scout"
         },
         {
-          "id": "deepinfra",
           "capacity": "hobby",
-          "runtime": "deepinfra",
-          "runtime_model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
-          "price_in": 0.1,
-          "price_out": 0.3,
-          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "id": "deepinfra",
           "limits_note": "Lower list price than CF; confirm DeepInfra model page before batch jobs",
           "links": {
             "deepinfra": "https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct"
-          }
+          },
+          "price_in": 0.1,
+          "price_note": "DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist",
+          "price_out": 0.3,
+          "runtime": "deepinfra",
+          "runtime_model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct"
         },
         {
-          "id": "xinference",
           "capacity": "unknown",
-          "runtime": "xinference",
-          "price_note": "Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed",
+          "id": "xinference",
           "limits_note": "Australian data centres; OpenAI-compatible API; confirm model id with Xinference before use",
           "links": {
             "xinference": "https://xinference.co/pricing.html"
-          }
+          },
+          "price_note": "Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed",
+          "runtime": "xinference"
         }
       ],
-      "preferred_host": "cloudflare",
-      "context_window": 131000,
+      "jobs": [
+        "vision"
+      ],
+      "kind": "sovereign",
+      "lab": "meta",
       "links": {
         "artificial_analysis": "https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5",
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "llama-4-scout-17b",
+      "preferred_host": "cloudflare",
+      "status": "watch",
+      "title": "Llama 4 Scout 17B"
     },
     {
-      "name": "mercury-decide",
-      "title": "Mercury Decide",
+      "category": "tts",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "OpenRouter proxies Azure; not a sovereign host; not EU in-region routing; voice ids include the model suffix (for example en-US-Harper:MAI-Voice-2.1); mp3 or pcm 24 kHz mono",
+          "links": {
+            "openrouter": "https://openrouter.ai/microsoft/mai-voice-2.1"
+          },
+          "price_note": "OpenRouter $22 per 1M characters (page 2026-11-06); Azure listed as the upstream at the same character rate; not token $/M",
+          "runtime": "openrouter",
+          "runtime_model_id": "microsoft/mai-voice-2.1"
+        }
+      ],
+      "jobs": [
+        "tts"
+      ],
       "kind": "provider",
+      "lab": "microsoft",
+      "name": "mai-voice-2.1",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "MAI-Voice-2.1"
+    },
+    {
+      "category": "tts",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "OpenRouter proxies Azure; not a sovereign host; not EU in-region routing; voice ids include the model suffix (for example en-US-Harper:MAI-Voice-2.1-Flash); mp3 or pcm 24 kHz mono; OpenRouter P50 latency about 0.38s vs about 0.95s on MAI-Voice-2.1",
+          "links": {
+            "openrouter": "https://openrouter.ai/microsoft/mai-voice-2.1-flash"
+          },
+          "price_note": "OpenRouter $15 per 1M characters (page 2026-11-06); Azure listed as the upstream at the same character rate; not token $/M",
+          "runtime": "openrouter",
+          "runtime_model_id": "microsoft/mai-voice-2.1-flash"
+        }
+      ],
+      "jobs": [
+        "tts"
+      ],
+      "kind": "provider",
+      "lab": "microsoft",
+      "name": "mai-voice-2.1-flash",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "MAI-Voice-2.1-Flash"
+    },
+    {
       "category": "classify",
+      "context_window": 65536,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "System One Decisions API, not chat completions; 65,536 context; up to 14 decisions/s on the model page",
+          "links": {
+            "openrouter": "https://openrouter.ai/inception/mercury-decide"
+          },
+          "price_in": 0.02,
+          "price_note": "OpenRouter headline $0.02/M input, output free; 50% off vs $0.04 list noted on fetch; Inception is the sole provider",
+          "price_out": 0,
+          "runtime": "openrouter",
+          "runtime_model_id": "inception/mercury-decide"
+        }
+      ],
       "jobs": [
         "classify",
         "cheap",
         "vision"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "inception",
-      "hosts": [
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "inception/mercury-decide",
-          "price_in": 0.02,
-          "price_out": 0,
-          "price_note": "OpenRouter headline $0.02/M input, output free; 50% off vs $0.04 list noted on fetch; Inception is the sole provider",
-          "limits_note": "System One Decisions API, not chat completions; 65,536 context; up to 14 decisions/s on the model page",
-          "links": {
-            "openrouter": "https://openrouter.ai/inception/mercury-decide"
-          }
-        }
-      ],
-      "preferred_host": "openrouter",
-      "context_window": 65536,
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "mercury-decide",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Mercury Decide"
     },
     {
-      "name": "mistral-nemo",
-      "title": "Mistral Nemo",
-      "kind": "sovereign",
       "category": "spend",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "Marketplace routing; promotional headline can expire",
+          "links": {
+            "openrouter": "https://openrouter.ai/mistralai/mistral-nemo"
+          },
+          "price_in": 0.01656,
+          "price_note": "OpenRouter headline including 28% off at fetch; $0.01656/$0.0216 per M; confirm openrouter.ai model page",
+          "price_out": 0.0216,
+          "runtime": "openrouter",
+          "runtime_model_id": "mistralai/mistral-nemo"
+        }
+      ],
       "jobs": [
         "cheap",
         "chat"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "mistral",
-      "hosts": [
-        {
-          "id": "openrouter",
-          "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "mistralai/mistral-nemo",
-          "price_in": 0.01656,
-          "price_out": 0.0216,
-          "price_note": "OpenRouter headline including 28% off at fetch; $0.01656/$0.0216 per M; confirm openrouter.ai model page",
-          "limits_note": "Marketplace routing; promotional headline can expire",
-          "links": {
-            "openrouter": "https://openrouter.ai/mistralai/mistral-nemo"
-          }
-        }
-      ],
-      "preferred_host": "openrouter",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "mistral-nemo",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Mistral Nemo"
     },
     {
-      "name": "mistral-small-3.1-24b",
-      "title": "Mistral Small 3.1 24B",
-      "kind": "sovereign",
       "category": "cheap",
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "cloudflare",
+          "limits_note": "10k Neurons/day free tier; confirm dashboard after large jobs",
+          "links": {
+            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+          },
+          "price_in": 0.351,
+          "price_note": "Workers AI Neurons at $0.011/1k; 31876/50488 neurons per M in/out; CF table Oct 2026",
+          "price_out": 0.555,
+          "runtime": "cloudflare",
+          "runtime_model_id": "@cf/mistralai/mistral-small-3.1-24b-instruct"
+        }
+      ],
       "jobs": [
         "vision",
         "chat",
         "cheap"
       ],
-      "status": "watch",
+      "kind": "sovereign",
       "lab": "mistral",
-      "hosts": [
-        {
-          "id": "cloudflare",
-          "capacity": "hobby",
-          "runtime": "cloudflare",
-          "runtime_model_id": "@cf/mistralai/mistral-small-3.1-24b-instruct",
-          "price_in": 0.351,
-          "price_out": 0.555,
-          "price_note": "Workers AI Neurons at $0.011/1k; 31876/50488 neurons per M in/out; CF table Oct 2026",
-          "limits_note": "10k Neurons/day free tier; confirm dashboard after large jobs",
-          "links": {
-            "cloudflare_pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-          }
-        }
-      ],
-      "preferred_host": "cloudflare",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "mistral-small-3.1-24b",
+      "preferred_host": "cloudflare",
+      "status": "watch",
+      "title": "Mistral Small 3.1 24B"
     },
     {
-      "name": "muse-spark-1.3",
-      "title": "Muse Spark 1.3",
-      "kind": "provider",
+      "aa_intelligence": 36.6,
       "category": "mid",
-      "jobs": [
-        "vision",
-        "reasoning",
-        "coding",
-        "long-context"
-      ],
-      "status": "watch",
-      "lab": "meta",
+      "context_window": 1048576,
       "hosts": [
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "meta/muse-spark-1.3",
-          "price_in": 1.25,
-          "price_out": 4.25,
-          "price_note": "OpenRouter Meta list $1.25/$4.25 per M; cache read $0.15",
+          "id": "openrouter",
           "limits_note": "1,048,576 context; Meta is the sole OpenRouter provider on fetch",
           "links": {
             "openrouter": "https://openrouter.ai/meta/muse-spark-1.3"
-          }
+          },
+          "price_in": 1.25,
+          "price_note": "OpenRouter Meta list $1.25/$4.25 per M; cache read $0.15",
+          "price_out": 4.25,
+          "runtime": "openrouter",
+          "runtime_model_id": "meta/muse-spark-1.3"
         }
       ],
-      "preferred_host": "openrouter",
-      "aa_intelligence": 36.6,
-      "context_window": 1048576,
-      "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/muse-spark-1-3"
-      }
-    },
-    {
-      "name": "muse-wonder",
-      "title": "Muse Wonder",
-      "kind": "provider",
-      "category": "spend",
       "jobs": [
         "vision",
         "reasoning",
         "coding",
         "long-context"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "meta",
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/models/muse-spark-1-3",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "muse-spark-1.3",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Muse Spark 1.3"
+    },
+    {
+      "aa_intelligence": 43.6,
+      "category": "spend",
+      "context_window": 1048576,
       "hosts": [
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "meta/muse-wonder",
-          "price_in": 4,
-          "price_out": 20,
-          "price_note": "OpenRouter Meta list $4/$20 per M; cache read $0.20",
+          "id": "openrouter",
           "limits_note": "1,048,576 context; Meta is the sole OpenRouter provider on fetch",
           "links": {
             "openrouter": "https://openrouter.ai/meta/muse-wonder"
-          }
+          },
+          "price_in": 4,
+          "price_note": "OpenRouter Meta list $4/$20 per M; cache read $0.20",
+          "price_out": 20,
+          "runtime": "openrouter",
+          "runtime_model_id": "meta/muse-wonder"
         }
       ],
-      "preferred_host": "openrouter",
-      "aa_intelligence": 43.6,
-      "context_window": 1048576,
+      "jobs": [
+        "vision",
+        "reasoning",
+        "coding",
+        "long-context"
+      ],
+      "kind": "provider",
+      "lab": "meta",
       "links": {
-        "models_dev": "https://models.dev/",
-        "artificial_analysis": "https://artificialanalysis.ai/models/muse-wonder"
-      }
+        "artificial_analysis": "https://artificialanalysis.ai/models/muse-wonder",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "muse-wonder",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Muse Wonder"
     },
     {
-      "name": "pplx-decider",
-      "title": "Perplexity Decider V1.2",
-      "kind": "provider",
       "category": "classify",
-      "jobs": [
-        "classify",
-        "cheap",
-        "vision"
-      ],
-      "status": "watch",
-      "lab": "perplexity",
+      "context_window": 262144,
       "hosts": [
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "perplexity/pplx-decider-v1.2",
-          "price_in": 0.02,
-          "price_out": 0,
-          "price_note": "OpenRouter Perplexity list $0.02/M input, output free",
+          "id": "openrouter",
           "limits_note": "System One Decisions API, not chat completions; 262,144 context; 27B cut",
           "links": {
             "openrouter": "https://openrouter.ai/perplexity/pplx-decider-v1.2"
-          }
+          },
+          "price_in": 0.02,
+          "price_note": "OpenRouter Perplexity list $0.02/M input, output free",
+          "price_out": 0,
+          "runtime": "openrouter",
+          "runtime_model_id": "perplexity/pplx-decider-v1.2"
         }
       ],
-      "preferred_host": "openrouter",
-      "context_window": 262144,
-      "links": {
-        "models_dev": "https://models.dev/"
-      }
-    },
-    {
-      "name": "pplx-decider-flash",
-      "title": "Perplexity Decider Flash V1.2",
-      "kind": "provider",
-      "category": "classify",
       "jobs": [
         "classify",
         "cheap",
         "vision"
       ],
-      "status": "watch",
+      "kind": "provider",
       "lab": "perplexity",
+      "links": {
+        "models_dev": "https://models.dev/"
+      },
+      "name": "pplx-decider",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Perplexity Decider V1.2"
+    },
+    {
+      "category": "classify",
+      "context_window": 262144,
       "hosts": [
         {
-          "id": "openrouter",
           "capacity": "hobby",
-          "runtime": "openrouter",
-          "runtime_model_id": "perplexity/pplx-decider-flash-v1.2",
-          "price_in": 0.01,
-          "price_out": 0,
-          "price_note": "OpenRouter Perplexity list $0.01/M input, output free",
+          "id": "openrouter",
           "limits_note": "System One Decisions API, not chat completions; 262,144 context; 4B cut",
           "links": {
             "openrouter": "https://openrouter.ai/perplexity/pplx-decider-flash-v1.2"
-          }
+          },
+          "price_in": 0.01,
+          "price_note": "OpenRouter Perplexity list $0.01/M input, output free",
+          "price_out": 0,
+          "runtime": "openrouter",
+          "runtime_model_id": "perplexity/pplx-decider-flash-v1.2"
         }
       ],
-      "preferred_host": "openrouter",
-      "context_window": 262144,
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "kind": "provider",
+      "lab": "perplexity",
       "links": {
         "models_dev": "https://models.dev/"
-      }
+      },
+      "name": "pplx-decider-flash",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Perplexity Decider Flash V1.2"
     }
-  ]
+  ],
+  "catalog_schema": 1,
+  "generated_at": "2026-11-06"
 }

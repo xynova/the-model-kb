@@ -7,7 +7,8 @@
   {{- $links = $links | append (dict "ID" "host-offers" "Title" "Host offers") -}}
 {{- end -}}
 {{- $name := .Params.name | default .File.ContentBaseName -}}
-{{- if partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+{{- $category := .Params.category | default "" -}}
+{{- if partialCached "roster-aa-has-candle.html" (dict "name" $name "category" $category) (printf "%s:%s" $name $category) -}}
   {{- $links = $links | append (dict "ID" "what-artificial-analysis-reports" "Title" "What Artificial Analysis reports") -}}
 {{- end -}}
 {{- range .Fragments.Headings -}}

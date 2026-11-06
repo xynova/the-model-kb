@@ -2,18 +2,20 @@
 {{- $isRoster := eq .Section "roster" -}}
 {{- $isEntry := and $isRoster .Params.roster_kind -}}
 {{- $name := .Params.name | default .File.ContentBaseName -}}
+{{- $category := .Params.category | default "" -}}
+{{- $band := $category | title -}}
 {{- $card := dict -}}
 {{- $stats := dict -}}
 {{- with site.Data.aa_compare -}}
   {{- with .cards -}}
     {{- $card = index . $name | default dict -}}
   {{- end -}}
-  {{- with .stats -}}
-    {{- $stats = . -}}
+  {{- with .stats_by_category -}}
+    {{- $stats = index . $category | default dict -}}
   {{- end -}}
 {{- end -}}
 {{- $overview := $card.overview -}}
-{{- $hasCandle := partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+{{- $hasCandle := partialCached "roster-aa-has-candle.html" (dict "name" $name "category" $category) (printf "%s:%s" $name $category) -}}
 {{- if and $isEntry $overview $hasCandle -}}
 {{- $evals := $overview.evaluations | default dict -}}
 {{- $pricing := $overview.pricing | default dict -}}
@@ -44,16 +46,17 @@
     Filed numbers from the Artificial Analysis Data API
     {{- with $card.effort }} for the {{ . }} cut{{ end -}}
     {{- with $card.creator }} ({{ . }}){{ end }}.
+    Candles compare this card to other {{ $band }} cards on this shelf with the same metric (at least 3).
     Performance medians are across hosts AA measures, not our host list.
     {{- with $card.url }}
       <a href="{{ . }}" rel="noopener noreferrer">Model page</a>
     {{- end }}
   </p>
   <ul class="roster-aa__key" aria-label="Candlestick key">
-    <li><span class="roster-aa__swatch roster-aa__swatch--wick" aria-hidden="true"></span> Gray wick: roster min to max</li>
-    <li><span class="roster-aa__swatch roster-aa__swatch--body-up" aria-hidden="true"></span> Blue body: this card above the mean</li>
-    <li><span class="roster-aa__swatch roster-aa__swatch--body-down" aria-hidden="true"></span> Rose body: this card below the mean</li>
-    <li><span class="roster-aa__swatch roster-aa__swatch--median" aria-hidden="true"></span> Amber tick: roster median</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--wick" aria-hidden="true"></span> Gray wick: {{ $band }} min to max</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--body-up" aria-hidden="true"></span> Blue body: this card above the {{ $band }} mean</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--body-down" aria-hidden="true"></span> Rose body: this card below the {{ $band }} mean</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--median" aria-hidden="true"></span> Amber tick: {{ $band }} median</li>
     <li><span class="roster-aa__swatch roster-aa__swatch--value" aria-hidden="true"></span> Dot: this card</li>
   </ul>
   <div class="roster-aa__grid">
@@ -64,7 +67,7 @@
           <tr>
             <th scope="col">Metric</th>
             <th scope="col">This card</th>
-            <th scope="col">Roster candle</th>
+            <th scope="col">{{ $band }} candle</th>
           </tr>
         </thead>
         <tbody>
@@ -73,6 +76,7 @@
               "label" .label
               "value" (index $evals .key)
               "stats" (index $evalStats .key)
+              "band" $band
             ) }}
           {{- end -}}
         </tbody>
@@ -85,7 +89,7 @@
           <tr>
             <th scope="col">Metric</th>
             <th scope="col">This card</th>
-            <th scope="col">Roster candle</th>
+            <th scope="col">{{ $band }} candle</th>
           </tr>
         </thead>
         <tbody>
@@ -94,18 +98,21 @@
             "value" $card.cost_per_task
             "money" true
             "stats" (index $priceStats "cost_per_task")
+            "band" $band
           ) }}
           {{ partial "roster-aa-metric.html" (dict
             "label" "AA list $/M in"
             "value" (index $pricing "price_1m_input_tokens")
             "money" true
             "stats" (index $priceStats "price_1m_input_tokens")
+            "band" $band
           ) }}
           {{ partial "roster-aa-metric.html" (dict
             "label" "AA list $/M out"
             "value" (index $pricing "price_1m_output_tokens")
             "money" true
             "stats" (index $priceStats "price_1m_output_tokens")
+            "band" $band
           ) }}
         </tbody>
       </table>
@@ -115,7 +122,7 @@
           <tr>
             <th scope="col">Metric</th>
             <th scope="col">This card</th>
-            <th scope="col">Roster candle</th>
+            <th scope="col">{{ $band }} candle</th>
           </tr>
         </thead>
         <tbody>
@@ -124,6 +131,7 @@
               "label" .label
               "value" (index $perf .key)
               "stats" (index $perfStats .key)
+              "band" $band
             ) }}
           {{- end -}}
         </tbody>
