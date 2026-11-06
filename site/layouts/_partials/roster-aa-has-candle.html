@@ -1,5 +1,6 @@
-{{- /* True when this roster card would draw at least one AA candlestick. */ -}}
+{{- /* True when this roster card would draw at least one in-category AA candlestick. */ -}}
 {{- $name := .name -}}
+{{- $category := .category | default "" -}}
 {{- $has := false -}}
 {{- $card := dict -}}
 {{- $stats := dict -}}
@@ -7,12 +8,12 @@
   {{- with .cards -}}
     {{- $card = index . $name | default dict -}}
   {{- end -}}
-  {{- with .stats -}}
-    {{- $stats = . -}}
+  {{- with .stats_by_category -}}
+    {{- $stats = index . $category | default dict -}}
   {{- end -}}
 {{- end -}}
 {{- $overview := $card.overview -}}
-{{- if $overview -}}
+{{- if and $overview $category $stats -}}
   {{- $evals := $overview.evaluations | default dict -}}
   {{- $pricing := $overview.pricing | default dict -}}
   {{- $perf := $overview.performance | default dict -}}

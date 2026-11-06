@@ -142,6 +142,7 @@ Economics leaf names (document only; flat fields on offers today):
 - `quality.typed_decision.recall`
 - `quality.typed_decision.brier_loss`
 - `quality.typed_decision.ordinal_mae`
+- `quality.speech.human_preference`
 
 ### Performance leaf ids (status only until values are filed)
 
@@ -175,6 +176,7 @@ Two numbers are comparable only when they share the same **leaf id** and the sam
 - IF `chat` OR `reasoning` in jobs → add `generated_text` to `output_contracts`
 - IF `coding` in jobs → add `code` to `output_contracts`
 - IF `classify` in jobs → add `binary_probability`, `categorical_distribution`, `ordinal_distribution` to `output_contracts`
+- IF `tts` in jobs → add `speech` to `output_contracts`
 
 `cheap`, `high-throughput`, and `long-context` do not change capability.
 
@@ -184,6 +186,7 @@ Examples:
 
 - Jev (`classify`, `cheap`): `text__binary_probability+categorical_distribution+ordinal_distribution__single_response`
 - DeepSeek V4 Flash (`chat`, `reasoning`, `coding`, …): `text__code+generated_text__single_response`
+- Kokoro 82M (`tts`): `text__speech__single_response`
 
 ### Leaf applicability (dbt)
 
@@ -195,6 +198,7 @@ Examples:
 | `quality.coding.agent_benchmark_composite` | `coding` in jobs | none (always unknown when applicable) |
 | `quality.multimodal_understanding.benchmark_accuracy` | `image` in input_modalities | none |
 | `quality.typed_decision.*` (all five) | `classify` in jobs | none (unknown when applicable) |
+| `quality.speech.human_preference` | `tts` in jobs | none (unknown when applicable) |
 | `performance.time_to_first_token_ms` | `generated_text` in output_contracts | none |
 | `performance.end_to_end_latency_ms`, `performance.request_success_rate` | every offer | none |
 
@@ -219,10 +223,11 @@ An allowed URL is necessary but not sufficient: the row, metric name, model id, 
 | `quality.coding.code_edit_first_attempt` | [Aider Polyglot](https://aider.chat/docs/leaderboards/) (**Pass rate 1** only) | Headline percent, Pass rate 2 |
 | `quality.multimodal_understanding.benchmark_accuracy` | [AA MMMU-Pro](https://artificialanalysis.ai/evaluations/mmmu-pro); [MMMU site](https://mmmu-benchmark.github.io/) author rows are vendor self-report | Original MMMU as MMMU-Pro |
 | `quality.typed_decision.*` | Independent evals only (e.g. [Deußer et al. on Jev](https://arxiv.org/abs/2609.37647) for a pinned model version) | [evals.typesafe.ai](https://evals.typesafe.ai/) teacher-agreement |
+| `quality.speech.human_preference` | none in v1 | OpenRouter Design Arena audiorealism **ranks** (1st/2nd); token Intelligence Index |
 | Host list prices | Cloudflare, DeepInfra, OpenRouter, Google Gemini API, minted host pages (see enrichment table) | Quality or latency |
 | Capability metadata | [models.dev](https://models.dev/), lab/host docs | Accuracy scores |
 
-**Exclude from filed numbers:** Perplexity answers; login dashboards; Twitter screenshots; Hugging Face Open LLM Leaderboard aggregates; third-party mirrors when the primary page exists; [BenchLM](https://benchlm.ai/) overall / Estimated / copied prices (pointer to primary only); [systemonemodels.org](https://systemonemodels.org/guides/jev-benchmarks/) style blends.
+**Exclude from filed numbers:** Perplexity answers; login dashboards; Twitter screenshots; Hugging Face Open LLM Leaderboard aggregates; third-party mirrors when the primary page exists; [BenchLM](https://benchlm.ai/) overall / Estimated / copied prices (pointer to primary only); [systemonemodels.org](https://systemonemodels.org/guides/jev-benchmarks/) style blends; OpenRouter Design Arena audiorealism ordinal ranks.
 
 MUST map a filed number to a **leaf id** before write. MUST NOT file Perplexity output as metadata.
 
@@ -241,6 +246,7 @@ Exclusive sidebar home (orthogonal to `jobs`; use `jobs` for filters, not folder
 | Category | Use for |
 |----------|---------|
 | `classify` | Typed-decision models (`classify` in `jobs`); not Intelligence Index peers |
+| `tts` | Text-to-speech models (`tts` in `jobs`); not Intelligence Index or token-price peers |
 | `cheap` | Cheapest listed in+out under $3/M combined |
 | `mid` | Cheapest listed in+out from $3/M to under $15/M combined |
 | `spend` | Cheapest listed in+out $15/M combined or higher |
@@ -251,9 +257,10 @@ Directory path: `roster/<category>/<slug>.md`.
 Assignment order when filing or migrating (sticky after move; nightly mine does not re-band):
 
 1. If `classify` in `jobs` → `classify`.
-2. Else if `kind` is `service` → `unpriced`.
-3. Else cheapest listed = min(`price_in` + `price_out`) over hosts with both numeric.
-4. If no cheapest → `unpriced`; else `< 3` → `cheap`, `< 15` → `mid`, else `spend`.
+2. Else if `tts` in `jobs` → `tts`.
+3. Else if `kind` is `service` → `unpriced`.
+4. Else cheapest listed = min(`price_in` + `price_out`) over hosts with both numeric.
+5. If no cheapest → `unpriced`; else `< 3` → `cheap`, `< 15` → `mid`, else `spend`.
 
 Do **not** use a `local` category; locality is `kind: sovereign` and a host row with `id: local` or `runtime: local`.
 
@@ -269,8 +276,9 @@ Routing keys. Use only values from this list:
 - `cheap`
 - `high-throughput`
 - `classify`
+- `tts`
 
-Assign every kept card at least one job. Category and tags help choose jobs but `jobs` is the machine key.
+Assign every kept card at least one job. Category and tags help choose jobs but `jobs` is the machine key. TTS cards file per-character, per-minute, or per-read cost in `price_note`; do not invent token `$/M` to force a Cheap/Mid/Spend band.
 
 ## Allowed tags
 
@@ -362,7 +370,7 @@ A new serving company is a **mint**, not a nightly mine fetch. Mine only GETs ho
 
 - MUST: Fetch the host's own public pricing or model page (WebSearch / WebFetch).
 - MUST NOT: File Perplexity output as `id`, URL, price, or capacity.
-- MUST: Add `id` here, in `site/scripts/generate-roster.py` allowlists, and in `site/scripts/retrieve-limits.py` `LINK_KEYS` on the same keep.
+- MUST: Add `id` here, in `tools/roster-mill/internal/card` allowlists, and in `tools/roster-mill/internal/limits` `LinkKeys` on the same keep.
 - MUST NOT: Reuse `provider_pricing` for a non-Google hostname.
 
 ## Service values

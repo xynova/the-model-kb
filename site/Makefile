@@ -1,46 +1,39 @@
-.PHONY: serve build clean generate-roster retrieve-limits apply-mine retrieve-aa apply-aa mine-hosts polypus-diff check-links ensure-htmltest test-roster venv-roster init store-aa-key
+.PHONY: serve build clean generate-roster retrieve-limits apply-mine retrieve-aa apply-aa mine-hosts polypus-diff check-links ensure-htmltest test-roster init store-aa-key
 
 HUGO ?= hugo
-VENV ?= .venv
-PYTHON ?= $(if $(wildcard $(VENV)/bin/python),$(VENV)/bin/python,python3)
 HTMLTEST ?= htmltest
 # Build with a root baseURL so htmltest resolves site-local paths under public/.
 CHECK_BASE_URL ?= /
+MILL ?= go -C ../tools/roster-mill run ./cmd/roster-mill
 
-generate-roster: venv-roster
-	$(VENV)/bin/python scripts/generate-roster.py
+generate-roster:
+	$(MILL) generate
 
-retrieve-limits: venv-roster
-	$(VENV)/bin/python scripts/retrieve-limits.py
+retrieve-limits:
+	$(MILL) retrieve-limits
 
-apply-mine: venv-roster
-	$(VENV)/bin/python scripts/apply-mine.py
+apply-mine:
+	$(MILL) apply-mine
 
-init: venv-roster
-	$(VENV)/bin/python scripts/operator_config.py init
+init:
+	$(MILL) init
 
-store-aa-key: venv-roster
-	$(VENV)/bin/python scripts/operator_config.py store-aa-key
+store-aa-key:
+	$(MILL) store-aa-key
 
-retrieve-aa: venv-roster
-	$(VENV)/bin/python scripts/retrieve-aa.py
+retrieve-aa:
+	$(MILL) retrieve-aa
 
-apply-aa: venv-roster
-	$(VENV)/bin/python scripts/apply-aa.py
+apply-aa:
+	$(MILL) apply-aa
 
 mine-hosts: generate-roster retrieve-limits apply-mine retrieve-aa apply-aa generate-roster
 
-polypus-diff: venv-roster
-	$(VENV)/bin/python scripts/polypus-catalog-diff.py
+polypus-diff:
+	$(MILL) polypus-diff
 
-venv-roster:
-	@if [ ! -x $(VENV)/bin/python ]; then \
-		python3 -m venv $(VENV); \
-		$(VENV)/bin/pip install -q -r requirements-roster.txt; \
-	fi
-
-test-roster: venv-roster
-	cd scripts && ../$(VENV)/bin/python -m unittest test_generate_roster test_retrieve_limits test_apply_mine test_retrieve_aa test_apply_aa test_operator_config test_polypus_catalog_diff
+test-roster:
+	cd ../tools/roster-mill && go test ./...
 
 serve: generate-roster
 	$(HUGO) server --buildDrafts --disableFastRender --baseURL http://127.0.0.1:1313/

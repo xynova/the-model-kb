@@ -4,7 +4,8 @@
   {{- range where site.RegularPages "Section" "roster" -}}
     {{- if .Params.roster_kind -}}
       {{- $name := .Params.name | default .File.ContentBaseName -}}
-      {{- if partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+      {{- $category := .Params.category | default "" -}}
+      {{- if partialCached "roster-aa-has-candle.html" (dict "name" $name "category" $category) (printf "%s:%s" $name $category) -}}
         {{- $href := .RelPermalink -}}
         {{- $selectors = $selectors | append (printf ".hextra-sidebar-container a[href=%q]" $href) -}}
         {{- $trimmed := strings.TrimSuffix "/" $href -}}

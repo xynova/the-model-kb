@@ -4,6 +4,7 @@
 {{- $has := and (ne $raw "<nil>") (ne $raw "<no value>") (ne $raw "") -}}
 {{- $money := .money | default false -}}
 {{- $stats := .stats -}}
+{{- $band := .band | default "band" -}}
 <tr>
   <th scope="row">{{ $label }}</th>
   <td>
@@ -54,7 +55,7 @@
       <div
         class="roster-aa__candle roster-aa__candle--{{ $dir }}"
         role="img"
-        aria-label="{{ $label }} {{ $raw }}; wick min {{ $stats.min }} to max {{ $stats.max }}; body mean {{ $stats.mean }} to this card; median {{ $stats.median }} ({{ $stats.n }} cards)"
+        aria-label="{{ $label }} {{ $raw }}; wick min {{ $stats.min }} to max {{ $stats.max }}; body mean {{ $stats.mean }} to this card; median {{ $stats.median }} ({{ $stats.n }} {{ $band }} cards)"
       >
         <div class="roster-aa__candle-plot">
           <svg class="roster-aa__candle-svg" viewBox="0 0 {{ $w }} 24" aria-hidden="true" preserveAspectRatio="none">

@@ -1,874 +1,1016 @@
 {
-  "generated_at": "2026-11-06",
+  "candle_min_n": 3,
   "cards": {
     "claude-haiku-5.5": {
       "aa_intelligence": 36.5,
+      "alternative": {
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "creator": "OpenAI",
+        "effort": "medium",
+        "name": "GPT-6.1 Terra (Medium)",
+        "slug": "gpt-6-1-terra-medium",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "category": "cheap",
       "cost_per_task": 0.411,
       "creator": "Anthropic",
       "effort": "max",
-      "url": "https://artificialanalysis.ai/models/claude-haiku-5-5",
-      "alternative": {
-        "name": "GPT-6.1 Terra (Medium)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-1-terra-medium",
-        "effort": "medium",
-        "aa_intelligence": 38.2,
-        "cost_per_task": 0.1688,
-        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
-      },
-      "similar": {
-        "name": "Grok 4.7 (Xhigh)",
-        "creator": "SpaceXAI",
-        "slug": "grok-4-7",
-        "effort": "xhigh",
-        "aa_intelligence": 35.5,
-        "cost_per_task": 7.7715,
-        "url": "https://artificialanalysis.ai/models/grok-4-7"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 36.5,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 43.6,
-          "artificial_analysis_strategy_and_ops_index": 39.1,
-          "artificial_analysis_legal_index": 38.7,
-          "artificial_analysis_healthcare_and_medical_index": 37.5,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 42.7,
           "artificial_analysis_engineering_index": 42.5,
-          "artificial_analysis_economics_index": 42.7
+          "artificial_analysis_finance_and_accounting_index": 43.6,
+          "artificial_analysis_healthcare_and_medical_index": 37.5,
+          "artificial_analysis_intelligence_index": 36.5,
+          "artificial_analysis_legal_index": 38.7,
+          "artificial_analysis_strategy_and_ops_index": 39.1
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 279.77,
+          "median_output_tokens_per_second": 232.23,
+          "median_time_to_first_answer_token_seconds": 277.62,
+          "median_time_to_first_token_seconds": 277.62
         },
         "pricing": {
           "price_1m_input_tokens": 0.1,
           "price_1m_output_tokens": 0.5
-        },
-        "performance": {
-          "median_output_tokens_per_second": 232.23,
-          "median_time_to_first_token_seconds": 277.62,
-          "median_time_to_first_answer_token_seconds": 277.62,
-          "median_end_to_end_response_time_seconds": 279.77
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 35.5,
+        "cost_per_task": 7.7715,
+        "creator": "SpaceXAI",
+        "effort": "xhigh",
+        "name": "Grok 4.7 (Xhigh)",
+        "slug": "grok-4-7",
+        "url": "https://artificialanalysis.ai/models/grok-4-7"
+      },
+      "url": "https://artificialanalysis.ai/models/claude-haiku-5-5"
     },
     "cursor-composer-2.5-fast": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-gemini-3-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-gemini-3.1-pro": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-gpt-5.4-mini-medium": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-gpt-5.6-luna-high": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-gpt-5.6-terra-medium": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-grok-4.6-high": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "cursor-kimi-k2.7-code": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "unpriced",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "deepseek-v4-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "DeepSeek",
       "effort": "max",
-      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 22.27,
+          "median_output_tokens_per_second": 120.49,
+          "median_time_to_first_answer_token_seconds": 18.12,
+          "median_time_to_first_token_seconds": 1.52
         },
         "pricing": {
           "price_1m_input_tokens": 0.14,
           "price_1m_output_tokens": 0.28
-        },
-        "performance": {
-          "median_output_tokens_per_second": 120.49,
-          "median_time_to_first_token_seconds": 1.52,
-          "median_time_to_first_answer_token_seconds": 18.12,
-          "median_end_to_end_response_time_seconds": 22.27
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash"
     },
     "gemini-2.5-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "reasoning",
-      "url": "https://artificialanalysis.ai/models/gemini-2-5-flash-reasoning",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 24.89,
+          "median_output_tokens_per_second": 198.64,
+          "median_time_to_first_answer_token_seconds": 22.37,
+          "median_time_to_first_token_seconds": 22.37
         },
         "pricing": {
           "price_1m_input_tokens": 0.3,
           "price_1m_output_tokens": 2.5
-        },
-        "performance": {
-          "median_output_tokens_per_second": 198.64,
-          "median_time_to_first_token_seconds": 22.37,
-          "median_time_to_first_answer_token_seconds": 22.37,
-          "median_end_to_end_response_time_seconds": 24.89
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gemini-2-5-flash-reasoning"
     },
     "gemini-2.5-pro": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "",
-      "url": "https://artificialanalysis.ai/models/gemini-2-5-pro",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 29.21,
+          "median_output_tokens_per_second": 111.22,
+          "median_time_to_first_answer_token_seconds": 24.72,
+          "median_time_to_first_token_seconds": 24.72
         },
         "pricing": {
           "price_1m_input_tokens": 1.25,
           "price_1m_output_tokens": 10
-        },
-        "performance": {
-          "median_output_tokens_per_second": 111.22,
-          "median_time_to_first_token_seconds": 24.72,
-          "median_time_to_first_answer_token_seconds": 24.72,
-          "median_end_to_end_response_time_seconds": 29.21
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gemini-2-5-pro"
     },
     "gemini-3-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "reasoning",
-      "url": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 8.63,
+          "median_output_tokens_per_second": 182.24,
+          "median_time_to_first_answer_token_seconds": 5.89,
+          "median_time_to_first_token_seconds": 5.89
         },
         "pricing": {
           "price_1m_input_tokens": 0.5,
           "price_1m_output_tokens": 3
-        },
-        "performance": {
-          "median_output_tokens_per_second": 182.24,
-          "median_time_to_first_token_seconds": 5.89,
-          "median_time_to_first_answer_token_seconds": 5.89,
-          "median_end_to_end_response_time_seconds": 8.63
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning"
     },
     "gemini-3.1-pro": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "gemini-3.8-flash": {
       "aa_intelligence": 30.8,
+      "alternative": {
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "creator": "OpenAI",
+        "effort": "medium",
+        "name": "GPT-6.1 Terra (Medium)",
+        "slug": "gpt-6-1-terra-medium",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "category": "cheap",
       "cost_per_task": 7.766,
       "creator": "Google",
       "effort": "high",
-      "url": "https://artificialanalysis.ai/models/gemini-3-8-flash",
-      "alternative": {
-        "name": "GPT-6.1 Terra (Medium)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-1-terra-medium",
-        "effort": "medium",
-        "aa_intelligence": 38.2,
-        "cost_per_task": 0.1688,
-        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
-      },
-      "similar": {
-        "name": "Claude Sonnet 5.5 (Medium, Default Fallback)",
-        "creator": "Anthropic",
-        "slug": "claude-sonnet-5-5-medium",
-        "effort": "medium",
-        "aa_intelligence": 30.8,
-        "cost_per_task": 0.7807,
-        "url": "https://artificialanalysis.ai/models/claude-sonnet-5-5-medium"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 30.8,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 42.4,
-          "artificial_analysis_strategy_and_ops_index": 46.5,
-          "artificial_analysis_legal_index": 41.7,
-          "artificial_analysis_healthcare_and_medical_index": 38.3,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 40.1,
           "artificial_analysis_engineering_index": 38.8,
-          "artificial_analysis_economics_index": 40.1
+          "artificial_analysis_finance_and_accounting_index": 42.4,
+          "artificial_analysis_healthcare_and_medical_index": 38.3,
+          "artificial_analysis_intelligence_index": 30.8,
+          "artificial_analysis_legal_index": 41.7,
+          "artificial_analysis_strategy_and_ops_index": 46.5
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 31.01,
+          "median_output_tokens_per_second": 113.32,
+          "median_time_to_first_answer_token_seconds": 26.6,
+          "median_time_to_first_token_seconds": 26.6
         },
         "pricing": {
           "price_1m_input_tokens": 0.75,
           "price_1m_output_tokens": 3.75
-        },
-        "performance": {
-          "median_output_tokens_per_second": 113.32,
-          "median_time_to_first_token_seconds": 26.6,
-          "median_time_to_first_answer_token_seconds": 26.6,
-          "median_end_to_end_response_time_seconds": 31.01
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 30.8,
+        "cost_per_task": 0.7807,
+        "creator": "Anthropic",
+        "effort": "medium",
+        "name": "Claude Sonnet 5.5 (Medium, Default Fallback)",
+        "slug": "claude-sonnet-5-5-medium",
+        "url": "https://artificialanalysis.ai/models/claude-sonnet-5-5-medium"
+      },
+      "url": "https://artificialanalysis.ai/models/gemini-3-8-flash"
     },
     "gemma-3-27b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "",
-      "url": "https://artificialanalysis.ai/models/gemma-3-27b",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": null,
+          "median_output_tokens_per_second": null,
+          "median_time_to_first_answer_token_seconds": null,
+          "median_time_to_first_token_seconds": null
         },
         "pricing": {
           "price_1m_input_tokens": 0,
           "price_1m_output_tokens": 0
-        },
-        "performance": {
-          "median_output_tokens_per_second": null,
-          "median_time_to_first_token_seconds": null,
-          "median_time_to_first_answer_token_seconds": null,
-          "median_end_to_end_response_time_seconds": null
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gemma-3-27b"
     },
     "gemma-4-26b-a4b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "reasoning",
-      "url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 29.34,
+          "median_output_tokens_per_second": 88.03,
+          "median_time_to_first_answer_token_seconds": 23.66,
+          "median_time_to_first_token_seconds": 0.94
         },
         "pricing": {
           "price_1m_input_tokens": 0.1,
           "price_1m_output_tokens": 0.34
-        },
-        "performance": {
-          "median_output_tokens_per_second": 88.03,
-          "median_time_to_first_token_seconds": 0.94,
-          "median_time_to_first_answer_token_seconds": 23.66,
-          "median_end_to_end_response_time_seconds": 29.34
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b"
     },
     "gemma-4-31b": {
       "aa_intelligence": 4.4,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Google",
       "effort": "reasoning",
-      "url": "https://artificialanalysis.ai/models/gemma-4-31b",
-      "alternative": null,
-      "similar": {
-        "name": "Mistral Small 4 (Reasoning)",
-        "creator": "Mistral",
-        "slug": "mistral-small-4",
-        "effort": "reasoning",
-        "aa_intelligence": 4.3,
-        "cost_per_task": 0.0399,
-        "url": "https://artificialanalysis.ai/models/mistral-small-4"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 4.4,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 8.2,
-          "artificial_analysis_strategy_and_ops_index": 6.9,
-          "artificial_analysis_legal_index": 7.3,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 9.5,
           "artificial_analysis_engineering_index": 11.9,
-          "artificial_analysis_economics_index": 9.5
+          "artificial_analysis_finance_and_accounting_index": 8.2,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": 4.4,
+          "artificial_analysis_legal_index": 7.3,
+          "artificial_analysis_strategy_and_ops_index": 6.9
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 64.08,
+          "median_output_tokens_per_second": 35.46,
+          "median_time_to_first_answer_token_seconds": 49.98,
+          "median_time_to_first_token_seconds": 1.02
         },
         "pricing": {
           "price_1m_input_tokens": 0,
           "price_1m_output_tokens": 0
-        },
-        "performance": {
-          "median_output_tokens_per_second": 35.46,
-          "median_time_to_first_token_seconds": 1.02,
-          "median_time_to_first_answer_token_seconds": 49.98,
-          "median_end_to_end_response_time_seconds": 64.08
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 4.3,
+        "cost_per_task": 0.0399,
+        "creator": "Mistral",
+        "effort": "reasoning",
+        "name": "Mistral Small 4 (Reasoning)",
+        "slug": "mistral-small-4",
+        "url": "https://artificialanalysis.ai/models/mistral-small-4"
+      },
+      "url": "https://artificialanalysis.ai/models/gemma-4-31b"
     },
     "glm-4.7-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "Z AI",
       "effort": "reasoning",
-      "url": "https://artificialanalysis.ai/models/glm-4-7-flash",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 31.35,
+          "median_output_tokens_per_second": 82.61,
+          "median_time_to_first_answer_token_seconds": 25.3,
+          "median_time_to_first_token_seconds": 1.09
         },
         "pricing": {
           "price_1m_input_tokens": 0.07,
           "price_1m_output_tokens": 0.4
-        },
-        "performance": {
-          "median_output_tokens_per_second": 82.61,
-          "median_time_to_first_token_seconds": 1.09,
-          "median_time_to_first_answer_token_seconds": 25.3,
-          "median_end_to_end_response_time_seconds": 31.35
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/glm-4-7-flash"
     },
     "glm-5.3-flash": {
       "aa_intelligence": 27.8,
+      "alternative": {
+        "aa_intelligence": 29.4,
+        "cost_per_task": 0.0713,
+        "creator": "OpenAI",
+        "effort": "low",
+        "name": "GPT-6.1 Terra (Low)",
+        "slug": "gpt-6-1-terra-low",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-low"
+      },
+      "category": "cheap",
       "cost_per_task": 0.5833,
       "creator": "Z AI",
       "effort": "",
-      "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
-      "alternative": {
-        "name": "GPT-6.1 Terra (Low)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-1-terra-low",
-        "effort": "low",
-        "aa_intelligence": 29.4,
-        "cost_per_task": 0.0713,
-        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-low"
-      },
-      "similar": {
-        "name": "GPT-6 Luna (Max)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-luna",
-        "effort": "max",
-        "aa_intelligence": 27.9,
-        "cost_per_task": 0.152,
-        "url": "https://artificialanalysis.ai/models/gpt-6-luna"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 27.8,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 38.8,
-          "artificial_analysis_strategy_and_ops_index": 44.5,
-          "artificial_analysis_legal_index": 34.8,
-          "artificial_analysis_healthcare_and_medical_index": 36.6,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 35.3,
           "artificial_analysis_engineering_index": 34.5,
-          "artificial_analysis_economics_index": 35.3
+          "artificial_analysis_finance_and_accounting_index": 38.8,
+          "artificial_analysis_healthcare_and_medical_index": 36.6,
+          "artificial_analysis_intelligence_index": 27.8,
+          "artificial_analysis_legal_index": 34.8,
+          "artificial_analysis_strategy_and_ops_index": 44.5
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 39.63,
+          "median_output_tokens_per_second": 65.48,
+          "median_time_to_first_answer_token_seconds": 32,
+          "median_time_to_first_token_seconds": 1.45
         },
         "pricing": {
           "price_1m_input_tokens": 0.15,
           "price_1m_output_tokens": 0.5
-        },
-        "performance": {
-          "median_output_tokens_per_second": 65.48,
-          "median_time_to_first_token_seconds": 1.45,
-          "median_time_to_first_answer_token_seconds": 32,
-          "median_end_to_end_response_time_seconds": 39.63
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 27.9,
+        "cost_per_task": 0.152,
+        "creator": "OpenAI",
+        "effort": "max",
+        "name": "GPT-6 Luna (Max)",
+        "slug": "gpt-6-luna",
+        "url": "https://artificialanalysis.ai/models/gpt-6-luna"
+      },
+      "url": "https://artificialanalysis.ai/models/glm-5-3-flash"
     },
     "gpt-oss-20b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "OpenAI",
       "effort": "high",
-      "url": "https://artificialanalysis.ai/models/gpt-oss-20b",
-      "alternative": null,
-      "similar": null,
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": null,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": null,
-          "artificial_analysis_strategy_and_ops_index": null,
-          "artificial_analysis_legal_index": null,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": null,
           "artificial_analysis_engineering_index": null,
-          "artificial_analysis_economics_index": null
+          "artificial_analysis_finance_and_accounting_index": null,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": null,
+          "artificial_analysis_legal_index": null,
+          "artificial_analysis_strategy_and_ops_index": null
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 19.39,
+          "median_output_tokens_per_second": 134.13,
+          "median_time_to_first_answer_token_seconds": 15.66,
+          "median_time_to_first_token_seconds": 0.75
         },
         "pricing": {
           "price_1m_input_tokens": 0.05,
           "price_1m_output_tokens": 0.22
-        },
-        "performance": {
-          "median_output_tokens_per_second": 134.13,
-          "median_time_to_first_token_seconds": 0.75,
-          "median_time_to_first_answer_token_seconds": 15.66,
-          "median_end_to_end_response_time_seconds": 19.39
         }
-      }
+      },
+      "similar": null,
+      "url": "https://artificialanalysis.ai/models/gpt-oss-20b"
     },
     "granite-4.0-h-micro": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "granite-4.2-8b": {
       "aa_intelligence": 5.1,
+      "alternative": {
+        "aa_intelligence": 9.7,
+        "cost_per_task": 0.0051,
+        "creator": "OpenAI",
+        "effort": "low",
+        "name": "GPT-6 Luna (Low)",
+        "slug": "gpt-6-luna-low",
+        "url": "https://artificialanalysis.ai/models/gpt-6-luna-low"
+      },
+      "category": "cheap",
       "cost_per_task": 0.0405,
       "creator": "IBM",
       "effort": "",
-      "url": "https://artificialanalysis.ai/models/granite-4-2-8b",
-      "alternative": {
-        "name": "GPT-6 Luna (Low)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-luna-low",
-        "effort": "low",
-        "aa_intelligence": 9.7,
-        "cost_per_task": 0.0051,
-        "url": "https://artificialanalysis.ai/models/gpt-6-luna-low"
-      },
-      "similar": {
-        "name": "Granite 4.2 3B",
-        "creator": "IBM",
-        "slug": "granite-4-2-3b",
-        "effort": "",
-        "aa_intelligence": 4.7,
-        "cost_per_task": null,
-        "url": "https://artificialanalysis.ai/models/granite-4-2-3b"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 5.1,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 14.8,
-          "artificial_analysis_strategy_and_ops_index": 6.9,
-          "artificial_analysis_legal_index": 14.6,
-          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 14.6,
           "artificial_analysis_engineering_index": 14.6,
-          "artificial_analysis_economics_index": 14.6
+          "artificial_analysis_finance_and_accounting_index": 14.8,
+          "artificial_analysis_healthcare_and_medical_index": null,
+          "artificial_analysis_intelligence_index": 5.1,
+          "artificial_analysis_legal_index": 14.6,
+          "artificial_analysis_strategy_and_ops_index": 6.9
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 37.41,
+          "median_output_tokens_per_second": 68.14,
+          "median_time_to_first_answer_token_seconds": 30.07,
+          "median_time_to_first_token_seconds": 0.72
         },
         "pricing": {
           "price_1m_input_tokens": 0.06,
           "price_1m_output_tokens": 0.25
-        },
-        "performance": {
-          "median_output_tokens_per_second": 68.14,
-          "median_time_to_first_token_seconds": 0.72,
-          "median_time_to_first_answer_token_seconds": 30.07,
-          "median_end_to_end_response_time_seconds": 37.41
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 4.7,
+        "cost_per_task": null,
+        "creator": "IBM",
+        "effort": "",
+        "name": "Granite 4.2 3B",
+        "slug": "granite-4-2-3b",
+        "url": "https://artificialanalysis.ai/models/granite-4-2-3b"
+      },
+      "url": "https://artificialanalysis.ai/models/granite-4-2-8b"
     },
     "jev": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "classify",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "llama-3.3-70b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "llama-4-scout-17b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "mercury-decide": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "classify",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "mistral-nemo": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "spend",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "mistral-small-3.1-24b": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "cheap",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "muse-spark-1.3": {
       "aa_intelligence": 36.6,
+      "alternative": {
+        "aa_intelligence": 38.2,
+        "cost_per_task": 0.1688,
+        "creator": "OpenAI",
+        "effort": "medium",
+        "name": "GPT-6.1 Terra (Medium)",
+        "slug": "gpt-6-1-terra-medium",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
+      },
+      "category": "mid",
       "cost_per_task": 2.3858,
       "creator": "Meta",
       "effort": "max",
-      "url": "https://artificialanalysis.ai/models/muse-spark-1-3",
-      "alternative": {
-        "name": "GPT-6.1 Terra (Medium)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-1-terra-medium",
-        "effort": "medium",
-        "aa_intelligence": 38.2,
-        "cost_per_task": 0.1688,
-        "url": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium"
-      },
-      "similar": {
-        "name": "Grok 4.7 (Xhigh)",
-        "creator": "SpaceXAI",
-        "slug": "grok-4-7",
-        "effort": "xhigh",
-        "aa_intelligence": 35.5,
-        "cost_per_task": 7.7715,
-        "url": "https://artificialanalysis.ai/models/grok-4-7"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 36.6,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 48.8,
-          "artificial_analysis_strategy_and_ops_index": 50.3,
-          "artificial_analysis_legal_index": 45.2,
-          "artificial_analysis_healthcare_and_medical_index": 43.6,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 46.9,
           "artificial_analysis_engineering_index": 44.1,
-          "artificial_analysis_economics_index": 46.9
+          "artificial_analysis_finance_and_accounting_index": 48.8,
+          "artificial_analysis_healthcare_and_medical_index": 43.6,
+          "artificial_analysis_intelligence_index": 36.6,
+          "artificial_analysis_legal_index": 45.2,
+          "artificial_analysis_strategy_and_ops_index": 50.3
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 59.87,
+          "median_output_tokens_per_second": 115.43,
+          "median_time_to_first_answer_token_seconds": 55.54,
+          "median_time_to_first_token_seconds": 38.22
         },
         "pricing": {
           "price_1m_input_tokens": 1.25,
           "price_1m_output_tokens": 4.25
-        },
-        "performance": {
-          "median_output_tokens_per_second": 115.43,
-          "median_time_to_first_token_seconds": 38.22,
-          "median_time_to_first_answer_token_seconds": 55.54,
-          "median_end_to_end_response_time_seconds": 59.87
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 35.5,
+        "cost_per_task": 7.7715,
+        "creator": "SpaceXAI",
+        "effort": "xhigh",
+        "name": "Grok 4.7 (Xhigh)",
+        "slug": "grok-4-7",
+        "url": "https://artificialanalysis.ai/models/grok-4-7"
+      },
+      "url": "https://artificialanalysis.ai/models/muse-spark-1-3"
     },
     "muse-wonder": {
       "aa_intelligence": 43.6,
+      "alternative": {
+        "aa_intelligence": 46.3,
+        "cost_per_task": 0.3594,
+        "creator": "OpenAI",
+        "effort": "medium",
+        "name": "GPT-6.1 Sol (Medium)",
+        "slug": "gpt-6-1-sol-medium",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-sol-medium"
+      },
+      "category": "spend",
       "cost_per_task": 6.952,
       "creator": "Meta",
       "effort": "max",
-      "url": "https://artificialanalysis.ai/models/muse-wonder",
-      "alternative": {
-        "name": "GPT-6.1 Sol (Medium)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-1-sol-medium",
-        "effort": "medium",
-        "aa_intelligence": 46.3,
-        "cost_per_task": 0.3594,
-        "url": "https://artificialanalysis.ai/models/gpt-6-1-sol-medium"
-      },
-      "similar": {
-        "name": "GPT-6 Astra (Low)",
-        "creator": "OpenAI",
-        "slug": "gpt-6-astra-low",
-        "effort": "low",
-        "aa_intelligence": 43.3,
-        "cost_per_task": 1.4237,
-        "url": "https://artificialanalysis.ai/models/gpt-6-astra-low"
-      },
       "overview": {
         "evaluations": {
-          "artificial_analysis_intelligence_index": 43.6,
-          "artificial_analysis_coding_index": null,
           "artificial_analysis_agentic_index": null,
-          "artificial_analysis_finance_and_accounting_index": 51.1,
-          "artificial_analysis_strategy_and_ops_index": 54.5,
-          "artificial_analysis_legal_index": 46.9,
-          "artificial_analysis_healthcare_and_medical_index": 48.7,
+          "artificial_analysis_coding_index": null,
+          "artificial_analysis_economics_index": 49.5,
           "artificial_analysis_engineering_index": 49.6,
-          "artificial_analysis_economics_index": 49.5
+          "artificial_analysis_finance_and_accounting_index": 51.1,
+          "artificial_analysis_healthcare_and_medical_index": 48.7,
+          "artificial_analysis_intelligence_index": 43.6,
+          "artificial_analysis_legal_index": 46.9,
+          "artificial_analysis_strategy_and_ops_index": 54.5
+        },
+        "performance": {
+          "median_end_to_end_response_time_seconds": 51.73,
+          "median_output_tokens_per_second": 129.27,
+          "median_time_to_first_answer_token_seconds": 47.87,
+          "median_time_to_first_token_seconds": 32.39
         },
         "pricing": {
           "price_1m_input_tokens": 4,
           "price_1m_output_tokens": 20
-        },
-        "performance": {
-          "median_output_tokens_per_second": 129.27,
-          "median_time_to_first_token_seconds": 32.39,
-          "median_time_to_first_answer_token_seconds": 47.87,
-          "median_end_to_end_response_time_seconds": 51.73
         }
-      }
+      },
+      "similar": {
+        "aa_intelligence": 43.3,
+        "cost_per_task": 1.4237,
+        "creator": "OpenAI",
+        "effort": "low",
+        "name": "GPT-6 Astra (Low)",
+        "slug": "gpt-6-astra-low",
+        "url": "https://artificialanalysis.ai/models/gpt-6-astra-low"
+      },
+      "url": "https://artificialanalysis.ai/models/muse-wonder"
     },
     "pplx-decider": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "classify",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     },
     "pplx-decider-flash": {
       "aa_intelligence": null,
+      "alternative": null,
+      "category": "classify",
       "cost_per_task": null,
       "creator": "",
       "effort": "",
-      "url": "",
-      "alternative": null,
+      "overview": null,
       "similar": null,
-      "overview": null
+      "url": ""
     }
   },
+  "generated_at": "2026-11-06",
   "stats": {
     "evaluations": {
-      "artificial_analysis_intelligence_index": {
-        "min": 4.4,
-        "max": 43.6,
-        "median": 30.8,
-        "mean": 26.4,
+      "artificial_analysis_economics_index": {
+        "max": 49.5,
+        "mean": 34.0857,
+        "median": 40.1,
+        "min": 9.5,
+        "n": 7
+      },
+      "artificial_analysis_engineering_index": {
+        "max": 49.6,
+        "mean": 33.7143,
+        "median": 38.8,
+        "min": 11.9,
         "n": 7
       },
       "artificial_analysis_finance_and_accounting_index": {
-        "min": 8.2,
         "max": 51.1,
-        "median": 42.4,
         "mean": 35.3857,
-        "n": 7
-      },
-      "artificial_analysis_strategy_and_ops_index": {
-        "min": 6.9,
-        "max": 54.5,
-        "median": 44.5,
-        "mean": 35.5286,
-        "n": 7
-      },
-      "artificial_analysis_legal_index": {
-        "min": 7.3,
-        "max": 46.9,
-        "median": 38.7,
-        "mean": 32.7429,
+        "median": 42.4,
+        "min": 8.2,
         "n": 7
       },
       "artificial_analysis_healthcare_and_medical_index": {
-        "min": 36.6,
         "max": 48.7,
-        "median": 38.3,
         "mean": 40.94,
+        "median": 38.3,
+        "min": 36.6,
         "n": 5
       },
-      "artificial_analysis_engineering_index": {
-        "min": 11.9,
-        "max": 49.6,
-        "median": 38.8,
-        "mean": 33.7143,
+      "artificial_analysis_intelligence_index": {
+        "max": 43.6,
+        "mean": 26.4,
+        "median": 30.8,
+        "min": 4.4,
         "n": 7
       },
-      "artificial_analysis_economics_index": {
-        "min": 9.5,
-        "max": 49.5,
-        "median": 40.1,
-        "mean": 34.0857,
+      "artificial_analysis_legal_index": {
+        "max": 46.9,
+        "mean": 32.7429,
+        "median": 38.7,
+        "min": 7.3,
         "n": 7
-      }
-    },
-    "pricing": {
-      "price_1m_input_tokens": {
-        "min": 0,
-        "max": 4,
-        "median": 0.14,
-        "mean": 0.5813,
-        "n": 15
       },
-      "price_1m_output_tokens": {
-        "min": 0,
-        "max": 20,
-        "median": 0.5,
-        "mean": 3.066,
-        "n": 15
-      },
-      "cost_per_task": {
-        "min": 0.0405,
-        "max": 7.766,
-        "median": 1.4846,
-        "mean": 3.0231,
-        "n": 6
+      "artificial_analysis_strategy_and_ops_index": {
+        "max": 54.5,
+        "mean": 35.5286,
+        "median": 44.5,
+        "min": 6.9,
+        "n": 7
       }
     },
     "performance": {
-      "median_output_tokens_per_second": {
-        "min": 35.46,
-        "max": 232.23,
-        "median": 114.375,
-        "mean": 119.7636,
+      "median_end_to_end_response_time_seconds": {
+        "max": 279.77,
+        "mean": 52.0414,
+        "median": 31.18,
+        "min": 8.63,
         "n": 14
       },
-      "median_time_to_first_token_seconds": {
-        "min": 0.72,
-        "max": 277.62,
-        "median": 3.705,
-        "mean": 31.0929,
+      "median_output_tokens_per_second": {
+        "max": 232.23,
+        "mean": 119.7636,
+        "median": 114.375,
+        "min": 35.46,
         "n": 14
       },
       "median_time_to_first_answer_token_seconds": {
-        "min": 5.89,
         "max": 277.62,
-        "median": 25.95,
         "mean": 46.8143,
+        "median": 25.95,
+        "min": 5.89,
         "n": 14
       },
-      "median_end_to_end_response_time_seconds": {
-        "min": 8.63,
-        "max": 279.77,
-        "median": 31.18,
-        "mean": 52.0414,
+      "median_time_to_first_token_seconds": {
+        "max": 277.62,
+        "mean": 31.0929,
+        "median": 3.705,
+        "min": 0.72,
         "n": 14
+      }
+    },
+    "pricing": {
+      "cost_per_task": {
+        "max": 7.766,
+        "mean": 3.0231,
+        "median": 1.4846,
+        "min": 0.0405,
+        "n": 6
+      },
+      "price_1m_input_tokens": {
+        "max": 4,
+        "mean": 0.5813,
+        "median": 0.14,
+        "min": 0,
+        "n": 15
+      },
+      "price_1m_output_tokens": {
+        "max": 20,
+        "mean": 3.066,
+        "median": 0.5,
+        "min": 0,
+        "n": 15
+      }
+    }
+  },
+  "stats_by_category": {
+    "cheap": {
+      "evaluations": {
+        "artificial_analysis_economics_index": {
+          "max": 42.7,
+          "mean": 28.44,
+          "median": 35.3,
+          "min": 9.5,
+          "n": 5
+        },
+        "artificial_analysis_engineering_index": {
+          "max": 42.5,
+          "mean": 28.46,
+          "median": 34.5,
+          "min": 11.9,
+          "n": 5
+        },
+        "artificial_analysis_finance_and_accounting_index": {
+          "max": 43.6,
+          "mean": 29.56,
+          "median": 38.8,
+          "min": 8.2,
+          "n": 5
+        },
+        "artificial_analysis_healthcare_and_medical_index": {
+          "max": 38.3,
+          "mean": 37.4667,
+          "median": 37.5,
+          "min": 36.6,
+          "n": 3
+        },
+        "artificial_analysis_intelligence_index": {
+          "max": 36.5,
+          "mean": 20.92,
+          "median": 27.8,
+          "min": 4.4,
+          "n": 5
+        },
+        "artificial_analysis_legal_index": {
+          "max": 41.7,
+          "mean": 27.42,
+          "median": 34.8,
+          "min": 7.3,
+          "n": 5
+        },
+        "artificial_analysis_strategy_and_ops_index": {
+          "max": 46.5,
+          "mean": 28.78,
+          "median": 39.1,
+          "min": 6.9,
+          "n": 5
+        }
+      },
+      "performance": {
+        "median_end_to_end_response_time_seconds": {
+          "max": 279.77,
+          "mean": 51.415,
+          "median": 30.175,
+          "min": 8.63,
+          "n": 12
+        },
+        "median_output_tokens_per_second": {
+          "max": 232.23,
+          "mean": 119.3325,
+          "median": 112.27,
+          "min": 35.46,
+          "n": 12
+        },
+        "median_time_to_first_answer_token_seconds": {
+          "max": 277.62,
+          "mean": 45.9992,
+          "median": 25.01,
+          "min": 5.89,
+          "n": 12
+        },
+        "median_time_to_first_token_seconds": {
+          "max": 277.62,
+          "mean": 30.3908,
+          "median": 1.485,
+          "min": 0.72,
+          "n": 12
+        }
+      },
+      "pricing": {
+        "cost_per_task": {
+          "max": 7.766,
+          "mean": 2.2002,
+          "median": 0.4972,
+          "min": 0.0405,
+          "n": 4
+        },
+        "price_1m_input_tokens": {
+          "max": 1.25,
+          "mean": 0.2669,
+          "median": 0.1,
+          "min": 0,
+          "n": 13
+        },
+        "price_1m_output_tokens": {
+          "max": 10,
+          "mean": 1.6723,
+          "median": 0.4,
+          "min": 0,
+          "n": 13
+        }
       }
     }
   }

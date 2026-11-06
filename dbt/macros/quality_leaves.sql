@@ -10,6 +10,7 @@
   'quality.typed_decision.recall',
   'quality.typed_decision.brier_loss',
   'quality.typed_decision.ordinal_mae',
+  'quality.speech.human_preference',
 ] %}
 {% set performance_leaf_ids = [
   'performance.end_to_end_latency_ms',

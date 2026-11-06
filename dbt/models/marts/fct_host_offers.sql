@@ -10,7 +10,8 @@ flags as (
     coalesce(list_contains(jobs, 'chat'), false) as job_chat,
     coalesce(list_contains(jobs, 'reasoning'), false) as job_reasoning,
     coalesce(list_contains(jobs, 'coding'), false) as job_coding,
-    coalesce(list_contains(jobs, 'classify'), false) as job_classify
+    coalesce(list_contains(jobs, 'classify'), false) as job_classify,
+    coalesce(list_contains(jobs, 'tts'), false) as job_tts
   from staged
 ),
 cap_lists as (
@@ -22,21 +23,24 @@ cap_lists as (
     ) as input_modalities,
     list_concat(
       list_concat(
+        list_concat(
+          case
+            when job_chat or job_reasoning then list_value('generated_text')
+            else list_value()
+          end,
+          case when job_coding then list_value('code') else list_value() end
+        ),
         case
-          when job_chat or job_reasoning then list_value('generated_text')
+          when job_classify
+            then list_value(
+              'binary_probability',
+              'categorical_distribution',
+              'ordinal_distribution'
+            )
           else list_value()
-        end,
-        case when job_coding then list_value('code') else list_value() end
+        end
       ),
-      case
-        when job_classify
-          then list_value(
-            'binary_probability',
-            'categorical_distribution',
-            'ordinal_distribution'
-          )
-        else list_value()
-      end
+      case when job_tts then list_value('speech') else list_value() end
     ) as output_contracts,
     list_value('single_response') as execution_modes
   from flags
@@ -73,6 +77,7 @@ leaves as (
     job_vision as multimodal_applicable,
     job_coding as coding_applicable,
     job_classify as classify_applicable,
+    job_tts as speech_applicable,
     (job_chat or job_reasoning) as ttft_applicable
   from cap_named
 ),
@@ -119,7 +124,9 @@ assembled as (
       'quality.typed_decision.brier_loss',
       {{ quality_leaf('classify_applicable', 'null::double', 'typed_decision:unknown') }},
       'quality.typed_decision.ordinal_mae',
-      {{ quality_leaf('classify_applicable', 'null::double', 'typed_decision:unknown') }}
+      {{ quality_leaf('classify_applicable', 'null::double', 'typed_decision:unknown') }},
+      'quality.speech.human_preference',
+      {{ quality_leaf('speech_applicable', 'null::double', 'speech_preference:unknown') }}
     ) as quality,
     json_object(
       'performance.end_to_end_latency_ms',

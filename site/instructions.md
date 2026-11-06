@@ -45,7 +45,6 @@ site/
   hugo.toml
   go.mod / go.sum
   Makefile                 # generate-roster, serve, build, clean
-  scripts/generate-roster.py
   instructions.md
   content/
     _index.md              # Homepage
@@ -99,11 +98,11 @@ make docker-push
 make docker-push-target TARGET=gemma4-12B-serve
 ```
 
-Hugo Extended, Go, and Python 3 are required for the site build (modules + roster remap).
+Hugo Extended and Go are required for the site build (modules + roster mill).
 
 ## Why roster is generated
 
-Hugo treats frontmatter `kind` as the page kind. Roster cards use `kind` for `sovereign` / `provider` / `service`. `scripts/generate-roster.py` validates cards, copies `roster/` into `generated/roster/` (rewrites `kind` to `roster_kind`), and writes `roster/catalog.json`, `roster/INDEX.md`, and `site/static/roster.json` for `/roster.json`. Install deps once via `make -C site venv-roster` (creates `site/.venv` from `requirements-roster.txt`).
+Hugo treats frontmatter `kind` as the page kind. Roster cards use `kind` for `sovereign` / `provider` / `service`. `tools/roster-mill` validates cards, copies `roster/` into `generated/roster/` (rewrites `kind` to `roster_kind`), and writes `roster/catalog.json`, `roster/INDEX.md`, and `site/static/roster.json` for `/roster.json`. Run `make -C site generate-roster` (Go; no Python venv).
 
 ## GitHub Pages
 

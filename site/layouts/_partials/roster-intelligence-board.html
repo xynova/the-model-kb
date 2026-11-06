@@ -5,7 +5,7 @@
   {{- $unknown := slice -}}
   {{- range .Sections -}}
     {{- range .RegularPages -}}
-      {{- if and .Params.roster_kind (not (in .Params.jobs "classify")) -}}
+      {{- if and .Params.roster_kind (not (in .Params.jobs "classify")) (not (in .Params.jobs "tts")) -}}
       {{- $raw := .Params.aa_intelligence -}}
       {{- $hosts := slice -}}
       {{- $cheapSum := 0.0 -}}
@@ -97,8 +97,8 @@
       <div class="roster-intel__stat-label">No AA index</div>
     </div>
     <div class="roster-intel__stat">
-      <div class="roster-intel__stat-value">5</div>
-      <div class="roster-intel__stat-label">Price shelves</div>
+      <div class="roster-intel__stat-value">6</div>
+      <div class="roster-intel__stat-label">Shelves</div>
     </div>
     <div class="roster-intel__stat">
       <div class="roster-intel__stat-value">{{ or $highest "-" }}</div>
