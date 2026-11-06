@@ -1,6 +1,6 @@
 {{- $inRoster := eq .Section "roster" -}}
 {{- if and $inRoster (gt (len .RegularPages) 0) -}}
-<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}?v=candle-fill">
 <div data-roster-filter-root>
 {{ partial "roster-filter-bar.html" . }}
 <section class="roster-index" aria-label="Roster index">

@@ -1,0 +1,134 @@
+{{- /* Filed Artificial Analysis Data API overview on roster model pages. */ -}}
+{{- $isRoster := eq .Section "roster" -}}
+{{- $isEntry := and $isRoster .Params.roster_kind -}}
+{{- $name := .Params.name | default .File.ContentBaseName -}}
+{{- $card := dict -}}
+{{- $stats := dict -}}
+{{- with site.Data.aa_compare -}}
+  {{- with .cards -}}
+    {{- $card = index . $name | default dict -}}
+  {{- end -}}
+  {{- with .stats -}}
+    {{- $stats = . -}}
+  {{- end -}}
+{{- end -}}
+{{- $overview := $card.overview -}}
+{{- $hasCandle := partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+{{- if and $isEntry $overview $hasCandle -}}
+{{- $evals := $overview.evaluations | default dict -}}
+{{- $pricing := $overview.pricing | default dict -}}
+{{- $perf := $overview.performance | default dict -}}
+{{- $evalStats := $stats.evaluations | default dict -}}
+{{- $priceStats := $stats.pricing | default dict -}}
+{{- $perfStats := $stats.performance | default dict -}}
+{{- $indexRows := slice
+  (dict "key" "artificial_analysis_intelligence_index" "label" "Intelligence Index")
+  (dict "key" "artificial_analysis_coding_index" "label" "Coding Index")
+  (dict "key" "artificial_analysis_agentic_index" "label" "Agentic Index")
+  (dict "key" "artificial_analysis_engineering_index" "label" "Engineering")
+  (dict "key" "artificial_analysis_finance_and_accounting_index" "label" "Finance and accounting")
+  (dict "key" "artificial_analysis_strategy_and_ops_index" "label" "Strategy and ops")
+  (dict "key" "artificial_analysis_legal_index" "label" "Legal")
+  (dict "key" "artificial_analysis_healthcare_and_medical_index" "label" "Healthcare")
+  (dict "key" "artificial_analysis_economics_index" "label" "Economics")
+-}}
+{{- $perfRows := slice
+  (dict "key" "median_output_tokens_per_second" "label" "Output tokens per second")
+  (dict "key" "median_time_to_first_token_seconds" "label" "Time to first token (s)")
+  (dict "key" "median_time_to_first_answer_token_seconds" "label" "Time to first answer token (s)")
+  (dict "key" "median_end_to_end_response_time_seconds" "label" "End-to-end response (s)")
+-}}
+<section class="roster-aa not-prose" aria-label="Artificial Analysis reports">
+  <h2 class="roster-aa__heading" id="what-artificial-analysis-reports">What Artificial Analysis reports</h2>
+  <p class="roster-aa__lede">
+    Filed numbers from the Artificial Analysis Data API
+    {{- with $card.effort }} for the {{ . }} cut{{ end -}}
+    {{- with $card.creator }} ({{ . }}){{ end }}.
+    Performance medians are across hosts AA measures, not our host list.
+    {{- with $card.url }}
+      <a href="{{ . }}" rel="noopener noreferrer">Model page</a>
+    {{- end }}
+  </p>
+  <ul class="roster-aa__key" aria-label="Candlestick key">
+    <li><span class="roster-aa__swatch roster-aa__swatch--wick" aria-hidden="true"></span> Gray wick: roster min to max</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--body-up" aria-hidden="true"></span> Blue body: this card above the mean</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--body-down" aria-hidden="true"></span> Rose body: this card below the mean</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--median" aria-hidden="true"></span> Amber tick: roster median</li>
+    <li><span class="roster-aa__swatch roster-aa__swatch--value" aria-hidden="true"></span> Dot: this card</li>
+  </ul>
+  <div class="roster-aa__grid">
+    <div class="roster-aa__col">
+      <h3 class="roster-aa__sub">Indices</h3>
+      <table class="roster-aa__table">
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">This card</th>
+            <th scope="col">Roster candle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range $indexRows -}}
+            {{ partial "roster-aa-metric.html" (dict
+              "label" .label
+              "value" (index $evals .key)
+              "stats" (index $evalStats .key)
+            ) }}
+          {{- end -}}
+        </tbody>
+      </table>
+    </div>
+    <div class="roster-aa__col">
+      <h3 class="roster-aa__sub">AA list price and cost</h3>
+      <table class="roster-aa__table">
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">This card</th>
+            <th scope="col">Roster candle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ partial "roster-aa-metric.html" (dict
+            "label" "AA cost per Intelligence task"
+            "value" $card.cost_per_task
+            "money" true
+            "stats" (index $priceStats "cost_per_task")
+          ) }}
+          {{ partial "roster-aa-metric.html" (dict
+            "label" "AA list $/M in"
+            "value" (index $pricing "price_1m_input_tokens")
+            "money" true
+            "stats" (index $priceStats "price_1m_input_tokens")
+          ) }}
+          {{ partial "roster-aa-metric.html" (dict
+            "label" "AA list $/M out"
+            "value" (index $pricing "price_1m_output_tokens")
+            "money" true
+            "stats" (index $priceStats "price_1m_output_tokens")
+          ) }}
+        </tbody>
+      </table>
+      <h3 class="roster-aa__sub">Median performance</h3>
+      <table class="roster-aa__table">
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">This card</th>
+            <th scope="col">Roster candle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range $perfRows -}}
+            {{ partial "roster-aa-metric.html" (dict
+              "label" .label
+              "value" (index $perf .key)
+              "stats" (index $perfStats .key)
+            ) }}
+          {{- end -}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{{- end -}}

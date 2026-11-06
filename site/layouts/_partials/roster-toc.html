@@ -1,0 +1,33 @@
+{{- /* Compact on-page TOC at the top of roster model pages. */ -}}
+{{- $isRoster := eq .Section "roster" -}}
+{{- $isEntry := and $isRoster .Params.roster_kind -}}
+{{- if $isEntry -}}
+{{- $links := slice -}}
+{{- if .Params.hosts -}}
+  {{- $links = $links | append (dict "ID" "host-offers" "Title" "Host offers") -}}
+{{- end -}}
+{{- $name := .Params.name | default .File.ContentBaseName -}}
+{{- if partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+  {{- $links = $links | append (dict "ID" "what-artificial-analysis-reports" "Title" "What Artificial Analysis reports") -}}
+{{- end -}}
+{{- range .Fragments.Headings -}}
+  {{- range .Headings -}}
+    {{- if .Title -}}
+      {{- $links = $links | append . -}}
+    {{- end -}}
+    {{- range .Headings -}}
+      {{- if .Title -}}
+        {{- $links = $links | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if gt (len $links) 0 -}}
+<nav class="roster-toc not-prose" aria-label="On this page">
+  <span class="roster-toc__label">On this page</span>
+  {{- range $links -}}
+    <a href="#{{ .ID | anchorize }}">{{ .Title | safeHTML | plainify | htmlUnescape }}</a>
+  {{- end -}}
+</nav>
+{{- end -}}
+{{- end -}}

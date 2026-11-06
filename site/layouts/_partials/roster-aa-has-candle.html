@@ -1,0 +1,62 @@
+{{- /* True when this roster card would draw at least one AA candlestick. */ -}}
+{{- $name := .name -}}
+{{- $has := false -}}
+{{- $card := dict -}}
+{{- $stats := dict -}}
+{{- with site.Data.aa_compare -}}
+  {{- with .cards -}}
+    {{- $card = index . $name | default dict -}}
+  {{- end -}}
+  {{- with .stats -}}
+    {{- $stats = . -}}
+  {{- end -}}
+{{- end -}}
+{{- $overview := $card.overview -}}
+{{- if $overview -}}
+  {{- $evals := $overview.evaluations | default dict -}}
+  {{- $pricing := $overview.pricing | default dict -}}
+  {{- $perf := $overview.performance | default dict -}}
+  {{- $evalStats := $stats.evaluations | default dict -}}
+  {{- $priceStats := $stats.pricing | default dict -}}
+  {{- $perfStats := $stats.performance | default dict -}}
+  {{- $evalKeys := slice
+    "artificial_analysis_intelligence_index"
+    "artificial_analysis_coding_index"
+    "artificial_analysis_agentic_index"
+    "artificial_analysis_engineering_index"
+    "artificial_analysis_finance_and_accounting_index"
+    "artificial_analysis_strategy_and_ops_index"
+    "artificial_analysis_legal_index"
+    "artificial_analysis_healthcare_and_medical_index"
+    "artificial_analysis_economics_index"
+  -}}
+  {{- $perfKeys := slice
+    "median_output_tokens_per_second"
+    "median_time_to_first_token_seconds"
+    "median_time_to_first_answer_token_seconds"
+    "median_end_to_end_response_time_seconds"
+  -}}
+  {{- range $evalKeys -}}
+    {{- $raw := printf "%v" (index $evals .) -}}
+    {{- if and (ne $raw "<nil>") (ne $raw "<no value>") (ne $raw "") (index $evalStats .) -}}
+      {{- $has = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $perfKeys -}}
+    {{- $raw := printf "%v" (index $perf .) -}}
+    {{- if and (ne $raw "<nil>") (ne $raw "<no value>") (ne $raw "") (index $perfStats .) -}}
+      {{- $has = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $costRaw := printf "%v" $card.cost_per_task -}}
+  {{- if and (ne $costRaw "<nil>") (ne $costRaw "<no value>") (ne $costRaw "") (index $priceStats "cost_per_task") -}}
+    {{- $has = true -}}
+  {{- end -}}
+  {{- range (slice "price_1m_input_tokens" "price_1m_output_tokens") -}}
+    {{- $raw := printf "%v" (index $pricing .) -}}
+    {{- if and (ne $raw "<nil>") (ne $raw "<no value>") (ne $raw "") (index $priceStats .) (gt (float $raw) 0.0) -}}
+      {{- $has = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $has -}}

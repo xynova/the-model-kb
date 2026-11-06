@@ -1,0 +1,78 @@
+{{- /* One AA overview row: this card's value plus a horizontal roster candlestick. */ -}}
+{{- $label := .label -}}
+{{- $raw := printf "%v" .value -}}
+{{- $has := and (ne $raw "<nil>") (ne $raw "<no value>") (ne $raw "") -}}
+{{- $money := .money | default false -}}
+{{- $stats := .stats -}}
+<tr>
+  <th scope="row">{{ $label }}</th>
+  <td>
+    {{- if $has -}}
+      {{- if $money -}}${{ end }}{{ $raw }}
+    {{- else -}}
+      -
+    {{- end -}}
+  </td>
+  <td>
+    {{- if and $has $stats -}}
+      {{- $min := float $stats.min -}}
+      {{- $max := float $stats.max -}}
+      {{- $val := float .value -}}
+      {{- $mean := float $stats.mean -}}
+      {{- $median := float $stats.median -}}
+      {{- $span := sub $max $min -}}
+      {{- $w := 120.0 -}}
+      {{- $xMin := 0.0 -}}
+      {{- $xMax := $w -}}
+      {{- $xVal := div $w 2.0 -}}
+      {{- $xMean := div $w 2.0 -}}
+      {{- $xMed := div $w 2.0 -}}
+      {{- if gt $span 0.0 -}}
+        {{- $xVal = mul (div (sub $val $min) $span) $w -}}
+        {{- $xMean = mul (div (sub $mean $min) $span) $w -}}
+        {{- $xMed = mul (div (sub $median $min) $span) $w -}}
+      {{- end -}}
+      {{- $bodyLeft := $xVal -}}
+      {{- if lt $xMean $bodyLeft -}}
+        {{- $bodyLeft = $xMean -}}
+      {{- end -}}
+      {{- $bodyW := $xVal -}}
+      {{- if gt $xMean $bodyW -}}
+        {{- $bodyW = $xMean -}}
+      {{- end -}}
+      {{- $bodyW = sub $bodyW $bodyLeft -}}
+      {{- if lt $bodyW 2.0 -}}
+        {{- $bodyW = 2.0 -}}
+      {{- end -}}
+      {{- $dir := "even" -}}
+      {{- if gt $val $mean -}}
+        {{- $dir = "up" -}}
+      {{- else if lt $val $mean -}}
+        {{- $dir = "down" -}}
+      {{- end -}}
+      {{- $xValPct := mul (div $xVal $w) 100.0 -}}
+      <div
+        class="roster-aa__candle roster-aa__candle--{{ $dir }}"
+        role="img"
+        aria-label="{{ $label }} {{ $raw }}; wick min {{ $stats.min }} to max {{ $stats.max }}; body mean {{ $stats.mean }} to this card; median {{ $stats.median }} ({{ $stats.n }} cards)"
+      >
+        <div class="roster-aa__candle-plot">
+          <svg class="roster-aa__candle-svg" viewBox="0 0 {{ $w }} 24" aria-hidden="true" preserveAspectRatio="none">
+            <line class="roster-aa__candle-wick" x1="{{ $xMin }}" y1="12" x2="{{ $xMax }}" y2="12" />
+            <rect class="roster-aa__candle-body" x="{{ $bodyLeft }}" y="5" width="{{ $bodyW }}" height="14" rx="1" />
+            <line class="roster-aa__candle-median" x1="{{ $xMed }}" y1="2" x2="{{ $xMed }}" y2="22" />
+          </svg>
+          <span class="roster-aa__candle-value" style="left: {{ $xValPct }}%"></span>
+        </div>
+        <span class="roster-aa__range-meta">
+          <span class="roster-aa__range-min">min {{ if $money }}${{ end }}{{ $stats.min }}</span>
+          · <span class="roster-aa__range-median">median {{ if $money }}${{ end }}{{ $stats.median }}</span>
+          · <span class="roster-aa__range-mean">mean {{ if $money }}${{ end }}{{ $stats.mean }}</span>
+          · <span class="roster-aa__range-max">max {{ if $money }}${{ end }}{{ $stats.max }}</span>
+        </span>
+      </div>
+    {{- else -}}
+      -
+    {{- end -}}
+  </td>
+</tr>

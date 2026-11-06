@@ -1,9 +1,9 @@
 {{- $isRoster := eq .Section "roster" -}}
 {{- $isEntry := and $isRoster .Params.roster_kind .Params.hosts -}}
 {{- if $isEntry -}}
-<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/roster-catalog.css" | relURL }}?v=candle-fill">
 <section class="roster-hosts" aria-label="Host offers">
-  <h2 class="roster-hosts__heading">Host offers</h2>
+  <h2 class="roster-hosts__heading" id="host-offers">Host offers</h2>
   <div class="roster-hosts__wrap">
     <table class="roster-hosts__table">
       <thead>

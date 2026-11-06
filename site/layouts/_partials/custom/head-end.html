@@ -1,0 +1,21 @@
+{{- /* Mark Cheap/Mid/Spend sidebar names that draw an AA candlestick. */ -}}
+{{- if eq .Section "roster" -}}
+  {{- $selectors := slice -}}
+  {{- range where site.RegularPages "Section" "roster" -}}
+    {{- if .Params.roster_kind -}}
+      {{- $name := .Params.name | default .File.ContentBaseName -}}
+      {{- if partialCached "roster-aa-has-candle.html" (dict "name" $name) $name -}}
+        {{- $href := .RelPermalink -}}
+        {{- $selectors = $selectors | append (printf ".hextra-sidebar-container a[href=%q]" $href) -}}
+        {{- $trimmed := strings.TrimSuffix "/" $href -}}
+        {{- if ne $trimmed $href -}}
+          {{- $selectors = $selectors | append (printf ".hextra-sidebar-container a[href=%q]" $trimmed) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $selectors) 0 -}}
+    {{- $css := printf "%s {\n  --roster-sidebar-candle-display: inline-block;\n}" (delimit $selectors ",\n") -}}
+<style id="roster-sidebar-candles">{{ $css | safeCSS }}</style>
+  {{- end -}}
+{{- end -}}
