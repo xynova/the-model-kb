@@ -4,30 +4,29 @@ title: Claude Haiku 5.5
 kind: provider
 category: cheap
 jobs:
-- cheap
-- coding
-- chat
+  - cheap
+  - coding
+  - chat
 tags:
-- llm
-- closed
-- api
-- cheap
-- coding
+  - llm
+  - closed
+  - api
+  - cheap
+  - coding
 status: watch
 lab: anthropic
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: anthropic/claude-haiku-5.5
-  price_in: 0.1
-  price_out: 0.5
-  price_note: OpenRouter headline; Anthropic and Vertex rows $0.10/$0.50 per M; cache
-    read $0.01
-  capacity: hobby
-  limits_note: OpenRouter proxies Anthropic; not a sovereign host
-  links:
-    openrouter: https://openrouter.ai/anthropic/claude-haiku-5.5
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: anthropic/claude-haiku-5.5
+    price_in: 0.55
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/anthropic/claude-haiku-5.5
 aa_intelligence: 36.5
 arena_elo: unknown
 context_window: unknown
@@ -35,9 +34,9 @@ links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/claude-haiku-5-5
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-13"
 aliases:
-- /roster/budget/claude-haiku-5.5/
+  - /roster/budget/claude-haiku-5.5/
 ---
 
 

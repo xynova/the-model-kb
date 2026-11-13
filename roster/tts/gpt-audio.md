@@ -4,28 +4,27 @@ title: GPT Audio
 kind: provider
 category: tts
 jobs:
-- tts
+  - tts
 tags:
-- audio
-- closed
-- api
+  - audio
+  - closed
+  - api
 status: watch
 lab: openai
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: openai/gpt-audio
-  price_note: OpenRouter and OpenAI list text $2.50/$10 per 1M tokens and audio $32/$64
-    per 1M tokens (pages 2026-11-06); audio-out is the speech cost, not Cheap token
-    banding
-  capacity: hobby
-  limits_note: OpenRouter proxies OpenAI; not a sovereign host; not EU in-region routing;
-    128k context; Cedar is a voice id, not a separate model
-  links:
-    openrouter: https://openrouter.ai/openai/gpt-audio
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: openai/gpt-audio
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/openai/gpt-audio
+    price_in: 0.6
+    price_out: 2.4
 source: operator TTS trial 2026-11-06
-refreshed: 2026-11-06
+refreshed: "2026-11-13"
 ---
 
 # GPT Audio

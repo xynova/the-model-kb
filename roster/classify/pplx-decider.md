@@ -4,39 +4,38 @@ title: Perplexity Decider V1.2
 kind: provider
 category: classify
 jobs:
-- classify
-- cheap
-- vision
+  - classify
+  - cheap
+  - vision
 tags:
-- llm
-- vision
-- closed
-- api
-- cheap
+  - llm
+  - vision
+  - closed
+  - api
+  - cheap
 status: watch
 lab: perplexity
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: perplexity/pplx-decider-v1.2
-  price_in: 0.02
-  price_out: 0
-  price_note: OpenRouter Perplexity list $0.02/M input, output free
-  capacity: hobby
-  limits_note: System One Decisions API, not chat completions; 262,144 context; 27B
-    cut
-  links:
-    openrouter: https://openrouter.ai/perplexity/pplx-decider-v1.2
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: perplexity/pplx-decider-v1.2
+    price_in: 0.15
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/perplexity/pplx-decider-v1.2
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 262144
 links:
   models_dev: https://models.dev/
 source: polypus systemone catalog 2026-11-05
-refreshed: 2026-11-05
+refreshed: "2026-11-13"
 aliases:
-- /roster/budget/pplx-decider/
+  - /roster/budget/pplx-decider/
 ---
 
 

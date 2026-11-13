@@ -4,63 +4,57 @@ title: Llama 4 Scout 17B
 kind: sovereign
 category: cheap
 jobs:
-- vision
+  - vision
 tags:
-- llm
-- vision
-- open
-- moe
-- cloudflare
+  - llm
+  - vision
+  - open
+  - moe
+  - cloudflare
 status: watch
 lab: meta
 preferred_host: cloudflare
 aliases:
-- /roster/multimodal/llama-4-scout-17b/
-- /roster/multimodal/llama-4-scout-17b-cf/
+  - /roster/multimodal/llama-4-scout-17b/
+  - /roster/multimodal/llama-4-scout-17b-cf/
 hosts:
-- id: cloudflare
-  runtime: cloudflare
-  runtime_model_id: '@cf/meta/llama-4-scout-17b-16e-instruct'
-  price_in: 0.27
-  price_out: 0.85
-  price_note: Workers AI Neurons at $0.011/1k; 10k Neurons/day free; 24545/77273 neurons
-    per M in/out; confirm CF pricing page
-  capacity: hobby
-  limits_note: 10k Neurons/day free tier; 131k context on Workers AI
-  links:
-    cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: meta-llama/llama-4-scout
-  price_in: 0.1
-  price_out: 0.3
-  price_note: OpenRouter list; routes DeepInfra or Vertex behind the slug; confirm
-    openrouter.ai model page
-  capacity: hobby
-  limits_note: Marketplace routing; 1.3M context on OpenRouter listing; not industrial
-    throughput
-  links:
-    openrouter: https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct
-- id: deepinfra
-  runtime: deepinfra
-  runtime_model_id: meta-llama/Llama-4-Scout-17B-16E-Instruct
-  price_in: 0.1
-  price_out: 0.3
-  price_note: DeepInfra published list; Priority 1.5x and Flex 0.8x tiers exist
-  capacity: hobby
-  limits_note: Lower list price than CF; confirm DeepInfra model page before batch
-    jobs
-  links:
-    deepinfra: https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct
-- id: xinference
-  runtime: xinference
-  price_note: Xinference AU Model API; Llama listed on request on pricing page (Oct
-    2026); no public list price filed
-  capacity: unknown
-  limits_note: Australian data centres; OpenAI-compatible API; confirm model id with
-    Xinference before use
-  links:
-    xinference: https://xinference.co/pricing.html
+  - id: cloudflare
+    runtime: cloudflare
+    runtime_model_id: '@cf/meta/llama-4-scout-17b-16e-instruct'
+    price_in: 0.1
+    price_out: 2.51
+    price_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    capacity: hobby
+    limits_note: )(); Pricing · Cloudflare Workers AI docs {"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers-ai/platform/pricing/#page","headline":"Pricing","description":"Workers AI pricing is based on
+    links:
+      cloudflare_pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta-llama/llama-4-scout
+    price_in: 0.3
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/meta-llama/llama-4-scout-17b-16e-instruct
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: meta-llama/Llama-4-Scout-17B-16E-Instruct
+    price_in: 1.0
+    price_out: 0.9
+    price_note: mation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-d4nlmw{display:-webkit-box;display:-webkit-
+    capacity: hobby
+    limits_note: mation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-d4nlmw{display:-webkit-box;display:-webkit-
+    links:
+      deepinfra: https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct
+  - id: xinference
+    runtime: xinference
+    price_note: Xinference AU Model API; Llama listed on request on pricing page (Oct 2026); no public list price filed
+    capacity: unknown
+    limits_note: ine-tune models unless you agree in writing. They’re processed in Australian data centres or on your own hardware."}},{"@type":"Question","name":"What does Enterprise add over Community?","acceptedAnswer":{"@type":"Answer","text":"Up to 2
+    links:
+      xinference: https://xinference.co/pricing.html
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 131000
@@ -68,7 +62,7 @@ links:
   artificial_analysis: https://artificialanalysis.ai/models/comparisons/llama-4-scout-vs-gpt-5
   models_dev: https://models.dev/
 source: roster seed gemma-4 segment peers 2026-09-08; scorecard refresh 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-13"
 ---
 
 

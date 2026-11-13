@@ -4,31 +4,31 @@ title: Muse Spark 1.3
 kind: provider
 category: mid
 jobs:
-- vision
-- reasoning
-- coding
-- long-context
+  - vision
+  - reasoning
+  - coding
+  - long-context
 tags:
-- llm
-- vision
-- closed
-- api
-- agentic
-- reasoning
+  - llm
+  - vision
+  - closed
+  - api
+  - agentic
+  - reasoning
 status: watch
 lab: meta
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: meta/muse-spark-1.3
-  price_in: 1.25
-  price_out: 4.25
-  price_note: OpenRouter Meta list $1.25/$4.25 per M; cache read $0.15
-  capacity: hobby
-  limits_note: 1,048,576 context; Meta is the sole OpenRouter provider on fetch
-  links:
-    openrouter: https://openrouter.ai/meta/muse-spark-1.3
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta/muse-spark-1.3
+    price_in: 4.25
+    price_out: 19.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/meta/muse-spark-1.3
 aa_intelligence: 36.6
 arena_elo: unknown
 context_window: 1048576
@@ -36,9 +36,9 @@ links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/muse-spark-1-3
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-13"
 aliases:
-- /roster/multimodal/muse-spark-1.3/
+  - /roster/multimodal/muse-spark-1.3/
 ---
 
 

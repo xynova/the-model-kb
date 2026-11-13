@@ -4,41 +4,39 @@ title: Mercury Decide
 kind: provider
 category: classify
 jobs:
-- classify
-- cheap
-- vision
+  - classify
+  - cheap
+  - vision
 tags:
-- llm
-- vision
-- closed
-- api
-- cheap
-- fast
+  - llm
+  - vision
+  - closed
+  - api
+  - cheap
+  - fast
 status: watch
 lab: inception
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: inception/mercury-decide
-  price_in: 0.02
-  price_out: 0
-  price_note: OpenRouter headline $0.02/M input, output free; 50% off vs $0.04 list
-    noted on fetch; Inception is the sole provider
-  capacity: hobby
-  limits_note: System One Decisions API, not chat completions; 65,536 context; up
-    to 14 decisions/s on the model page
-  links:
-    openrouter: https://openrouter.ai/inception/mercury-decide
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: inception/mercury-decide
+    price_in: 21.0
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/inception/mercury-decide
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 65536
 links:
   models_dev: https://models.dev/
 source: polypus systemone catalog 2026-11-05
-refreshed: 2026-11-05
+refreshed: "2026-11-13"
 aliases:
-- /roster/budget/mercury-decide/
+  - /roster/budget/mercury-decide/
 ---
 
 

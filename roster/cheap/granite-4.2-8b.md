@@ -4,31 +4,31 @@ title: Granite 4.2 8B
 kind: sovereign
 category: cheap
 jobs:
-- reasoning
-- cheap
-- chat
-- coding
+  - reasoning
+  - cheap
+  - chat
+  - coding
 tags:
-- llm
-- open
-- reasoning
-- deepinfra
-- cheap
-- agentic
+  - llm
+  - open
+  - reasoning
+  - deepinfra
+  - cheap
+  - agentic
 status: watch
 lab: ibm
 preferred_host: deepinfra
 hosts:
-- id: deepinfra
-  runtime: deepinfra
-  runtime_model_id: ibm-granite/granite-4.2-8b
-  price_in: 0.06
-  price_out: 0.25
-  price_note: DeepInfra published list; cached input $0.015/M
-  capacity: hobby
-  limits_note: 131,072 native context; Apache 2.0; thinking modes on the model page
-  links:
-    deepinfra: https://deepinfra.com/ibm-granite/granite-4.2-8b
+  - id: deepinfra
+    runtime: deepinfra
+    runtime_model_id: ibm-granite/granite-4.2-8b
+    price_in: 1.0
+    price_out: 0.9
+    price_note: mation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-d4nlmw{display:-webkit-box;display:-webkit-
+    capacity: hobby
+    limits_note: mation-1p2h4ri{0%{stroke-dasharray:1px,200px;stroke-dashoffset:0;}50%{stroke-dasharray:100px,200px;stroke-dashoffset:-15px;}100%{stroke-dasharray:100px,200px;stroke-dashoffset:-125px;}} .mui-style-d4nlmw{display:-webkit-box;display:-webkit-
+    links:
+      deepinfra: https://deepinfra.com/ibm-granite/granite-4.2-8b
 aa_intelligence: 5.1
 arena_elo: unknown
 context_window: 131072
@@ -36,9 +36,9 @@ links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/granite-4-2-8b
 source: polypus catalog diff 2026-11-04
-refreshed: '2026-11-05'
+refreshed: "2026-11-13"
 aliases:
-- /roster/general/granite-4.2-8b/
+  - /roster/general/granite-4.2-8b/
 ---
 
 
