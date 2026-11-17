@@ -527,6 +527,52 @@
       "title": "Gemini 3.8 Flash"
     },
     {
+      "category": "classify",
+      "context_window": 262144,
+      "hosts": [
+        {
+          "capacity": "unknown",
+          "id": "google",
+          "limits_note": "Decisions API only (noul/choice/score); up to 1,000 questions and 262,144 input tokens per request; not a chat model",
+          "links": {
+            "provider_pricing": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          "price_in": 0.1,
+          "price_note": "Gemini API paid list $0.10/M input (text, image, video, audio, PDF); output not billed (0 tokens); no context cache; Batch API not supported",
+          "price_out": 0,
+          "runtime": "google",
+          "runtime_model_id": "gemini-decision-1"
+        },
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "OpenRouter Decisions API, not chat completions; Google AI Studio is the sole provider on fetch",
+          "links": {
+            "openrouter": "https://openrouter.ai/google/gemini-decision-1"
+          },
+          "price_in": 0.1,
+          "price_note": "OpenRouter Google AI Studio list $0.10/M input, output free",
+          "price_out": 0,
+          "runtime": "openrouter",
+          "runtime_model_id": "google/gemini-decision-1"
+        }
+      ],
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "kind": "provider",
+      "lab": "google",
+      "links": {
+        "models_dev": "https://models.dev/"
+      },
+      "name": "gemini-decision-1",
+      "preferred_host": "google",
+      "status": "watch",
+      "title": "Gemini Decision 1"
+    },
+    {
       "category": "cheap",
       "context_window": 131072,
       "hosts": [
@@ -1272,6 +1318,43 @@
       "title": "Mistral Small 3.1 24B"
     },
     {
+      "aa_intelligence": 36,
+      "category": "cheap",
+      "context_window": 1048576,
+      "hosts": [
+        {
+          "capacity": "hobby",
+          "id": "openrouter",
+          "limits_note": "1,048,576 context; OpenRouter routes Meta and Google Vertex; Standard mode only on Meta Model API",
+          "links": {
+            "openrouter": "https://openrouter.ai/meta/muse-ember"
+          },
+          "price_in": 0.1,
+          "price_note": "OpenRouter Meta and Google Vertex list $0.10/$0.50 per M; cache read $0.004; Meta list above 200K input tokens is $0.30/$1.50 per M",
+          "price_out": 0.5,
+          "runtime": "openrouter",
+          "runtime_model_id": "meta/muse-ember"
+        }
+      ],
+      "jobs": [
+        "cheap",
+        "coding",
+        "vision",
+        "reasoning",
+        "long-context"
+      ],
+      "kind": "provider",
+      "lab": "meta",
+      "links": {
+        "artificial_analysis": "https://artificialanalysis.ai/models/muse-ember",
+        "models_dev": "https://models.dev/"
+      },
+      "name": "muse-ember",
+      "preferred_host": "openrouter",
+      "status": "watch",
+      "title": "Muse Ember"
+    },
+    {
       "aa_intelligence": 36.6,
       "category": "mid",
       "context_window": 1048576,
@@ -1411,5 +1494,5 @@
     }
   ],
   "catalog_schema": 1,
-  "generated_at": "2026-11-06"
+  "generated_at": "2026-11-17"
 }
