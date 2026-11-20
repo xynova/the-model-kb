@@ -4,53 +4,50 @@ title: Gemini Decision 1
 kind: provider
 category: classify
 jobs:
-- classify
-- cheap
-- vision
+  - classify
+  - cheap
+  - vision
 tags:
-- llm
-- vision
-- video
-- audio
-- closed
-- api
-- cheap
-- fast
-- agentic
+  - llm
+  - vision
+  - video
+  - audio
+  - closed
+  - api
+  - cheap
+  - fast
+  - agentic
 status: watch
 lab: google
 preferred_host: google
 hosts:
-- id: google
-  runtime: google
-  runtime_model_id: gemini-decision-1
-  price_in: 0.1
-  price_out: 0
-  price_note: Gemini API paid list $0.10/M input (text, image, video, audio, PDF);
-    output not billed (0 tokens); no context cache; Batch API not supported
-  capacity: unknown
-  limits_note: Decisions API only (noul/choice/score); up to 1,000 questions and 262,144
-    input tokens per request; not a chat model
-  links:
-    provider_pricing: https://ai.google.dev/gemini-api/docs/pricing
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: google/gemini-decision-1
-  price_in: 0.1
-  price_out: 0
-  price_note: OpenRouter Google AI Studio list $0.10/M input, output free
-  capacity: hobby
-  limits_note: OpenRouter Decisions API, not chat completions; Google AI Studio is
-    the sole provider on fetch
-  links:
-    openrouter: https://openrouter.ai/google/gemini-decision-1
+  - id: google
+    runtime: google
+    runtime_model_id: gemini-decision-1
+    price_in: 0.1
+    price_out: 0
+    price_note: Gemini API paid list $0.10/M input (text, image, video, audio, PDF); output not billed (0 tokens); no context cache; Batch API not supported
+    capacity: unknown
+    limits_note: Decisions API only (noul/choice/score); up to 1,000 questions and 262,144 input tokens per request; not a chat model
+    links:
+      provider_pricing: https://ai.google.dev/gemini-api/docs/pricing
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: google/gemini-decision-1
+    price_in: 0.0
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/google/gemini-decision-1
 aa_intelligence: unknown
 arena_elo: unknown
 context_window: 262144
 links:
   models_dev: https://models.dev/
 source: youtube:woWo80dPkVk
-refreshed: '2026-11-17'
+refreshed: "2026-11-20"
 ---
 
 # Gemini Decision 1

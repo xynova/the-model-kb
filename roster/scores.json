@@ -1,6 +1,6 @@
 {
   "scores_schema": 1,
-  "generated_at": "2026-11-05",
+  "generated_at": "2026-11-20",
   "source_catalog_schema": 1,
   "offers": [
     {
@@ -62,6 +62,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -80,7 +83,7 @@
       "price_in": 0.1,
       "price_out": 0.5,
       "cost_per_m": 0.6,
-      "rank_by_cost": 16,
+      "rank_by_cost": 17,
       "industrial_ok": false
     },
     {
@@ -134,6 +137,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -151,7 +157,7 @@
       "price_in": 3.0,
       "price_out": 15.0,
       "cost_per_m": 18.0,
-      "rank_by_cost": 34,
+      "rank_by_cost": 35,
       "industrial_ok": false
     },
     {
@@ -206,6 +212,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -223,7 +232,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 26,
+      "rank_by_cost": 27,
       "industrial_ok": false
     },
     {
@@ -279,6 +288,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -296,7 +308,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 33,
+      "rank_by_cost": 34,
       "industrial_ok": false
     },
     {
@@ -350,6 +362,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -367,7 +382,7 @@
       "price_in": 0.75,
       "price_out": 4.5,
       "cost_per_m": 5.25,
-      "rank_by_cost": 29,
+      "rank_by_cost": 30,
       "industrial_ok": false
     },
     {
@@ -422,6 +437,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -439,7 +457,7 @@
       "price_in": 0.2,
       "price_out": 1.2,
       "cost_per_m": 1.4,
-      "rank_by_cost": 22,
+      "rank_by_cost": 23,
       "industrial_ok": false
     },
     {
@@ -494,6 +512,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -511,7 +532,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 33,
+      "rank_by_cost": 34,
       "industrial_ok": false
     },
     {
@@ -566,6 +587,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -583,7 +607,7 @@
       "price_in": 2.0,
       "price_out": 6.0,
       "cost_per_m": 8.0,
-      "rank_by_cost": 31,
+      "rank_by_cost": 32,
       "industrial_ok": false
     },
     {
@@ -638,6 +662,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -655,7 +682,7 @@
       "price_in": 0.95,
       "price_out": 4.0,
       "cost_per_m": 4.95,
-      "rank_by_cost": 28,
+      "rank_by_cost": 29,
       "industrial_ok": false
     },
     {
@@ -683,15 +710,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 52.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -719,6 +741,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -737,7 +762,7 @@
       "price_in": 0.44,
       "price_out": 1.32,
       "cost_per_m": 1.76,
-      "rank_by_cost": 23,
+      "rank_by_cost": 24,
       "industrial_ok": false
     },
     {
@@ -765,15 +790,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 52.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -800,6 +820,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -819,7 +842,7 @@
       "price_in": 0.06,
       "price_out": 0.18,
       "cost_per_m": 0.24,
-      "rank_by_cost": 9,
+      "rank_by_cost": 10,
       "industrial_ok": false
     },
     {
@@ -875,6 +898,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -894,7 +920,7 @@
       "price_in": 0.3,
       "price_out": 2.5,
       "cost_per_m": 2.8,
-      "rank_by_cost": 25,
+      "rank_by_cost": 26,
       "industrial_ok": false
     },
     {
@@ -951,6 +977,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -969,7 +998,7 @@
       "price_in": 0.3,
       "price_out": 2.5,
       "cost_per_m": 2.8,
-      "rank_by_cost": 25,
+      "rank_by_cost": 26,
       "industrial_ok": false
     },
     {
@@ -1025,6 +1054,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1044,7 +1076,7 @@
       "price_in": 1.25,
       "price_out": 10.0,
       "cost_per_m": 11.25,
-      "rank_by_cost": 32,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -1101,6 +1133,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1119,7 +1154,7 @@
       "price_in": 1.25,
       "price_out": 10.0,
       "cost_per_m": 11.25,
-      "rank_by_cost": 32,
+      "rank_by_cost": 33,
       "industrial_ok": false
     },
     {
@@ -1175,6 +1210,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1194,7 +1232,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 26,
+      "rank_by_cost": 27,
       "industrial_ok": false
     },
     {
@@ -1251,6 +1289,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1269,7 +1310,7 @@
       "price_in": 0.5,
       "price_out": 3.0,
       "cost_per_m": 3.5,
-      "rank_by_cost": 26,
+      "rank_by_cost": 27,
       "industrial_ok": false
     },
     {
@@ -1325,6 +1366,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -1344,7 +1388,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 33,
+      "rank_by_cost": 34,
       "industrial_ok": false
     },
     {
@@ -1401,6 +1445,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1419,7 +1466,7 @@
       "price_in": 2.0,
       "price_out": 12.0,
       "cost_per_m": 14.0,
-      "rank_by_cost": 33,
+      "rank_by_cost": 34,
       "industrial_ok": false
     },
     {
@@ -1482,6 +1529,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1500,7 +1550,7 @@
       "price_in": 0.75,
       "price_out": 3.75,
       "cost_per_m": 4.5,
-      "rank_by_cost": 27,
+      "rank_by_cost": 28,
       "industrial_ok": false
     },
     {
@@ -1563,6 +1613,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1581,7 +1634,167 @@
       "price_in": 0.75,
       "price_out": 3.75,
       "cost_per_m": 4.5,
-      "rank_by_cost": 27,
+      "rank_by_cost": 28,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemini-decision-1",
+      "title": "Gemini Decision 1",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "host_id": "google",
+      "capacity": "unknown",
+      "capability_cohort": "image+text__binary_probability+categorical_distribution+ordinal_distribution__single_response",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_contracts": [
+        "binary_probability",
+        "categorical_distribution",
+        "ordinal_distribution"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.precision": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.recall": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "google",
+      "runtime_model_id": "gemini-decision-1",
+      "price_in": 0.1,
+      "price_out": 0.0,
+      "cost_per_m": 0.1,
+      "rank_by_cost": 6,
+      "industrial_ok": false
+    },
+    {
+      "name": "gemini-decision-1",
+      "title": "Gemini Decision 1",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "classify",
+        "cheap",
+        "vision"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "image+text__binary_probability+categorical_distribution+ordinal_distribution__single_response",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_contracts": [
+        "binary_probability",
+        "categorical_distribution",
+        "ordinal_distribution"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.precision": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.recall": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "google/gemini-decision-1",
+      "price_in": 0.1,
+      "price_out": 0.0,
+      "cost_per_m": 0.1,
+      "rank_by_cost": 6,
       "industrial_ok": false
     },
     {
@@ -1638,6 +1851,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1656,7 +1872,7 @@
       "price_in": 0.08,
       "price_out": 0.16,
       "cost_per_m": 0.24,
-      "rank_by_cost": 9,
+      "rank_by_cost": 10,
       "industrial_ok": false
     },
     {
@@ -1682,15 +1898,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1718,6 +1929,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1736,7 +1950,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 11,
+      "rank_by_cost": 12,
       "industrial_ok": false
     },
     {
@@ -1762,15 +1976,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1798,6 +2007,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1816,7 +2028,7 @@
       "price_in": 0.07,
       "price_out": 0.34,
       "cost_per_m": 0.41000000000000003,
-      "rank_by_cost": 12,
+      "rank_by_cost": 13,
       "industrial_ok": true
     },
     {
@@ -1842,15 +2054,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1878,6 +2085,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1896,7 +2106,7 @@
       "price_in": 0.15,
       "price_out": 0.6,
       "cost_per_m": 0.75,
-      "rank_by_cost": 19,
+      "rank_by_cost": 20,
       "industrial_ok": false
     },
     {
@@ -1922,15 +2132,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -1958,6 +2163,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -1976,7 +2184,7 @@
       "price_in": 0.04,
       "price_out": 0.15,
       "cost_per_m": 0.19,
-      "rank_by_cost": 8,
+      "rank_by_cost": 9,
       "industrial_ok": false
     },
     {
@@ -2002,15 +2210,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 31.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2037,6 +2240,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2113,6 +2319,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2131,7 +2340,7 @@
       "price_in": 0.2,
       "price_out": 0.4,
       "cost_per_m": 0.6000000000000001,
-      "rank_by_cost": 17,
+      "rank_by_cost": 18,
       "industrial_ok": false
     },
     {
@@ -2192,6 +2401,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2232,15 +2444,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 23.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2268,6 +2475,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2286,7 +2496,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 14,
+      "rank_by_cost": 15,
       "industrial_ok": false
     },
     {
@@ -2311,15 +2521,10 @@
       "execution_modes": [
         "single_response"
       ],
-      "leaf_cohorts": [
-        "quality.general_problem_solving.benchmark_composite"
-      ],
+      "leaf_cohorts": [],
       "quality": {
         "quality.general_problem_solving.benchmark_composite": {
-          "status": "measured",
-          "value": 23.0,
-          "attribution": "model_only",
-          "comparison_key": "aa_intelligence_index:v5.0.1"
+          "status": "unknown"
         },
         "quality.human_preference.pairwise_rating": {
           "status": "unknown"
@@ -2347,6 +2552,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2365,7 +2573,7 @@
       "price_in": 0.0605,
       "price_out": 0.4,
       "cost_per_m": 0.4605,
-      "rank_by_cost": 14,
+      "rank_by_cost": 15,
       "industrial_ok": false
     },
     {
@@ -2426,6 +2634,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2444,7 +2655,7 @@
       "price_in": 0.15,
       "price_out": 0.5,
       "cost_per_m": 0.65,
-      "rank_by_cost": 18,
+      "rank_by_cost": 19,
       "industrial_ok": false
     },
     {
@@ -2505,6 +2716,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2523,7 +2737,7 @@
       "price_in": 0.15,
       "price_out": 0.5,
       "cost_per_m": 0.65,
-      "rank_by_cost": 18,
+      "rank_by_cost": 19,
       "industrial_ok": false
     },
     {
@@ -2584,6 +2798,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2602,7 +2819,7 @@
       "price_in": 0.0269,
       "price_out": 0.0996,
       "cost_per_m": 0.1265,
-      "rank_by_cost": 6,
+      "rank_by_cost": 7,
       "industrial_ok": false
     },
     {
@@ -2663,6 +2880,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2677,6 +2897,77 @@
         }
       },
       "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
+      "name": "gpt-audio",
+      "title": "GPT Audio",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "openai/gpt-audio",
       "industrial_ok": false
     },
     {
@@ -2733,6 +3024,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2751,7 +3045,7 @@
       "price_in": 0.2,
       "price_out": 0.3,
       "cost_per_m": 0.5,
-      "rank_by_cost": 15,
+      "rank_by_cost": 16,
       "industrial_ok": false
     },
     {
@@ -2807,6 +3101,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -2881,6 +3178,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2899,7 +3199,7 @@
       "price_in": 0.017,
       "price_out": 0.112,
       "cost_per_m": 0.129,
-      "rank_by_cost": 7,
+      "rank_by_cost": 8,
       "industrial_ok": false
     },
     {
@@ -2962,6 +3262,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -2980,7 +3283,7 @@
       "price_in": 0.06,
       "price_out": 0.25,
       "cost_per_m": 0.31,
-      "rank_by_cost": 10,
+      "rank_by_cost": 11,
       "industrial_ok": false
     },
     {
@@ -3037,6 +3340,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3056,6 +3362,222 @@
       "price_out": 0.0,
       "cost_per_m": 0.042,
       "rank_by_cost": 5,
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "deepinfra",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "deepinfra",
+      "runtime_model_id": "hexgrad/Kokoro-82M",
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "local",
+      "capacity": "local",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "local",
+      "runtime_model_id": "hexgrad/Kokoro-82M",
+      "industrial_ok": false
+    },
+    {
+      "name": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "kind": "sovereign",
+      "status": "watch",
+      "jobs": [
+        "tts",
+        "cheap"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "hexgrad/kokoro-82m",
       "industrial_ok": false
     },
     {
@@ -3109,6 +3631,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3127,7 +3652,7 @@
       "price_in": 0.293,
       "price_out": 2.253,
       "cost_per_m": 2.5460000000000003,
-      "rank_by_cost": 24,
+      "rank_by_cost": 25,
       "industrial_ok": false
     },
     {
@@ -3181,6 +3706,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3199,7 +3727,7 @@
       "price_in": 0.1,
       "price_out": 0.32,
       "cost_per_m": 0.42000000000000004,
-      "rank_by_cost": 13,
+      "rank_by_cost": 14,
       "industrial_ok": false
     },
     {
@@ -3252,6 +3780,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3270,7 +3801,7 @@
       "price_in": 0.27,
       "price_out": 0.85,
       "cost_per_m": 1.12,
-      "rank_by_cost": 21,
+      "rank_by_cost": 22,
       "industrial_ok": false
     },
     {
@@ -3323,6 +3854,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3341,7 +3875,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 11,
+      "rank_by_cost": 12,
       "industrial_ok": false
     },
     {
@@ -3394,6 +3928,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3412,7 +3949,7 @@
       "price_in": 0.1,
       "price_out": 0.3,
       "cost_per_m": 0.4,
-      "rank_by_cost": 11,
+      "rank_by_cost": 12,
       "industrial_ok": false
     },
     {
@@ -3465,6 +4002,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3479,6 +4019,148 @@
         }
       },
       "runtime": "xinference",
+      "industrial_ok": false
+    },
+    {
+      "name": "mai-voice-2.1",
+      "title": "MAI-Voice-2.1",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "microsoft/mai-voice-2.1",
+      "industrial_ok": false
+    },
+    {
+      "name": "mai-voice-2.1-flash",
+      "title": "MAI-Voice-2.1-Flash",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "tts"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "text__speech__single_response",
+      "input_modalities": [
+        "text"
+      ],
+      "output_contracts": [
+        "speech"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "not_applicable"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "not_applicable"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "not_applicable"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "unknown"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "not_applicable"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "microsoft/mai-voice-2.1-flash",
       "industrial_ok": false
     },
     {
@@ -3537,6 +4219,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3609,6 +4294,9 @@
           "status": "not_applicable"
         },
         "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
           "status": "not_applicable"
         }
       },
@@ -3685,6 +4373,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3703,7 +4394,93 @@
       "price_in": 0.351,
       "price_out": 0.555,
       "cost_per_m": 0.906,
-      "rank_by_cost": 20,
+      "rank_by_cost": 21,
+      "industrial_ok": false
+    },
+    {
+      "name": "muse-ember",
+      "title": "Muse Ember",
+      "kind": "provider",
+      "status": "watch",
+      "jobs": [
+        "cheap",
+        "coding",
+        "vision",
+        "reasoning",
+        "long-context"
+      ],
+      "host_id": "openrouter",
+      "capacity": "hobby",
+      "capability_cohort": "image+text__code+generated_text__single_response",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_contracts": [
+        "generated_text",
+        "code"
+      ],
+      "execution_modes": [
+        "single_response"
+      ],
+      "leaf_cohorts": [
+        "quality.general_problem_solving.benchmark_composite"
+      ],
+      "quality": {
+        "quality.general_problem_solving.benchmark_composite": {
+          "status": "measured",
+          "value": 36.0,
+          "attribution": "model_only",
+          "comparison_key": "aa_intelligence_index:v5.0.1"
+        },
+        "quality.human_preference.pairwise_rating": {
+          "status": "unknown"
+        },
+        "quality.coding.agent_benchmark_composite": {
+          "status": "unknown"
+        },
+        "quality.coding.code_edit_first_attempt": {
+          "status": "unknown"
+        },
+        "quality.multimodal_understanding.benchmark_accuracy": {
+          "status": "unknown"
+        },
+        "quality.typed_decision.classification_accuracy": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.precision": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.recall": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.brier_loss": {
+          "status": "not_applicable"
+        },
+        "quality.typed_decision.ordinal_mae": {
+          "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
+        }
+      },
+      "performance": {
+        "performance.end_to_end_latency_ms": {
+          "status": "unknown"
+        },
+        "performance.time_to_first_token_ms": {
+          "status": "unknown"
+        },
+        "performance.request_success_rate": {
+          "status": "unknown"
+        }
+      },
+      "runtime": "openrouter",
+      "runtime_model_id": "meta/muse-ember",
+      "price_in": 0.1,
+      "price_out": 0.5,
+      "cost_per_m": 0.6,
+      "rank_by_cost": 17,
       "industrial_ok": false
     },
     {
@@ -3767,6 +4544,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3785,7 +4565,7 @@
       "price_in": 1.25,
       "price_out": 4.25,
       "cost_per_m": 5.5,
-      "rank_by_cost": 30,
+      "rank_by_cost": 31,
       "industrial_ok": false
     },
     {
@@ -3849,6 +4629,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "not_applicable"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -3867,7 +4650,7 @@
       "price_in": 4.0,
       "price_out": 20.0,
       "cost_per_m": 24.0,
-      "rank_by_cost": 35,
+      "rank_by_cost": 36,
       "industrial_ok": false
     },
     {
@@ -3926,6 +4709,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
@@ -4003,6 +4789,9 @@
         },
         "quality.typed_decision.ordinal_mae": {
           "status": "unknown"
+        },
+        "quality.speech.human_preference": {
+          "status": "not_applicable"
         }
       },
       "performance": {
