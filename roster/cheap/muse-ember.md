@@ -4,44 +4,42 @@ title: Muse Ember
 kind: provider
 category: cheap
 jobs:
-- cheap
-- coding
-- vision
-- reasoning
-- long-context
+  - cheap
+  - coding
+  - vision
+  - reasoning
+  - long-context
 tags:
-- llm
-- vision
-- closed
-- api
-- cheap
-- coding
-- agentic
-- reasoning
+  - llm
+  - vision
+  - closed
+  - api
+  - cheap
+  - coding
+  - agentic
+  - reasoning
 status: watch
 lab: meta
 preferred_host: openrouter
 hosts:
-- id: openrouter
-  runtime: openrouter
-  runtime_model_id: meta/muse-ember
-  price_in: 0.1
-  price_out: 0.5
-  price_note: OpenRouter Meta and Google Vertex list $0.10/$0.50 per M; cache read
-    $0.004; Meta list above 200K input tokens is $0.30/$1.50 per M
-  capacity: hobby
-  limits_note: 1,048,576 context; OpenRouter routes Meta and Google Vertex; Standard
-    mode only on Meta Model API
-  links:
-    openrouter: https://openrouter.ai/meta/muse-ember
-aa_intelligence: 36
+  - id: openrouter
+    runtime: openrouter
+    runtime_model_id: meta/muse-ember
+    price_in: 0.5
+    price_out: 1.0
+    price_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    capacity: hobby
+    limits_note: -4","bg-chart-5","bg-chart-6","bg-chart-7","bg-chart-8","bg-chart-9","bg-chart-10","bg-chart-11","bg-chart-12","bg-chart-13","bg-chart-14","bg-chart-15","bg-chart-16","bg-chart-17","bg-chart-18","bg-chart-19","bg-chart-20"],"triggerClass":"
+    links:
+      openrouter: https://openrouter.ai/meta/muse-ember
+aa_intelligence: 36.1
 arena_elo: unknown
 context_window: 1048576
 links:
   models_dev: https://models.dev/
   artificial_analysis: https://artificialanalysis.ai/models/muse-ember
 source: youtube:woWo80dPkVk
-refreshed: '2026-11-17'
+refreshed: "2026-11-27"
 ---
 
 # Muse Ember
